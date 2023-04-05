@@ -8,7 +8,6 @@
     <title>Test</title>
 </head>
 <body>
-    <p class="bg-slate-600 text-center w-full">Daniel Install Berhasil</p>
-    <p>Nadya Install Berhasil</p>
+    <p class="bg-slate-600 text-center w-full">Ini punya Jefferson. Tolong kalain copas halaman ini, lalu ganti nama kalian</p>
 </body>
 </html>
