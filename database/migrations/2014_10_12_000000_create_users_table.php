@@ -23,8 +23,8 @@ return new class extends Migration
             $table->text('address')->nullable();
             $table->string('image')->default('images/profile');
             $table->float('weight');
-            $table->float('height');
-            $table->integer('xp')->default(0);
+            $table->integer('height');
+            $table->integer('points')->default(0);
             $table->integer('streak_count')->default(0);
             $table->date('last_login')->default(Carbon::now());
         });
