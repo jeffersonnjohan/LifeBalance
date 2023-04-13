@@ -3,11 +3,11 @@
 @section('title', 'Sign Up')
 
 @section('cssextra')
-    {{-- <style>
-        * {
+    <style>
+        /* * {
             border: red solid 0.5px;
-        }
-    </style> --}}
+        } */
+    </style>
 @endsection
 
 @section('body')
@@ -67,7 +67,7 @@
                     <span class="material-symbols-outlined">
                         calendar_month
                     </span>
-                    <input type="text" name="dob" id="dob" placeholder="DOB (dd/mm/yyyy)" class="border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full">
+                    <input type="date" name="dob" id="dob" placeholder="DOB (dd/mm/yyyy)" class="border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full">
                 </div>
                 <div class="w-[300px] h-[50px] rounded-full bg-cLightGrey flex items-center text-cDarkGrey px-4">
                     <span class="material-symbols-outlined">
@@ -78,10 +78,34 @@
                         visibility
                     </span>
                 </div>
+                <div class="w-[300px] h-[110px] flex items-center text-cDarkGrey justify-between gap-2">
+                    <div class="h-full aspect-square bg-cLightGrey rounded-3xl p-2 flex flex-col justify-center items-center">
+                        <span class="material-symbols-outlined">
+                            image
+                        </span>
+                        <div class="text-sm">
+                            <p>Put your photo here</p>
+                        </div>
+                    </div>
+                    <div class="w-full h-full rounded-3xl flex flex-col justify-between">
+                        <div class="w-full h-[50px] rounded-full bg-cLightGrey flex items-center text-cDarkGrey px-4">
+                            <span class="material-symbols-outlined">
+                                weight
+                            </span>
+                            <input type="number" name="dob" id="dob" placeholder="Weight (Kg)" class="border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full">
+                        </div>
+                        <div class="w-full h-[50px] rounded-full bg-cLightGrey flex items-center text-cDarkGrey px-4">
+                            <span class="material-symbols-outlined">
+                                height
+                            </span>
+                            <input type="number" name="dob" id="dob" placeholder="Height (cm)" class="border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full">
+                        </div>
+                    </div>
+                </div>
                 <div class="flex justify-center items-center gap-2 text-xs">
                     <div class="bg-cDarkGrey w-10 h-0.5"></div>
                     <div class="text-cDarkGrey">
-                        <p>Doesn't have an account? <a href="/login" class="text-cRed font-bold">here</a></p>
+                        <p>Already have an account? <a href="/login" class="text-cRed font-bold">here</a></p>
                     </div>
                     <div class="bg-cDarkGrey w-10 h-0.5"></div>
                 </div>
