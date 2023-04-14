@@ -34,6 +34,14 @@ Route::get('/signup', function () {
     return view('signup');
 });
 
+Route::get('/editprofile', function () {
+    return view('editprofile');
+});
+
+Route::get('/profile', function () {
+    return view('profile');
+});
+
 Route::get('/diet', function () {
     return view('diet');
 });

@@ -27,7 +27,7 @@
             <div class="bg-cGreen h-full w-[40%] rounded-3xl"></div>
             <div class="bg-cBlue h-full w-[60%] rounded-3xl"></div>
         </div>
-        <div class="bg-white w-fit h-fit m-auto absolute left-[50%] translate-x-[-50%] top-[50%] translate-y-[-50%] rounded-3xl flex flex-col justify-center items-center text-center p-5">
+        <div class="bg-white w-fit h-fit m-auto absolute left-[50%] translate-x-[-50%] top-[50%] translate-y-[-50%] rounded-3xl flex flex-col justify-center items-center text-center p-5 shadow-lg">
             <div class="mb-5">
                 <div class="text-2xl font-bold">Welcome Back!</div>
                 <div class="text-sm w-[300px]">Sign in and get back to life healthy!</div>
