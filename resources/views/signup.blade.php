@@ -88,12 +88,13 @@
                 </div>
                 <div class="w-[300px] h-[110px] flex items-center text-cDarkGrey justify-between gap-2">
                     <input type="file" name="photo" id="photo" class="hidden" onchange="loadFile(event)">
-                    <label for="photo" class="h-full aspect-square bg-cLightGrey rounded-3xl p-2 flex flex-col justify-center items-center cursor-pointer duration-300 hover:ring-2">
+                    <label for="photo" id="photocontainer" class="h-full aspect-square bg-cLightGrey rounded-3xl flex flex-col justify-center items-center cursor-pointer duration-300 hover:ring-2">
                         {{-- <div class="border border-black h-full w-full" id="imgBox"></div> --}}
-                        <span class="material-symbols-outlined">
+                        <span id="photologo" class="material-symbols-outlined hidden">
                             image
                         </span>
-                        <div class="text-sm">
+                        <img id="photopreview" src="" class="w-full h-full hidden rounded-3xl">
+                        <div id="photoplaceholder" class="text-sm w-[80%]">
                             <p>Put your photo here</p>
                         </div>
                     </label>
@@ -120,17 +121,27 @@
                     <div class="bg-cDarkGrey w-10 h-0.5"></div>
                 </div>
                 <input type="submit" value="Submit" class="w-[300px] h-[50px] rounded-full bg-cBlue text-white hover:bg-white hover:text-cBlue border-2 border-cBlue duration-300 ease-out cursor-pointer text-sm">
+                
             </form>
         </div>
     </div>
 @endsection
 
-@section('script')
-    <script>
-        imgBox = document.getElementById('imgBox');
+@section('scripts')
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 
-        var loadFile = function(event) {
-            imgBox.style.backgroundImage = 'url(' + URL.createObjectURL(event.target.files[0]) + ')';
-        }
+    <script type="text/javascript">
+        $(document).ready(function (e) {
+            $('#photo').change(function(){
+                let reader = new FileReader();
+                reader.onload = (e) => { 
+                    $('#photopreview').attr('src', e.target.result); 
+                    $('#photopreview').removeClass('hidden'); 
+                    $('#photoplaceholder').addClass('hidden'); 
+                    $('#photologo').html(''); 
+                }
+                reader.readAsDataURL(this.files[0]); 
+            });
+        });
     </script>
 @endsection
