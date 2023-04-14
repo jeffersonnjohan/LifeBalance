@@ -1,6 +1,6 @@
 @extends('master')
 
-@section('title', 'Sign Up')
+@section('title', 'Edit Profile')
 
 @section('style')
     <style>
@@ -35,8 +35,8 @@
         </div>
         <div class="bg-white w-fit h-fit m-auto absolute left-[50%] translate-x-[-50%] top-[50%] translate-y-[-50%] rounded-3xl flex flex-col justify-center items-center text-center p-5 shadow-lg">
             <div class="mb-5">
-                <div class="text-2xl font-bold">Let’s Get Started</div>
-                <div class="text-sm w-[300px]">Create an account to get all LifeBalance features!</div>
+                <div class="text-2xl font-bold">Edit Profile</div>
+                <div class="text-sm w-[300px]">Let LifeBalance know more about yourself!</div>
             </div>
             <form action="POST" class="flex flex-col gap-2">
                 <div class="w-[300px] h-[50px] rounded-full bg-cLightGrey flex items-center text-cDarkGrey px-4 duration-300 hover:ring-2">
@@ -51,15 +51,15 @@
                     </span>
                     <input type="text" name="email" id="email" placeholder="Email" class="border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full">
                 </div>
-                <div class="w-[300px] h-[150px] flex items-center text-cDarkGrey justify-between gap-2">
+                <div class="w-[300px] h-[150px] flex items-center text-cDarkGrey justify-between">
                     <input type="radio" name="gender" id="male" class="peer/male hidden">
-                    <label class="w-[50%] h-full bg-cLightGrey rounded-3xl peer-checked/male:bg-cBlue duration-300 hover:ring-2" for="male">
+                    <label class="w-[48%] h-full bg-cLightGrey rounded-3xl peer-checked/male:bg-cBlue duration-300 hover:ring-2" for="male">
                         <div class="w-full h-full bg-cover flex flex-col justify-end items-center p-1" style="background-image: url('assets/male.png')">
                             <div class="text-sm font-bold text-cDarkBlue">Male</div>
                         </div>
                     </label>
                     <input type="radio" name="gender" id="female" class="peer/female hidden">
-                    <label class="w-[50%] h-full bg-cLightGrey rounded-3xl peer-checked/female:bg-cBlue duration-300 hover:ring-2" for="female">
+                    <label class="w-[48%] h-full bg-cLightGrey rounded-3xl peer-checked/female:bg-cBlue duration-300 hover:ring-2" for="female">
                         <div class="w-full h-full bg-cover flex flex-col justify-end items-center p-1" style="background-image: url('assets/female.png')">
                             <div class="text-sm font-bold text-cDarkBlue">Female</div>
                         </div>
@@ -122,7 +122,7 @@
                     </div>
                     <div class="bg-cDarkGrey w-10 h-0.5"></div>
                 </div>
-                <input type="submit" value="Submit" class="w-[300px] h-[50px] rounded-full bg-cBlue text-white hover:bg-white hover:text-cBlue border-2 border-cBlue duration-300 ease-out cursor-pointer text-sm">
+                <input type="submit" value="Save" class="w-[300px] h-[50px] rounded-full bg-cBlue text-white hover:bg-white hover:text-cBlue border-2 border-cBlue duration-300 ease-out cursor-pointer text-sm">
             </form>
         </div>
     </div>
