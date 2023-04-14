@@ -98,6 +98,7 @@
                             <div class="text-sm">
                                 <p>Put your photo here</p>
                             </div>
+
                         </div>
                     </div>
                     <div class="w-full h-full rounded-3xl flex flex-col justify-between">
@@ -123,17 +124,28 @@
                     <div class="bg-cDarkGrey w-10 h-0.5"></div>
                 </div>
                 <input type="submit" value="Submit" class="w-[300px] h-[50px] rounded-full bg-cBlue text-white hover:bg-white hover:text-cBlue border-2 border-cBlue duration-300 ease-out cursor-pointer text-sm">
+                
             </form>
         </div>
     </div>
 @endsection
 
 @section('scripts')
-    <script>
-        imgBox = document.getElementById('imgBox');
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 
-        var loadFile = function(event) {
-            imgBox.style.backgroundImage = 'url(' + URL.createObjectURL(event.target.files[0]) + ')';
-        }
+    <script type="text/javascript">
+        imgBox = document.getElementById('imgBox');
+        $(document).ready(function (e) {
+            $('#photo').change(function(){
+                let reader = new FileReader();
+                reader.onload = (e) => { 
+                    $('#photopreview').attr('src', e.target.result); 
+                    $('#photopreview').removeClass('hidden'); 
+                    $('#photoplaceholder').addClass('hidden'); 
+                    $('#photologo').html(''); 
+                }
+                reader.readAsDataURL(this.files[0]); 
+            });
+        });
     </script>
 @endsection
