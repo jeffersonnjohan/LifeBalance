@@ -16,9 +16,10 @@
             padding: 0;
         }
     </style>
-    @yield('cssextra')
+    @yield('style')
 </head>
 <body class="font-[Poppins] flex bg-cLightGrey relative">
     @yield('body')
+    @yield('scripts')
 </body>
 </html>

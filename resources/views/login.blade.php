@@ -2,7 +2,7 @@
 
 @section('title', 'Login')
 
-@section('cssextra')
+@section('style')
     {{-- <style>
         * {
             border: red solid 0.5px;
@@ -30,16 +30,16 @@
         <div class="bg-white w-fit h-fit m-auto absolute left-[50%] translate-x-[-50%] top-[50%] translate-y-[-50%] rounded-3xl flex flex-col justify-center items-center text-center p-5">
             <div class="mb-5">
                 <div class="text-2xl font-bold">Welcome Back!</div>
-                <div class="text-sm">Sign in and get back to life healthy!</div>
+                <div class="text-sm w-[300px]">Sign in and get back to life healthy!</div>
             </div>
             <form action="POST" class="flex flex-col gap-2">
-                <div class="w-[300px] h-[50px] rounded-full bg-cLightGrey flex items-center text-cDarkGrey px-4">
+                <div class="w-[300px] h-[50px] rounded-full bg-cLightGrey flex items-center text-cDarkGrey px-4 duration-300 hover:ring-2">
                     <span class="material-symbols-outlined">
                         mail
                     </span>
                     <input type="text" name="email" id="email" placeholder="Email" class="border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full">
                 </div>
-                <div class="w-[300px] h-[50px] rounded-full bg-cLightGrey flex items-center text-cDarkGrey px-4">
+                <div class="w-[300px] h-[50px] rounded-full bg-cLightGrey flex items-center text-cDarkGrey px-4 duration-300 hover:ring-2">
                     <span class="material-symbols-outlined">
                         lock
                     </span>
@@ -55,7 +55,7 @@
                     </div>
                     <div class="bg-cDarkGrey w-10 h-0.5"></div>
                 </div>
-                <input type="submit" value="Log In" class="w-[300px] h-[50px] rounded-full bg-cBlue text-white hover:bg-white hover:text-cBlue border-2 border-cBlue duration-500 ease-out cursor-pointer text-sm">
+                <input type="submit" value="Log In" class="w-[300px] h-[50px] rounded-full bg-cBlue text-white hover:bg-white hover:text-cBlue border-2 border-cBlue duration-300 ease-out cursor-pointer text-sm">
             </form>
         </div>
     </div>
