@@ -37,3 +37,7 @@ Route::get('/signup', function () {
 Route::get('/diet', function () {
     return view('diet');
 });
+
+Route::get('/workoutmeditations', function () {
+    return view('workout_meditation.workout');
+});
