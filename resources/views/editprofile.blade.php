@@ -38,7 +38,7 @@
                 <div class="text-2xl font-bold">Edit Profile</div>
                 <div class="text-sm w-[300px]">Let LifeBalance know more about yourself!</div>
             </div>
-            <form action="POST" class="flex flex-col gap-2">
+            <form action="/profile" class="flex flex-col gap-2">
                 <div class="w-[300px] h-[50px] rounded-full bg-cLightGrey flex items-center text-cDarkGrey px-4 duration-300 hover:ring-2">
                     <span class="material-symbols-outlined">
                         person
@@ -82,9 +82,16 @@
                         lock
                     </span>
                     <input type="password" name="password" id="password" placeholder="Password" class="border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full">
-                    <span class="material-symbols-outlined">
-                        visibility
-                    </span>
+                    <div class="flex items-center">
+                        <span class="material-symbols-outlined">
+                            visibility
+                        </span>
+                    </div>
+                    <div class="flex items-center hidden">
+                        <span class="material-symbols-outlined">
+                            visibility_off
+                        </span>
+                    </div>
                 </div>
                 <div class="w-[300px] h-[110px] flex items-center text-cDarkGrey justify-between gap-2">
                     <div class="relative aspect-square h-full bg-cLightGrey rounded-3xl">

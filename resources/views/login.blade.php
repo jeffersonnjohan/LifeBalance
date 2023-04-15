@@ -32,7 +32,7 @@
                 <div class="text-2xl font-bold">Welcome Back!</div>
                 <div class="text-sm w-[300px]">Sign in and get back to life healthy!</div>
             </div>
-            <form action="POST" class="flex flex-col gap-2">
+            <form action="/home" class="flex flex-col gap-2">
                 <div class="w-[300px] h-[50px] rounded-full bg-cLightGrey flex items-center text-cDarkGrey px-4 duration-300 hover:ring-2">
                     <span class="material-symbols-outlined">
                         mail
