@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,7 +18,10 @@ class WorkoutFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'name' => fake()->words(mt_rand(1,3),true),
+            'description' => fake()->text(),
+            'points' => mt_rand(5,100),
+            'image' => 'images/workoutplan',
         ];
     }
 }

@@ -1,7 +1,6 @@
 <?php
 
 namespace Database\Factories;
-
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,7 +16,8 @@ class UserWeightFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'user_id' => mt_rand(1,5),
+            'weight' => fake()->randomFloat($nbMaxDecimals = NULL, $min = 30, $max = 200)
         ];
     }
 }
