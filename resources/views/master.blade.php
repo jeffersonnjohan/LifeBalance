@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>@yield('title')</title>
+    <link rel="stylesheet" href="/style.css">
     @vite('resources/css/app.css')
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -25,7 +26,7 @@
     </style>
     @yield('style')
 </head>
-<body class="font-[Poppins] flex bg-cLightGrey relative">
+<body class="font-[Poppins] flex bg-cLightGrey relative box-border">
     @yield('body')
     @yield('scripts')
 </body>
