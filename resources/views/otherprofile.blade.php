@@ -1,6 +1,6 @@
 @extends('master')
 
-@section('title', 'Profile')
+@section('title', 'Other Profile')
 
 @section('style')
     <style>
@@ -12,14 +12,12 @@
 
 @section('body')
     @extends('component.backbutton')
-    @section('backbutton', '/otherprofile')
-    @include('component.editprofilebutton')
+    @section('backlink', '/profile')
     <div class="w-full h-full">
         <div class="h-[70px] flex justify-center items-center text-2xl font-medium">
-            <p>Profile</p>
+            <p>Other Profile</p>
         </div>
         <div class="w-full h-full px-2 pb-2">
-        <div class="w-full h-full p-2">
             <div class="w-full aspect-square flex gap-2 relative mb-2">
                 <div class="w-[60%] h-full flex flex-col gap-2">
                     <div class="w-full h-[40%] bg-cOrange rounded-3xl"></div>
@@ -29,7 +27,7 @@
                     <div class="w-full h-[65%] bg-cGreen rounded-3xl"></div>
                     <div class="w-full h-[35%] bg-cBlue rounded-3xl"></div>
                 </div>
-                <div class="h-[75%] aspect-square absolute bg-cLightGrey left-[50%] translate-x-[-50%] top-[50%] translate-y-[-50%] shadow-lg rounded-3xl bg-cover overflow-hidden" style="background-image: url('/assets/male.png')">
+                <div class="h-[75%] aspect-square absolute bg-cLightGrey left-[50%] translate-x-[-50%] top-[50%] translate-y-[-50%] shadow-lg rounded-3xl bg-cover overflow-hidden" style="background-image: url('/assets/female.png')">
                     <div class="bg-white h-fit w-fit absolute right-0 px-3 py-1 flex items-center gap-1 font-bold rounded-bl-3xl">
                         <span class="material-symbols-outlined text-cYellow">
                             toll
@@ -54,46 +52,13 @@
                         </span>
                     </div>
                 </div>
-                <div class="text-sm w-fit">danielzerge.wijaya@gmail.com</div>
-            </div>
-            <div class="h-[100px] flex gap-2 mb-2">
-                <div class="bg-white w-[50%] h-full shadow-lg rounded-3xl flex justify-center items-center text-cBlue gap-3">
-                    <span class="material-symbols-outlined scale-150">
-                        weight
-                    </span>
-                    <div class="flex items-end">
-                        <p class="text-6xl font-bold">60</p>
-                        <p class="font-bold">kg</p>
-                    </div>
-                </div>
-                <div class="bg-white w-[50%] h-full shadow-lg rounded-3xl flex justify-center items-center text-cGreen gap-3">
-                    <span class="material-symbols-outlined scale-150">
-                        height
-                    </span>
-                    <div class="flex items-end">
-                        <p class="text-5xl font-bold">168</p>
-                        <p class="font-bold">cm</p>
-                    </div>
-                </div>
-            </div>
-            <div class="bg-white flex items-center px-5 h-[70px] w-full rounded-3xl text-cDarkGrey gap-4 shadow-lg text-sm mb-2">
-                <span class="material-symbols-outlined">
-                    calendar_month
-                </span>
-                <p>June 9th, 2002</p>
-            </div>
-            <div class="bg-white flex items-center px-5 h-[70px] w-full rounded-3xl text-cDarkGrey gap-4 shadow-lg text-sm mb-2">
-                <span class="material-symbols-outlined">
-                    location_on
-                </span>
-                <p>Jalan bla bla bla</p>
             </div>
             <div class="bg-white shadow-lg rounded-3xl mb-2">
                 <div class="p-3 flex flex-col text-sm gap-1">
                     <div class="flex justify-between">
                         <div class="flex gap-3">
                             <div class="w-[40px] aspect-square rounded-full overflow-hidden">
-                                <div class="w-full h-full bg-cover" style="background-image: url('/assets/profile1.png')"></div>
+                                <div class="w-full h-full bg-cover" style="background-image: url('/assets/profile2.png')"></div>
                             </div>
                             <div>
                                 <p class="font-bold">Daniel Zerge Wijaya</p>
@@ -115,7 +80,7 @@
                     <div class="flex justify-between">
                         <div class="flex gap-3">
                             <div class="w-[40px] aspect-square rounded-full overflow-hidden">
-                                <div class="w-full h-full bg-cover" style="background-image: url('/assets/profile1.png')"></div>
+                                <div class="w-full h-full bg-cover" style="background-image: url('/assets/profile2.png')"></div>
                             </div>
                             <div>
                                 <p class="font-bold">Daniel Zerge Wijaya</p>
