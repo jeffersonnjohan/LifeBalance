@@ -6,9 +6,9 @@
     @extends('component.backbutton')
     @section('backlink', '/workoutmeditations')
     
-    <div class="w-full h-full">
-        <div class="h-[70px] -mr-8 flex justify-center items-center text-2xl font-medium">
-            <p>BURN FAT IN 7 DAYS!</p>
+    <div class="">
+        <div class="h-[70px] flex justify-center items-center text-2xl font-medium">
+            <p class="-mr-8">BURN FAT IN 7 DAYS!</p>
         </div>
         <div class="w-full bg-cBlue h-[270px] py-6 px-10 text-white">
             <h2 class="text-2xl">BURN FAT IN 7 DAYS!</h2>
@@ -35,5 +35,8 @@
                 </div>
             </div>
         </div>
+
+        @include('component.navbar')
     </div>
+    
 @endsection
