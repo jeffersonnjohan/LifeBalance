@@ -53,3 +53,7 @@ Route::get('/diet', function () {
 Route::get('/workoutmeditations', function () {
     return view('workout_meditation.workout');
 });
+
+Route::get('/workoutdetails', function () {
+    return view('workout_meditation.workoutDetails');
+});

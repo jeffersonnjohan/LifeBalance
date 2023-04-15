@@ -1,5 +1,7 @@
 @extends('../master')
 
+@section('title', 'Workout')
+
 @section('body')
     {{-- Kotak Biru Atas --}}
     <div class="w-full h-[350px] p-10 pt-16 bg-cBlue rounded-b-[50px]">
