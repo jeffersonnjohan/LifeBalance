@@ -16,7 +16,7 @@ module.exports = {
         'cLightGrey': '#F4F4F4',
         'cDarkGrey': '#7E7E7E',
         'cDarkBlue': '#1F244A',
-        'cYellow': '#FCFF62',
+        'cYellow': '#FFEF00'
     }
   },
   plugins: [

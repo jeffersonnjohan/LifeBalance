@@ -13,9 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::redirect('/', '/login');
+
 Route::get('/workout_plans', function () {
     return view('backend.workout_plans');
 });
@@ -25,4 +24,28 @@ Route::get('/meditations', function () {
 
 Route::get('/glenys', function () {
     return view('glenys');
+});
+
+Route::get('/login', function () {
+    return view('login');
+});
+
+Route::get('/signup', function () {
+    return view('signup');
+});
+
+Route::get('/editprofile', function () {
+    return view('editprofile');
+});
+
+Route::get('/profile', function () {
+    return view('profile');
+});
+
+Route::get('/diet', function () {
+    return view('diet');
+});
+
+Route::get('/workoutmeditations', function () {
+    return view('workout_meditation.workout');
 });
