@@ -88,7 +88,7 @@
                 </div>
                 <div class="w-[300px] h-[110px] flex items-center text-cDarkGrey justify-between gap-2">
                     <div class="relative aspect-square h-full bg-cLightGrey rounded-3xl">
-                        {{-- disini yang beda --}}
+                        {{-- disini beda --}}
                         <input type="file" name="photo" id="photo" class="hidden" onchange="loadFile(event)">
                         <label for="photo" class="h-full aspect-square rounded-3xl p-2 flex flex-col justify-center items-center cursor-pointer duration-300 hover:ring-2 bg-cover bg-center absolute" id="imgBox">
                         </label>
