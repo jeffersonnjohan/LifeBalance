@@ -17,7 +17,8 @@ class CollectFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'challenge_id' => mt_rand(1,5),
+            'user_id' => mt_rand(1,5)
         ];
     }
 }

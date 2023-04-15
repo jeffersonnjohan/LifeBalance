@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,7 +18,9 @@ class WorkoutActivityFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'name' => fake()->words(mt_rand(1,3),true),
+            'video' => 'videos/workoutactivity',
+            'description' => fake()->text()
         ];
     }
 }

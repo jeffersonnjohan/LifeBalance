@@ -17,7 +17,8 @@ class UserDietFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'user_id' => mt_rand(1,5),
+            'calories_in' => mt_rand(0,1500)
         ];
     }
 }

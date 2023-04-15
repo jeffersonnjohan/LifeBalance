@@ -17,7 +17,8 @@ class UserWorkoutFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'user_id' => mt_rand(1,5),
+            'calories_out' => mt_rand(10,400)
         ];
     }
 }
