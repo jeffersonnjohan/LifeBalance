@@ -1,6 +1,7 @@
 {{-- Navbar --}}
 <div class="h-[80px] w-full flex justify-evenly items-center bg-cLightGrey shadow-lg fixed bottom-0 rounded-t-3xl text-cDarkGrey">
-    <span class="material-symbols-outlined iconNavbar">
+    {{-- Class activeNavbar kalau active --}}
+    <span class="material-symbols-outlined iconNavbar activeNavbar">
         home
     </span>
     <span class="material-symbols-outlined iconNavbar">

@@ -6,3 +6,7 @@
 .material-symbols-outlined.iconNavbar{
   font-size: 40px;
 }
+
+.activeNavbar{
+  color: #428FDE;
+}
