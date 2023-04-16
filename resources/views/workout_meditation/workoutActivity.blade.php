@@ -22,14 +22,152 @@
             <p class="mt-4 text-justify text-sm">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Reiciendis, doloribus sequi! Provident neque repudiandae hic eligendi sequi earum, tenetur aliquam et similique. Accusamus delectus tempore quae incidunt quasi sequi doloremque?</p>
 
             {{-- Video --}}
-            <video loop muted playsinline controls class="rounded-2xl w-full mt-8">
+            <video loop muted playsinline id="video" class="rounded-2xl w-full mt-8">
                 <source src="http://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
                 Your browser doesn't support video
             </video>
+
+            {{-- Video Controls --}}
+            <input type="range" id="seek-bar" value="0" class="w-full mt-10 mb-4">
+            
+            <div class="flex w-full justify-center">
+
+                {{-- Button << --}}
+                <button type="button" id="rewind" class="block">
+                    <span class="material-symbols-outlined">
+                        fast_rewind
+                    </span>
+                </button>
+    
+                {{-- Button Play --}}
+                <button type="button" id="play" class="block mx-4 bg-black text-white w-[40px] aspect-[5/4] rounded-full">
+                    <span class="material-symbols-outlined">
+                        play_arrow
+                    </span>
+                </button>
+                
+                {{-- Button Pause --}}
+                <button type="button" id="pause" class="hidden block mx-4 bg-black text-white w-[40px] aspect-[5/4] rounded-full">
+                    <span class="material-symbols-outlined">
+                        pause
+                    </span>
+                </button>
+                {{-- Button >> --}}
+                <button type="button" id="forward" class="block">
+                    <span class="material-symbols-outlined">
+                        fast_forward
+                        </span>
+                </button>
+            </div>
+
         </div>
     </div>
 
     
     @include('component.navbar')
     
+@endsection
+
+@section('scripts')
+    <script>
+        // Video
+        var video = document.getElementById("video");
+
+        // Buttons
+        var playButton = document.getElementById("play");
+        var pauseButton = document.getElementById('pause');
+
+        // Sliders
+        var seekBar = document.getElementById("seek-bar");
+
+        // Rewind & Forward
+        var rewindButton = document.getElementById("rewind");
+        var forwardButton = document.getElementById("forward");
+
+        // Function Puase to Play
+        function pauseToPlay(){
+            video.play()
+            
+            playButton.classList.add('hidden')
+            pauseButton.classList.remove('hidden')
+        }
+
+        function playToPause(){
+            video.pause()
+            
+            pauseButton.classList.add('hidden')
+            playButton.classList.remove('hidden')
+        }
+
+        function fast_rewind(n){
+            // Calculate the new time
+            var time = video.duration * (seekBar.value / 100) + n;
+
+            // Update the video time
+            video.currentTime = time;
+        }
+
+        window.onload = function() {
+            // Event listener for the play button
+            playButton.addEventListener("click", pauseToPlay);
+
+            // Event listener for the pause button
+            pauseButton.addEventListener("click", playToPause);
+
+            // Event listener for the seek bar
+            seekBar.addEventListener("change", function() {
+                // Calculate the new time
+                var time = video.duration * (seekBar.value / 100);
+
+                // Update the video time
+                video.currentTime = time;
+            });
+
+            // Update the seek bar as the video plays
+            video.addEventListener("timeupdate", function() {
+                // Calculate the slider value
+                var value = (100 / video.duration) * video.currentTime;
+
+                // Update the slider value
+                seekBar.value = value;
+            });
+
+            // Pause the video when the slider handle is being dragged
+            seekBar.addEventListener("mousedown", function() {
+                video.pause();
+            });
+
+            // Play the video when the slider handle is dropped
+            seekBar.addEventListener("mouseup", function() {
+                video.play();
+            });
+
+            // Event listener for the forward and rewind bar
+            forwardButton.addEventListener("click", function(){
+                fast_rewind(5)
+            });
+
+            rewindButton.addEventListener("click", function(){
+                fast_rewind(-5)
+            });
+
+            // Keyboard
+            document.addEventListener('keydown', function(event) {
+                if(event.key === ' ') {
+                    if(video.paused){
+                        pauseToPlay()
+                    } else{
+                        playToPause()
+                    }
+                }
+                else if(event.keyCode == 37) {
+                    fast_rewind(-5)
+                }
+                else if(event.keyCode == 39) {
+                    fast_rewind(5)
+                }
+            });
+
+        }
+    </script>
 @endsection
