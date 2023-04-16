@@ -3,9 +3,9 @@
 @section('title', 'Workout')
 
 @section('body')
-    <div>
+    <div class="w-full">
         {{-- Kotak Biru Atas --}}
-        <div class="w-full h-[350px] p-10 pt-16 bg-cBlue rounded-b-[50px]">
+        <div class="w-full h-[390px] p-10 pt-16 bg-cBlue rounded-b-[50px]">
             <h1 class="text-3xl text-white">Workout Yuk!</h1>
             <h2>Categories</h2>
 
