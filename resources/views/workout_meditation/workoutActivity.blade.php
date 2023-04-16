@@ -17,9 +17,10 @@
         </div>
 
         {{-- Detail Workout Activity Container --}}
-        <div class="w-[90%] m-auto px-5 py-8 rounded-3xl bg-white shadow-lg my-5">
+        <div class="w-[90%] m-auto px-5 py-8 rounded-3xl bg-cRed shadow-lg my-5">
             <h2 class="text-xl">1. Push Up</h2>
-            <p class="mt-4 text-justify text-sm">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Reiciendis, doloribus sequi! Provident neque repudiandae hic eligendi sequi earum, tenetur aliquam et similique. Accusamus delectus tempore quae incidunt quasi sequi doloremque?</p>
+            <p class="mt-4 text-justify text-sm">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Reiciendis, doloribus sequi! Provident neque repudiandae hic eligendi sequi earum, tenetur aliquam et similique. Accusamus delectus tempore quae incidunt quasi sequi doloremque?
+            </p>
 
             {{-- Video --}}
             <video loop muted playsinline id="video" class="rounded-2xl w-full mt-8">
@@ -61,9 +62,13 @@
             </div>
 
         </div>
+
+        {{-- Space Bottom For Navbar --}}
+        <div class="pb-28">
+            
+        </div>
     </div>
 
-    
     @include('component.navbar')
     
 @endsection
