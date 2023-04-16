@@ -57,3 +57,7 @@ Route::get('/workoutmeditations', function () {
 Route::get('/workoutdetails', function () {
     return view('workout_meditation.workoutDetails');
 });
+
+Route::get('/workoutdays', function () {
+    return view('workout_meditation.workoutDays');
+});
