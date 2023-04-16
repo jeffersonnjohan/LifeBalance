@@ -1,6 +1,8 @@
 @extends('master')
 
-@section('title', 'Workout')
+@section('title')
+    @yield('titleActive')
+@endsection
 
 @section('body')
     <div class="w-full">

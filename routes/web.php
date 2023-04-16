@@ -73,3 +73,7 @@ Route::get('/workoutdays', function () {
 Route::get('/workoutactivity', function () {
     return view('workout_meditation.workoutactivity');
 });
+
+Route::get('/meditationdetails', function () {
+    return view('workout_meditation.meditationDetails');
+});

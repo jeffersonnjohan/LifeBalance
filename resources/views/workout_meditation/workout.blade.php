@@ -1,5 +1,6 @@
 @extends('workout_meditation.workoutMeditationTemplate')
 
+@section('titleActive', 'Workout')
 @section('isWorkoutActive', 'activeCategory')
 
 @section('content')

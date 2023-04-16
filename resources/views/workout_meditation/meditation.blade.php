@@ -1,5 +1,6 @@
 @extends('workout_meditation.workoutMeditationTemplate')
 
+@section('titleActive', 'Meditation')
 @section('isMeditationActive', 'activeCategory')
 
 @section('content')
@@ -22,7 +23,7 @@
         </form>
 
         {{-- Card Meditation --}}
-        <a href="#">
+        <a href="/meditationdetails">
             <div class="max-w-sm text-center py-5 flex bg-white rounded-3xl relative mb-4 shadow-lg">
                 <h2 class="w-full text-md font-bold flex justify-center">
                     Ambient
@@ -33,7 +34,7 @@
             </div>
         </a>
         {{-- Card Meditation --}}
-        <a href="#">
+        <a href="/meditationdetails">
             <div class="max-w-sm text-center py-5 flex bg-white rounded-3xl relative mb-4 shadow-lg">
                 <h2 class="w-full text-md font-bold flex justify-center">
                     Nature
@@ -44,7 +45,7 @@
             </div>
         </a>
         {{-- Card Meditation --}}
-        <a href="#">
+        <a href="/meditationdetails">
             <div class="max-w-sm text-center py-5 flex bg-white rounded-3xl relative mb-4 shadow-lg">
                 <h2 class="w-full text-md font-bold flex justify-center">
                     Ambient
@@ -55,7 +56,7 @@
             </div>
         </a>
         {{-- Card Meditation --}}
-        <a href="#">
+        <a href="/meditationdetails">
             <div class="max-w-sm text-center py-5 flex bg-white rounded-3xl relative mb-4 shadow-lg">
                 <h2 class="w-full text-md font-bold flex justify-center">
                     Ambient
@@ -66,7 +67,7 @@
             </div>
         </a>
         {{-- Card Meditation --}}
-        <a href="#">
+        <a href="/meditationdetails">
             <div class="max-w-sm text-center py-5 flex bg-white rounded-3xl relative mb-4 shadow-lg">
                 <h2 class="w-full text-md font-bold flex justify-center">
                     Ambient
@@ -77,7 +78,7 @@
             </div>
         </a>
         {{-- Card Meditation --}}
-        <a href="#">
+        <a href="/meditationdetails">
             <div class="max-w-sm text-center py-5 flex bg-white rounded-3xl relative mb-4 shadow-lg">
                 <h2 class="w-full text-md font-bold flex justify-center">
                     Ambient
