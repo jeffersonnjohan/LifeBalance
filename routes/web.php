@@ -47,7 +47,11 @@ Route::get('/otherprofile', function () {
 });
 
 Route::get('/diet', function () {
-    return view('diet');
+    return view('diet.diet');
+});
+
+Route::get('/planDiet', function () {
+    return view('diet.planDiet');
 });
 
 Route::get('/workoutmeditations', function () {
