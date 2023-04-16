@@ -58,6 +58,10 @@ Route::get('/workoutmeditations', function () {
     return view('workout_meditation.workout');
 });
 
+Route::get('/meditations', function () {
+    return view('workout_meditation.meditation');
+});
+
 Route::get('/workoutdetails', function () {
     return view('workout_meditation.workoutDetails');
 });
