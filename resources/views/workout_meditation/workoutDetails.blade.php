@@ -6,7 +6,7 @@
     @extends('component.backbutton')
     @section('backlink', '/workoutmeditations')
     
-    <div class="">
+    <div>
         <div class="h-[70px] flex justify-center items-center text-2xl font-medium">
             <p class="-mr-8">BURN FAT IN 7 DAYS!</p>
         </div>
@@ -33,6 +33,69 @@
                     <p>Total Pose</p>
                     <p class="font-bold text-2xl text-cBlue">11</p>
                 </div>
+            </div>
+
+            {{-- Day container --}}
+            <div class="w-full grid grid-cols-2 mt-20 gap-5 font-bold text-4xl">
+                {{-- Day Card --}}
+                <div class="aspect-square bg-white rounded-3xl flex justify-center items-center border-2 text-cBlue border-cBlue">
+                    DAY 1
+                </div>
+                {{-- Day Card --}}
+                <div class="aspect-square bg-white rounded-3xl flex justify-center items-center border-2 text-cBlue border-cBlue">
+                    DAY 2
+                </div>
+                {{-- Day Card Locked--}}
+                <div class="aspect-square bg-white rounded-3xl flex justify-center items-center border-2 text-cDarkGrey border-cDarkGrey relative">
+                    DAY 3
+                    {{-- Overlay Gembok --}}
+                    <div class="absolute top-0 bottom-0 left-0 right-0 bg-[rgba(255,255,255,0.75)] rounded-3xl flex justify-center items-center">
+                        <span class="material-symbols-outlined scale-[2] text-black opacity-100">
+                            lock
+                        </span>
+                    </div>
+                </div>
+                {{-- Day Card Locked--}}
+                <div class="aspect-square bg-white rounded-3xl flex justify-center items-center border-2 text-cDarkGrey border-cDarkGrey relative">
+                    DAY 4
+                    {{-- Overlay Gembok --}}
+                    <div class="absolute top-0 bottom-0 left-0 right-0 bg-[rgba(255,255,255,0.75)] rounded-3xl flex justify-center items-center">
+                        <span class="material-symbols-outlined scale-[2] text-black opacity-100">
+                            lock
+                        </span>
+                    </div>
+                </div>
+                {{-- Day Card Locked--}}
+                <div class="aspect-square bg-white rounded-3xl flex justify-center items-center border-2 text-cDarkGrey border-cDarkGrey relative">
+                    DAY 5
+                    {{-- Overlay Gembok --}}
+                    <div class="absolute top-0 bottom-0 left-0 right-0 bg-[rgba(255,255,255,0.75)] rounded-3xl flex justify-center items-center">
+                        <span class="material-symbols-outlined scale-[2] text-black opacity-100">
+                            lock
+                        </span>
+                    </div>
+                </div>
+                {{-- Day Card Locked--}}
+                <div class="aspect-square bg-white rounded-3xl flex justify-center items-center border-2 text-cDarkGrey border-cDarkGrey relative">
+                    DAY 6
+                    {{-- Overlay Gembok --}}
+                    <div class="absolute top-0 bottom-0 left-0 right-0 bg-[rgba(255,255,255,0.75)] rounded-3xl flex justify-center items-center">
+                        <span class="material-symbols-outlined scale-[2] text-black opacity-100">
+                            lock
+                        </span>
+                    </div>
+                </div>
+                {{-- Day Card Locked--}}
+                <div class="aspect-square bg-white rounded-3xl flex justify-center items-center border-2 text-cDarkGrey border-cDarkGrey relative">
+                    DAY 7
+                    {{-- Overlay Gembok --}}
+                    <div class="absolute top-0 bottom-0 left-0 right-0 bg-[rgba(255,255,255,0.75)] rounded-3xl flex justify-center items-center">
+                        <span class="material-symbols-outlined scale-[2] text-black opacity-100">
+                            lock
+                        </span>
+                    </div>
+                </div>
+    
             </div>
         </div>
 
