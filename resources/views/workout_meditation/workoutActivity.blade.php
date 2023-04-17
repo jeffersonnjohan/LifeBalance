@@ -129,7 +129,7 @@
 
         window.onload = function() {
             // Load Video Duration
-            totalDuration.innerHTML = format_number(Math.floor(video.duration/60)) + ':' + format_number(Math.floor(video.duration % 60))
+            totalDuration.innerHTML = format_number(Math.floor(video.duration/60)) + ':' + format_number()
 
             // Event listener for the play button
             playButton.addEventListener("click", pauseToPlay);
