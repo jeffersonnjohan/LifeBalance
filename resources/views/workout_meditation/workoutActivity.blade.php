@@ -17,19 +17,26 @@
         </div>
 
         {{-- Detail Workout Activity Container --}}
-        <div class="w-[90%] m-auto px-5 py-8 rounded-3xl bg-cRed shadow-lg my-5">
+        <div class="w-[90%] m-auto px-5 py-8 rounded-3xl shadow-lg my-5">
             <h2 class="text-xl">1. Push Up</h2>
             <p class="mt-4 text-justify text-sm">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Reiciendis, doloribus sequi! Provident neque repudiandae hic eligendi sequi earum, tenetur aliquam et similique. Accusamus delectus tempore quae incidunt quasi sequi doloremque?
             </p>
 
             {{-- Video --}}
-            <video loop muted playsinline id="video" class="rounded-2xl w-full mt-8">
+            <video controls loop muted playsinline id="video" class="rounded-2xl w-full mt-8">
                 <source src="http://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
                 Your browser doesn't support video
             </video>
 
             {{-- Video Controls --}}
-            <input type="range" id="seek-bar" value="0" class="w-full mt-10 mb-4">
+            {{-- Time --}}
+            <div class="mt-4 mb-1">
+                <span id="progressDuration">00:00</span>
+                <span>/</span>
+                <span id="totalDuration"></span>
+            </div>
+            {{-- Sliding Bar --}}
+            <input type="range" id="seek-bar" value="0" class="w-full mb-4">
             
             <div class="flex w-full justify-center">
 
@@ -89,6 +96,10 @@
         var rewindButton = document.getElementById("rewind");
         var forwardButton = document.getElementById("forward");
 
+        // Duration
+        var progressDuration = document.getElementById("progressDuration");
+        var totalDuration = document.getElementById("totalDuration");
+
         // Function Puase to Play
         function pauseToPlay(){
             video.play()
@@ -112,7 +123,14 @@
             video.currentTime = time;
         }
 
+        function format_number(num){
+            return ("0" + num).slice(-2);
+        }
+
         window.onload = function() {
+            // Load Video Duration
+            totalDuration.innerHTML = format_number(Math.floor(video.duration/60)) + ':' + format_number(Math.floor(video.duration % 60))
+
             // Event listener for the play button
             playButton.addEventListener("click", pauseToPlay);
 
@@ -135,6 +153,8 @@
 
                 // Update the slider value
                 seekBar.value = value;
+                
+                progressDuration.innerHTML = format_number(Math.floor(video.currentTime/60)) + ':' + format_number(Math.floor(video.currentTime%60)) 
             });
 
             // Pause the video when the slider handle is being dragged
