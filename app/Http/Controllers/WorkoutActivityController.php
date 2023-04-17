@@ -15,7 +15,7 @@ class WorkoutActivityController extends Controller
      */
     public function index()
     {
-        //
+        return 'Hello';
     }
 
     /**
