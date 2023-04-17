@@ -1,5 +1,10 @@
 <?php
 
+use App\Http\Controllers\WorkoutActivityController;
+use App\Http\Controllers\WorkoutController;
+use App\Http\Controllers\WorkoutDayController;
+use App\Http\Controllers\WorkoutDetailController;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,17 +19,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::redirect('/', '/login');
-
-Route::get('/workout_plans', function () {
-    return view('backend.workout_plans');
-});
-Route::get('/meditations', function () {
-    return view('backend.meditations');
-});
-
-Route::get('/glenys', function () {
-    return view('glenys');
-});
 
 Route::get('/login', function () {
     return view('login');
@@ -46,6 +40,14 @@ Route::get('/diet', function () {
     return view('diet');
 });
 
-Route::get('/workoutmeditations', function () {
-    return view('workout_meditation.workout');
+
+// Workout Route
+Route::get('/workout', [WorkoutController::class, 'index']);
+Route::post('/workoutdetails', [WorkoutDetailController::class, 'index']);
+Route::post('/workoutdays', [WorkoutDayController::class, 'index']);
+Route::post('/workoutactivity',  [WorkoutActivityController::class, 'index']);
+
+// Meditation Routes
+Route::get('/meditations', function () {
+    return view('backend.meditations');
 });

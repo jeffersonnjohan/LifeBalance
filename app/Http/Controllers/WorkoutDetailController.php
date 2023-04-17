@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\WorkoutDetail;
 use App\Http\Requests\StoreWorkoutDetailRequest;
 use App\Http\Requests\UpdateWorkoutDetailRequest;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class WorkoutDetailController extends Controller
 {
@@ -13,9 +15,22 @@ class WorkoutDetailController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        // workoutDetails data
+        $workout_id = $request->post('workout_id');
+        $workout = DB::table('workouts')
+                        ->where('id', '=', $workout_id)
+                        ->get();
+        $workout_days = DB::table('workout_days')
+                        ->where('workout_id', '=', $workout_id)
+                        ->get();
+        // dd($workoutDay);
+        return view('backend.workoutDetails', [
+            "workout_id" => $workout_id,
+            "workout" => $workout,
+            "workout_days"=> $workout_days
+        ]);
     }
 
     /**

@@ -44,12 +44,12 @@ class DatabaseSeeder extends Seeder
         Meditation::factory(5)->create();
 
         Workout::factory(5)->create();
-        WorkoutDay::factory(30)->create();
+        WorkoutDay::factory(7)->create();
         WorkoutActivity::factory(10)->create();
         WorkoutDetail::factory(30)->create();
 
         Diet::factory(5)->create();
-        DietDay::factory(30)->create();
+        DietDay::factory(7)->create();
 
         Challenge::factory(5)->create();
         Collect::factory(2)->create();

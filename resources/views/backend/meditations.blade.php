@@ -7,7 +7,7 @@
     <title>Document</title>
 </head>
 <body>
-    <div><a href="/workout_plans">go to workout plans</a></div>
+    <div><a href="/workout">go to workout plans</a></div>
     <div><a href="/meditations">go to meditation </a></div>
 
 </body>
