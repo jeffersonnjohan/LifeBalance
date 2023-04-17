@@ -1,0 +1,12 @@
+.activeCategory{
+    border: 3px solid white;
+    transform: scale(1.1);
+}
+
+.material-symbols-outlined.iconNavbar{
+  font-size: 40px;
+}
+
+.activeNavbar{
+  color: #428FDE;
+}

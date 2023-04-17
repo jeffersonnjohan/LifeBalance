@@ -36,18 +36,50 @@ Route::get('/profile', function () {
     return view('profile');
 });
 
+Route::get('/otherprofile', function () {
+    return view('otherprofile');
+});
+
 Route::get('/diet', function () {
-    return view('diet');
+    return view('diet.diet');
+});
+
+Route::get('/planDiet', function () {
+    return view('diet.planDiet');
 });
 
 
 // Workout Route
-Route::get('/workout', [WorkoutController::class, 'index']);
-Route::post('/workoutdetails', [WorkoutDetailController::class, 'index']);
-Route::post('/workoutdays', [WorkoutDayController::class, 'index']);
-Route::post('/workoutactivity',  [WorkoutActivityController::class, 'index']);
+// Route::get('/workouts', [WorkoutController::class, 'index']);
+// Route::post('/workoutdetails', [WorkoutDetailController::class, 'index']);
+// Route::post('/workoutdays', [WorkoutDayController::class, 'index']);
+// Route::post('/workoutactivity',  [WorkoutActivityController::class, 'index']);
 
 // Meditation Routes
+// Route::get('/meditations', function () {
+//     return view('backend.meditations');
+
+
+Route::get('/workoutmeditations', function () {
+    return view('workout_meditation.workout');
+});
+
 Route::get('/meditations', function () {
-    return view('backend.meditations');
+    return view('workout_meditation.meditation');
+});
+
+Route::get('/workoutdetails', function () {
+    return view('workout_meditation.workoutDetails');
+});
+
+Route::get('/workoutdays', function () {
+    return view('workout_meditation.workoutDays');
+});
+
+Route::get('/workoutactivity', function () {
+    return view('workout_meditation.workoutactivity');
+});
+
+Route::get('/meditationdetails', function () {
+    return view('workout_meditation.meditationDetails');
 });
