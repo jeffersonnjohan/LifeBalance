@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Meditation;
 use App\Http\Requests\StoreMeditationRequest;
 use App\Http\Requests\UpdateMeditationRequest;
+use Illuminate\Http\Request;
 
 class MeditationController extends Controller
 {
@@ -15,7 +16,9 @@ class MeditationController extends Controller
      */
     public function index()
     {
-        //
+        return view('backend.meditation', [
+            'meditations' => Meditation::all()
+        ]);
     }
 
     /**
@@ -45,9 +48,13 @@ class MeditationController extends Controller
      * @param  \App\Models\Meditation  $meditation
      * @return \Illuminate\Http\Response
      */
-    public function show(Meditation $meditation)
+    public function show(Request $request)
     {
-        //
+        $meditation_id = $request->post('meditation_id');
+        $meditation = Meditation::where('meditations.id', '=', $meditation_id)->get();
+        return view('backend.meditationDetails', [
+            'meditation' => $meditation
+        ]);
     }
 
     /**

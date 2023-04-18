@@ -3,8 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\Workout;
+use App\Models\WorkoutDay;
+use App\Models\WorkoutDetail;
+use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreWorkoutRequest;
 use App\Http\Requests\UpdateWorkoutRequest;
+use Illuminate\Http\Request;
 
 class WorkoutController extends Controller
 {
@@ -15,7 +20,9 @@ class WorkoutController extends Controller
      */
     public function index()
     {
-        //
+        return view('backend.workout', [
+            "workouts" => Workout::all()
+        ]);
     }
 
     /**

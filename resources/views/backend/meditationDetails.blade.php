@@ -7,9 +7,13 @@
     <title>Document</title>
 </head>
 <body>
-    <div><a href="/workout_plans">go to workout plans</a></div>
-    <div><a href="/meditations">go to meditation </a></div>
+    <button>
+        <a href="/meditations">back</a>
+    </button>
 
-    
+    <div>{{ $meditation[0]->image }}</div>
+    <div>{{ $meditation[0]->name }}</div>
+    <div>{{ $meditation[0]->description }}</div>
+    <div>{{ $meditation[0]->audio }}</div>
 </body>
 </html>

@@ -5,6 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\WorkoutActivity;
 use App\Http\Requests\StoreWorkoutActivityRequest;
 use App\Http\Requests\UpdateWorkoutActivityRequest;
+use App\Models\Workout;
+use App\Models\WorkoutDay;
+use App\Models\WorkoutDetail;
+use Illuminate\Http\Request;
 
 class WorkoutActivityController extends Controller
 {
@@ -13,9 +17,25 @@ class WorkoutActivityController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        // workoutActivity data
+        $workout_activity = WorkoutActivity::where('workout_activities.id', '=', $request->post('workout_activity_id'))->get();
+
+        // workoutDays data
+        $workout_id = $request->post('workout_id');
+        $workout_day_id =  $request->post('workout_day_id');
+        $workout_activities = WorkoutDetail::join('workout_activities', 'workout_details.workout_activity_id', '=', 'workout_activities.id')
+                                        ->where('workout_details.workout_day_id', '=',  $workout_day_id)
+                                        ->get();
+        
+        return view('backend.workoutActivity', [
+            'workout_id' => $workout_id,
+            'workout_day_id' => $workout_day_id,
+            'day' => $request->post('day'),
+            'workout_activity' => $workout_activity,
+            'workout_activities' => $workout_activities
+        ]);
     }
 
     /**
