@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\DietDay;
 use App\Http\Requests\StoreDietDayRequest;
 use App\Http\Requests\UpdateDietDayRequest;
+use Illuminate\Http\Request;
 
 class DietDayController extends Controller
 {
@@ -13,9 +14,13 @@ class DietDayController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $diet_id = $request->post('diet_id');
+        $diet_days = DietDay::where('diet_days.diet_id', '=', $diet_id)->get();
+        return view('backend.dietDays', [
+            'diet_days' => $diet_days
+        ]);
     }
 
     /**

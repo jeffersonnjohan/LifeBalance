@@ -15,7 +15,9 @@ class DietController extends Controller
      */
     public function index()
     {
-        //
+        return view('backend.diet', [
+            'diets' => Diet::all()
+        ]);
     }
 
     /**
