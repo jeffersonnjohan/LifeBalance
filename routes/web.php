@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MeditationController;
 use App\Http\Controllers\WorkoutActivityController;
 use App\Http\Controllers\WorkoutController;
 use App\Http\Controllers\WorkoutDayController;
@@ -50,36 +51,35 @@ Route::get('/planDiet', function () {
 
 
 // Workout Route
-// Route::get('/workouts', [WorkoutController::class, 'index']);
-// Route::post('/workoutdetails', [WorkoutDetailController::class, 'index']);
-// Route::post('/workoutdays', [WorkoutDayController::class, 'index']);
-// Route::post('/workoutactivity',  [WorkoutActivityController::class, 'index']);
+Route::get('/workouts', [WorkoutController::class, 'index']);
+Route::post('/workoutdetails', [WorkoutDetailController::class, 'index']);
+Route::post('/workoutdays', [WorkoutDayController::class, 'index']);
+Route::post('/workoutactivity',  [WorkoutActivityController::class, 'index']);
 
 // Meditation Routes
+Route::get('/meditations', [MeditationController::class, 'index']);
+Route::post('/meditationDetails', [MeditationController::class, 'show']);
+
+// Route::get('/workoutmeditations', function () {
+//     return view('workout_meditation.workout');
+// });
+
 // Route::get('/meditations', function () {
-//     return view('backend.meditations');
+//     return view('workout_meditation.meditation');
+// });
 
+// Route::get('/workoutdetails', function () {
+//     return view('workout_meditation.workoutDetails');
+// });
 
-Route::get('/workoutmeditations', function () {
-    return view('workout_meditation.workout');
-});
+// Route::get('/workoutdays', function () {
+//     return view('workout_meditation.workoutDays');
+// });
 
-Route::get('/meditations', function () {
-    return view('workout_meditation.meditation');
-});
+// Route::get('/workoutactivity', function () {
+//     return view('workout_meditation.workoutactivity');
+// });
 
-Route::get('/workoutdetails', function () {
-    return view('workout_meditation.workoutDetails');
-});
-
-Route::get('/workoutdays', function () {
-    return view('workout_meditation.workoutDays');
-});
-
-Route::get('/workoutactivity', function () {
-    return view('workout_meditation.workoutactivity');
-});
-
-Route::get('/meditationdetails', function () {
-    return view('workout_meditation.meditationDetails');
-});
+// Route::get('/meditationdetails', function () {
+//     return view('workout_meditation.meditationDetails');
+// });

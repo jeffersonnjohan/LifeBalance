@@ -9,6 +9,14 @@
 <body>
     <div><a href="/workouts">go to workout plans</a></div>
     <div><a href="/meditations">go to meditation </a></div>
-
+    @foreach ($meditations as $meditation)
+        <form action="/meditationDetails" method="POST">
+            @csrf
+            <button type="submit">
+                <input type="hidden" name="meditation_id" value="{{ $meditation->id }}">
+                {{ $meditation->name }}
+            </button>
+        </form>
+    @endforeach
 </body>
 </html>

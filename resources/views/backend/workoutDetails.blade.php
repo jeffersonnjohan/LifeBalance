@@ -7,7 +7,7 @@
     <title>Document</title>
 </head>
 <body>
-    <div><a href="/workout">back</a></div>
+    <div><a href="/workouts">back</a></div>
     <div style="border: 1px solid black">
         <div> {{ $workout[0]->name }} </div>
         <div> {{ $workout[0]->description }} </div>
