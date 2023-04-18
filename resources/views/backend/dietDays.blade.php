@@ -8,7 +8,7 @@
 </head>
 <body>
     <button>
-        <a href="/diet">back</a>
+        <a href="/diets">back</a>
     </button>
 
     <?php $i = 1 ?>

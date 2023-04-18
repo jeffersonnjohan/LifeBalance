@@ -63,7 +63,7 @@ Route::get('/meditations', [MeditationController::class, 'index']);
 Route::post('/meditationDetails', [MeditationController::class, 'show']);
 
 // Diet Routes
-Route::get('/diet', [DietController::class, 'index']);
+Route::get('/diets', [DietController::class, 'index']);
 Route::post('/dietdays', [DietDayController::class, 'index']);
 
 // Route::get('/workoutmeditations', function () {
