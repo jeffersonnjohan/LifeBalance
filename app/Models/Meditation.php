@@ -9,4 +9,11 @@ class Meditation extends Model
 {
     use HasFactory;
     public $timestamps = false;
+
+    public function scopeFilter($query, array $filters){
+        $query->when($filters['search'] ?? false, function($query, $search) {
+            return $query = $query->where('name', 'like', '%' . $search . '%')
+                    ->orWhere('description', 'like', '%' . $search . '%');
+        });
+     }
 }

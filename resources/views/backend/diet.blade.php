@@ -7,6 +7,13 @@
     <title>Document</title>
 </head>
 <body>
+    <form action="/diets">
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Search for new plan?" name="search" value="{{ request('search') }}">
+            <button class="btn btn-danger" type="submit">Search</button>
+        </div>
+    </form>
+
     @foreach ( $diets as $diet )
         <form action="/dietdays" method="POST">
             @csrf
