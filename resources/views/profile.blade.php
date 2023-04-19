@@ -12,14 +12,13 @@
 
 @section('body')
     @extends('component.backbutton')
-    @section('backbutton', '/otherprofile')
+    @section('backlink', '/otherprofile')
     @include('component.editprofilebutton')
     <div class="w-full h-full">
         <div class="h-[70px] flex justify-center items-center text-2xl font-medium">
             <p>Profile</p>
         </div>
-        <div class="w-full h-full px-2 pb-2">
-        <div class="w-full h-full p-2">
+        <div class="w-full h-fit px-2 pb-2">
             <div class="w-full aspect-square flex gap-2 relative mb-2">
                 <div class="w-[60%] h-full flex flex-col gap-2">
                     <div class="w-full h-[40%] bg-cOrange rounded-3xl"></div>
