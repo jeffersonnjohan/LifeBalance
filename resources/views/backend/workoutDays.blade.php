@@ -24,14 +24,26 @@
             <input type="hidden" name='day' value="{{ $day }}">
             <input type="hidden" name="workout_day_id" value="{{ $workout_day_id }}">
             <div>{{ $i++ . '. ' . $activity->name }}</div>
-            <div>{{ $activity->description }}</div>
             <div>{{ $activity->video }}</div>
             <div>{{ 'kcal burn: ' . $activity->calories }}</div>
             <div>{{ $activity->repetition . 'x'}}</div>
             <div>{{ $activity->duration . 'seconds'}}</div>
         </button>
-
     </form>
     @endforeach
+
+    <form action="/workoutdetails" method="POST">
+        @csrf
+        <input type="hidden" name='workout_id' value="{{ $workout_id }}">
+        <input type="hidden" name='day' value="{{ $day }}">
+        {{-- checkbox  --}}
+        {{-- @if ()
+
+        @elseif ()
+
+        @endif --}}
+        <input type="checkbox" name="workout_check">
+        <label>Have you finished today workout?</label>
+    </form>
 </body>
 </html>

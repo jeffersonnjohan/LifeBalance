@@ -14,17 +14,39 @@
         </div>
     </form>
 
+    <?php $idx = 0 ?>
     @foreach ( $diets as $diet )
-        <form action="/dietdays" method="POST">
-            @csrf
-            <button type="submit">
-                <input type="hidden" name="diet_id" value="{{ $diet->id }}">
+        <div>
+            <button onclick="enrollPopUp({{ $idx }})">
                 <div>{{ $diet->image }}</div>
                 <div>{{ $diet->name }}</div>
                 <div>{{ $diet->description }}</div>
                 <div>{{ $diet->points }}</div>
             </button>
-        </form>
+        </div>
+
+        <div class="diet_popup" style="display:none;">
+            Do you want to enroll to this plan?
+            <form action="/dietdays" method="POST">
+                @csrf
+                <input type="hidden" name="diet_id" value="{{ $diet->id }}">
+                <button type="submit">Yes</button>
+            </form>
+            <button onclick="enrollPopUp({{ $idx }})">No</button>
+        </div>
+
+        <?php $idx++ ?>
     @endforeach
+
+    <script>
+        function enrollPopUp(idx) {
+            var x = document.getElementsByClassName("diet_popup");
+            if (x[idx].style.display === "none") {
+                x[idx].style.display = "block";
+            } else {
+                x[idx].style.display = "none";
+            }
+        }
+    </script>
 </body>
 </html>
