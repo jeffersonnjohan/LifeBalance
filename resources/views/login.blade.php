@@ -33,22 +33,29 @@
                 <div class="text-sm w-[300px]">Sign in and get back to life healthy!</div>
             </div>
             <form action="/home" class="flex flex-col gap-2">
-                <div class="w-[300px] h-[50px] rounded-full bg-cLightGrey flex items-center text-cDarkGrey px-4 duration-300 hover:ring-2">
+                <div class="w-[300px] h-[50px] rounded-full bg-cLightGrey flex items-center text-cDarkGrey px-4 duration-300 hover:ring-2 focus-within:ring-2 focus-within:text-cBlue">
                     <span class="material-symbols-outlined">
                         mail
                     </span>
                     <input type="text" name="email" id="email" placeholder="Email" class="border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full">
                 </div>
-                <div class="w-[300px] h-[50px] rounded-full bg-cLightGrey flex items-center text-cDarkGrey px-4 duration-300 hover:ring-2">
+                <div class="w-[300px] h-[50px] rounded-full bg-cLightGrey flex items-center text-cDarkGrey px-4 duration-300 hover:ring-2 focus-within:text-cBlue">
                     <span class="material-symbols-outlined">
                         lock
                     </span>
                     <input type="password" name="password" id="password" placeholder="Password" class="border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full">
-                    <span class="material-symbols-outlined">
-                        visibility
-                    </span>
+                    <div class="flex items-center z-10 cursor-pointer hover:text-cDarkBlue duration-300 ease-out" onclick="visibility()" id="on">
+                        <span class="material-symbols-outlined">
+                            visibility
+                        </span>
+                    </div>
+                    <div class="flex items-center z-10 cursor-pointer hover:text-cDarkBlue duration-300 ease-out hidden" onclick="visibility()" id="off">
+                        <span class="material-symbols-outlined">
+                            visibility_off
+                        </span>
+                    </div>
                 </div>
-                <div class="flex justify-center items-center gap-2 text-xs">
+                <div class="flex justify-center items-center gap-2 text-xs focus-within:text-cBlue">
                     <div class="bg-cDarkGrey w-10 h-0.5"></div>
                     <div class="text-cDarkGrey">
                         <p>Doesn't have an account? <a href="/signup" class="text-cRed font-bold">here</a></p>
@@ -59,4 +66,25 @@
             </form>
         </div>
     </div>
+@endsection
+
+@section('scripts')
+    <script>
+        function visibility() {
+            var x = document.getElementById("password");
+            if (x.type === "password") {
+                x.type = "text";
+                $(document).ready(function() {
+                    $("#on").addClass("hidden")
+                    $("#off").removeClass("hidden")
+                });
+            } else {
+                x.type = "password";
+                $(document).ready(function() {
+                    $("#off").addClass("hidden")
+                    $("#on").removeClass("hidden")
+                });
+            }
+        }
+    </script>
 @endsection

@@ -60,13 +60,13 @@
                     <div class="text-sm w-[300px]">@yield('topdesc')</div>
                 </div>
                 <form action="/login" class="flex flex-col gap-2">
-                    <div class="w-[300px] h-[50px] rounded-full bg-cLightGrey flex items-center text-cDarkGrey px-4 duration-300 hover:ring-2">
+                    <div class="w-[300px] h-[50px] rounded-full bg-cLightGrey flex items-center text-cDarkGrey px-4 duration-300 hover:ring-2 focus-within:text-cBlue">
                         <span class="material-symbols-outlined">
                             person
                         </span>
                         <input type="text" name="email" id="email" placeholder="Name" class="border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full">
                     </div>
-                    <div class="w-[300px] h-[50px] rounded-full bg-cLightGrey flex items-center text-cDarkGrey px-4 duration-300 hover:ring-2">
+                    <div class="w-[300px] h-[50px] rounded-full bg-cLightGrey flex items-center text-cDarkGrey px-4 duration-300 hover:ring-2 focus-within:text-cBlue">
                         <span class="material-symbols-outlined">
                             mail
                         </span>
@@ -86,19 +86,19 @@
                             </div>
                         </label>
                     </div>
-                    <div class="w-[300px] h-[50px] rounded-full bg-cLightGrey flex items-center text-cDarkGrey px-4 duration-300 hover:ring-2">
+                    <div class="w-[300px] h-[50px] rounded-full bg-cLightGrey flex items-center text-cDarkGrey px-4 duration-300 hover:ring-2 focus-within:text-cBlue">
                         <span class="material-symbols-outlined">
                             location_on
                         </span>
                         <input type="text" name="address" id="address" placeholder="Address" class="border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full">
                     </div>
-                    <div class="w-[300px] h-[50px] rounded-full bg-cLightGrey flex items-center text-cDarkGrey px-4 duration-300 hover:ring-2">
+                    <div class="w-[300px] h-[50px] rounded-full bg-cLightGrey flex items-center text-cDarkGrey px-4 duration-300 hover:ring-2 focus-within:text-cBlue">
                         <span class="material-symbols-outlined">
                             calendar_month
                         </span>
                         <input type="date" name="dob" id="dob" placeholder="DOB (dd/mm/yyyy)" class="border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full">
                     </div>
-                    <div class="w-[300px] h-[50px] rounded-full bg-cLightGrey flex items-center text-cDarkGrey px-4 duration-300 hover:ring-2">
+                    <div class="w-[300px] h-[50px] rounded-full bg-cLightGrey flex items-center text-cDarkGrey px-4 duration-300 hover:ring-2 focus-within:text-cBlue">
                         <span class="material-symbols-outlined">
                             lock
                         </span>
@@ -129,13 +129,13 @@
                             </div>
                         </div>
                         <div class="w-full h-full rounded-3xl flex flex-col justify-between">
-                            <div class="w-full h-[50px] rounded-full bg-cLightGrey flex items-center text-cDarkGrey px-4 duration-300 hover:ring-2">
+                            <div class="w-full h-[50px] rounded-full bg-cLightGrey flex items-center text-cDarkGrey px-4 duration-300 hover:ring-2 focus-within:text-cBlue">
                                 <span class="material-symbols-outlined">
                                     weight
                                 </span>
                                 <input type="number" name="dob" id="dob" placeholder="Weight (Kg)" class="border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full">
                             </div>
-                            <div class="w-full h-[50px] rounded-full bg-cLightGrey flex items-center text-cDarkGrey px-4 duration-300 hover:ring-2">
+                            <div class="w-full h-[50px] rounded-full bg-cLightGrey flex items-center text-cDarkGrey px-4 duration-300 hover:ring-2 focus-within:text-cBlue">
                                 <span class="material-symbols-outlined">
                                     height
                                 </span>
