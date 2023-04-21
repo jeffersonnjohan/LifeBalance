@@ -7,27 +7,29 @@
     <title>Document</title>
 </head>
 <body>
-    <div><a href="/workouts">go to workout plans</a></div>
-    <div><a href="/meditations">go to meditation </a></div>
+    <form action="/diets">
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Search for new plan?" name="search" value="{{ request('search') }}">
+            <button class="btn btn-danger" type="submit">Search</button>
+        </div>
+    </form>
 
     <?php $idx = 0 ?>
-    @foreach ($workouts as $workout)
+    @foreach ( $diets as $diet )
         <div>
             <button onclick="enrollPopUp({{ $idx }})">
-                <div>
-                    {{ $workout->name }}
-                    <img src="{{ $workout->image . '.png' }}" alt="failed to load image">
-                </div>
-                <div> @excerpt($workout->description) </div>
-                <div>{{ $workout->points . ' points will be added!' }}</div>
+                <div>{{ $diet->image }}</div>
+                <div>{{ $diet->name }}</div>
+                <div>{{ $diet->description }}</div>
+                <div>{{ $diet->points }}</div>
             </button>
         </div>
 
-        <div class="workout_popup" style="display:none;">
+        <div class="diet_popup" style="display:none;">
             Do you want to enroll to this plan?
-            <form action="/workoutdetails" method="POST">
+            <form action="/dietdays" method="POST">
                 @csrf
-                <input type="hidden" name="workout_id" value="{{ $workout->id }}">
+                <input type="hidden" name="diet_id" value="{{ $diet->id }}">
                 <button type="submit">Yes</button>
             </form>
             <button onclick="enrollPopUp({{ $idx }})">No</button>
@@ -38,7 +40,7 @@
 
     <script>
         function enrollPopUp(idx) {
-            var x = document.getElementsByClassName("workout_popup");
+            var x = document.getElementsByClassName("diet_popup");
             if (x[idx].style.display === "none") {
                 x[idx].style.display = "block";
             } else {

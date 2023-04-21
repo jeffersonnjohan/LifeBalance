@@ -17,7 +17,7 @@ class MeditationController extends Controller
     public function index()
     {
         return view('backend.meditation', [
-            'meditations' => Meditation::all()
+            'meditations' => Meditation::filter(request(['search']))->get()
         ]);
     }
 

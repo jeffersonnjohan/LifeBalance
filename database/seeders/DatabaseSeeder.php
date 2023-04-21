@@ -49,7 +49,7 @@ class DatabaseSeeder extends Seeder
         WorkoutDetail::factory(30)->create();
 
         Diet::factory(5)->create();
-        DietDay::factory(7)->create();
+        DietDay::factory(30)->create();
 
         Challenge::factory(5)->create();
         Collect::factory(2)->create();

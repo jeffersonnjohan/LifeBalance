@@ -9,6 +9,14 @@
 <body>
     <div><a href="/workouts">go to workout plans</a></div>
     <div><a href="/meditations">go to meditation </a></div>
+
+    <form action="/meditations">
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Find music..." name="search" value="{{ request('search') }}">
+            <button class="btn btn-danger" type="submit">Search</button>
+        </div>
+    </form>
+
     @foreach ($meditations as $meditation)
         <form action="/meditationDetails" method="POST">
             @csrf
