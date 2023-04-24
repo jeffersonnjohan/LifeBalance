@@ -25,7 +25,19 @@ class WorkoutDetailController extends Controller
         $workout_days = DB::table('workout_days')
                         ->where('workout_id', '=', $workout_id)
                         ->get();
-        // dd($workoutDay);
+
+        if(!$request->post('workout_value')){
+            $is_done = -1;
+        } else {
+            $is_done = $request->post('workout_value');
+        }
+        
+        if($is_done == 1 || $is_done == 0){
+            DB::table('workout_days')
+            ->where('id', $workout_id)
+            ->update(['is_done' => $is_done]);
+        }
+
         return view('backend.workoutDetails', [
             "workout_id" => $workout_id,
             "workout" => $workout,
