@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\CommunityController;
 use App\Http\Controllers\DietController;
 use App\Http\Controllers\DietDayController;
 use App\Http\Controllers\MeditationController;
@@ -51,6 +53,21 @@ Route::get('/otherprofile', function () {
 //     return view('diet.planDiet');
 // });
 
+Route::get('/home', function () {
+    return view('home_community.home');
+});
+
+Route::get('/community', function () {
+    return view('home_community.community');
+});
+
+Route::get('/inputweight', function () {
+    return view('home_community.inputweight');
+});
+
+// Home | Community Route
+// Route::get('/home', [HomeController::class, 'index']);
+// Route::post('/community', [CommunityController::class, 'index']);
 
 // Workout Route
 Route::get('/workouts', [WorkoutController::class, 'index']);
