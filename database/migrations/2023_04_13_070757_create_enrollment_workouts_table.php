@@ -18,8 +18,11 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
             $table->foreignId('workout_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
-            $table->date('start_date')->default(Carbon::now());
-            $table->date('end_date')->nullable();
+            // $table->date('start_date')->default(Carbon::now());
+            // $table->date('end_date')->nullable();
+            $table->integer('finished_day')->default(0);
+            $table->boolean('is_done')->default(false); // true, if user finished the plan
+            $table->timestamps();
         });
     }
 

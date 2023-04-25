@@ -18,9 +18,8 @@ return new class extends Migration
             $table->id();
             $table->foreignId('diet_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
             $table->integer('calories');
-            $table->integer('order');
+            // $table->integer('order');
             $table->text('description'); // in seconds
-            $table->boolean('is_done')->default(false);
             $table->timestamp('created_at')->default(Carbon::now()->toDateTimeString());
         });
     }

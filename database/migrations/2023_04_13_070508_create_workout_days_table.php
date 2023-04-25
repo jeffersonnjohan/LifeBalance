@@ -17,8 +17,7 @@ return new class extends Migration
         Schema::create('workout_days', function (Blueprint $table) {
             $table->id();
             $table->foreignId('workout_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
-            $table->integer('order');
-            $table->boolean('is_done')->default(false);
+            // $table->integer('order');
             $table->timestamp('created_at')->default(Carbon::now()->toDateTimeString());
         });
     }

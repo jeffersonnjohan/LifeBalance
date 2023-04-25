@@ -20,7 +20,7 @@ return new class extends Migration
             $table->integer('repetition');
             $table->integer('calories');
             $table->integer('duration'); // in seconds
-            $table->integer('order');
+            // $table->integer('order');
 
             $table->foreign('workout_day_id')->references('id')->on('workout_days')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
             $table->foreign('workout_activity_id')->references('id')->on('workout_activities')->constrained()->cascadeOnDelete()->cascadeOnUpdate();

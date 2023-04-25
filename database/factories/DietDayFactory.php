@@ -14,13 +14,13 @@ class DietDayFactory extends Factory
      *
      * @return array<string, mixed>
      */
-    public $order = 1;
+    // public $order = 1;
     public function definition()
     {
         return [
             'diet_id' => mt_rand(1,5),
             'calories' => mt_rand(100,1500),
-            'order' => $this->order++,
+            //'order' => $this->order++,
             'description' => fake()->text()
         ];
     }

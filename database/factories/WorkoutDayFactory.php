@@ -16,12 +16,12 @@ class WorkoutDayFactory extends Factory
      */
 
 
-    public $order = 1;
+    // public $order = 1;
     public function definition()
     {
         return [
             'workout_id' => mt_rand(1,5),
-            'order' => $this->order++
+            // 'order' => $this->order++
         ];
     }
 
