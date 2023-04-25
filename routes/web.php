@@ -53,6 +53,10 @@ Route::get('/otherprofile', function () {
 //     return view('diet.planDiet');
 // });
 
+Route::get('/challenges', function () {
+    return view('challenges');
+});
+
 Route::get('/home', function () {
     return view('home_community.home');
 });
