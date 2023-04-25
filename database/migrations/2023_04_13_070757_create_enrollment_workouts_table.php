@@ -18,8 +18,10 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
             $table->foreignId('workout_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
-            $table->date('start_date')->default(Carbon::now());
-            $table->date('end_date')->nullable();
+            // $table->date('start_date')->default(Carbon::now());
+            // $table->date('end_date')->nullable();
+            $table->integer('is_done')->default(0);
+            $table->timestamps();
         });
     }
 
