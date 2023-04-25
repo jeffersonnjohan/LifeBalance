@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\WorkoutDetail;
 use App\Http\Requests\StoreWorkoutDetailRequest;
 use App\Http\Requests\UpdateWorkoutDetailRequest;
+use App\Models\Workout;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -26,16 +27,20 @@ class WorkoutDetailController extends Controller
                         ->where('workout_id', '=', $workout_id)
                         ->get();
 
-        if(!$request->post('workout_value')){
-            $is_done = -1;
-        } else {
-            $is_done = $request->post('workout_value');
-        }
-        
-        if($is_done == 1 || $is_done == 0){
-            DB::table('workout_days')
-            ->where('id', $workout_id)
-            ->update(['is_done' => $is_done]);
+        // if(!$request->post('workout_value')){
+        //     $is_done = -1;
+        // } else {
+        //     $is_done = $request->post('workout_value');
+        // }
+        // finished value +1, if user clicked done
+
+        // temporary:
+        // if day_count is 0 in workouts, do this:
+        if(Workout::where('day_count', 0)){
+            DB::table('workouts')
+            ->join('workout_days', 'workout_days.workout_id', '=', 'workouts.id')
+            ->where('workout_id', '=', $workout_id)
+            ->update(['day_count' => $workout_days->count()]);
         }
 
         return view('backend.workoutDetails', [

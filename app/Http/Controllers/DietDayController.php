@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\DietDay;
 use App\Http\Requests\StoreDietDayRequest;
 use App\Http\Requests\UpdateDietDayRequest;
+use App\Models\Diet;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class DietDayController extends Controller
 {
@@ -18,6 +20,17 @@ class DietDayController extends Controller
     {
         $diet_id = $request->post('diet_id');
         $diet_days = DietDay::where('diet_days.diet_id', '=', $diet_id)->get();
+
+        // temporary:
+        // if day_count is 0 in workouts, do this:
+        if(Diet::where('day_count', 0)){
+            DB::table('diets')
+            ->join('diet_days', 'diet_days.diet_id', '=', 'diets.id')
+            ->where('diet_id', '=', $diet_id)
+            ->update(['day_count' => $diet_days->count()]);
+        }
+
+
         return view('backend.dietDays', [
             'diet_days' => $diet_days
         ]);

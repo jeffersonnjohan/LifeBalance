@@ -19,6 +19,7 @@ return new class extends Migration
             $table->text('description');
             $table->integer('points');
             $table->string('image');
+            $table->string('day_count')->default(0);
         });
     }
 
