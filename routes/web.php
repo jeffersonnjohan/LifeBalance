@@ -46,13 +46,13 @@ Route::get('/otherprofile', function () {
     return view('otherprofile');
 });
 
-// Route::get('/diet', function () {
-//     return view('diet.diet');
-// });
+Route::get('/diet', function () {
+    return view('diet.diet');
+});
 
-// Route::get('/planDiet', function () {
-//     return view('diet.planDiet');
-// });
+Route::get('/planDiet', function () {
+    return view('diet.planDiet');
+});
 
 Route::get('/home', function () {
     return view('home_community.home');
