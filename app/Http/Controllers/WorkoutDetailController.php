@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\WorkoutDetail;
 use App\Http\Requests\StoreWorkoutDetailRequest;
 use App\Http\Requests\UpdateWorkoutDetailRequest;
+use App\Models\Workout;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -26,16 +27,40 @@ class WorkoutDetailController extends Controller
                         ->where('workout_id', '=', $workout_id)
                         ->get();
 
-        if(!$request->post('workout_value')){
-            $is_done = -1;
-        } else {
-            $is_done = $request->post('workout_value');
+        $is_done = DB::table('enrollment_workouts')
+                    ->where('workout_id', '=', $workout_id)
+                    ->pluck('is_done');
+
+        // if checkbox checked, then workout_value = 1
+        if($request->post('workout_value') && !$is_done[0]){
+            $finished_day = DB::table('enrollment_workouts')
+                            ->where('workout_id', '=', $workout_id)
+                            ->pluck('finished_day');
+
+            $day_count = DB::table('workouts')
+                            ->where('id', '=', $workout_id)
+                            ->pluck('day_count');
+
+            // finished_day++
+            DB::table('enrollment_workouts')
+            ->where('workout_id', '=', $workout_id)
+            ->update(['finished_day' => $finished_day[0] +  1]);
+
+            // if day_count == finished_day, update is_done to 1
+            if($day_count->contains($finished_day[0] + 1)){
+                DB::table('enrollment_workouts')
+                ->where('workout_id', '=', $workout_id)
+                ->update(['is_done' => 1]);
+            }
         }
-        
-        if($is_done == 1 || $is_done == 0){
-            DB::table('workout_days')
-            ->where('id', $workout_id)
-            ->update(['is_done' => $is_done]);
+
+        // temporary:
+        // if day_count is 0 in workouts, do this:
+        if(Workout::where('day_count', 0)){
+            DB::table('workouts')
+            ->join('workout_days', 'workout_days.workout_id', '=', 'workouts.id')
+            ->where('workout_id', '=', $workout_id)
+            ->update(['day_count' => $workout_days->count()]);
         }
 
         return view('backend.workoutDetails', [

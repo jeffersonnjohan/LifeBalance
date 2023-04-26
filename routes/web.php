@@ -4,6 +4,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CommunityController;
 use App\Http\Controllers\DietController;
 use App\Http\Controllers\DietDayController;
+use App\Http\Controllers\HistoryController;
 use App\Http\Controllers\MeditationController;
 use App\Http\Controllers\WorkoutActivityController;
 use App\Http\Controllers\WorkoutController;
@@ -82,6 +83,10 @@ Route::post('/meditationDetails', [MeditationController::class, 'show']);
 // Diet Routes
 Route::get('/diets', [DietController::class, 'index']);
 Route::post('/dietdays', [DietDayController::class, 'index']);
+
+// Dit History
+Route::get('/history', [HistoryController::class, 'index']);
+
 
 // Route::get('/workoutmeditations', function () {
 //     return view('workout_meditation.workout');
