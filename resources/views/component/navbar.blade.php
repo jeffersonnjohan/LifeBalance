@@ -1,5 +1,5 @@
 {{-- Navbar --}}
-<div class="h-[80px] w-full flex justify-evenly items-center bg-cLightGrey shadow-lg fixed bottom-0 rounded-t-3xl text-cDarkGrey">
+<div class="h-[80px] w-full flex justify-evenly items-center bg-white shadow-lg fixed bottom-0 rounded-t-3xl text-cDarkGrey">
     {{-- Class activeNavbar kalau active --}}
     <a href="/home" class="material-symbols-outlined iconNavbar {{ $active == 'home' ? 'text-cRed': '' }}">
         home
