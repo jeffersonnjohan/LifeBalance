@@ -27,12 +27,32 @@ class WorkoutDetailController extends Controller
                         ->where('workout_id', '=', $workout_id)
                         ->get();
 
-        // if(!$request->post('workout_value')){
-        //     $is_done = -1;
-        // } else {
-        //     $is_done = $request->post('workout_value');
-        // }
-        // finished value +1, if user clicked done
+        $is_done = DB::table('enrollment_workouts')
+                    ->where('workout_id', '=', $workout_id)
+                    ->pluck('is_done');
+
+        // if checkbox checked, then workout_value = 1
+        if($request->post('workout_value') && !$is_done[0]){
+            $finished_day = DB::table('enrollment_workouts')
+                            ->where('workout_id', '=', $workout_id)
+                            ->pluck('finished_day');
+
+            $day_count = DB::table('workouts')
+                            ->where('id', '=', $workout_id)
+                            ->pluck('day_count');
+
+            // finished_day++
+            DB::table('enrollment_workouts')
+            ->where('workout_id', '=', $workout_id)
+            ->update(['finished_day' => $finished_day[0] +  1]);
+
+            // if day_count == finished_day, update is_done to 1
+            if($day_count->contains($finished_day[0] + 1)){
+                DB::table('enrollment_workouts')
+                ->where('workout_id', '=', $workout_id)
+                ->update(['is_done' => 1]);
+            }
+        }
 
         // temporary:
         // if day_count is 0 in workouts, do this:
