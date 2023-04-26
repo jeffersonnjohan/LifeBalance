@@ -84,30 +84,32 @@ Route::post('/meditationDetails', [MeditationController::class, 'show']);
 Route::get('/diets', [DietController::class, 'index']);
 Route::post('/dietdays', [DietDayController::class, 'index']);
 
-// Dit History
+// Diet History
 Route::get('/history', [HistoryController::class, 'index']);
 
 
-// Route::get('/workoutmeditations', function () {
-//     return view('workout_meditation.workout');
-// });
 
-// Route::get('/meditations', function () {
-//     return view('workout_meditation.meditation');
-// });
+// Routes Jeff. Nanti hapus aja
+Route::get('/workoutmeditationsjeff', function () {
+    return view('workout_meditation.workouts');
+});
 
-// Route::get('/workoutdetails', function () {
-//     return view('workout_meditation.workoutDetails');
-// });
+Route::get('/meditationsjeff', function () {
+    return view('workout_meditation.meditation');
+});
 
-// Route::get('/workoutdays', function () {
-//     return view('workout_meditation.workoutDays');
-// });
+Route::get('/workoutdetailsjeff', function () {
+    return view('workout_meditation.workoutDetails');
+});
 
-// Route::get('/workoutactivity', function () {
-//     return view('workout_meditation.workoutactivity');
-// });
+Route::get('/workoutdaysjeff', function () {
+    return view('workout_meditation.workoutDays');
+});
 
-// Route::get('/meditationdetails', function () {
-//     return view('workout_meditation.meditationDetails');
-// });
+Route::get('/workoutactivityjeff', function () {
+    return view('workout_meditation.workoutactivity');
+});
+
+Route::get('/meditationdetailsjeff', function () {
+    return view('workout_meditation.meditationDetails');
+});
