@@ -282,5 +282,5 @@
         </span>
     </a>
 </div>
-@include('component.navbar')
+@include('component.navbar', ['active' => 'home'])
 @endsection

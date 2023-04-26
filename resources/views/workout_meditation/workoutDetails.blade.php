@@ -117,6 +117,6 @@
 
     </div>
 
-    @include('component.navbar')
+    @include('component.navbar', ['active' => 'workout'])
     
 @endsection

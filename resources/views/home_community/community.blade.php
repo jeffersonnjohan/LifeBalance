@@ -122,5 +122,6 @@
             <div class="aspect-[4/3] bg-cover bg-center rounded-3xl" style="background-image: url('/assets/meditasiCategory.png')"></div>
         </div>
     </div>
+    @include('component.navbar', ['active' => 'home'])
     @include('component.navbar')
 @endsection

@@ -128,5 +128,5 @@
             </div>
         </div>
     </div>
-    @include('component.navbar')
+    @include('component.navbar', ['active' => 'diet'])
 @endsection
