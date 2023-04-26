@@ -23,7 +23,7 @@
             </p>
 
             {{-- Video --}}
-            <video controls loop muted playsinline id="video" class="rounded-2xl w-full mt-8">
+            <video loop muted playsinline id="video" class="rounded-2xl w-full mt-8">
                 <source src="http://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
                 Your browser doesn't support video
             </video>
