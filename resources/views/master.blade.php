@@ -29,6 +29,5 @@
 <body class="font-[Poppins] flex bg-cLightGrey relative box-border">
     @yield('body')
     @yield('scripts')
-    <script src="javascript.js"></script>
 </body>
 </html>
