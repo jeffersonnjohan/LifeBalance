@@ -29,6 +29,13 @@
             <div>{{ $day->description }}</div>
             <input type="checkbox" checked disabled>
             <label>DONE</label>
+         {{-- unlocked ongoing plan or if it's user first day--}}
+         @elseif ($flag == 0 and $enrollment[0]->finished_day == 0)
+            <div>Day {{ $i++ }}</div>
+            <div>{{ $day->description }}</div>
+            <input type="checkbox" id="diet_checkbox">
+            <label>DONE</label>
+            <?php $flag = 1;?>
         {{-- locked ongoing plan --}}
         @elseif ($flag == 0 and $today == $updated_at)
             <div>Day {{ $i++ }}</div>
@@ -37,13 +44,6 @@
                 <span id="countDown"></span>
             </div>
             <?php $flag = 1 ?>
-        {{-- unlocked ongoing plan --}}
-        @elseif ($flag == 0 and $today > $updated_at)
-            <div>Day {{ $i++ }}</div>
-            <div>{{ $day->description }}</div>
-            <input type="checkbox" id="diet_checkbox">
-            <label>DONE</label>
-            <?php $flag = 1;?>
         {{-- locked plan --}}
         @else
             <div>Day {{ $i++ }}</div>
@@ -59,36 +59,8 @@
                 $("#diet_value").val(0);
             }
         })
-
-        if('<?= $today == $updated_at ?>'){
-            var countDownDate = new Date("<?= $tomorrow ;?>").getTime();
-
-            // Update the count down every 1 second
-            var x = setInterval(function() {
-
-            // Get today's date and time
-            var now = new Date().getTime();
-
-            // Find the distance between now and the count down date
-            var distance = countDownDate - now;
-
-            // Time calculations for hours, minutes and seconds
-            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-            // Output the result in an element with id="countDown"
-            document.getElementById("countDown").innerHTML = hours + "h "
-            + minutes + "m " + seconds + "s ";
-
-            // If the count down is over, write some text
-            if (distance < 0) {
-                clearInterval(x);
-                document.getElementById("countDown").innerHTML = "EXPIRED";
-            }
-            }, 1000);
-        }
     </script>
+    @include('backend.countdown-js')
 </body>
 </html>
 
