@@ -90,26 +90,26 @@ Route::get('/history', [HistoryController::class, 'index']);
 
 
 // Routes Jeff. Nanti hapus aja
-Route::get('/workoutmeditationsjeff', function () {
-    return view('workout_meditation.workouts');
-});
+// Route::get('/workoutmeditationsjeff', function () {
+//     return view('workout_meditation.workouts');
+// });
 
-Route::get('/meditationsjeff', function () {
-    return view('workout_meditation.meditation');
-});
+// Route::get('/meditationsjeff', function () {
+//     return view('workout_meditation.meditation');
+// });
 
-Route::get('/workoutdetailsjeff', function () {
-    return view('workout_meditation.workoutDetails');
-});
+// Route::get('/workoutdetailsjeff', function () {
+//     return view('workout_meditation.workoutDetails');
+// });
 
-Route::get('/workoutdaysjeff', function () {
-    return view('workout_meditation.workoutDays');
-});
+// Route::get('/workoutdaysjeff', function () {
+//     return view('workout_meditation.workoutDays');
+// });
 
-Route::get('/workoutactivityjeff', function () {
-    return view('workout_meditation.workoutactivity');
-});
+// Route::get('/workoutactivityjeff', function () {
+//     return view('workout_meditation.workoutactivity');
+// });
 
-Route::get('/meditationdetailsjeff', function () {
-    return view('workout_meditation.meditationDetails');
-});
+// Route::get('/meditationdetailsjeff', function () {
+//     return view('workout_meditation.meditationDetails');
+// });
