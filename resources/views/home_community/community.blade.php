@@ -21,7 +21,7 @@
                     <a href="/community" class="text-[#FF5768] font-extrabold dark:text-white hover:text-[#FF5768]" aria-current="page">Community</a>
                 </li>
             </ul>
-            <a href="/profile" class="fixed bg-[#FF5768] rounded-b-3xl flex justify-center items-center aspect-square h-[50px] shadow-lg top-2 right-2 z-10 group duration-300 ease-out hover:bg-cBlue">
+            <a href="/profile" class="fixed bg-[#FF5768] rounded-b-3xl flex justify-center items-center aspect-square h-[50px] shadow-lg right-2 z-10 group duration-300 ease-out hover:bg-cBlue">
                 <div class="bg-white rounded-full p-4" style="background-image: url('/assets/male.png')"></div>
             </a>
         </div>
@@ -109,6 +109,28 @@
                         <div>
                             <p class="font-bold">Jefferson Johan</p>
                             <p class="italic text-cDarkGrey">22 January 2023</p>
+                        </div>
+                    </div>
+                    <div class="w-fit">
+                        <p class="bg-cBlue text-white px-2 py- rounded-full font-bold">MEDITATION</p>
+                    </div>
+                </div>
+                <div>
+                    <p>has completed "1 Day of Meditation"</p>
+                </div>
+            </div>
+            <div class="aspect-[4/3] bg-cover bg-center rounded-3xl" style="background-image: url('/assets/meditasiCategory.png')"></div>
+        </div>
+        <div class="bg-white shadow-lg rounded-3xl mb-2">
+            <div class="p-3 flex flex-col text-sm gap-1">
+                <div class="flex justify-between">
+                    <div class="flex gap-3">
+                        <div class="w-[40px] aspect-square rounded-full overflow-hidden">
+                            <div class="w-full h-full bg-cover" style="background-image: url('/assets/profile2.png')"></div>
+                        </div>
+                        <div>
+                            <p class="font-bold">Chrystalia Glenys Winata Ang</p>
+                            <p class="italic text-cDarkGrey">20 January 2023</p>
                         </div>
                     </div>
                     <div class="w-fit">
