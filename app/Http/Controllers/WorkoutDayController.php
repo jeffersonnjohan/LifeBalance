@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\WorkoutDay;
 use App\Http\Requests\StoreWorkoutDayRequest;
 use App\Http\Requests\UpdateWorkoutDayRequest;
+use App\Models\EnrollmentWorkout;
+use App\Models\EnrollmentWorkoutsFinish;
 use App\Models\Workout;
 use App\Models\WorkoutDetail;
 use Illuminate\Http\Request;
@@ -21,6 +23,8 @@ class WorkoutDayController extends Controller
         // workoutDays data
         $workout_id = $request->post('workout_id');
         $workout_day_id =  $request->post('workout_day_id');
+        $day = $request->post('day');
+
         $workout_activities = WorkoutDetail::join('workout_activities', 'workout_details.workout_activity_id', '=', 'workout_activities.id')
                                         ->where('workout_details.workout_day_id', '=',  $workout_day_id)
                                         ->get();
@@ -29,13 +33,23 @@ class WorkoutDayController extends Controller
                         ->get();
         $workout_days = WorkoutDay::where('workout_id', '=', $workout_id)
                         ->get();
+
+        // Later, add: if user_id = user_id
+        $finished_day = EnrollmentWorkout::where('workout_id', $workout_id)
+                        ->pluck('finished_day');
+        $checkbox = "";
+        if($finished_day[0] >= (int)$day){
+            $checkbox = "checked disabled";
+        }
+
         return view('backend.workoutDays', [
             'workout_id' => $workout_id,
             'workout_day_id' => $workout_day_id,
-            'day' => $request->post('day'),
+            'day' => $day,
             'workout_activities' => $workout_activities,
             "workout" => $workout,
-            "workout_days"=> $workout_days
+            "workout_days"=> $workout_days,
+            'checkbox' => $checkbox
         ]);
     }
 

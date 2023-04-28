@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\WorkoutDetail;
 use App\Http\Requests\StoreWorkoutDetailRequest;
 use App\Http\Requests\UpdateWorkoutDetailRequest;
+use App\Models\EnrollmentWorkout;
 use App\Models\Workout;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -42,9 +43,11 @@ class WorkoutDetailController extends Controller
                             ->pluck('day_count');
 
             // finished_day++
+            $date = \Carbon\Carbon::now()->format('Y-m-d h:i:s');
             DB::table('enrollment_workouts')
             ->where('workout_id', '=', $workout_id)
-            ->update(['finished_day' => $finished_day[0] +  1]);
+            ->update(['finished_day' => $finished_day[0] +  1,
+                      'updated_at' => $date]);
 
             // if day_count == finished_day, update is_done to 1
             if($day_count->contains($finished_day[0] + 1)){
@@ -63,10 +66,14 @@ class WorkoutDetailController extends Controller
             ->update(['day_count' => $workout_days->count()]);
         }
 
+        // Later, add: if user_id = user_id
+        $enrollment = EnrollmentWorkout::where('workout_id', $workout_id)->get();
+
         return view('backend.workoutDetails', [
             "workout_id" => $workout_id,
             "workout" => $workout,
-            "workout_days"=> $workout_days
+            "workout_days"=> $workout_days,
+            'enrollment' => $enrollment
         ]);
     }
 

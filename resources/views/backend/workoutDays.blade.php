@@ -38,13 +38,13 @@
     {{-- <input type="text" id="previous_value" value="{{}}"> --}}
 
     {{-- if the checkbox value is 1, then set checkbox value to checked. --}}
-    <input type="checkbox" id="workout_checkbox">
+    <input type="checkbox" id="workout_checkbox" {{ $checkbox }}>
     <label>DONE</label>
 
     <script>
         let checkbox = document.getElementById('workout_checkbox');
         $("#back").click(function(){
-            if(checkbox.checked ){
+            if(checkbox.checked && !checkbox.disabled){
                 $("#workout_value").val(1);
             } else {
                 $("#workout_value").val(0);
