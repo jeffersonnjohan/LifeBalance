@@ -76,6 +76,7 @@ Route::get('/inputweight', function () {
     return view('home_community.inputweight');
 });
 
+// ADMIN PAGE
 Route::get('/admin/workout', function () {
     return view('adminpage.listWorkout');
 });
@@ -106,6 +107,23 @@ Route::get('/admin/challenges', function () {
 
 Route::get('/admin/challenges/add', function () {
     return view('adminpage.addChallenge');
+});
+
+// ADDITIONAL ADMIN PAGE - EDIT PLAN
+Route::get('/admin/workout/edit', function () {
+    return view('adminpage.editWP');
+});
+
+Route::get('/admin/meditation/edit', function () {
+    return view('adminpage.editMP');
+});
+
+Route::get('/admin/diet/edit', function () {
+    return view('adminpage.editDP');
+});
+
+Route::get('/admin/challenges/edit', function () {
+    return view('adminpage.editChallenge');
 });
 
 // Home | Community Route
