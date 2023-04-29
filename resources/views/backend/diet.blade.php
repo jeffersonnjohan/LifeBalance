@@ -41,10 +41,10 @@
         @foreach ($unenroll_plans as $plan)
             <div>
                 <button onclick="enrollPopUp({{ $idx }})">
-                    <div><img src="{{ $diet->image . '.png' }}" alt="failed to load image"></div>
-                    <div>{{ $diet->name }}</div>
-                    <div>{{ $diet->description }}</div>
-                    <div>{{ $diet->points }}</div>
+                    <div><img src="{{ $plan->image . '.png' }}" alt="failed to load image"></div>
+                    <div>{{ $plan->name }}</div>
+                    <div>{{ $plan->description }}</div>
+                    <div>{{ $plan->points }}</div>
                 </button>
             </div>
 
@@ -52,7 +52,7 @@
                 Do you want to enroll to this plan?
                 <form action="/dietdays" method="POST">
                     @csrf
-                    <input type="hidden" name="diet_id" value="{{ $diet->id }}">
+                    <input type="hidden" name="diet_id" value="{{ $plan->id }}">
                     <input type="hidden" name="is_new" value="1">
                     <button type="submit">Yes</button>
                 </form>
