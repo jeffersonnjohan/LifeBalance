@@ -19,14 +19,17 @@ class WorkoutDetailController extends Controller
      */
     public function index(Request $request)
     {
+        // get workout_id, if user just make an enrollment, use $request->workout_id. Else $request->post('workout_id). Connected to EnrollmentWorkoutController
+        $workout_id = ($request->post('workout_id'))?$request->post('workout_id'):$request->id;
+
         // workoutDetails data
-        $workout_id = $request->post('workout_id');
         $workout = DB::table('workouts')
                         ->where('id', '=', $workout_id)
                         ->get();
         $workout_days = DB::table('workout_days')
                         ->where('workout_id', '=', $workout_id)
                         ->get();
+
 
         $is_done = DB::table('enrollment_workouts')
                     ->where('workout_id', '=', $workout_id)
