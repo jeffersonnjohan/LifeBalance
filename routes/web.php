@@ -82,8 +82,6 @@ Route::get('/inputweight', function () {
 
 // Workout Route
 Route::get('/workouts', [WorkoutController::class, 'index']);
-Route::post('/enrollworkout', [EnrollmentWorkoutController::class, 'index']);
-Route::get('/workoutdetails', [WorkoutDetailController::class, 'index']);
 Route::post('/workoutdetails', [WorkoutDetailController::class, 'index']);
 Route::post('/workoutdays', [WorkoutDayController::class, 'index']);
 Route::post('/workoutactivity',  [WorkoutActivityController::class, 'index']);

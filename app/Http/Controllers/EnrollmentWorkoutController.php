@@ -17,19 +17,7 @@ class EnrollmentWorkoutController extends Controller
      */
     public function index(Request $request)
     {
-        $workout_id = $request->post('workout_id');
-        $data = array(
-            'user_id' => 1,
-            'workout_id' => $workout_id,
-            'created_at' => Carbon::now(),
-            'updated_at' => Carbon::now()
-        );
-        EnrollmentWorkout::insert($data);
-
-        return redirect()->action(
-            [WorkoutDetailController::class, 'index'],
-            ['id' => $workout_id]
-        );
+        //
     }
 
     /**
