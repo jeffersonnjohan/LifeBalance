@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\EnrollmentWorkout;
 use App\Http\Requests\StoreEnrollmentWorkoutRequest;
 use App\Http\Requests\UpdateEnrollmentWorkoutRequest;
+use Carbon\Carbon;
+use Illuminate\Http\Request;
 
 class EnrollmentWorkoutController extends Controller
 {
@@ -13,9 +15,21 @@ class EnrollmentWorkoutController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $workout_id = $request->post('workout_id');
+        $data = array(
+            'user_id' => 1,
+            'workout_id' => $workout_id,
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now()
+        );
+        EnrollmentWorkout::insert($data);
+
+        return redirect()->action(
+            [WorkoutDetailController::class, 'index'],
+            ['id' => $workout_id]
+        );
     }
 
     /**
