@@ -74,6 +74,38 @@ Route::get('/inputweight', function () {
     return view('home_community.inputweight');
 });
 
+Route::get('/admin/workout', function () {
+    return view('adminpage.listWorkout');
+});
+
+Route::get('/admin/workout/add', function () {
+    return view('adminpage.addWP');
+});
+
+Route::get('/admin/meditation', function () {
+    return view('adminpage.listMeditation');
+});
+
+Route::get('/admin/meditation/add', function () {
+    return view('adminpage.addMP');
+});
+
+Route::get('/admin/diet', function () {
+    return view('adminpage.listDiet');
+});
+
+Route::get('/admin/diet/add', function () {
+    return view('adminpage.addDP');
+});
+
+Route::get('/admin/challenges', function () {
+    return view('adminpage.listChallenges');
+});
+
+Route::get('/admin/challenges/add', function () {
+    return view('adminpage.addChallenge');
+});
+
 // Home | Community Route
 // Route::get('/home', [HomeController::class, 'index']);
 // Route::post('/community', [CommunityController::class, 'index']);
