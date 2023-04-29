@@ -7,6 +7,7 @@ use App\Http\Requests\StoreDietDayRequest;
 use App\Http\Requests\UpdateDietDayRequest;
 use App\Models\Diet;
 use App\Models\EnrollmentDiet;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -19,7 +20,18 @@ class DietDayController extends Controller
      */
     public function index(Request $request)
     {
+
         $diet_id = $request->post('diet_id');
+        if($request->post('is_new')){
+            $data = array(
+                'user_id' => 1,
+                'diet_id' => $diet_id,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            );
+            EnrollmentDiet::insert($data);
+        }
+
         $diet_days = DietDay::where('diet_days.diet_id', '=', $diet_id)->get();
 
         // temporary:
