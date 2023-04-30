@@ -38,9 +38,9 @@
                 </a>
                 {{-- Meditation Plans --}}
                 <a href="/admin/meditation" class="w-[48%]">
-                    <div class="w-full h-full flex flex-col bg-cDarkBlue rounded-3xl overflow-hidden @yield('isMeditationActive')">
-                        <div class="h-[75%] w-full bg-cover" style="background-image: url('/assets/meditasiCategory.png')"></div>
-                        <p class="text-center text-white mt-2">Meditation</p>
+                    <div class="w-full h-full items-center justify-center flex flex-col bg-cDarkBlue rounded-3xl overflow-hidden md:bg-transparent @yield('isMeditationActive')">
+                        <div class="h-[75%] -mt-3 md:w-[30%] w-full bg-cover" style="background-image: url('/assets/meditasiCategory.png')"></div>
+                        <p class="text-center text-white mt-2 md:text-cDarkBlue">Meditation</p>
                     </div>
                 </a>
             </div>
@@ -48,7 +48,7 @@
 
         {{-- Workout Plans List --}}
         <div class="pl-5 pr-5 w-full">
-            {{-- Card Plan --}}
+            {{-- Plan Card --}}
             <div class="flex justify-between h-[240px] items-center gap-x-6 m-2 p-5 bg-white rounded-3xl shadow-lg hover:bg-cDarkBlue hover:text-white duration-500">
                 <div class="w-[60%]">
                     <span class="top-[308px] right-7 w-[60px] h-[40px] rounded-bl-3xl rounded-tr-3xl bg-cRed absolute text-white flex justify-center items-center text-2xl">#1</span>
@@ -80,7 +80,7 @@
                 </div>
             </div>
 
-            {{-- Card Plan --}}
+            {{-- Plan Card --}}
             <div class="flex justify-between h-[240px] items-center gap-x-6 m-2 p-5 bg-white rounded-3xl shadow-lg hover:bg-cDarkBlue hover:text-white duration-500">
                 <div class="w-[60%]">
                     <span class="top-[556px] right-7 w-[60px] h-[40px] rounded-bl-3xl rounded-tr-3xl bg-cRed absolute text-white flex justify-center items-center text-2xl">#1</span>
@@ -112,7 +112,7 @@
                 </div>
             </div>
 
-            {{-- Card Plan --}}
+            {{-- Plan Card --}}
             <div class="flex justify-between h-[240px] items-center gap-x-6 m-2 p-5 bg-white rounded-3xl shadow-lg hover:bg-cDarkBlue hover:text-white duration-500">
                 <div class="w-[60%]">
                     <span class="top-[804px] right-7 w-[60px] h-[40px] rounded-bl-3xl rounded-tr-3xl bg-cRed absolute text-white flex justify-center items-center text-2xl">#1</span>
@@ -144,7 +144,7 @@
                 </div>
             </div>
 
-            {{-- Card Plan --}}
+            {{-- Plan Card --}}
             <div class="flex justify-between h-[240px] items-center gap-x-6 m-2 p-5 bg-white rounded-3xl shadow-lg hover:bg-cDarkBlue hover:text-white duration-500">
                 <div class="w-[60%]">
                     <span class="top-[1052px] right-7 w-[60px] h-[40px] rounded-bl-3xl rounded-tr-3xl bg-cRed absolute text-white flex justify-center items-center text-2xl">#1</span>
@@ -176,7 +176,7 @@
                 </div>
             </div>
 
-            {{-- Card Plan --}}
+            {{-- Plan Card --}}
             <div class="flex justify-between h-[240px] items-center gap-x-6 m-2 p-5 bg-white rounded-3xl shadow-lg hover:bg-cDarkBlue hover:text-white duration-500">
                 <div class="w-[60%]">
                     <span class="top-[1300px] right-7 w-[60px] h-[40px] rounded-bl-3xl rounded-tr-3xl bg-cRed absolute text-white flex justify-center items-center text-2xl">#1</span>
@@ -250,11 +250,15 @@
                 </div>
             </div>
         </div>
+
     {{-- Add Workout Plan --}}
     <a href="/admin/workout/add" class="object-bottom fixed bg-black rounded-full flex justify-center items-center aspect-square h-[50px] shadow-lg bottom-20 right-2 z-10 group duration-300 ease-out hover:bg-cBLue">
         <span class="material-symbols-outlined scale-110 duration-300 ease-out group-hover:text-white text-white mb-100px">
             add
         </span>
     </a>
+
+    {{-- Blank Space --}}
+    <li class="h-[75px] bg-transparent"></li>
     @include('adminpage.adminNavbar', ['active' => 'adminpage.listWorkout'])
 @endsection
