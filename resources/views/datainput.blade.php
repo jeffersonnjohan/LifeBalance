@@ -59,7 +59,8 @@
                     <div class="text-2xl font-bold">@yield('toptitle')</div>
                     <div class="text-sm w-[300px]">@yield('topdesc')</div>
                 </div>
-                <form action="/login" class="flex flex-col gap-2">
+                <form action="/signup" class="flex flex-col gap-2" method="post">
+                    @csrf
                     <div class="w-[300px] h-[50px] rounded-full bg-cLightGrey flex items-center text-cDarkGrey px-4 duration-300 hover:ring-2 focus-within:text-cBlue">
                         <span class="material-symbols-outlined">
                             person
