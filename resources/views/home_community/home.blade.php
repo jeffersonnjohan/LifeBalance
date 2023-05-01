@@ -21,7 +21,7 @@
                     <a href="/community" class="text-gray-900 dark:text-white hover:text-[#FF5768]" aria-current="page">Community</a>
                 </li>
             </ul>
-            <a href="/profile" class="fixed bg-[#FF5768] rounded-b-3xl flex justify-center items-center aspect-square h-[50px] shadow-lg right-2 z-10 group duration-300 ease-out hover:bg-cBlue">
+            <a href="/profile" class="fixed bg-[#FF5768] rounded-b-3xl flex justify-center items-center aspect-square h-[50px] shadow-lg right-2 -top-0.5 z-10 group duration-300 ease-out hover:bg-opacity-50">
                 <div class="bg-white rounded-full p-4" style="background-image: url('/assets/male.png')"></div>
             </a>
         </div>
@@ -96,8 +96,8 @@
             {{-- Workout --}}
             <a href="/workoutmeditations" class="w-[48%]">
                 <div class="items-stretch h-full flex flex-col bg-[#428FDE] rounded-3xl overflow-hidden transition ease-in-out delay-1o0 hover:scale-105 duration-500">
-                    <figure class="max-w-lg items-center">
-                        <img class="mt-2 h-auto max-w-full rounded-lg md:h-40 md:ml-40" src="/assets/blue.png" alt="image description">
+                    <figure class="max-w-lg items-center content-center justify-between">
+                        <img class="mt-2 m-auto h-auto max-w-full rounded-lg md:h-40 md:ml-40" src="/assets/blue.png" alt="image description">
                         <figcaption class="text-sm font-bold text-center text-white dark:text-gray-400">Workout</figcaption>
                     </figure>
                 </div>
@@ -106,13 +106,13 @@
             <a href="/diet" class="w-[48%]">
                 <div class="mr-2 ml-2 items-stretch h-full flex flex-col bg-[#3EBC85] rounded-3xl overflow-hidden transition ease-in-out delay-1o0 hover:scale-105 duration-500">
                     <figure class="max-w-lg items-center">
-                        <img class="mt-5 h-auto max-w-full rounded-lg md:h-40 md:ml-40" src="/assets/green.png" alt="image description">
+                        <img class="mt-5 m-auto h-auto max-w-full rounded-lg md:h-40 md:ml-40" src="/assets/green.png" alt="image description">
                         <figcaption class="mt-1 text-sm font-bold text-center text-white dark:text-gray-400 md:-mt-1">Diet</figcaption>
                     </figure>
                 </div>
             </a>
             {{-- Challenge --}}
-            <a href="/challenge" class="w-[48%]">
+            <a href="/challenges" class="w-[48%]">
                 <div class="items-stretch h-full flex flex-col bg-[#FF7F62] rounded-3xl overflow-hidden transition ease-in-out delay-1o0 hover:scale-105 duration-500">
                     <figure class="max-w-lg items-center">
                         <img class="mt-2 h-auto max-w-full rounded-lg md:h-40 md:ml-40 md:mt-3" src="/assets/orange.png" alt="image description">
@@ -125,7 +125,7 @@
 
     {{-- On Going Plan --}}
     <ul role="contentinfo" class="py-3">
-        <a href="#" class="flex flex-col items-center bg-white rounded-3xl h-100 shadow-lg md:flex-row hover:bg-pink-200 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 duration-500">
+        <a href="#" class="flex flex-col items-center bg-white rounded-3xl h-100 shadow-lg md:flex-row hover:bg-cRed hover:bg-opacity-25 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 duration-500">
             <img class="object-cover rounded-t-lg h-40 m-5 md:h-auto md:w-48 md:rounded-none md:rounded-l-lg" src="/assets/eyediet.jpeg" alt="">
             <div class="flex flex-col justify-between leading-normal">
                 <p class="mb-2 font-normal text-[#FF5768] dark:text-gray-400 hover:text-white">Continue your plan.</p>
@@ -294,7 +294,7 @@
     </ul>
 
     {{-- + button, href -> home_community.inputweight.blade.php --}}
-    <a href="/inputweight" class=" object-bottom fixed bg-black rounded-full flex justify-center items-center aspect-square h-[50px] shadow-lg bottom-20 right-2 z-10 group duration-300 ease-out hover:bg-cBlue">
+    <a href="/inputweight" class=" object-bottom fixed bg-black rounded-full flex justify-center items-center aspect-square h-[50px] shadow-lg bottom-20 right-2 z-10 group duration-300 ease-out hover:bg-cRed">
         <span class="material-symbols-outlined scale-110 duration-300 ease-out group-hover:text-white text-white mb-100px">
             add
         </span>
