@@ -55,6 +55,17 @@
                 <span id="countDown"></span>
             </div>
             <?php $flag = 1 ?>
+        @elseif (!$flag)
+            <form action="/workoutdays" method="POST">
+                @csrf
+                <input type="hidden" name='workout_id' value="{{ $workout[0]->id }}">
+                <input type="hidden" name='workout_day_id' value="{{ $day->id }}">
+                <input type="hidden" name='day' value="{{ $i }}">
+                <button type="submit">
+                    {{ 'Day ' . $i++ }}
+                </button>
+            </form>
+            <?php $flag = 1 ?>
         @else
             <div>{{ 'Day ' . $i++ . ' locked'}}</div>
         @endif

@@ -48,9 +48,10 @@
             </div>
             <div class="workout_popup" style="display:none;">
                 Do you want to enroll to this plan?
-                <form action="/enrollworkout" method="POST">
+                <form action="/workoutdetails" method="POST">
                     @csrf
                     <input type="hidden" name="workout_id" value="{{ $plan->id }}">
+                    <input type="hidden" name="new_plan" value="1">
                     <button type="submit">Yes</button>
                 </form>
                 <button onclick="enrollPopUp({{ $idx }})">No</button>
