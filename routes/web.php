@@ -7,6 +7,7 @@ use App\Http\Controllers\DietDayController;
 use App\Http\Controllers\EnrollmentWorkoutController;
 use App\Http\Controllers\HistoryController;
 use App\Http\Controllers\MeditationController;
+use App\Http\Controllers\SignupController;
 use App\Http\Controllers\WorkoutActivityController;
 use App\Http\Controllers\WorkoutController;
 use App\Http\Controllers\WorkoutDayController;

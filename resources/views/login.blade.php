@@ -11,6 +11,11 @@
 @endsection
 
 @section('body')
+    @if(session()->has('success'))
+        <div class="fixed z-10 w-fit h-fit mt-5 translate-x-[-50%] left-[50%] rounded-full bg-green-200 text-cGreen flex items-center px-4 py-2 text-sm">
+            <p>{{ session('success') }}</p>
+        </div>
+    @endif
     <div class="fixed h-full w-full flex gap-3 flex-col p-3">
         <div class="w-full h-[80%] flex gap-3">
             <div class="h-full w-[60%] flex flex-col gap-3">
@@ -32,14 +37,15 @@
                 <div class="text-2xl font-bold">Welcome Back!</div>
                 <div class="text-sm w-[300px]">Sign in and get back to life healthy!</div>
             </div>
-            <form action="/home" class="flex flex-col gap-2">
-                <div class="w-[300px] h-[50px] rounded-full bg-cLightGrey flex items-center text-cDarkGrey px-4 duration-300 hover:ring-2 focus-within:ring-2 focus-within:text-cBlue">
+            <form action="/login" class="flex flex-col gap-2" method="post">
+                @csrf
+                <div class="w-[300px] h-[50px] rounded-full bg-cLightGrey flex items-center text-cDarkGrey px-4 duration-300 hover:ring-2 focus-within:text-cBlue focus-within:ring-2 hover:text-cBlue">
                     <span class="material-symbols-outlined">
-                        mail
+                        person
                     </span>
-                    <input type="text" name="email" id="email" placeholder="Email" class="border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full">
+                    <input type="text" name="username" id="username" placeholder="Username" required class="border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full">
                 </div>
-                <div class="w-[300px] h-[50px] rounded-full bg-cLightGrey flex items-center text-cDarkGrey px-4 duration-300 hover:ring-2 focus-within:text-cBlue">
+                <div class="w-[300px] h-[50px] rounded-full bg-cLightGrey flex items-center text-cDarkGrey px-4 duration-300 hover:ring-2 focus-within:text-cBlue focus-within:ring-2 hover:text-cBlue"">
                     <span class="material-symbols-outlined">
                         lock
                     </span>
