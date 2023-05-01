@@ -36,6 +36,8 @@ Route::get('/signup', function () {
     return view('signup');
 });
 
+Route::post('/signup', [SignupController::class, 'store']);
+
 Route::get('/editprofile', function () {
     return view('editprofile');
 });
