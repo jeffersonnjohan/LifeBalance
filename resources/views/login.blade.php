@@ -16,6 +16,11 @@
             <p>{{ session('success') }}</p>
         </div>
     @endif
+    @if(session()->has('loginError'))
+    <div class="fixed z-10 w-fit h-fit mt-5 translate-x-[-50%] left-[50%] rounded-full bg-red-200 text-cRed flex items-center px-4 py-2 text-sm">
+        <p>{{ session('loginError') }}</p>
+    </div>
+    @endif
     <div class="fixed h-full w-full flex gap-3 flex-col p-3">
         <div class="w-full h-[80%] flex gap-3">
             <div class="h-full w-[60%] flex flex-col gap-3">
@@ -43,13 +48,13 @@
                     <span class="material-symbols-outlined">
                         person
                     </span>
-                    <input type="text" name="username" id="username" placeholder="Username" required class="border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full">
+                    <input type="text" name="username" id="username" placeholder="Username" required class="border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full" autofocus>
                 </div>
-                <div class="w-[300px] h-[50px] rounded-full bg-cLightGrey flex items-center text-cDarkGrey px-4 duration-300 hover:ring-2 focus-within:text-cBlue focus-within:ring-2 hover:text-cBlue"">
+                <div class="w-[300px] h-[50px] rounded-full bg-cLightGrey flex items-center text-cDarkGrey px-4 duration-300 hover:ring-2 focus-within:text-cBlue focus-within:ring-2 hover:text-cBlue">
                     <span class="material-symbols-outlined">
                         lock
                     </span>
-                    <input type="password" name="password" id="password" placeholder="Password" class="border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full">
+                    <input type="password" name="password" id="password" placeholder="Password" required class="border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full">
                     <div class="flex items-center z-10 cursor-pointer hover:text-cDarkBlue duration-300 ease-out" onclick="visibility()" id="on">
                         <span class="material-symbols-outlined">
                             visibility
