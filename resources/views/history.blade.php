@@ -173,5 +173,5 @@
         </div>
 
     </div>
-    @include('component.navbar')
+    @include('component.navbar', ['active' => 'history'])
 @endsection
