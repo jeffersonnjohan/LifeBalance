@@ -10,31 +10,56 @@
     <div><a href="/workouts">go to workout plans</a></div>
     <div><a href="/meditations">go to meditation </a></div>
 
-    <?php $idx = 0 ?>
+    {{-- {{ dd(array('1','2','3'), $enrollments->toArray(), array($workouts[0]->id), strval($workouts[0]->id), in_array(strval($workouts[0]->id), $enrollments->toArray()) ) }} --}}
+    <?php $unenroll_plans = array() ?>
+    <h3>Enrolled Plan</h3>
     @foreach ($workouts as $workout)
-        <div>
-            <button onclick="enrollPopUp({{ $idx }})">
-                <div>
-                    {{ $workout->name }}
-                    <img src="{{ $workout->image . '.png' }}" alt="failed to load image">
-                </div>
-                <div> @excerpt($workout->description) </div>
-                <div>{{ $workout->points . ' points will be added!' }}</div>
-            </button>
-        </div>
-
-        <div class="workout_popup" style="display:none;">
-            Do you want to enroll to this plan?
+        @if (in_array(strval($workout->id), $enrollments->toArray()))
             <form action="/workoutdetails" method="POST">
                 @csrf
                 <input type="hidden" name="workout_id" value="{{ $workout->id }}">
-                <button type="submit">Yes</button>
+                <button type="submit">
+                    <div>
+                        {{ $workout->name }}
+                        <img src="{{ $workout->image . '.png' }}" alt="failed to load image">
+                    </div>
+                    <div> @excerpt($workout->description) </div>
+                    <div>{{ $workout->points . ' points will be added!' }}</div>
+                </button>
             </form>
-            <button onclick="enrollPopUp({{ $idx }})">No</button>
-        </div>
-
-        <?php $idx++ ?>
+        @else
+            <?php $unenroll_plans[] = $workout ?>
+        @endif
     @endforeach
+
+    <h3>Not Enrolled Plan</h3>
+    <?php $idx = 0;?>
+    @if ( $unenroll_plans )
+        @foreach ($unenroll_plans as $plan)
+            <div>
+                <button onclick="enrollPopUp({{ $idx }})">
+                    <div>
+                        {{ $plan->name }}
+                        <img src="{{ $plan->image . '.png' }}" alt="failed to load image">
+                    </div>
+                    <div> @excerpt($plan->description) </div>
+                    <div>{{ $plan->points . ' points will be added!' }}</div>
+                </button>
+            </div>
+            <div class="workout_popup" style="display:none;">
+                Do you want to enroll to this plan?
+                <form action="/workoutdetails" method="POST">
+                    @csrf
+                    <input type="hidden" name="workout_id" value="{{ $plan->id }}">
+                    <input type="hidden" name="new_plan" value="1">
+                    <button type="submit">Yes</button>
+                </form>
+                <button onclick="enrollPopUp({{ $idx }})">No</button>
+            </div>
+            <?php $idx++ ?>
+        @endforeach
+    @endif
+
 
     <script>
         function enrollPopUp(idx) {

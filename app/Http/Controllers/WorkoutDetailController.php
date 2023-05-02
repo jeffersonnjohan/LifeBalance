@@ -7,6 +7,7 @@ use App\Http\Requests\StoreWorkoutDetailRequest;
 use App\Http\Requests\UpdateWorkoutDetailRequest;
 use App\Models\EnrollmentWorkout;
 use App\Models\Workout;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -19,14 +20,25 @@ class WorkoutDetailController extends Controller
      */
     public function index(Request $request)
     {
-        // workoutDetails data
         $workout_id = $request->post('workout_id');
+        if($request->post('new_plan')){
+            $data = array(
+                'user_id' => 1,
+                'workout_id' => $workout_id,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            );
+            EnrollmentWorkout::insert($data);
+        }
+
+        // workoutDetails data
         $workout = DB::table('workouts')
                         ->where('id', '=', $workout_id)
                         ->get();
         $workout_days = DB::table('workout_days')
                         ->where('workout_id', '=', $workout_id)
                         ->get();
+
 
         $is_done = DB::table('enrollment_workouts')
                     ->where('workout_id', '=', $workout_id)

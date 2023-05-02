@@ -44,9 +44,16 @@
                 <span id="countDown"></span>
             </div>
             <?php $flag = 1 ?>
+        {{--  unlocked plan --}}
+        @elseif (!$flag)
+            <div>Day {{ $i++ }}</div>
+            <div>{{ $day->description }}</div>
+            <input type="checkbox" id="diet_checkbox">
+            <label>DONE</label>
+            <?php $flag = 1;?>
         {{-- locked plan --}}
         @else
-            <div>Day {{ $i++ }}</div>
+            <div>{{ 'Day ' . $i++ . ' locked'}}</div>
         @endif
     @endforeach
 

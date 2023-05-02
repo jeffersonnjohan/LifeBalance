@@ -59,65 +59,44 @@
                     <div class="text-2xl font-bold">@yield('toptitle')</div>
                     <div class="text-sm w-[300px]">@yield('topdesc')</div>
                 </div>
-                <form action="/login" class="flex flex-col gap-2">
-                    <div class="w-[300px] h-[50px] rounded-full bg-cLightGrey flex items-center text-cDarkGrey px-4 duration-300 hover:ring-2 focus-within:text-cBlue">
+                <form action="/signup" class="flex flex-col gap-2" method="post">
+                    @csrf
+                    <div class="w-[300px] h-[50px] rounded-full bg-cLightGrey flex items-center text-cDarkGrey px-4 duration-300 hover:ring-2 focus-within:text-cBlue focus-within:ring-2 hover:text-cBlue">
                         <span class="material-symbols-outlined">
                             person
                         </span>
-                        <input type="text" name="email" id="email" placeholder="Name" class="border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full">
+                        <input type="text" name="username" id="username" placeholder="Username" required class="border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full">
                     </div>
-                    <div class="w-[300px] h-[50px] rounded-full bg-cLightGrey flex items-center text-cDarkGrey px-4 duration-300 hover:ring-2 focus-within:text-cBlue">
+                    <div class="w-[300px] h-[50px] rounded-full bg-cLightGrey flex items-center text-cDarkGrey px-4 duration-300 hover:ring-2 focus-within:text-cBlue focus-within:ring-2 hover:text-cBlue">
                         <span class="material-symbols-outlined">
-                            mail
+                            location_on
                         </span>
-                        <input type="text" name="email" id="email" placeholder="Email" class="border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full">
+                        <input type="text" name="address" id="address" placeholder="Address" required class="border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full">
+                    </div>
+                    <div class="w-[300px] h-[50px] rounded-full bg-cLightGrey flex items-center text-cDarkGrey px-4 duration-300 hover:ring-2 focus-within:text-cBlue focus-within:ring-2 hover:text-cBlue">
+                        <span class="material-symbols-outlined">
+                            calendar_month
+                        </span>
+                        <input type="date" name="dob" id="dob" placeholder="DOB (dd/mm/yyyy)" required class="border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full">
                     </div>
                     <div class="w-[300px] h-[150px] flex items-center text-cDarkGrey justify-between gap-2">
-                        <input type="radio" name="gender" id="male" class="peer/male hidden">
+                        <input type="radio" name="gender" id="male" required class="peer/male hidden" value="male" >
                         <label class="w-[50%] h-full bg-cLightGrey rounded-3xl peer-checked/male:bg-cBlue duration-300 hover:ring-2" for="male">
                             <div class="w-full h-full bg-cover flex flex-col justify-end items-center p-1" style="background-image: url('assets/male.png')">
                                 <div class="text-sm font-bold text-cDarkBlue">Male</div>
                             </div>
                         </label>
-                        <input type="radio" name="gender" id="female" class="peer/female hidden">
+                        <input type="radio" name="gender" id="female" class="peer/female hidden" value="female">
                         <label class="w-[50%] h-full bg-cLightGrey rounded-3xl peer-checked/female:bg-cBlue duration-300 hover:ring-2" for="female">
                             <div class="w-full h-full bg-cover flex flex-col justify-end items-center p-1" style="background-image: url('assets/female.png')">
                                 <div class="text-sm font-bold text-cDarkBlue">Female</div>
                             </div>
                         </label>
                     </div>
-                    <div class="w-[300px] h-[50px] rounded-full bg-cLightGrey flex items-center text-cDarkGrey px-4 duration-300 hover:ring-2 focus-within:text-cBlue">
-                        <span class="material-symbols-outlined">
-                            location_on
-                        </span>
-                        <input type="text" name="address" id="address" placeholder="Address" class="border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full">
-                    </div>
-                    <div class="w-[300px] h-[50px] rounded-full bg-cLightGrey flex items-center text-cDarkGrey px-4 duration-300 hover:ring-2 focus-within:text-cBlue">
-                        <span class="material-symbols-outlined">
-                            calendar_month
-                        </span>
-                        <input type="date" name="dob" id="dob" placeholder="DOB (dd/mm/yyyy)" class="border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full">
-                    </div>
-                    <div class="w-[300px] h-[50px] rounded-full bg-cLightGrey flex items-center text-cDarkGrey px-4 duration-300 hover:ring-2 focus-within:text-cBlue">
-                        <span class="material-symbols-outlined">
-                            lock
-                        </span>
-                        <input type="password" name="password" id="password" placeholder="Password" class="border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full">
-                        <div class="flex items-center z-10 cursor-pointer hover:text-cDarkBlue duration-300 ease-out" onclick="visibility()" id="on">
-                            <span class="material-symbols-outlined">
-                                visibility
-                            </span>
-                        </div>
-                        <div class="flex items-center z-10 cursor-pointer hover:text-cDarkBlue duration-300 ease-out hidden" onclick="visibility()" id="off">
-                            <span class="material-symbols-outlined">
-                                visibility_off
-                            </span>
-                        </div>
-                    </div>
                     <div class="w-[300px] h-[110px] flex items-center text-cDarkGrey justify-between gap-2">
                         <div class="relative aspect-square h-full bg-cLightGrey rounded-3xl">
-                            <input type="file" name="photo" id="photo" class="hidden" onchange="loadFile(event)">
-                            <label for="photo" class="h-full aspect-square rounded-3xl p-2 flex flex-col justify-center items-center cursor-pointer duration-300 hover:ring-2 bg-cover bg-center absolute" id="imgBox">
+                            <input type="file" name="image" id="image" required class="hidden" onchange="loadFile(event)">
+                            <label for="image" class="h-full aspect-square rounded-3xl p-2 flex flex-col justify-center items-center cursor-pointer duration-300 hover:ring-2 focus-within:ring-2 hover:text-cBlue bg-cover bg-center absolute" id="imgBox">
                             </label>
                             <div class="h-full w-full flex flex-col justify-center items-center p-2">
                                 <span class="material-symbols-outlined">
@@ -129,18 +108,34 @@
                             </div>
                         </div>
                         <div class="w-full h-full rounded-3xl flex flex-col justify-between">
-                            <div class="w-full h-[50px] rounded-full bg-cLightGrey flex items-center text-cDarkGrey px-4 duration-300 hover:ring-2 focus-within:text-cBlue">
+                            <div class="w-full h-[50px] rounded-full bg-cLightGrey flex items-center text-cDarkGrey px-4 duration-300 hover:ring-2 focus-within:text-cBlue focus-within:ring-2 hover:text-cBlue">
                                 <span class="material-symbols-outlined">
                                     weight
                                 </span>
-                                <input type="number" name="dob" id="dob" placeholder="Weight (Kg)" class="border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full">
+                                <input type="number" name="weight" id="weight" placeholder="Weight (Kg)" required class="border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full">
                             </div>
-                            <div class="w-full h-[50px] rounded-full bg-cLightGrey flex items-center text-cDarkGrey px-4 duration-300 hover:ring-2 focus-within:text-cBlue">
+                            <div class="w-full h-[50px] rounded-full bg-cLightGrey flex items-center text-cDarkGrey px-4 duration-300 hover:ring-2 focus-within:text-cBlue focus-within:ring-2 hover:text-cBlue">
                                 <span class="material-symbols-outlined">
                                     height
                                 </span>
-                                <input type="number" name="dob" id="dob" placeholder="Height (cm)" class="border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full">
+                                <input type="number" name="height" id="height" placeholder="Height (cm)" required class="border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full">
                             </div>
+                        </div>
+                    </div>
+                    <div class="w-[300px] h-[50px] rounded-full bg-cLightGrey flex items-center text-cDarkGrey px-4 duration-300 hover:ring-2 focus-within:text-cBlue focus-within:ring-2 hover:text-cBlue">
+                        <span class="material-symbols-outlined">
+                            lock
+                        </span>
+                        <input type="password" name="password" id="password" placeholder="Password" required class="border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full">
+                        <div class="flex items-center z-10 cursor-pointer hover:text-cDarkBlue duration-300 ease-out" onclick="visibility()" id="on">
+                            <span class="material-symbols-outlined">
+                                visibility
+                            </span>
+                        </div>
+                        <div class="flex items-center z-10 cursor-pointer hover:text-cDarkBlue duration-300 ease-out hidden" onclick="visibility()" id="off">
+                            <span class="material-symbols-outlined">
+                                visibility_off
+                            </span>
                         </div>
                     </div>
                     @yield('haveaccount')

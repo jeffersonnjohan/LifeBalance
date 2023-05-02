@@ -21,7 +21,7 @@
                     <a href="/community" class="text-[#FF5768] font-extrabold dark:text-white hover:text-[#FF5768]" aria-current="page">Community</a>
                 </li>
             </ul>
-            <a href="/profile" class="fixed bg-[#FF5768] rounded-b-3xl flex justify-center items-center aspect-square h-[50px] shadow-lg right-2 z-10 group duration-300 ease-out hover:bg-cBlue">
+            <a href="/profile" class="fixed bg-[#FF5768] rounded-b-3xl flex justify-center items-center aspect-square h-[50px] shadow-lg right-2 -top-0.5 z-10 group duration-300 ease-out hover:bg-opacity-50">
                 <div class="bg-white rounded-full p-4" style="background-image: url('/assets/male.png')"></div>
             </a>
         </div>
@@ -145,5 +145,4 @@
         </div>
     </div>
     @include('component.navbar', ['active' => 'home'])
-    @include('component.navbar')
 @endsection

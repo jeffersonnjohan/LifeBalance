@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\EnrollmentWorkout;
 use App\Http\Requests\StoreEnrollmentWorkoutRequest;
 use App\Http\Requests\UpdateEnrollmentWorkoutRequest;
+use Carbon\Carbon;
+use Illuminate\Http\Request;
 
 class EnrollmentWorkoutController extends Controller
 {
@@ -13,7 +15,7 @@ class EnrollmentWorkoutController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         //
     }

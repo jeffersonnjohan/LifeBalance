@@ -4,12 +4,15 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CommunityController;
 use App\Http\Controllers\DietController;
 use App\Http\Controllers\DietDayController;
+use App\Http\Controllers\EnrollmentWorkoutController;
 use App\Http\Controllers\HistoryController;
 use App\Http\Controllers\MeditationController;
+use App\Http\Controllers\SignupController;
 use App\Http\Controllers\WorkoutActivityController;
 use App\Http\Controllers\WorkoutController;
 use App\Http\Controllers\WorkoutDayController;
 use App\Http\Controllers\WorkoutDetailController;
+use App\Models\EnrollmentWorkout;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 
@@ -33,6 +36,8 @@ Route::get('/login', function () {
 Route::get('/signup', function () {
     return view('signup');
 });
+
+Route::post('/signup', [SignupController::class, 'store']);
 
 Route::get('/editprofile', function () {
     return view('editprofile');
@@ -72,6 +77,56 @@ Route::get('/community', function () {
 
 Route::get('/inputweight', function () {
     return view('home_community.inputweight');
+});
+
+// ADMIN PAGE
+Route::get('/admin/workout', function () {
+    return view('adminpage.listWorkout');
+});
+
+Route::get('/admin/workout/add', function () {
+    return view('adminpage.addWP');
+});
+
+Route::get('/admin/meditation', function () {
+    return view('adminpage.listMeditation');
+});
+
+Route::get('/admin/meditation/add', function () {
+    return view('adminpage.addMP');
+});
+
+Route::get('/admin/diet', function () {
+    return view('adminpage.listDiet');
+});
+
+Route::get('/admin/diet/add', function () {
+    return view('adminpage.addDP');
+});
+
+Route::get('/admin/challenges', function () {
+    return view('adminpage.listChallenges');
+});
+
+Route::get('/admin/challenges/add', function () {
+    return view('adminpage.addChallenge');
+});
+
+// ADDITIONAL ADMIN PAGE - EDIT PLAN
+Route::get('/admin/workout/edit', function () {
+    return view('adminpage.editWP');
+});
+
+Route::get('/admin/meditation/edit', function () {
+    return view('adminpage.editMP');
+});
+
+Route::get('/admin/diet/edit', function () {
+    return view('adminpage.editDP');
+});
+
+Route::get('/admin/challenges/edit', function () {
+    return view('adminpage.editChallenge');
 });
 
 // Home | Community Route

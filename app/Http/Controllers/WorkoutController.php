@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreWorkoutRequest;
 use App\Http\Requests\UpdateWorkoutRequest;
+use App\Models\EnrollmentWorkout;
 use Illuminate\Http\Request;
 
 class WorkoutController extends Controller
@@ -21,7 +22,8 @@ class WorkoutController extends Controller
     public function index()
     {
         return view('backend.workout', [
-            "workouts" => Workout::all()
+            "workouts" => Workout::all(),
+            "enrollments" => EnrollmentWorkout::where('user_id', '1')->pluck('workout_id') // enrollment based on user
         ]);
     }
 
