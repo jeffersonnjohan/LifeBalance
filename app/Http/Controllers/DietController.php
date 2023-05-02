@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Diet;
 use App\Http\Requests\StoreDietRequest;
 use App\Http\Requests\UpdateDietRequest;
+use App\Models\EnrollmentDiet;
 
 class DietController extends Controller
 {
@@ -16,7 +17,8 @@ class DietController extends Controller
     public function index()
     {
         return view('backend.diet', [
-            'diets' => Diet::filter(request(['search']))->get()
+            'diets' => Diet::filter(request(['search']))->get(),
+            "enrollments" => EnrollmentDiet::where('user_id', '1')->pluck('diet_id')
         ]);
     }
 

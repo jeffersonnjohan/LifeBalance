@@ -14,29 +14,54 @@
         </div>
     </form>
 
-    <?php $idx = 0 ?>
+    <?php $unenroll_plans = array() ?>
+    <h3>Enrolled Plan</h3>
     @foreach ( $diets as $diet )
-        <div>
-            <button onclick="enrollPopUp({{ $idx }})">
-                <div>{{ $diet->image }}</div>
-                <div>{{ $diet->name }}</div>
-                <div>{{ $diet->description }}</div>
-                <div>{{ $diet->points }}</div>
-            </button>
-        </div>
-
-        <div class="diet_popup" style="display:none;">
-            Do you want to enroll to this plan?
-            <form action="/dietdays" method="POST">
-                @csrf
-                <input type="hidden" name="diet_id" value="{{ $diet->id }}">
-                <button type="submit">Yes</button>
-            </form>
-            <button onclick="enrollPopUp({{ $idx }})">No</button>
-        </div>
-
-        <?php $idx++ ?>
+        @if (in_array(strval($diet->id), $enrollments->toArray()))
+            <div>
+                <form action="/dietdays" method="POST">
+                    @csrf
+                    <input type="hidden" name="diet_id" value="{{ $diet->id }}">
+                    <button type="submit">
+                        <div><img src="{{ $diet->image . '.png' }}" alt="failed to load image"></div>
+                        <div>{{ $diet->name }}</div>
+                        <div>{{ $diet->description }}</div>
+                        <div>{{ $diet->points }}</div>
+                    </button>
+                </form>
+            </div>
+        @else
+            <?php $unenroll_plans[] = $diet ?>
+        @endif
     @endforeach
+
+    <h3>Not Enrolled Plan</h3>
+    <?php $idx = 0;?>
+    @if ( $unenroll_plans )
+        @foreach ($unenroll_plans as $plan)
+            <div>
+                <button onclick="enrollPopUp({{ $idx }})">
+                    <div><img src="{{ $plan->image . '.png' }}" alt="failed to load image"></div>
+                    <div>{{ $plan->name }}</div>
+                    <div>{{ $plan->description }}</div>
+                    <div>{{ $plan->points }}</div>
+                </button>
+            </div>
+
+            <div class="diet_popup" style="display:none;">
+                Do you want to enroll to this plan?
+                <form action="/dietdays" method="POST">
+                    @csrf
+                    <input type="hidden" name="diet_id" value="{{ $plan->id }}">
+                    <input type="hidden" name="is_new" value="1">
+                    <button type="submit">Yes</button>
+                </form>
+                <button onclick="enrollPopUp({{ $idx }})">No</button>
+            </div>
+
+            <?php $idx++ ?>
+        @endforeach
+    @endif
 
     <script>
         function enrollPopUp(idx) {
