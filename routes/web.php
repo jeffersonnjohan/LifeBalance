@@ -1,20 +1,21 @@
 <?php
 
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\CommunityController;
-use App\Http\Controllers\DietController;
-use App\Http\Controllers\DietDayController;
-use App\Http\Controllers\EnrollmentWorkoutController;
-use App\Http\Controllers\HistoryController;
-use App\Http\Controllers\MeditationController;
-use App\Http\Controllers\SignupController;
-use App\Http\Controllers\WorkoutActivityController;
-use App\Http\Controllers\WorkoutController;
-use App\Http\Controllers\WorkoutDayController;
-use App\Http\Controllers\WorkoutDetailController;
 use App\Models\EnrollmentWorkout;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DietController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\SignupController;
+use App\Http\Controllers\DietDayController;
+use App\Http\Controllers\HistoryController;
+use App\Http\Controllers\WorkoutController;
+use App\Http\Controllers\CommunityController;
+use App\Http\Controllers\MeditationController;
+use App\Http\Controllers\WorkoutDayController;
+use App\Http\Controllers\WorkoutDetailController;
+use App\Http\Controllers\WorkoutActivityController;
+use App\Http\Controllers\EnrollmentWorkoutController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,6 +33,8 @@ Route::redirect('/', '/login');
 Route::get('/login', function () {
     return view('login');
 });
+
+Route::post('/login', [LoginController::class, 'authenticate']);
 
 Route::get('/signup', function () {
     return view('signup');
