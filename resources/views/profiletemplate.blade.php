@@ -14,8 +14,6 @@
 
 @section('body')
     @extends('component.backbutton')
-    @section('backlink', '/profile')
-    @yield('backbtn')
     <div class="w-full h-full">
         <div class="h-[70px] flex justify-center items-center text-2xl font-medium">
             <p>@yield('toptitle')</p>
@@ -43,7 +41,7 @@
             </div>
             <div class="flex flex-col justify-center items-center mb-2">
                 <div class="w-fit flex gap-1">
-                    <div class="text-2xl font-bold w-fit">Daniel Zerge Wijaya</div>
+                    <div class="text-2xl font-bold w-fit">ID {{ session('activeId') }} : Daniel Zerge Wijaya</div>
                     <div class="flex align-middle">
                         <span class="material-symbols-outlined self-center scale-[115%]" id="male">
                             male

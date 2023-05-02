@@ -2,9 +2,7 @@
 
 @section('bar', 'Profile')
 
-@section('backbtn')
-@include('component.editprofilebutton')
-@endsection
+@section('backlink', '/home')
 
 @section('toptitle', 'Profile')
 
@@ -13,13 +11,14 @@
 @endsection
 
 @section('userdata')
+    @include('component.editprof_logout')
     <div class="h-[100px] flex gap-2 mb-2">
         <div class="bg-white w-[50%] h-full shadow-lg rounded-3xl flex justify-center items-center text-cBlue gap-3">
             <span class="material-symbols-outlined scale-150">
                 weight
             </span>
             <div class="flex items-end">
-                <p class="text-6xl font-bold">60</p>
+                <p class="text-5xl font-bold">60</p>
                 <p class="font-bold">kg</p>
             </div>
         </div>

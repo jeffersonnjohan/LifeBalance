@@ -6,10 +6,10 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    public function index(){
-        $arrUser = ["Daniel"];
+    public function index() {
+        $name = 'daniel';
 
-        return view('/home', compact('arrUser'));
+        return view('/home_community/home', compact('name'));
     }
 }
 ?>

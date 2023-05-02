@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DietController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\SignupController;
 use App\Http\Controllers\DietDayController;
 use App\Http\Controllers\HistoryController;
@@ -42,6 +43,8 @@ Route::get('/signup', function () {
 
 Route::post('/signup', [SignupController::class, 'store']);
 
+Route::get('/logout', [LogoutController::class, 'deleteActiveId']);
+
 Route::get('/editprofile', function () {
     return view('editprofile');
 });
@@ -70,9 +73,9 @@ Route::get('/history', function () {
     return view('history');
 });
 
-Route::get('/home', function () {
-    return view('home_community.home');
-});
+// Route::get('/home', function () {
+//     return view('home_community.home');
+// });
 
 Route::get('/community', function () {
     return view('home_community.community');
@@ -133,7 +136,7 @@ Route::get('/admin/challenges/edit', function () {
 });
 
 // Home | Community Route
-// Route::get('/home', [HomeController::class, 'index']);
+Route::get('/home', [HomeController::class, 'index']);
 // Route::post('/community', [CommunityController::class, 'index']);
 
 // Workout Route
