@@ -28,6 +28,7 @@ return new class extends Migration
             $table->integer('streak_count')->default(0);
             $table->date('last_login')->default(Carbon::now());
             $table->rememberToken();
+            $table->timestamps();
         });
     }
 

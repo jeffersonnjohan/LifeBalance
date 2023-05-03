@@ -6,10 +6,15 @@ use Illuminate\Http\Request;
 class LogoutController extends Controller
 {
     public function deleteActiveId(Request $request) {
-        // $temp = session('activeId');
+        // ilangin session('activeId')
         $request->session()->pull('activeId');
-        // echo $temp;
-        // return $request->all();
-        return view('login');
+
+        if(!session('activeId')) {
+            // kalo sudah hilang
+            return view('login');
+        } else {
+            // kalo masih ada
+            return view('profile');
+        }
     }
 }

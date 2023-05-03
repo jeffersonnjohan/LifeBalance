@@ -10,8 +10,10 @@ use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\SignupController;
 use App\Http\Controllers\DietDayController;
 use App\Http\Controllers\HistoryController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\WorkoutController;
 use App\Http\Controllers\CommunityController;
+use App\Http\Controllers\EditProfileController;
 use App\Http\Controllers\MeditationController;
 use App\Http\Controllers\WorkoutDayController;
 use App\Http\Controllers\WorkoutDetailController;
@@ -37,21 +39,28 @@ Route::get('/login', function () {
 
 Route::post('/login', [LoginController::class, 'authenticate']);
 
-Route::get('/signup', function () {
-    return view('signup');
-});
+// Route::get('/signup', function () {
+//     return view('signup');
+// });
+
+Route::get('/signup', [SignupController::class, 'index']);
 
 Route::post('/signup', [SignupController::class, 'store']);
 
 Route::get('/logout', [LogoutController::class, 'deleteActiveId']);
 
-Route::get('/editprofile', function () {
-    return view('editprofile');
-});
+// Route::get('/editprofile', function () {
+//     return view('editprofile');
+// });
 
-Route::get('/profile', function () {
-    return view('profile');
-});
+Route::get('/editprofile', [EditProfileController::class, 'index']);
+Route::post('/editprofile', [EditProfileController::class, 'updateData']);
+
+// Route::get('/profile', function () {
+//     return view('profile');
+// });
+
+Route::get('/profile', [ProfileController::class, 'index']);
 
 Route::get('/otherprofile', function () {
     return view('otherprofile');
