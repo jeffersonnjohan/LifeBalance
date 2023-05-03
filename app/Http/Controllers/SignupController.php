@@ -11,8 +11,17 @@ class SignupController extends Controller
         return view('/signup', compact('userdata'));
     }
     public function store(Request $request) {
+        // return $request->file('image')->store('profile-images');
         $validatedData = $request->all();
-        $validatedData['image'] = '/images/'.$validatedData['image'];
+        // $validatedData['image'] = '/images/'.$validatedData['image'];
+        // $temp = '';
+        // $validatedData['image'] = $request->file('image')->store('profile-images');
+        // $temp = $validatedData['image'];
+        if($request->file('image')) {
+            $validatedData['image'] = $request->file('image')->store('profile-images');
+        }
+
+        // return $temp;
         $validatedData['password'] = bcrypt($validatedData['password']);
         User::create($validatedData);
         $request->session()->flash('success', 'User created successfully! Please login.');

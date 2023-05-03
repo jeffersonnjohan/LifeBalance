@@ -28,7 +28,7 @@
                     <div class="w-full h-[65%] bg-cGreen rounded-3xl"></div>
                     <div class="w-full h-[35%] bg-cBlue rounded-3xl"></div>
                 </div>
-                <div class="h-[75%] aspect-square absolute bg-cLightGrey left-[50%] translate-x-[-50%] top-[50%] translate-y-[-50%] shadow-lg rounded-3xl bg-cover overflow-hidden" style="background-image: url('/assets/female.png')">
+                <div class="h-[75%] aspect-square absolute bg-cLightGrey left-[50%] translate-x-[-50%] top-[50%] translate-y-[-50%] shadow-lg rounded-3xl bg-cover overflow-hidden" style="background-image: url({{ '/storage/'.$userdata['image'] }})">
                     <div class="bg-white h-fit w-fit absolute right-0 px-3 py-1 flex items-center gap-1 font-bold rounded-bl-3xl">
                         <span class="material-symbols-outlined text-cYellow">
                             toll
