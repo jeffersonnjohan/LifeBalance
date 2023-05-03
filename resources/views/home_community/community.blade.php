@@ -143,6 +143,7 @@
             </div>
             <div class="aspect-[4/3] bg-cover bg-center rounded-3xl" style="background-image: url('/assets/meditasiCategory.png')"></div>
         </div>
+        <li class="flex justify-between items-center gap-x-6 m-5 p-5 bg-white rounded-3xl shadow-lg"></li>
     </div>
     @include('component.navbar', ['active' => 'home'])
 @endsection
