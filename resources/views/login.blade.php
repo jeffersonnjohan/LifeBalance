@@ -12,14 +12,14 @@
 
 @section('body')
     @if(session()->has('success'))
-        <div class="fixed z-10 w-fit h-fit mt-5 translate-x-[-50%] left-[50%] rounded-full bg-green-200 text-cGreen flex items-center px-4 py-2 text-sm">
+        <div class="fixed z-10 w-fit h-fit mt-5 translate-x-[-50%] left-[50%] rounded-full bg-green-200 text-cGreen flex items-center px-4 py-2 text-sm text-center">
             <p>{{ session('success') }}</p>
         </div>
     @endif
     @if(session()->has('loginError'))
-    <div class="fixed z-10 w-fit h-fit mt-5 translate-x-[-50%] left-[50%] rounded-full bg-red-200 text-cRed flex items-center px-4 py-2 text-sm">
-        <p>{{ session('loginError') }}</p>
-    </div>
+        <div class="fixed z-10 w-fit h-fit mt-5 translate-x-[-50%] left-[50%] rounded-full bg-red-200 text-cRed flex items-center px-4 py-2 text-sm text-center">
+            <p>{{ session('loginError') }}</p>
+        </div>
     @endif
     <div class="fixed h-full w-full flex gap-3 flex-col p-3">
         <div class="w-full h-[80%] flex gap-3">

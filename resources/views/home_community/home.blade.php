@@ -32,7 +32,7 @@
 @section('body')
 <div class="w-full h-fit px-2 pb-2">
     <div class="max-w-screen-xl px-4 py-3 h-20"></div>
-    <div class="text-center font-bold text-xl mt-5">Good Morning, {(username)}!</div>
+    <div class="text-center font-bold text-xl mt-5">Good Morning, ID {{ session('activeId') }}</div>
         {{-- @foreach ($arrUser as $usr)
         <h1>{{$usr}}</h1>
         @endforeach --}}

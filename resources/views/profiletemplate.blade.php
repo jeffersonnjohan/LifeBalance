@@ -14,8 +14,6 @@
 
 @section('body')
     @extends('component.backbutton')
-    @section('backlink', '/profile')
-    @yield('backbtn')
     <div class="w-full h-full">
         <div class="h-[70px] flex justify-center items-center text-2xl font-medium">
             <p>@yield('toptitle')</p>
@@ -36,26 +34,28 @@
                             toll
                         </span>
                         <div class="flex justify-center">
-                            <p class="h-fit">300</p>
+                            <p class="h-fit">{{ $userdata['points'] }}</p>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="flex flex-col justify-center items-center mb-2">
                 <div class="w-fit flex gap-1">
-                    <div class="text-2xl font-bold w-fit">Daniel Zerge Wijaya</div>
-                    <div class="flex align-middle">
-                        <span class="material-symbols-outlined self-center scale-[115%]" id="male">
-                            male
-                        </span>
-                    </div>
-                    <div class="flex align-middle hidden">
-                        <span class="material-symbols-outlined self-center scale-[115%]" id="female">
-                            female
-                        </span>
-                    </div>
+                    <div class="text-2xl font-bold w-fit">@yield('name')</div>
+                    @if($userdata['gender'] === 'male')
+                        <div class="flex align-middle">
+                            <span class="material-symbols-outlined self-center scale-[115%]" id="male">
+                                male
+                            </span>
+                        </div>
+                    @else
+                        <div class="flex align-middle">
+                            <span class="material-symbols-outlined self-center scale-[115%]" id="female">
+                                female
+                            </span>
+                        </div>
+                    @endif
                 </div>
-                @yield('email')
             </div>
             @yield('userdata')
             <div class="bg-white shadow-lg rounded-3xl mb-2">
@@ -66,7 +66,7 @@
                                 <div class="w-full h-full bg-cover" style="background-image: url('/assets/profile2.png')"></div>
                             </div>
                             <div>
-                                <p class="font-bold">Daniel Zerge Wijaya</p>
+                                <p class="font-bold">@yield('name')</p>
                                 <p class="italic text-cDarkGrey">22 January 2023</p>
                             </div>
                         </div>
@@ -88,7 +88,7 @@
                                 <div class="w-full h-full bg-cover" style="background-image: url('/assets/profile2.png')"></div>
                             </div>
                             <div>
-                                <p class="font-bold">Daniel Zerge Wijaya</p>
+                                <p class="font-bold">@yeild('name')</p>
                                 <p class="italic text-cDarkGrey">22 January 2023</p>
                             </div>
                         </div>

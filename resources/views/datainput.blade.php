@@ -37,6 +37,7 @@
 @endsection
 
 @section('body')
+    @yield('backbtn')
     <div class="fixed h-full w-full flex flex-col p-3 gap-3">
         <div class="w-full h-[80%] flex gap-3">
             <div class="h-full w-[60%] flex flex-col gap-3">
@@ -59,39 +60,62 @@
                     <div class="text-2xl font-bold">@yield('toptitle')</div>
                     <div class="text-sm w-[300px]">@yield('topdesc')</div>
                 </div>
-                <form action="/signup" class="flex flex-col gap-2" method="post">
+                <form action="@yield('directpage')" class="flex flex-col gap-2" method="post">
                     @csrf
                     <div class="w-[300px] h-[50px] rounded-full bg-cLightGrey flex items-center text-cDarkGrey px-4 duration-300 hover:ring-2 focus-within:text-cBlue focus-within:ring-2 hover:text-cBlue">
                         <span class="material-symbols-outlined">
                             person
                         </span>
-                        <input type="text" name="username" id="username" placeholder="Username" required class="border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full" autofocus>
+                        <input type="text" name="username" id="username" placeholder="Username" value="@yield('username')" required class="border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full" autofocus>
                     </div>
                     <div class="w-[300px] h-[50px] rounded-full bg-cLightGrey flex items-center text-cDarkGrey px-4 duration-300 hover:ring-2 focus-within:text-cBlue focus-within:ring-2 hover:text-cBlue">
                         <span class="material-symbols-outlined">
                             location_on
                         </span>
-                        <input type="text" name="address" id="address" placeholder="Address" required class="border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full">
+                        <input type="text" name="address" id="address" placeholder="Address" value="@yield('address')" required class="border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full">
                     </div>
-                    <div class="w-[300px] h-[50px] rounded-full bg-cLightGrey flex items-center text-cDarkGrey px-4 duration-300 hover:ring-2 focus-within:text-cBlue focus-within:ring-2 hover:text-cBlue">
-                        <span class="material-symbols-outlined">
-                            calendar_month
-                        </span>
-                        <input type="date" name="dob" id="dob" placeholder="DOB (dd/mm/yyyy)" required class="border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full">
-                    </div>
+                    @yield('dob')
                     <div class="w-[300px] h-[150px] flex items-center text-cDarkGrey justify-between gap-2">
-                        <input type="radio" name="gender" id="male" required class="peer/male hidden" value="male" >
-                        <label class="w-[50%] h-full bg-cLightGrey rounded-3xl peer-checked/male:bg-cBlue duration-300 hover:ring-2" for="male">
-                            <div class="w-full h-full bg-cover flex flex-col justify-end items-center p-1" style="background-image: url('assets/male.png')">
-                                <div class="text-sm font-bold text-cDarkBlue">Male</div>
-                            </div>
-                        </label>
-                        <input type="radio" name="gender" id="female" class="peer/female hidden" value="female">
-                        <label class="w-[50%] h-full bg-cLightGrey rounded-3xl peer-checked/female:bg-cBlue duration-300 hover:ring-2" for="female">
-                            <div class="w-full h-full bg-cover flex flex-col justify-end items-center p-1" style="background-image: url('assets/female.png')">
-                                <div class="text-sm font-bold text-cDarkBlue">Female</div>
-                            </div>
-                        </label>
+                        @if( $userdata['gender'] == 'male')
+                            <input type="radio" name="gender" id="male" required class="peer/male hidden" value="male" checked>
+                            <label class="w-[50%] h-full bg-cLightGrey rounded-3xl peer-checked/male:bg-cBlue duration-300 hover:ring-2" for="male">
+                                <div class="w-full h-full bg-cover flex flex-col justify-end items-center p-1" style="background-image: url('assets/male.png')">
+                                    <div class="text-sm font-bold text-cDarkBlue">Male</div>
+                                </div>
+                            </label>
+                            <input type="radio" name="gender" id="female" class="peer/female hidden" value="female">
+                            <label class="w-[50%] h-full bg-cLightGrey rounded-3xl peer-checked/female:bg-cBlue duration-300 hover:ring-2" for="female">
+                                <div class="w-full h-full bg-cover flex flex-col justify-end items-center p-1" style="background-image: url('assets/female.png')">
+                                    <div class="text-sm font-bold text-cDarkBlue">Female</div>
+                                </div>
+                            </label>
+                        @elseif ($userdata['gender'] == 'female')
+                            <input type="radio" name="gender" id="male" required class="peer/male hidden" value="male">
+                            <label class="w-[50%] h-full bg-cLightGrey rounded-3xl peer-checked/male:bg-cBlue duration-300 hover:ring-2" for="male">
+                                <div class="w-full h-full bg-cover flex flex-col justify-end items-center p-1" style="background-image: url('assets/male.png')">
+                                    <div class="text-sm font-bold text-cDarkBlue">Male</div>
+                                </div>
+                            </label>
+                            <input type="radio" name="gender" id="female" class="peer/female hidden" value="female" checked>
+                            <label class="w-[50%] h-full bg-cLightGrey rounded-3xl peer-checked/female:bg-cBlue duration-300 hover:ring-2" for="female">
+                                <div class="w-full h-full bg-cover flex flex-col justify-end items-center p-1" style="background-image: url('assets/female.png')">
+                                    <div class="text-sm font-bold text-cDarkBlue">Female</div>
+                                </div>
+                            </label>
+                        @else
+                            <input type="radio" name="gender" id="male" required class="peer/male hidden" value="male">
+                            <label class="w-[50%] h-full bg-cLightGrey rounded-3xl peer-checked/male:bg-cBlue duration-300 hover:ring-2" for="male">
+                                <div class="w-full h-full bg-cover flex flex-col justify-end items-center p-1" style="background-image: url('assets/male.png')">
+                                    <div class="text-sm font-bold text-cDarkBlue">Male</div>
+                                </div>
+                            </label>
+                            <input type="radio" name="gender" id="female" class="peer/female hidden" value="female">
+                            <label class="w-[50%] h-full bg-cLightGrey rounded-3xl peer-checked/female:bg-cBlue duration-300 hover:ring-2" for="female">
+                                <div class="w-full h-full bg-cover flex flex-col justify-end items-center p-1" style="background-image: url('assets/female.png')">
+                                    <div class="text-sm font-bold text-cDarkBlue">Female</div>
+                                </div>
+                            </label>
+                        @endif
                     </div>
                     <div class="w-[300px] h-[110px] flex items-center text-cDarkGrey justify-between gap-2">
                         <div class="relative aspect-square h-full bg-cLightGrey rounded-3xl">
@@ -107,20 +131,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="w-full h-full rounded-3xl flex flex-col justify-between">
-                            <div class="w-full h-[50px] rounded-full bg-cLightGrey flex items-center text-cDarkGrey px-4 duration-300 hover:ring-2 focus-within:text-cBlue focus-within:ring-2 hover:text-cBlue">
-                                <span class="material-symbols-outlined">
-                                    weight
-                                </span>
-                                <input type="number" name="weight" id="weight" placeholder="Weight (Kg)" required class="border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full">
-                            </div>
-                            <div class="w-full h-[50px] rounded-full bg-cLightGrey flex items-center text-cDarkGrey px-4 duration-300 hover:ring-2 focus-within:text-cBlue focus-within:ring-2 hover:text-cBlue">
-                                <span class="material-symbols-outlined">
-                                    height
-                                </span>
-                                <input type="number" name="height" id="height" placeholder="Height (cm)" required class="border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full">
-                            </div>
-                        </div>
+                        @yield('weight_height')
                     </div>
                     <div class="w-[300px] h-[50px] rounded-full bg-cLightGrey flex items-center text-cDarkGrey px-4 duration-300 hover:ring-2 focus-within:text-cBlue focus-within:ring-2 hover:text-cBlue">
                         <span class="material-symbols-outlined">
