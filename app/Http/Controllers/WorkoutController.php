@@ -23,7 +23,7 @@ class WorkoutController extends Controller
     {
         return view('backend.workout', [
             "workouts" => Workout::all(),
-            "enrollments" => EnrollmentWorkout::where('user_id', '1')->pluck('workout_id') // enrollment based on user
+            "enrollments" => EnrollmentWorkout::where('user_id', session('activeId'))->pluck('workout_id') // enrollment based on user
         ]);
     }
 

@@ -18,7 +18,7 @@ class DietController extends Controller
     {
         return view('backend.diet', [
             'diets' => Diet::filter(request(['search']))->get(),
-            "enrollments" => EnrollmentDiet::where('user_id', '1')->pluck('diet_id')
+            "enrollments" => EnrollmentDiet::where('user_id', session('activeId'))->pluck('diet_id')
         ]);
     }
 

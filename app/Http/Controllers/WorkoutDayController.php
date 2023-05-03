@@ -34,8 +34,8 @@ class WorkoutDayController extends Controller
         $workout_days = WorkoutDay::where('workout_id', '=', $workout_id)
                         ->get();
 
-        // Later, add: if user_id = user_id
         $finished_day = EnrollmentWorkout::where('workout_id', $workout_id)
+                        ->where('user_id', session('activeId'))
                         ->pluck('finished_day');
         $checkbox = "";
         if($finished_day[0] >= (int)$day){

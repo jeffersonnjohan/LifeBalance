@@ -23,7 +23,7 @@ class WorkoutDetailController extends Controller
         $workout_id = $request->post('workout_id');
         if($request->post('new_plan')){
             $data = array(
-                'user_id' => 1,
+                'user_id' => session('activeId'),
                 'workout_id' => $workout_id,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
@@ -78,8 +78,9 @@ class WorkoutDetailController extends Controller
             ->update(['day_count' => $workout_days->count()]);
         }
 
-        // Later, add: if user_id = user_id
-        $enrollment = EnrollmentWorkout::where('workout_id', $workout_id)->get();
+        $enrollment = EnrollmentWorkout::where('workout_id', $workout_id)
+                                        ->where('user_id', session('activeId'))
+                                        ->get();
 
         return view('backend.workoutDetails', [
             "workout_id" => $workout_id,

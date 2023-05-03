@@ -24,7 +24,7 @@ class DietDayController extends Controller
         $diet_id = $request->post('diet_id');
         if($request->post('is_new')){
             $data = array(
-                'user_id' => 1,
+                'user_id' => session('activeId'),
                 'diet_id' => $diet_id,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
@@ -43,8 +43,9 @@ class DietDayController extends Controller
             ->update(['day_count' => $diet_days->count()]);
         }
 
-        // Later, add: if user_id = user_id
-        $enrollment = EnrollmentDiet::where('diet_id', $diet_id)->get();
+        $enrollment = EnrollmentDiet::where('diet_id', $diet_id)
+                                    ->where('user_id', session('activeId'))
+                                    ->get();
 
         return view('backend.dietDays', [
             'diet_id' => $diet_id,
