@@ -42,12 +42,14 @@ class WorkoutDetailController extends Controller
 
         $is_done = DB::table('enrollment_workouts')
                     ->where('workout_id', '=', $workout_id)
+                    ->where('user_id', session('activeId'))
                     ->pluck('is_done');
 
         // if checkbox checked, then workout_value = 1
         if($request->post('workout_value') && !$is_done[0]){
             $finished_day = DB::table('enrollment_workouts')
                             ->where('workout_id', '=', $workout_id)
+                            ->where('user_id', session('activeId'))
                             ->pluck('finished_day');
 
             $day_count = DB::table('workouts')
@@ -57,14 +59,16 @@ class WorkoutDetailController extends Controller
             // finished_day++
             $date = \Carbon\Carbon::now()->format('Y-m-d h:i:s');
             DB::table('enrollment_workouts')
-            ->where('workout_id', '=', $workout_id)
-            ->update(['finished_day' => $finished_day[0] +  1,
-                      'updated_at' => $date]);
+                ->where('workout_id', '=', $workout_id)
+                ->where('user_id', session('activeId'))
+                ->update(['finished_day' => $finished_day[0] +  1,
+                        'updated_at' => $date]);
 
             // if day_count == finished_day, update is_done to 1
             if($day_count->contains($finished_day[0] + 1)){
                 DB::table('enrollment_workouts')
                 ->where('workout_id', '=', $workout_id)
+                ->where('user_id', session('activeId'))
                 ->update(['is_done' => 1]);
             }
         }

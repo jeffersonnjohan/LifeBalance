@@ -59,11 +59,13 @@ class DietDayController extends Controller
         $diet_id = $request->post('diet_id');
         $is_done = DB::table('enrollment_diets')
                     ->where('diet_id', '=', $diet_id)
+                    ->where('user_id', session('activeId'))
                     ->pluck('is_done');
 
         if($request->post('diet_value') && !$is_done[0]){
             $finished_day = DB::table('enrollment_diets')
                             ->where('diet_id', '=', $diet_id)
+                            ->where('user_id', session('activeId'))
                             ->pluck('finished_day');
 
             $day_count = DB::table('diets')
@@ -74,12 +76,14 @@ class DietDayController extends Controller
             $date = \Carbon\Carbon::now()->format('Y-m-d h:i:s');
             DB::table('enrollment_diets')
             ->where('diet_id', '=', $diet_id)
+            ->where('user_id', session('activeId'))
             ->update(['finished_day' => $finished_day[0] +  1,
                       'updated_at' => $date]);
 
             // if day_count == finished_day, update is_done to 1
             if($day_count->contains($finished_day[0] + 1)){
                 DB::table('enrollment_diets')
+                ->where('user_id', session('activeId'))
                 ->where('diet_id', '=', $diet_id)
                 ->update(['is_done' => 1]);
             }
