@@ -270,16 +270,18 @@
     {{-- Leaderboard --}}
     <ul role="list" class="">
         <div class="text-center font-bold mt-5">Leaderboard</div>
+        @foreach($leaderboards as $leaderboard)
         <li class="flex justify-between items-center m-2 p-3 bg-white rounded-3xl shadow-lg hover:bg-pink-200 duration-500">
             <div class="flex items-center gap-3 w-fit">
                 <img class="h-12 w-12 flex-none rounded-full bg-gray-50" src="/assets/female.png" alt="">
                 <div class="w-fit flex-auto py-2">
-                    <p class="text-xs w-fit text-gray-900">Winita Teukeku Priyanto</p>
+                    <p class="text-xs w-fit text-gray-900">{{ $leaderboard->username }}</p>
                 </div>
             </div>
-            <p class="h-fit text-xs text-gray-900">ⓒ 150,850</p>
+            <p class="h-fit text-xs text-gray-900">ⓒ {{ $leaderboard->points }}</p>
         </li>
-        <li class="flex justify-between items-center m-2 p-3 bg-white rounded-3xl shadow-lg hover:bg-pink-200 duration-500">
+        @endforeach
+        {{-- <li class="flex justify-between items-center m-2 p-3 bg-white rounded-3xl shadow-lg hover:bg-pink-200 duration-500">
             <div class="flex items-center gap-3 w-fit">
                 <img class="h-12 w-12 flex-none rounded-full bg-gray-50" src="/assets/male.png" alt="">
                 <div class="w-fit flex-auto py-2">
@@ -314,7 +316,7 @@
                 </div>
             </div>
             <p class="h-fit text-xs text-gray-900">ⓒ 150,850</p>
-        </li>
+        </li> --}}
 
         {{-- Blank Space --}}
         <li class="m-5 p-5 bg-transparent"></li>

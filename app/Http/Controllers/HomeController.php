@@ -28,6 +28,7 @@ class HomeController extends Controller
             'caloriesOut' => $caloriesOut,
             'totalCalories' => $totalCalories,
             'categoryBmi' => $this->categoryBmi($bmi),
+            'leaderboards' => $this->leaderboard()
         ]);
     }
 
@@ -39,6 +40,10 @@ class HomeController extends Controller
         } else{
             return 'Overweight';
         }
+    }
+
+    private function leaderboard(){
+        return User::all()->sortByDesc('points')->take(5);
     }
 }
 ?>
