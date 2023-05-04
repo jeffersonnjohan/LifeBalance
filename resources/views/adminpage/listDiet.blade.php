@@ -8,7 +8,7 @@
 @endsection
 
 {{-- Header --}}
-<nav class="justify-evenly fixed bg-cLightGrey w-full z-10">
+<nav class="justify-evenly fixed bg-gradient-to-b from-cLightGrey from-30% to-transparent w-full z-10">
     <div class="max-w-screen-xl px-4 py-3 mx-auto">
         <div class="flex items-center">
             <ul class="flex flex-row font-medium mt-0 mr-6 space-x-2 text-2xl">
