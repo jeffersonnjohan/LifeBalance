@@ -63,7 +63,7 @@
                 <div class="h-[50%] flex-row flex gap-2">
                     <div class="w-[50%]">
                         <div class="h-[50%] text-xs font-bold flex-row flex items-center gap-2">
-                            AB
+                            {{ $caloriesIn }}
                             <div class="flex items-center">
                                 KCAL
                             </div>
