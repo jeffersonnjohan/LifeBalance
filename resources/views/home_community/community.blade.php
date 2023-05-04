@@ -14,16 +14,16 @@
         <div class="flex items-center">
             <ul class="flex flex-row font-normal space-x-2 text-2xl">
                 <li>
-                    <a href="/home" class="text-cDarkGrey dark:text-white hover:text-[#FF5768]">Home</a>
+                    <a href="/home" class="text-cDarkGrey dark:text-white hover:text-cRed">Home</a>
                 </li>
                 <li class="text-cDarkGrey">
                     |
                 </li>
                 <li>
-                    <a href="/community" class="text-[#FF5768] font-bold dark:text-white hover:text-[#FF5768]" aria-current="page">Community</a>
+                    <a href="/community" class="text-cRed font-bold dark:text-white hover:text-cRed" aria-current="page">Community</a>
                 </li>
             </ul>
-            <a href="/profile" class="fixed bg-[#FF5768] rounded-b-3xl flex justify-center items-center aspect-square h-[50px] shadow-lg right-2 -top-0.5 z-10 group duration-300 ease-out hover:bg-opacity-50">
+            <a href="/profile" class="fixed bg-cRed rounded-b-3xl flex justify-center items-center aspect-square h-[50px] shadow-lg right-2 -top-0.5 z-10 group duration-300 ease-out hover:bg-opacity-50">
                 <div class="bg-white rounded-full p-4" style="background-image: url('/assets/male.png')"></div>
             </a>
         </div>
@@ -47,7 +47,7 @@
                     </div>
                 </div>
                 <div class="w-fit">
-                    <p class="bg-cBlue text-white px-2 py- rounded-full font-bold">WORKOUT</p>
+                    <p class="bg-cBlue text-white px-2 rounded-full font-bold">WORKOUT</p>
                 </div>
             </div>
             <div>
@@ -69,7 +69,7 @@
                     </div>
                 </div>
                 <div class="w-fit">
-                    <p class="bg-cGreen text-white px-2 py- rounded-full font-bold">DIET</p>
+                    <p class="bg-cGreen text-white px-2 rounded-full font-bold">DIET</p>
                 </div>
             </div>
             <div>
@@ -91,7 +91,7 @@
                     </div>
                 </div>
                 <div class="w-fit">
-                    <p class="bg-cGreen text-white px-2 py- rounded-full font-bold">DIET</p>
+                    <p class="bg-cGreen text-white px-2 rounded-full font-bold">DIET</p>
                 </div>
             </div>
             <div>
@@ -113,7 +113,7 @@
                     </div>
                 </div>
                 <div class="w-fit">
-                    <p class="bg-cBlue text-white px-2 py- rounded-full font-bold">MEDITATION</p>
+                    <p class="bg-cBlue text-white px-2 rounded-full font-bold">MEDITATION</p>
                 </div>
             </div>
             <div>
@@ -130,12 +130,12 @@
                         <div class="w-full h-full bg-cover" style="background-image: url('/assets/profile2.png')"></div>
                     </div>
                     <div>
-                        <p class="font-bold">Chrystalia Glenys Winata Ang</p>
+                        <p class="font-bold">Chrystalia Glenys</p>
                         <p class="italic text-cDarkGrey">20 January 2023</p>
                     </div>
                 </div>
                 <div class="w-fit">
-                    <p class="bg-cBlue text-white px-2 py- rounded-full font-bold">MEDITATION</p>
+                    <p class="bg-cBlue text-white px-2 rounded-full font-bold">MEDITATION</p>
                 </div>
             </div>
             <div>
