@@ -109,7 +109,7 @@
                     </div>
                 </div>
                 <div class="h-[50%]">
-                    <div class=" h-[50%] text-xs flex-row flex justify-center items-center text-center">
+                    <div class="h-[50%] text-xs flex-row flex justify-center items-center text-center">
                         Current Streak
                     </div>
                     <div class="h-[50%] text-xs font-bold flex-row flex justify-center text-center">
