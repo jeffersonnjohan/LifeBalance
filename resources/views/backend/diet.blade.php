@@ -19,7 +19,7 @@
     @foreach ( $diets as $diet )
         @if (in_array(strval($diet->id), $enrollments->toArray()))
             <div>
-                <form action="/dietdays" method="POST">
+                <form action="/dietDays" method="POST">
                     @csrf
                     <input type="hidden" name="diet_id" value="{{ $diet->id }}">
                     <button type="submit">
@@ -50,7 +50,7 @@
 
             <div class="diet_popup" style="display:none;">
                 Do you want to enroll to this plan?
-                <form action="/dietdays" method="POST">
+                <form action="/dietDays" method="POST">
                     @csrf
                     <input type="hidden" name="diet_id" value="{{ $plan->id }}">
                     <input type="hidden" name="is_new" value="1">

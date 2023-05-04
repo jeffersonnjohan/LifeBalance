@@ -7,31 +7,34 @@
     <title>Document</title>
 </head>
 <body>
+    <?php $temp = array(); ?>
     <div>Unfinished Plan!</div>
-    @foreach ($enrollments as $enrollment)
-        @if ($enrollment->is_done == 0)
-            {{-- show unfinished plan--}}
-            <div>
-                <div>{{ $enrollment->name }}</div>
-                <div>{{ $enrollment->day_count - $enrollment->finished_day . ' days left!'}}</div>
-            </div>
-        @else
-            {{-- saved temporary --}}
-            <?php
-            $temp[] = [
-                'name' => $enrollment->name,
-                'finished_date' => \Carbon\Carbon::parse($enrollment->updated_at)->format('d M, Y')
-            ]
-            ?>
-        @endif
-    @endforeach
+    @if (!$enrollments)
+        @foreach ($enrollments as $enrollment)
+            @if ($enrollment->is_done == 0)
+                {{-- show unfinished plan--}}
+                <div>
+                    <div>{{ $enrollment->name }}</div>
+                    <div>{{ $enrollment->day_count - $enrollment->finished_day . ' days left!'}}</div>
+                </div>
+            @else
+                {{-- saved temporary --}}
+                <?php $temp[] = $enrollment;?>
+            @endif
+        @endforeach
 
-    <div>Finished Plan</div>
-    @foreach ($temp as $temp)
-        <div>
-            <div>{{ $temp['name'] }}</div>
-            <div>{{ $temp['finished_date'] }}</div>
-        </div>
-    @endforeach
+        <div>Finished Plan</div>
+        @foreach ($temp as $temp)
+            <div>
+                <div>{{ $temp->name }}</div>
+                <div>{{ \Carbon\Carbon::parse($enrollment->updated_at)->format('d M, Y') }}</div>
+            </div>
+        @endforeach
+    @else
+        <div>No History</div>
+    @endif
+
+
+
 </body>
 </html>

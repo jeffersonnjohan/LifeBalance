@@ -14,8 +14,11 @@ class HistoryController extends Controller
         // add validation, based on user enrollment
         $enrollment_diets = DB::table('enrollment_diets')->join('diets', 'diets.id', '=', 'enrollment_diets.diet_id');
         $enrollment_workouts = DB::table('enrollment_workouts')->join('workouts', 'workouts.id', '=', 'enrollment_workouts.workout_id');
-        $enrollments = $enrollment_diets->union($enrollment_workouts)->orderByRaw('updated_at DESC')->get();
-
+        $enrollments = $enrollment_diets->union($enrollment_workouts)
+                                        ->orderByRaw('updated_at DESC')
+                                        ->get();
+        $enrollments = $enrollments->where('user_id', session('activeId'));
+        
         return view('backend.history', [
             'enrollments' => $enrollments
         ]);
