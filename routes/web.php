@@ -90,10 +90,6 @@ Route::get('/community', function () {
     return view('home_community.community');
 });
 
-Route::get('/inputweight', function () {
-    return view('home_community.inputweight');
-});
-
 // ADMIN PAGE
 Route::get('/admin/workout', function () {
     return view('adminpage.listWorkout');
