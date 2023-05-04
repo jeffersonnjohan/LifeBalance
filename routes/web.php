@@ -51,8 +51,8 @@ Route::get('/otherprofile', function () {
     return view('otherprofile');
 });
 
-Route::get('/diet', function () {
-    return view('diet.diet');
+Route::get('/diets', function () {
+    return view('diet.diets');
 });
 
 Route::get('/planDiet', function () {
