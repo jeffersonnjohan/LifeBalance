@@ -29,209 +29,229 @@
 @section('body')
 <div class="w-full">
     {{-- Challenges Plans List --}}
-    <div class="pl-2 pr-2 pt-16 w-full">
+    <div class="px-2 pt-16 w-full">
         {{-- Plan Card --}}
-        <div class="flex justify-between h-[240px] items-center gap-x-6 bg-transparent mb-2">
-            <div class="flex flex-row h-[240px] w-full items-center p-5">
-                <div class="bg-white rounded-3xl h-[240px] w-full shadow-lg items-centershadow-lg hover:bg-cOrange hover:text-white duration-500">
-                    <div class="relative">
-                        <div class="bg-cOrange h-fit w-fit text-white rounded-tr-3xl rounded-bl-3xl p-2 top-0 right-0 absolute text-md">15-17 Apr</div>
-                    </div>
-                    <div class="p-12">
-                    <h3 class="font-semibold pl-2 pr-2 mr-20 pt-4 items-center text-lg">Finish First Workout</h3>
-                    <h4 class="pl-2 pr-2 mr-20 text-sm">Selesaikan 1 workout plan sebagai satu workout plan pertama Anda, dan dapatkan rewardsnya!</h4>
-                    <div class="flex flex-row mr-20 p-2">
-                        <div class="font-bold rounded-full border-2 border-black h-7 w-30">
-                            <h5 class=" pl-20 pr-20 ">0/1</h5>
-                        </div>
-                        <div class="flex flex-row pl-2 pr-2">
-                            <span class="material-symbols-outlined text-cYellow">
-                                toll
-                            </span>
-                            <h5>5</h5>
-                        </div>
+        <div class="h-fit bg-white mb-2 relative rounded-3xl shadow-lg hover:bg-cOrange hover:text-white duration-500">
+            <div class="absolute bg-cOrange h-fit w-fit px-4 text-white rounded-bl-3xl rounded-tr-3xl top-0 right-0 text-md">15-17 Apr</div>
+            <div class="flex py-6 px-5 items-center">
+                <div class="flex flex-col">
+                    <p class="font-semibold items-center text-lg">Finish First Workout</p>
+                    <p class="text-sm">Selesaikan 1 workout plan sebagai satu workout plan pertama Anda, dan dapatkan rewardsnya!</p>
+                    <div class="flex ">
+                        <span class="material-symbols-outlined text-cYellow">
+                            toll
+                        </span>
+                        <p>5</p>
                     </div>
                 </div>
-            </div>
-            <div class="w-[10%] h-full flex justify-center items-center">
-                <div class="flex-row">
-                    <a href="#" class="p-5" data-modal-target="popup-edit" data-modal-toggle="popup-edit">
+                <div class="h-fit w-fit flex flex-col gap-2 right-2">
+                    <a href="#" class="" data-modal-target="popup-edit" data-modal-toggle="popup-edit">
                         <span class="material-symbols-outlined rounded-full p-2 scale-100 duration-300 ease-out bg-cOrange hover:bg-white hover:text-black text-white">
                             edit
                         </span>
                     </a>
-                    <div class="bg-transparent h-2"></div>
-                    <a href="#" class="p-5" data-modal-target="popup-delete" data-modal-toggle="popup-delete">
+                    <a href="#" class="" data-modal-target="popup-delete" data-modal-toggle="popup-delete">
                         <span class="material-symbols-outlined rounded-full p-2 scale-100 duration-300 ease-out bg-cRed hover:bg-white hover:text-black text-white">
                             delete
                         </span>
                     </a>
                 </div>
-            </div>
             </div>
         </div>
-
         {{-- Plan Card --}}
-        <div class="flex justify-between h-[240px] items-center gap-x-6 bg-transparent mb-2">
-            <div class="flex flex-row h-[240px] w-full items-center p-5">
-                <div class="bg-white rounded-3xl h-[240px] w-full shadow-lg items-centershadow-lg hover:bg-cOrange hover:text-white duration-500">
-                    <div class="relative">
-                        <div class="bg-cOrange h-fit w-fit text-white rounded-tr-3xl rounded-bl-3xl p-2 top-0 right-0 absolute text-md">15-17 Apr</div>
-                    </div>
-                    <div class="p-12">
-                    <h3 class="font-semibold pl-2 pr-2 mr-20 pt-4 items-center text-lg">Finish First Workout</h3>
-                    <h4 class="pl-2 pr-2 mr-20 text-sm">Selesaikan 1 workout plan sebagai satu workout plan pertama Anda, dan dapatkan rewardsnya!</h4>
-                    <div class="flex flex-row mr-20 p-2">
-                        <div class="font-bold rounded-full border-2 border-black h-7 w-30">
-                            <h5 class=" pl-20 pr-20 ">0/1</h5>
-                        </div>
-                        <div class="flex flex-row pl-2 pr-2">
-                            <span class="material-symbols-outlined text-cYellow">
-                                toll
-                            </span>
-                            <h5>5</h5>
-                        </div>
+        <div class="h-fit bg-white mb-2 relative rounded-3xl shadow-lg hover:bg-cOrange hover:text-white duration-500">
+            <div class="absolute bg-cOrange h-fit w-fit px-4 text-white rounded-bl-3xl rounded-tr-3xl top-0 right-0 text-md">15-17 Apr</div>
+            <div class="flex py-6 px-5 items-center">
+                <div class="flex flex-col">
+                    <p class="font-semibold items-center text-lg">Finish First Workout</p>
+                    <p class="text-sm">Selesaikan 1 workout plan sebagai satu workout plan pertama Anda, dan dapatkan rewardsnya!</p>
+                    <div class="flex ">
+                        <span class="material-symbols-outlined text-cYellow">
+                            toll
+                        </span>
+                        <p>5</p>
                     </div>
                 </div>
-            </div>
-            <div class="w-[10%] h-full flex justify-center items-center">
-                <div class="flex-row">
-                    <a href="#" class="p-5" data-modal-target="popup-edit" data-modal-toggle="popup-edit">
+                <div class="h-fit w-fit flex flex-col gap-2 right-2">
+                    <a href="#" class="" data-modal-target="popup-edit" data-modal-toggle="popup-edit">
                         <span class="material-symbols-outlined rounded-full p-2 scale-100 duration-300 ease-out bg-cOrange hover:bg-white hover:text-black text-white">
                             edit
                         </span>
                     </a>
-                    <div class="bg-transparent h-2"></div>
-                    <a href="#" class="p-5" data-modal-target="popup-delete" data-modal-toggle="popup-delete">
+                    <a href="#" class="" data-modal-target="popup-delete" data-modal-toggle="popup-delete">
                         <span class="material-symbols-outlined rounded-full p-2 scale-100 duration-300 ease-out bg-cRed hover:bg-white hover:text-black text-white">
                             delete
                         </span>
                     </a>
                 </div>
-            </div>
             </div>
         </div>
-
         {{-- Plan Card --}}
-        <div class="flex justify-between h-[240px] items-center gap-x-6 bg-transparent mb-2">
-            <div class="flex flex-row h-[240px] w-full items-center p-5">
-                <div class="bg-white rounded-3xl h-[240px] w-full shadow-lg items-centershadow-lg hover:bg-cOrange hover:text-white duration-500">
-                    <div class="relative">
-                        <div class="bg-cOrange h-fit w-fit text-white rounded-tr-3xl rounded-bl-3xl p-2 top-0 right-0 absolute text-md">15-17 Apr</div>
-                    </div>
-                    <div class="p-12">
-                    <h3 class="font-semibold pl-2 pr-2 mr-20 pt-4 items-center text-lg">Finish First Workout</h3>
-                    <h4 class="pl-2 pr-2 mr-20 text-sm">Selesaikan 1 workout plan sebagai satu workout plan pertama Anda, dan dapatkan rewardsnya!</h4>
-                    <div class="flex flex-row mr-20 p-2">
-                        <div class="font-bold rounded-full border-2 border-black h-7 w-30">
-                            <h5 class=" pl-20 pr-20 ">0/1</h5>
-                        </div>
-                        <div class="flex flex-row pl-2 pr-2">
-                            <span class="material-symbols-outlined text-cYellow">
-                                toll
-                            </span>
-                            <h5>5</h5>
-                        </div>
+        <div class="h-fit bg-white mb-2 relative rounded-3xl shadow-lg hover:bg-cOrange hover:text-white duration-500">
+            <div class="absolute bg-cOrange h-fit w-fit px-4 text-white rounded-bl-3xl rounded-tr-3xl top-0 right-0 text-md">15-17 Apr</div>
+            <div class="flex py-6 px-5 items-center">
+                <div class="flex flex-col">
+                    <p class="font-semibold items-center text-lg">Finish First Workout</p>
+                    <p class="text-sm">Selesaikan 1 workout plan sebagai satu workout plan pertama Anda, dan dapatkan rewardsnya!</p>
+                    <div class="flex ">
+                        <span class="material-symbols-outlined text-cYellow">
+                            toll
+                        </span>
+                        <p>5</p>
                     </div>
                 </div>
-            </div>
-            <div class="w-[10%] h-full flex justify-center items-center">
-                <div class="flex-row">
-                    <a href="#" class="p-5" data-modal-target="popup-edit" data-modal-toggle="popup-edit">
+                <div class="h-fit w-fit flex flex-col gap-2 right-2">
+                    <a href="#" class="" data-modal-target="popup-edit" data-modal-toggle="popup-edit">
                         <span class="material-symbols-outlined rounded-full p-2 scale-100 duration-300 ease-out bg-cOrange hover:bg-white hover:text-black text-white">
                             edit
                         </span>
                     </a>
-                    <div class="bg-transparent h-2"></div>
-                    <a href="#" class="p-5" data-modal-target="popup-delete" data-modal-toggle="popup-delete">
+                    <a href="#" class="" data-modal-target="popup-delete" data-modal-toggle="popup-delete">
                         <span class="material-symbols-outlined rounded-full p-2 scale-100 duration-300 ease-out bg-cRed hover:bg-white hover:text-black text-white">
                             delete
                         </span>
                     </a>
                 </div>
-            </div>
             </div>
         </div>
-
         {{-- Plan Card --}}
-        <div class="flex justify-between h-[240px] items-center gap-x-6 bg-transparent mb-2">
-            <div class="flex flex-row h-[240px] w-full items-center p-5">
-                <div class="bg-white rounded-3xl h-[240px] w-full shadow-lg items-centershadow-lg hover:bg-cOrange hover:text-white duration-500">
-                    <div class="relative">
-                        <div class="bg-cOrange h-fit w-fit text-white rounded-tr-3xl rounded-bl-3xl p-2 top-0 right-0 absolute text-md">15-17 Apr</div>
-                    </div>
-                    <div class="p-12">
-                    <h3 class="font-semibold pl-2 pr-2 mr-20 pt-4 items-center text-lg">Finish First Workout</h3>
-                    <h4 class="pl-2 pr-2 mr-20 text-sm">Selesaikan 1 workout plan sebagai satu workout plan pertama Anda, dan dapatkan rewardsnya!</h4>
-                    <div class="flex flex-row mr-20 p-2">
-                        <div class="font-bold rounded-full border-2 border-black h-7 w-30">
-                            <h5 class=" pl-20 pr-20 ">0/1</h5>
-                        </div>
-                        <div class="flex flex-row pl-2 pr-2">
-                            <span class="material-symbols-outlined text-cYellow">
-                                toll
-                            </span>
-                            <h5>5</h5>
-                        </div>
+        <div class="h-fit bg-white mb-2 relative rounded-3xl shadow-lg hover:bg-cOrange hover:text-white duration-500">
+            <div class="absolute bg-cOrange h-fit w-fit px-4 text-white rounded-bl-3xl rounded-tr-3xl top-0 right-0 text-md">15-17 Apr</div>
+            <div class="flex py-6 px-5 items-center">
+                <div class="flex flex-col">
+                    <p class="font-semibold items-center text-lg">Finish First Workout</p>
+                    <p class="text-sm">Selesaikan 1 workout plan sebagai satu workout plan pertama Anda, dan dapatkan rewardsnya!</p>
+                    <div class="flex ">
+                        <span class="material-symbols-outlined text-cYellow">
+                            toll
+                        </span>
+                        <p>5</p>
                     </div>
                 </div>
-            </div>
-            <div class="w-[10%] h-full flex justify-center items-center">
-                <div class="flex-row">
-                    <a href="#" class="p-5" data-modal-target="popup-edit" data-modal-toggle="popup-edit">
+                <div class="h-fit w-fit flex flex-col gap-2 right-2">
+                    <a href="#" class="" data-modal-target="popup-edit" data-modal-toggle="popup-edit">
                         <span class="material-symbols-outlined rounded-full p-2 scale-100 duration-300 ease-out bg-cOrange hover:bg-white hover:text-black text-white">
                             edit
                         </span>
                     </a>
-                    <div class="bg-transparent h-2"></div>
-                    <a href="#" class="p-5" data-modal-target="popup-delete" data-modal-toggle="popup-delete">
+                    <a href="#" class="" data-modal-target="popup-delete" data-modal-toggle="popup-delete">
                         <span class="material-symbols-outlined rounded-full p-2 scale-100 duration-300 ease-out bg-cRed hover:bg-white hover:text-black text-white">
                             delete
                         </span>
                     </a>
                 </div>
-            </div>
             </div>
         </div>
-
         {{-- Plan Card --}}
-        <div class="flex justify-between h-[240px] items-center gap-x-6 bg-transparent mb-2">
-            <div class="flex flex-row h-[240px] w-full items-center p-5">
-                <div class="bg-white rounded-3xl h-[240px] w-full shadow-lg items-centershadow-lg hover:bg-cOrange hover:text-white duration-500">
-                    <div class="relative">
-                        <div class="bg-cOrange h-fit w-fit text-white rounded-tr-3xl rounded-bl-3xl p-2 top-0 right-0 absolute text-md">15-17 Apr</div>
-                    </div>
-                    <div class="p-12">
-                    <h3 class="font-semibold pl-2 pr-2 mr-20 pt-4 items-center text-lg">Finish First Workout</h3>
-                    <h4 class="pl-2 pr-2 mr-20 text-sm">Selesaikan 1 workout plan sebagai satu workout plan pertama Anda, dan dapatkan rewardsnya!</h4>
-                    <div class="flex flex-row mr-20 p-2">
-                        <div class="font-bold rounded-full border-2 border-black h-7 w-30">
-                            <h5 class=" pl-20 pr-20 ">0/1</h5>
-                        </div>
-                        <div class="flex flex-row pl-2 pr-2">
-                            <span class="material-symbols-outlined text-cYellow">
-                                toll
-                            </span>
-                            <h5>5</h5>
-                        </div>
+        <div class="h-fit bg-white mb-2 relative rounded-3xl shadow-lg hover:bg-cOrange hover:text-white duration-500">
+            <div class="absolute bg-cOrange h-fit w-fit px-4 text-white rounded-bl-3xl rounded-tr-3xl top-0 right-0 text-md">15-17 Apr</div>
+            <div class="flex py-6 px-5 items-center">
+                <div class="flex flex-col">
+                    <p class="font-semibold items-center text-lg">Finish First Workout</p>
+                    <p class="text-sm">Selesaikan 1 workout plan sebagai satu workout plan pertama Anda, dan dapatkan rewardsnya!</p>
+                    <div class="flex ">
+                        <span class="material-symbols-outlined text-cYellow">
+                            toll
+                        </span>
+                        <p>5</p>
                     </div>
                 </div>
-            </div>
-            <div class="w-[10%] h-full flex justify-center items-center">
-                <div class="flex-row">
-                    <a href="#" class="p-5" data-modal-target="popup-edit" data-modal-toggle="popup-edit">
+                <div class="h-fit w-fit flex flex-col gap-2 right-2">
+                    <a href="#" class="" data-modal-target="popup-edit" data-modal-toggle="popup-edit">
                         <span class="material-symbols-outlined rounded-full p-2 scale-100 duration-300 ease-out bg-cOrange hover:bg-white hover:text-black text-white">
                             edit
                         </span>
                     </a>
-                    <div class="bg-transparent h-2"></div>
-                    <a href="#" class="p-5" data-modal-target="popup-delete" data-modal-toggle="popup-delete">
+                    <a href="#" class="" data-modal-target="popup-delete" data-modal-toggle="popup-delete">
                         <span class="material-symbols-outlined rounded-full p-2 scale-100 duration-300 ease-out bg-cRed hover:bg-white hover:text-black text-white">
                             delete
                         </span>
                     </a>
                 </div>
             </div>
+        </div>
+        {{-- Plan Card --}}
+        <div class="h-fit bg-white mb-2 relative rounded-3xl shadow-lg hover:bg-cOrange hover:text-white duration-500">
+            <div class="absolute bg-cOrange h-fit w-fit px-4 text-white rounded-bl-3xl rounded-tr-3xl top-0 right-0 text-md">15-17 Apr</div>
+            <div class="flex py-6 px-5 items-center">
+                <div class="flex flex-col">
+                    <p class="font-semibold items-center text-lg">Finish First Workout</p>
+                    <p class="text-sm">Selesaikan 1 workout plan sebagai satu workout plan pertama Anda, dan dapatkan rewardsnya!</p>
+                    <div class="flex ">
+                        <span class="material-symbols-outlined text-cYellow">
+                            toll
+                        </span>
+                        <p>5</p>
+                    </div>
+                </div>
+                <div class="h-fit w-fit flex flex-col gap-2 right-2">
+                    <a href="#" class="" data-modal-target="popup-edit" data-modal-toggle="popup-edit">
+                        <span class="material-symbols-outlined rounded-full p-2 scale-100 duration-300 ease-out bg-cOrange hover:bg-white hover:text-black text-white">
+                            edit
+                        </span>
+                    </a>
+                    <a href="#" class="" data-modal-target="popup-delete" data-modal-toggle="popup-delete">
+                        <span class="material-symbols-outlined rounded-full p-2 scale-100 duration-300 ease-out bg-cRed hover:bg-white hover:text-black text-white">
+                            delete
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        {{-- Plan Card --}}
+        <div class="h-fit bg-white mb-2 relative rounded-3xl shadow-lg hover:bg-cOrange hover:text-white duration-500">
+            <div class="absolute bg-cOrange h-fit w-fit px-4 text-white rounded-bl-3xl rounded-tr-3xl top-0 right-0 text-md">15-17 Apr</div>
+            <div class="flex py-6 px-5 items-center">
+                <div class="flex flex-col">
+                    <p class="font-semibold items-center text-lg">Finish First Workout</p>
+                    <p class="text-sm">Selesaikan 1 workout plan sebagai satu workout plan pertama Anda, dan dapatkan rewardsnya!</p>
+                    <div class="flex ">
+                        <span class="material-symbols-outlined text-cYellow">
+                            toll
+                        </span>
+                        <p>5</p>
+                    </div>
+                </div>
+                <div class="h-fit w-fit flex flex-col gap-2 right-2">
+                    <a href="#" class="" data-modal-target="popup-edit" data-modal-toggle="popup-edit">
+                        <span class="material-symbols-outlined rounded-full p-2 scale-100 duration-300 ease-out bg-cOrange hover:bg-white hover:text-black text-white">
+                            edit
+                        </span>
+                    </a>
+                    <a href="#" class="" data-modal-target="popup-delete" data-modal-toggle="popup-delete">
+                        <span class="material-symbols-outlined rounded-full p-2 scale-100 duration-300 ease-out bg-cRed hover:bg-white hover:text-black text-white">
+                            delete
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        {{-- Plan Card --}}
+        <div class="h-fit bg-white mb-2 relative rounded-3xl shadow-lg hover:bg-cOrange hover:text-white duration-500">
+            <div class="absolute bg-cOrange h-fit w-fit px-4 text-white rounded-bl-3xl rounded-tr-3xl top-0 right-0 text-md">15-17 Apr</div>
+            <div class="flex py-6 px-5 items-center">
+                <div class="flex flex-col">
+                    <p class="font-semibold items-center text-lg">Finish First Workout</p>
+                    <p class="text-sm">Selesaikan 1 workout plan sebagai satu workout plan pertama Anda, dan dapatkan rewardsnya!</p>
+                    <div class="flex ">
+                        <span class="material-symbols-outlined text-cYellow">
+                            toll
+                        </span>
+                        <p>5</p>
+                    </div>
+                </div>
+                <div class="h-fit w-fit flex flex-col gap-2 right-2">
+                    <a href="#" class="" data-modal-target="popup-edit" data-modal-toggle="popup-edit">
+                        <span class="material-symbols-outlined rounded-full p-2 scale-100 duration-300 ease-out bg-cOrange hover:bg-white hover:text-black text-white">
+                            edit
+                        </span>
+                    </a>
+                    <a href="#" class="" data-modal-target="popup-delete" data-modal-toggle="popup-delete">
+                        <span class="material-symbols-outlined rounded-full p-2 scale-100 duration-300 ease-out bg-cRed hover:bg-white hover:text-black text-white">
+                            delete
+                        </span>
+                    </a>
+                </div>
             </div>
         </div>
 

@@ -28,7 +28,7 @@
     {{-- Categories --}}
     <div class="w-full h-[300px] p-10 pt-16 bg-transparent">
         <p class="text-cDarkBlue mt-2">Categories</p>
-        <div class="w-80% h-[160px] flex mt-2 justify-between mb-5">
+        <div class="h-[160px] flex mt-2 justify-between mb-5">
             {{-- Workout Plans --}}
             <a href="/admin/workout" class="w-[48%]">
                 <div class="w-full h-full items-center justify-center flex flex-col bg-cDarkBlue rounded-3xl overflow-hidden md:bg-transparent @yield('isWorkoutActive')">

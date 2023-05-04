@@ -31,234 +31,407 @@
     {{-- Diet Plans List --}}
     <div class="pl-5 pr-5 pt-16 w-full">
         {{-- Plan Card --}}
-        <div class="flex justify-between h-[100px] items-center gap-x-6 m-2 p-5 bg-white rounded-3xl shadow-lg duration-500">
-            <div class="flex flex-row items-center">
-                <img class="rounded-full bg-cover justify-end items-center h-16 w-16  m-2 border-2 border-cGreen" src="/assets/green.png">
-                <div>
-                    <h2 class="font-medium text-lg">Intermittent Fasting</h2>
-                    <h2 class="font-normal text-md text-cGreen">Seven days diet plan</h2>
+        <div class="h-fit mb-2 bg-white relative rounded-3xl shadow-lg hover:bg-green-200 duration-500">
+            <div class="flex items-center">
+                <div class="flex items-center gap-3 w-fit truncate m-1">
+                    <img class="rounded-full bg-cover justify-end items-center h-[50px] border-2 border-cGreen" src="/assets/green.png">
+                    <div class="py-2">
+                        <h2 class="font-medium text-sm">Intermittent Fasting</h2>
+                        <h2 class="font-normal text-sm text-cGreen">Seven days diet plan</h2>
+                    </div>
                 </div>
-            </div>
-            <div class="flex flex-row items-center p-2">
-                <span class="material-symbols-outlined text-cYellow">
-                    toll
-                </span>
-                <h3 class="font-medium text-md">5</h3>
-            </div>
-            <div class="w-[10%] h-full flex justify-center items-center mr-5">
-                <a href="#" class="p-2" data-modal-target="popup-edit" data-modal-toggle="popup-edit">
-                    <span class="material-symbols-outlined rounded-full p-2 scale-100 duration-300 ease-out bg-cGreen hover:bg-white hover:text-black text-white">
-                        edit
-                    </span>
-                </a>
-                <a href="#" class="p-2" data-modal-target="popup-delete" data-modal-toggle="popup-delete">
-                    <span class="material-symbols-outlined rounded-full p-2 scale-100 duration-300 ease-out bg-cRed hover:bg-white hover:text-black text-white">
-                        delete
-                    </span>
-                </a>
+                <span class="material-symbols-outlined text-cYellow">toll</span>
+                <p class="text-xs">5</p>
+                <div class="h-fit w-fit flex gap-2 px-2">
+                    <a href="#" class="" data-modal-target="popup-edit" data-modal-toggle="popup-edit">
+                        <span class="material-symbols-outlined rounded-full p-2 scale-100 duration-300 ease-out bg-cGreen hover:bg-white hover:text-black text-white">
+                            edit
+                        </span>
+                    </a>
+                    <a href="#" class="" data-modal-target="popup-delete" data-modal-toggle="popup-delete">
+                        <span class="material-symbols-outlined rounded-full p-2 scale-100 duration-300 ease-out bg-cRed hover:bg-white hover:text-black text-white">
+                            delete
+                        </span>
+                    </a>
+                </div>
             </div>
         </div>
 
         {{-- Plan Card --}}
-        <div class="flex justify-between h-[100px] items-center gap-x-6 m-2 p-5 bg-white rounded-3xl shadow-lg duration-500">
-            <div class="flex flex-row items-center">
-                <img class="rounded-full bg-cover justify-end items-center h-16 w-16  m-2 border-2 border-cGreen" src="/assets/green.png">
-                <div>
-                    <h2 class="font-medium text-lg">Intermittent Fasting</h2>
-                    <h2 class="font-normal text-md text-cGreen">Seven days diet plan</h2>
+        <div class="h-fit mb-2 bg-white relative rounded-3xl shadow-lg hover:bg-green-200 duration-500">
+            <div class="flex items-center">
+                <div class="flex items-center gap-3 w-fit truncate m-1">
+                    <img class="rounded-full bg-cover justify-end items-center h-[50px] border-2 border-cGreen" src="/assets/green.png">
+                    <div class="py-2">
+                        <h2 class="font-medium text-sm">Intermittent Fasting</h2>
+                        <h2 class="font-normal text-sm text-cGreen">Seven days diet plan</h2>
+                    </div>
                 </div>
-            </div>
-            <div class="flex flex-row items-center p-2">
-                <span class="material-symbols-outlined text-cYellow">
-                    toll
-                </span>
-                <h3 class="font-medium text-md">5</h3>
-            </div>
-            <div class="w-[10%] h-full flex justify-center items-center mr-5">
-                <a href="#" class="p-2" data-modal-target="popup-edit" data-modal-toggle="popup-edit">
-                    <span class="material-symbols-outlined rounded-full p-2 scale-100 duration-300 ease-out bg-cGreen hover:bg-white hover:text-black text-white">
-                        edit
-                    </span>
-                </a>
-                <a href="#" class="p-2" data-modal-target="popup-delete" data-modal-toggle="popup-delete">
-                    <span class="material-symbols-outlined rounded-full p-2 scale-100 duration-300 ease-out bg-cRed hover:bg-white hover:text-black text-white">
-                        delete
-                    </span>
-                </a>
+                <span class="material-symbols-outlined text-cYellow">toll</span>
+                <p class="text-xs">5</p>
+                <div class="h-fit w-fit flex gap-2 px-2">
+                    <a href="#" class="" data-modal-target="popup-edit" data-modal-toggle="popup-edit">
+                        <span class="material-symbols-outlined rounded-full p-2 scale-100 duration-300 ease-out bg-cGreen hover:bg-white hover:text-black text-white">
+                            edit
+                        </span>
+                    </a>
+                    <a href="#" class="" data-modal-target="popup-delete" data-modal-toggle="popup-delete">
+                        <span class="material-symbols-outlined rounded-full p-2 scale-100 duration-300 ease-out bg-cRed hover:bg-white hover:text-black text-white">
+                            delete
+                        </span>
+                    </a>
+                </div>
             </div>
         </div>
 
         {{-- Plan Card --}}
-        <div class="flex justify-between h-[100px] items-center gap-x-6 m-2 p-5 bg-white rounded-3xl shadow-lg duration-500">
-            <div class="flex flex-row items-center">
-                <img class="rounded-full bg-cover justify-end items-center h-16 w-16  m-2 border-2 border-cGreen" src="/assets/green.png">
-                <div>
-                    <h2 class="font-medium text-lg">Intermittent Fasting</h2>
-                    <h2 class="font-normal text-md text-cGreen">Seven days diet plan</h2>
+        <div class="h-fit mb-2 bg-white relative rounded-3xl shadow-lg hover:bg-green-200 duration-500">
+            <div class="flex items-center">
+                <div class="flex items-center gap-3 w-fit truncate m-1">
+                    <img class="rounded-full bg-cover justify-end items-center h-[50px] border-2 border-cGreen" src="/assets/green.png">
+                    <div class="py-2">
+                        <h2 class="font-medium text-sm">Intermittent Fasting</h2>
+                        <h2 class="font-normal text-sm text-cGreen">Seven days diet plan</h2>
+                    </div>
                 </div>
-            </div>
-            <div class="flex flex-row items-center p-2">
-                <span class="material-symbols-outlined text-cYellow">
-                    toll
-                </span>
-                <h3 class="font-medium text-md">5</h3>
-            </div>
-            <div class="w-[10%] h-full flex justify-center items-center mr-5">
-                <a href="#" class="p-2" data-modal-target="popup-edit" data-modal-toggle="popup-edit">
-                    <span class="material-symbols-outlined rounded-full p-2 scale-100 duration-300 ease-out bg-cGreen hover:bg-white hover:text-black text-white">
-                        edit
-                    </span>
-                </a>
-                <a href="#" class="p-2" data-modal-target="popup-delete" data-modal-toggle="popup-delete">
-                    <span class="material-symbols-outlined rounded-full p-2 scale-100 duration-300 ease-out bg-cRed hover:bg-white hover:text-black text-white">
-                        delete
-                    </span>
-                </a>
+                <span class="material-symbols-outlined text-cYellow">toll</span>
+                <p class="text-xs">5</p>
+                <div class="h-fit w-fit flex gap-2 px-2">
+                    <a href="#" class="" data-modal-target="popup-edit" data-modal-toggle="popup-edit">
+                        <span class="material-symbols-outlined rounded-full p-2 scale-100 duration-300 ease-out bg-cGreen hover:bg-white hover:text-black text-white">
+                            edit
+                        </span>
+                    </a>
+                    <a href="#" class="" data-modal-target="popup-delete" data-modal-toggle="popup-delete">
+                        <span class="material-symbols-outlined rounded-full p-2 scale-100 duration-300 ease-out bg-cRed hover:bg-white hover:text-black text-white">
+                            delete
+                        </span>
+                    </a>
+                </div>
             </div>
         </div>
 
         {{-- Plan Card --}}
-        <div class="flex justify-between h-[100px] items-center gap-x-6 m-2 p-5 bg-white rounded-3xl shadow-lg duration-500">
-            <div class="flex flex-row items-center">
-                <img class="rounded-full bg-cover justify-end items-center h-16 w-16  m-2 border-2 border-cGreen" src="/assets/green.png">
-                <div>
-                    <h2 class="font-medium text-lg">Intermittent Fasting</h2>
-                    <h2 class="font-normal text-md text-cGreen">Seven days diet plan</h2>
+        <div class="h-fit mb-2 bg-white relative rounded-3xl shadow-lg hover:bg-green-200 duration-500">
+            <div class="flex items-center">
+                <div class="flex items-center gap-3 w-fit truncate m-1">
+                    <img class="rounded-full bg-cover justify-end items-center h-[50px] border-2 border-cGreen" src="/assets/green.png">
+                    <div class="py-2">
+                        <h2 class="font-medium text-sm">Intermittent Fasting</h2>
+                        <h2 class="font-normal text-sm text-cGreen">Seven days diet plan</h2>
+                    </div>
                 </div>
-            </div>
-            <div class="flex flex-row items-center p-2">
-                <span class="material-symbols-outlined text-cYellow">
-                    toll
-                </span>
-                <h3 class="font-medium text-md">5</h3>
-            </div>
-            <div class="w-[10%] h-full flex justify-center items-center mr-5">
-                <a href="#" class="p-2" data-modal-target="popup-edit" data-modal-toggle="popup-edit">
-                    <span class="material-symbols-outlined rounded-full p-2 scale-100 duration-300 ease-out bg-cGreen hover:bg-white hover:text-black text-white">
-                        edit
-                    </span>
-                </a>
-                <a href="#" class="p-2" data-modal-target="popup-delete" data-modal-toggle="popup-delete">
-                    <span class="material-symbols-outlined rounded-full p-2 scale-100 duration-300 ease-out bg-cRed hover:bg-white hover:text-black text-white">
-                        delete
-                    </span>
-                </a>
+                <span class="material-symbols-outlined text-cYellow">toll</span>
+                <p class="text-xs">5</p>
+                <div class="h-fit w-fit flex gap-2 px-2">
+                    <a href="#" class="" data-modal-target="popup-edit" data-modal-toggle="popup-edit">
+                        <span class="material-symbols-outlined rounded-full p-2 scale-100 duration-300 ease-out bg-cGreen hover:bg-white hover:text-black text-white">
+                            edit
+                        </span>
+                    </a>
+                    <a href="#" class="" data-modal-target="popup-delete" data-modal-toggle="popup-delete">
+                        <span class="material-symbols-outlined rounded-full p-2 scale-100 duration-300 ease-out bg-cRed hover:bg-white hover:text-black text-white">
+                            delete
+                        </span>
+                    </a>
+                </div>
             </div>
         </div>
 
         {{-- Plan Card --}}
-        <div class="flex justify-between h-[100px] items-center gap-x-6 m-2 p-5 bg-white rounded-3xl shadow-lg duration-500">
-            <div class="flex flex-row items-center">
-                <img class="rounded-full bg-cover justify-end items-center h-16 w-16  m-2 border-2 border-cGreen" src="/assets/green.png">
-                <div>
-                    <h2 class="font-medium text-lg">Intermittent Fasting</h2>
-                    <h2 class="font-normal text-md text-cGreen">Seven days diet plan</h2>
+        <div class="h-fit mb-2 bg-white relative rounded-3xl shadow-lg hover:bg-green-200 duration-500">
+            <div class="flex items-center">
+                <div class="flex items-center gap-3 w-fit truncate m-1">
+                    <img class="rounded-full bg-cover justify-end items-center h-[50px] border-2 border-cGreen" src="/assets/green.png">
+                    <div class="py-2">
+                        <h2 class="font-medium text-sm">Intermittent Fasting</h2>
+                        <h2 class="font-normal text-sm text-cGreen">Seven days diet plan</h2>
+                    </div>
                 </div>
-            </div>
-            <div class="flex flex-row items-center p-2">
-                <span class="material-symbols-outlined text-cYellow">
-                    toll
-                </span>
-                <h3 class="font-medium text-md">5</h3>
-            </div>
-            <div class="w-[10%] h-full flex justify-center items-center mr-5">
-                <a href="#" class="p-2" data-modal-target="popup-edit" data-modal-toggle="popup-edit">
-                    <span class="material-symbols-outlined rounded-full p-2 scale-100 duration-300 ease-out bg-cGreen hover:bg-white hover:text-black text-white">
-                        edit
-                    </span>
-                </a>
-                <a href="#" class="p-2" data-modal-target="popup-delete" data-modal-toggle="popup-delete">
-                    <span class="material-symbols-outlined rounded-full p-2 scale-100 duration-300 ease-out bg-cRed hover:bg-white hover:text-black text-white">
-                        delete
-                    </span>
-                </a>
+                <span class="material-symbols-outlined text-cYellow">toll</span>
+                <p class="text-xs">5</p>
+                <div class="h-fit w-fit flex gap-2 px-2">
+                    <a href="#" class="" data-modal-target="popup-edit" data-modal-toggle="popup-edit">
+                        <span class="material-symbols-outlined rounded-full p-2 scale-100 duration-300 ease-out bg-cGreen hover:bg-white hover:text-black text-white">
+                            edit
+                        </span>
+                    </a>
+                    <a href="#" class="" data-modal-target="popup-delete" data-modal-toggle="popup-delete">
+                        <span class="material-symbols-outlined rounded-full p-2 scale-100 duration-300 ease-out bg-cRed hover:bg-white hover:text-black text-white">
+                            delete
+                        </span>
+                    </a>
+                </div>
             </div>
         </div>
 
         {{-- Plan Card --}}
-        <div class="flex justify-between h-[100px] items-center gap-x-6 m-2 p-5 bg-white rounded-3xl shadow-lg duration-500">
-            <div class="flex flex-row items-center">
-                <img class="rounded-full bg-cover justify-end items-center h-16 w-16  m-2 border-2 border-cGreen" src="/assets/green.png">
-                <div>
-                    <h2 class="font-medium text-lg">Intermittent Fasting</h2>
-                    <h2 class="font-normal text-md text-cGreen">Seven days diet plan</h2>
+        <div class="h-fit mb-2 bg-white relative rounded-3xl shadow-lg hover:bg-green-200 duration-500">
+            <div class="flex items-center">
+                <div class="flex items-center gap-3 w-fit truncate m-1">
+                    <img class="rounded-full bg-cover justify-end items-center h-[50px] border-2 border-cGreen" src="/assets/green.png">
+                    <div class="py-2">
+                        <h2 class="font-medium text-sm">Intermittent Fasting</h2>
+                        <h2 class="font-normal text-sm text-cGreen">Seven days diet plan</h2>
+                    </div>
                 </div>
-            </div>
-            <div class="flex flex-row items-center p-2">
-                <span class="material-symbols-outlined text-cYellow">
-                    toll
-                </span>
-                <h3 class="font-medium text-md">5</h3>
-            </div>
-            <div class="w-[10%] h-full flex justify-center items-center mr-5">
-                <a href="#" class="p-2" data-modal-target="popup-edit" data-modal-toggle="popup-edit">
-                    <span class="material-symbols-outlined rounded-full p-2 scale-100 duration-300 ease-out bg-cGreen hover:bg-white hover:text-black text-white">
-                        edit
-                    </span>
-                </a>
-                <a href="#" class="p-2" data-modal-target="popup-delete" data-modal-toggle="popup-delete">
-                    <span class="material-symbols-outlined rounded-full p-2 scale-100 duration-300 ease-out bg-cRed hover:bg-white hover:text-black text-white">
-                        delete
-                    </span>
-                </a>
+                <span class="material-symbols-outlined text-cYellow">toll</span>
+                <p class="text-xs">5</p>
+                <div class="h-fit w-fit flex gap-2 px-2">
+                    <a href="#" class="" data-modal-target="popup-edit" data-modal-toggle="popup-edit">
+                        <span class="material-symbols-outlined rounded-full p-2 scale-100 duration-300 ease-out bg-cGreen hover:bg-white hover:text-black text-white">
+                            edit
+                        </span>
+                    </a>
+                    <a href="#" class="" data-modal-target="popup-delete" data-modal-toggle="popup-delete">
+                        <span class="material-symbols-outlined rounded-full p-2 scale-100 duration-300 ease-out bg-cRed hover:bg-white hover:text-black text-white">
+                            delete
+                        </span>
+                    </a>
+                </div>
             </div>
         </div>
 
         {{-- Plan Card --}}
-        <div class="flex justify-between h-[100px] items-center gap-x-6 m-2 p-5 bg-white rounded-3xl shadow-lg duration-500">
-            <div class="flex flex-row items-center">
-                <img class="rounded-full bg-cover justify-end items-center h-16 w-16  m-2 border-2 border-cGreen" src="/assets/green.png">
-                <div>
-                    <h2 class="font-medium text-lg">Intermittent Fasting</h2>
-                    <h2 class="font-normal text-md text-cGreen">Seven days diet plan</h2>
+        <div class="h-fit mb-2 bg-white relative rounded-3xl shadow-lg hover:bg-green-200 duration-500">
+            <div class="flex items-center">
+                <div class="flex items-center gap-3 w-fit truncate m-1">
+                    <img class="rounded-full bg-cover justify-end items-center h-[50px] border-2 border-cGreen" src="/assets/green.png">
+                    <div class="py-2">
+                        <h2 class="font-medium text-sm">Intermittent Fasting</h2>
+                        <h2 class="font-normal text-sm text-cGreen">Seven days diet plan</h2>
+                    </div>
                 </div>
-            </div>
-            <div class="flex flex-row items-center p-2">
-                <span class="material-symbols-outlined text-cYellow">
-                    toll
-                </span>
-                <h3 class="font-medium text-md">5</h3>
-            </div>
-            <div class="w-[10%] h-full flex justify-center items-center mr-5">
-                <a href="#" class="p-2" data-modal-target="popup-edit" data-modal-toggle="popup-edit">
-                    <span class="material-symbols-outlined rounded-full p-2 scale-100 duration-300 ease-out bg-cGreen hover:bg-white hover:text-black text-white">
-                        edit
-                    </span>
-                </a>
-                <a href="#" class="p-2" data-modal-target="popup-delete" data-modal-toggle="popup-delete">
-                    <span class="material-symbols-outlined rounded-full p-2 scale-100 duration-300 ease-out bg-cRed hover:bg-white hover:text-black text-white">
-                        delete
-                    </span>
-                </a>
+                <span class="material-symbols-outlined text-cYellow">toll</span>
+                <p class="text-xs">5</p>
+                <div class="h-fit w-fit flex gap-2 px-2">
+                    <a href="#" class="" data-modal-target="popup-edit" data-modal-toggle="popup-edit">
+                        <span class="material-symbols-outlined rounded-full p-2 scale-100 duration-300 ease-out bg-cGreen hover:bg-white hover:text-black text-white">
+                            edit
+                        </span>
+                    </a>
+                    <a href="#" class="" data-modal-target="popup-delete" data-modal-toggle="popup-delete">
+                        <span class="material-symbols-outlined rounded-full p-2 scale-100 duration-300 ease-out bg-cRed hover:bg-white hover:text-black text-white">
+                            delete
+                        </span>
+                    </a>
+                </div>
             </div>
         </div>
 
         {{-- Plan Card --}}
-        <div class="flex justify-between h-[100px] items-center gap-x-6 m-2 p-5 bg-white rounded-3xl shadow-lg duration-500">
-            <div class="flex flex-row items-center">
-                <img class="rounded-full bg-cover justify-end items-center h-16 w-16  m-2 border-2 border-cGreen" src="/assets/green.png">
-                <div>
-                    <h2 class="font-medium text-lg">Intermittent Fasting</h2>
-                    <h2 class="font-normal text-md text-cGreen">Seven days diet plan</h2>
+        <div class="h-fit mb-2 bg-white relative rounded-3xl shadow-lg hover:bg-green-200 duration-500">
+            <div class="flex items-center">
+                <div class="flex items-center gap-3 w-fit truncate m-1">
+                    <img class="rounded-full bg-cover justify-end items-center h-[50px] border-2 border-cGreen" src="/assets/green.png">
+                    <div class="py-2">
+                        <h2 class="font-medium text-sm">Intermittent Fasting</h2>
+                        <h2 class="font-normal text-sm text-cGreen">Seven days diet plan</h2>
+                    </div>
+                </div>
+                <span class="material-symbols-outlined text-cYellow">toll</span>
+                <p class="text-xs">5</p>
+                <div class="h-fit w-fit flex gap-2 px-2">
+                    <a href="#" class="" data-modal-target="popup-edit" data-modal-toggle="popup-edit">
+                        <span class="material-symbols-outlined rounded-full p-2 scale-100 duration-300 ease-out bg-cGreen hover:bg-white hover:text-black text-white">
+                            edit
+                        </span>
+                    </a>
+                    <a href="#" class="" data-modal-target="popup-delete" data-modal-toggle="popup-delete">
+                        <span class="material-symbols-outlined rounded-full p-2 scale-100 duration-300 ease-out bg-cRed hover:bg-white hover:text-black text-white">
+                            delete
+                        </span>
+                    </a>
                 </div>
             </div>
-            <div class="flex flex-row items-center p-2">
-                <span class="material-symbols-outlined text-cYellow">
-                    toll
-                </span>
-                <h3 class="font-medium text-md">5</h3>
+        </div>
+
+        {{-- Plan Card --}}
+        <div class="h-fit mb-2 bg-white relative rounded-3xl shadow-lg hover:bg-green-200 duration-500">
+            <div class="flex items-center">
+                <div class="flex items-center gap-3 w-fit truncate m-1">
+                    <img class="rounded-full bg-cover justify-end items-center h-[50px] border-2 border-cGreen" src="/assets/green.png">
+                    <div class="py-2">
+                        <h2 class="font-medium text-sm">Intermittent Fasting</h2>
+                        <h2 class="font-normal text-sm text-cGreen">Seven days diet plan</h2>
+                    </div>
+                </div>
+                <span class="material-symbols-outlined text-cYellow">toll</span>
+                <p class="text-xs">5</p>
+                <div class="h-fit w-fit flex gap-2 px-2">
+                    <a href="#" class="" data-modal-target="popup-edit" data-modal-toggle="popup-edit">
+                        <span class="material-symbols-outlined rounded-full p-2 scale-100 duration-300 ease-out bg-cGreen hover:bg-white hover:text-black text-white">
+                            edit
+                        </span>
+                    </a>
+                    <a href="#" class="" data-modal-target="popup-delete" data-modal-toggle="popup-delete">
+                        <span class="material-symbols-outlined rounded-full p-2 scale-100 duration-300 ease-out bg-cRed hover:bg-white hover:text-black text-white">
+                            delete
+                        </span>
+                    </a>
+                </div>
             </div>
-            <div class="w-[10%] h-full flex justify-center items-center mr-5">
-                <a href="#" class="p-2" data-modal-target="popup-edit" data-modal-toggle="popup-edit">
-                    <span class="material-symbols-outlined rounded-full p-2 scale-100 duration-300 ease-out bg-cGreen hover:bg-white hover:text-black text-white">
-                        edit
-                    </span>
-                </a>
-                <a href="#" class="p-2" data-modal-target="popup-delete" data-modal-toggle="popup-delete">
-                    <span class="material-symbols-outlined rounded-full p-2 scale-100 duration-300 ease-out bg-cRed hover:bg-white hover:text-black text-white">
-                        delete
-                    </span>
-                </a>
+        </div>
+
+        {{-- Plan Card --}}
+        <div class="h-fit mb-2 bg-white relative rounded-3xl shadow-lg hover:bg-green-200 duration-500">
+            <div class="flex items-center">
+                <div class="flex items-center gap-3 w-fit truncate m-1">
+                    <img class="rounded-full bg-cover justify-end items-center h-[50px] border-2 border-cGreen" src="/assets/green.png">
+                    <div class="py-2">
+                        <h2 class="font-medium text-sm">Intermittent Fasting</h2>
+                        <h2 class="font-normal text-sm text-cGreen">Seven days diet plan</h2>
+                    </div>
+                </div>
+                <span class="material-symbols-outlined text-cYellow">toll</span>
+                <p class="text-xs">5</p>
+                <div class="h-fit w-fit flex gap-2 px-2">
+                    <a href="#" class="" data-modal-target="popup-edit" data-modal-toggle="popup-edit">
+                        <span class="material-symbols-outlined rounded-full p-2 scale-100 duration-300 ease-out bg-cGreen hover:bg-white hover:text-black text-white">
+                            edit
+                        </span>
+                    </a>
+                    <a href="#" class="" data-modal-target="popup-delete" data-modal-toggle="popup-delete">
+                        <span class="material-symbols-outlined rounded-full p-2 scale-100 duration-300 ease-out bg-cRed hover:bg-white hover:text-black text-white">
+                            delete
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        {{-- Plan Card --}}
+        <div class="h-fit mb-2 bg-white relative rounded-3xl shadow-lg hover:bg-green-200 duration-500">
+            <div class="flex items-center">
+                <div class="flex items-center gap-3 w-fit truncate m-1">
+                    <img class="rounded-full bg-cover justify-end items-center h-[50px] border-2 border-cGreen" src="/assets/green.png">
+                    <div class="py-2">
+                        <h2 class="font-medium text-sm">Intermittent Fasting</h2>
+                        <h2 class="font-normal text-sm text-cGreen">Seven days diet plan</h2>
+                    </div>
+                </div>
+                <span class="material-symbols-outlined text-cYellow">toll</span>
+                <p class="text-xs">5</p>
+                <div class="h-fit w-fit flex gap-2 px-2">
+                    <a href="#" class="" data-modal-target="popup-edit" data-modal-toggle="popup-edit">
+                        <span class="material-symbols-outlined rounded-full p-2 scale-100 duration-300 ease-out bg-cGreen hover:bg-white hover:text-black text-white">
+                            edit
+                        </span>
+                    </a>
+                    <a href="#" class="" data-modal-target="popup-delete" data-modal-toggle="popup-delete">
+                        <span class="material-symbols-outlined rounded-full p-2 scale-100 duration-300 ease-out bg-cRed hover:bg-white hover:text-black text-white">
+                            delete
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        {{-- Plan Card --}}
+        <div class="h-fit mb-2 bg-white relative rounded-3xl shadow-lg hover:bg-green-200 duration-500">
+            <div class="flex items-center">
+                <div class="flex items-center gap-3 w-fit truncate m-1">
+                    <img class="rounded-full bg-cover justify-end items-center h-[50px] border-2 border-cGreen" src="/assets/green.png">
+                    <div class="py-2">
+                        <h2 class="font-medium text-sm">Intermittent Fasting</h2>
+                        <h2 class="font-normal text-sm text-cGreen">Seven days diet plan</h2>
+                    </div>
+                </div>
+                <span class="material-symbols-outlined text-cYellow">toll</span>
+                <p class="text-xs">5</p>
+                <div class="h-fit w-fit flex gap-2 px-2">
+                    <a href="#" class="" data-modal-target="popup-edit" data-modal-toggle="popup-edit">
+                        <span class="material-symbols-outlined rounded-full p-2 scale-100 duration-300 ease-out bg-cGreen hover:bg-white hover:text-black text-white">
+                            edit
+                        </span>
+                    </a>
+                    <a href="#" class="" data-modal-target="popup-delete" data-modal-toggle="popup-delete">
+                        <span class="material-symbols-outlined rounded-full p-2 scale-100 duration-300 ease-out bg-cRed hover:bg-white hover:text-black text-white">
+                            delete
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        {{-- Plan Card --}}
+        <div class="h-fit mb-2 bg-white relative rounded-3xl shadow-lg hover:bg-green-200 duration-500">
+            <div class="flex items-center">
+                <div class="flex items-center gap-3 w-fit truncate m-1">
+                    <img class="rounded-full bg-cover justify-end items-center h-[50px] border-2 border-cGreen" src="/assets/green.png">
+                    <div class="py-2">
+                        <h2 class="font-medium text-sm">Intermittent Fasting</h2>
+                        <h2 class="font-normal text-sm text-cGreen">Seven days diet plan</h2>
+                    </div>
+                </div>
+                <span class="material-symbols-outlined text-cYellow">toll</span>
+                <p class="text-xs">5</p>
+                <div class="h-fit w-fit flex gap-2 px-2">
+                    <a href="#" class="" data-modal-target="popup-edit" data-modal-toggle="popup-edit">
+                        <span class="material-symbols-outlined rounded-full p-2 scale-100 duration-300 ease-out bg-cGreen hover:bg-white hover:text-black text-white">
+                            edit
+                        </span>
+                    </a>
+                    <a href="#" class="" data-modal-target="popup-delete" data-modal-toggle="popup-delete">
+                        <span class="material-symbols-outlined rounded-full p-2 scale-100 duration-300 ease-out bg-cRed hover:bg-white hover:text-black text-white">
+                            delete
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        {{-- Plan Card --}}
+        <div class="h-fit mb-2 bg-white relative rounded-3xl shadow-lg hover:bg-green-200 duration-500">
+            <div class="flex items-center">
+                <div class="flex items-center gap-3 w-fit truncate m-1">
+                    <img class="rounded-full bg-cover justify-end items-center h-[50px] border-2 border-cGreen" src="/assets/green.png">
+                    <div class="py-2">
+                        <h2 class="font-medium text-sm">Intermittent Fasting</h2>
+                        <h2 class="font-normal text-sm text-cGreen">Seven days diet plan</h2>
+                    </div>
+                </div>
+                <span class="material-symbols-outlined text-cYellow">toll</span>
+                <p class="text-xs">5</p>
+                <div class="h-fit w-fit flex gap-2 px-2">
+                    <a href="#" class="" data-modal-target="popup-edit" data-modal-toggle="popup-edit">
+                        <span class="material-symbols-outlined rounded-full p-2 scale-100 duration-300 ease-out bg-cGreen hover:bg-white hover:text-black text-white">
+                            edit
+                        </span>
+                    </a>
+                    <a href="#" class="" data-modal-target="popup-delete" data-modal-toggle="popup-delete">
+                        <span class="material-symbols-outlined rounded-full p-2 scale-100 duration-300 ease-out bg-cRed hover:bg-white hover:text-black text-white">
+                            delete
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        {{-- Plan Card --}}
+        <div class="h-fit mb-2 bg-white relative rounded-3xl shadow-lg hover:bg-green-200 duration-500">
+            <div class="flex items-center">
+                <div class="flex items-center gap-3 w-fit truncate m-1">
+                    <img class="rounded-full bg-cover justify-end items-center h-[50px] border-2 border-cGreen" src="/assets/green.png">
+                    <div class="py-2">
+                        <h2 class="font-medium text-sm">Intermittent Fasting</h2>
+                        <h2 class="font-normal text-sm text-cGreen">Seven days diet plan</h2>
+                    </div>
+                </div>
+                <span class="material-symbols-outlined text-cYellow">toll</span>
+                <p class="text-xs">5</p>
+                <div class="h-fit w-fit flex gap-2 px-2">
+                    <a href="#" class="" data-modal-target="popup-edit" data-modal-toggle="popup-edit">
+                        <span class="material-symbols-outlined rounded-full p-2 scale-100 duration-300 ease-out bg-cGreen hover:bg-white hover:text-black text-white">
+                            edit
+                        </span>
+                    </a>
+                    <a href="#" class="" data-modal-target="popup-delete" data-modal-toggle="popup-delete">
+                        <span class="material-symbols-outlined rounded-full p-2 scale-100 duration-300 ease-out bg-cRed hover:bg-white hover:text-black text-white">
+                            delete
+                        </span>
+                    </a>
+                </div>
             </div>
         </div>
 
