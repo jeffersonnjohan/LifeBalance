@@ -66,8 +66,8 @@ Route::get('/otherprofile', function () {
     return view('otherprofile');
 });
 
-Route::get('/diet', function () {
-    return view('diet.diet');
+Route::get('/diets', function () {
+    return view('diet.diets');
 });
 
 Route::get('/planDiet', function () {
@@ -88,10 +88,6 @@ Route::get('/history', function () {
 
 Route::get('/community', function () {
     return view('home_community.community');
-});
-
-Route::get('/inputweight', function () {
-    return view('home_community.inputweight');
 });
 
 // ADMIN PAGE

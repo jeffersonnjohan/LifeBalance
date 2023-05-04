@@ -4,6 +4,9 @@
 
 @section('style')
     <style>
+        /* * {
+            border: red solid 0.5px;
+        } */
     </style>
 @endsection
 
@@ -27,8 +30,63 @@
 </nav>
 
 @section('body')
-    <div>
-        {{-- Page Body Section --}}
+    {{-- Page Body Section --}}
+    <div class="pt-16  bg-white w-full">
+        <div class="px-3">
+            <div class="w-full h-[50px] rounded-full bg-cLightGrey flex items-center text-cDarkGrey px-4 duration-300 hover:ring-2 focus-within:text-cBlue focus-within:ring-2 hover:text-cBlue shadow-lg">
+                <input type="text" name="planTitle" id="planTitle" placeholder="Plan Title" required class="border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full">
+            </div>
+        </div>
+        <div class="pt-4 px-3">
+            <div class="w-full h-[120px] rounded-3xl bg-cLightGrey flex items-center text-cDarkGrey px-4 duration-300 hover:ring-2 focus-within:text-cBlue focus-within:ring-2 hover:text-cBlue shadow-lg">
+                <input type="text" name="description" id="description" placeholder="Description" required class="border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full">
+            </div>
+        </div>
+        <div class="flex-row flex px-3">
+            <div class="w-3/6 h-[120px] flex items-center text-cDarkGrey justify-between gap-2 pt-4 p-2 pl-0">
+                <div class="relative w-full aspect-square h-full bg-cLightGrey rounded-3xl shadow-lg">
+                    <input type="file" name="image" id="image" accept="image/*,video/*" required class="hidden" onchange="loadFile(event)">
+                    <label for="image" class="h-full w-full aspect-square rounded-3xl p-2 flex flex-col justify-center items-center cursor-pointer duration-300 hover:ring-2 focus-within:ring-2 hover:text-cBlue bg-cover bg-center absolute" id="imgBox">
+                    </label>
+                    <div class="h-full w-full flex flex-col justify-center items-center p-2">
+                        <span class="material-symbols-outlined">
+                            image
+                        </span>
+                        <div class="text-sm text-center">
+                            <p>Input Image/Video</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="w-3/6 h-[120px] items-center text-cDarkGrey justify-between gap-2 pt-4 p-2 pr-0">
+                <div class="relative aspect-square w-full h-full bg-cLightGrey rounded-3xl shadow-lg">
+                    <input type="file" name="song" id="song" accept="audio/*" required class="hidden" onchange="loadFile(event)">
+                    {{-- onchange="loadFile(this.files);"> --}}
+                    <label for="song" class="h-full w-full aspect-square rounded-3xl p-2 flex flex-col justify-center items-center cursor-pointer duration-300 hover:ring-2 focus-within:ring-2 hover:text-cBlue bg-cover bg-center absolute" id="imgBox">
+                    </label>
+                    <div class="h-full w-full flex flex-col justify-center items-center p-2">
+                        <span class="material-symbols-outlined">
+                            library_music
+                        </span>
+                        <div class="text-sm text-center">
+                            <p>Input Song</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="bottom-0 fixed pb-[80px] w-full px-3">
+            <div class="pt-2 pb-2">
+                <div class="w-full h-[50px] rounded-full bg-cBlue text-white flex items-center font-bold px-4 duration-300 hover:ring-2 focus-within:text-cDarkBlue focus-within:ring-2 hover:text-cDarkBlue shadow-lg">
+                    <input type="submit" name="confirmButton" id="confirmButton" value="Confirm" required class="border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full">
+                </div>
+            </div>
+            <div class="pt-2 pb-2 bottom-0">
+                <div class="w-full h-[50px] rounded-full bg-cDarkGrey bg-opacity-40 text-cDarkBlue flex items-center font-bold px-4 duration-300 hover:ring-2 focus-within:text-cBlue focus-within:ring-2 hover:text-cBlue shadow-lg">
+                    <input type="submit" name="confirmButton" id="confirmButton" value="Discard" required class="border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full">
+                </div>
+            </div>
+        </div>
     </div>
-@include('adminpage.adminNavbar', ['active' => 'adminpage.listWorkout'])
+    @include('adminpage.adminNavbar', ['active' => 'adminpage.listWorkout'])
 @endsection
