@@ -3,9 +3,17 @@
 @section('title', 'Meditation - Admin Page')
 @section('isMeditationActive', 'activeCategory')
 
+@section('style')
+    {{-- <style>
+        * {
+            border: solid red;
+        }
+    </style> --}}
+@endsection
+
 {{-- Header --}}
 @section('header')
-<nav class="justify-evenly fixed bg-cLightGrey w-full z-10">
+<nav class="justify-evenly fixed bg-gradient-to-b from-cLightGrey from-30% to-transparent w-full z-10">
     <div class="max-w-screen-xl px-4 py-3 mx-auto">
         <div class="flex items-center">
             <ul class="flex flex-row font-medium mt-0 mr-6 space-x-2 text-2xl">
@@ -26,21 +34,21 @@
 @section('body')
 <div class="w-full">
     {{-- Categories --}}
-    <div class="w-full h-[300px] p-10 pt-16 bg-transparent">
-        <p class="text-cDarkBlue mt-2">Categories</p>
-        <div class="h-[160px] flex mt-2 justify-between mb-5">
+    <div class="flex flex-col w-full h-[250px] pt-16 bg-transparent md:h-[330px]">
+        <p class="relative flex text-cDarkBlue h-fit pl-7 md:pl-0 md:text-center md:justify-center">Categories</p>
+        <div class="h-[160px] md:h-[250px] flex justify-center md:w-[100%] gap-3 md:gap-7 p-5">
             {{-- Workout Plans --}}
-            <a href="/admin/workout" class="w-[48%]">
-                <div class="w-full h-full items-center justify-center flex flex-col bg-cDarkBlue rounded-3xl overflow-hidden md:bg-transparent @yield('isWorkoutActive')">
-                    <div class="h-[75%] -mt-3 md:w-[30%] w-full bg-cover" style="background-image: url('/assets/olahragaCategory.png')"></div>
-                    <p class="text-center text-white mt-2 md:text-cDarkBlue">Workout</p>
+            <a href="/admin/workout" class="w-[50%] md:w-[30%]">
+                <div class="w-full h-full items-center justify-center flex flex-col bg-cDarkBlue rounded-3xl hover:bg-cBlue duration-500 @yield('isWorkoutActive')">
+                    <div class="h-full w-full rounded-t-3xl bg-cover" style="background-image: url('/assets/olahragaCategory.png')"></div>
+                    <p class="flex items-center text-center text-white p-2">Workout</p>
                 </div>
             </a>
             {{-- Meditation Plans --}}
-            <a href="/admin/meditation" class="w-[48%]">
-                <div class="w-full h-full items-center justify-center flex flex-col bg-cDarkBlue rounded-3xl overflow-hidden md:bg-transparent @yield('isMeditationActive')">
-                    <div class="h-[75%] -mt-3 md:w-[30%] w-full bg-cover" style="background-image: url('/assets/meditasiCategory.png')"></div>
-                    <p class="text-center text-white mt-2 md:text-cDarkBlue">Meditation</p>
+            <a href="/admin/meditation" class="w-[50%] md:w-[30%]">
+                <div class="w-full h-full items-center justify-center flex flex-col bg-cDarkBlue rounded-3xl hover:bg-cBlue duration-500 @yield('isMeditationActive')">
+                    <div class="h-full w-full rounded-t-3xl bg-cover" style="background-image: url('/assets/meditasiCategory.png')"></div>
+                    <p class="flex items-center text-center text-white p-2">Meditation</p>
                 </div>
             </a>
         </div>
@@ -49,22 +57,20 @@
     {{-- Meditation Plans List --}}
     <div class="pl-5 pr-5 w-full">
         {{-- Plan Card --}}
-        <div class="flex justify-between h-[70px] items-center gap-x-6 m-2 p-5 bg-white rounded-3xl shadow-lg hover:bg-cDarkBlue hover:text-white duration-500">
-            <div class="w-[90%]">
-                <h2 class="w-full text-md ml-10 font-bold flex text-center justify-center">
-                    Nature
-                    <span class="material-symbols-outlined">
-                        play_arrow
-                    </span>
-                </h2>
+        <div class="flex h-fit items-center my-2 p-5 relative bg-white rounded-3xl shadow-lg hover:bg-cDarkBlue hover:text-white duration-500">
+            <div class="w-full h-fit text-md font-bold flex text-center content-center items-center justify-center">
+                Nature
+                <span class="material-symbols-outlined">
+                    play_arrow
+                </span>
             </div>
-            <div class="w-[10%] h-full flex justify-center items-center mr-5">
-                <a href="#" class="p-2" data-modal-target="popup-edit" data-modal-toggle="popup-edit">
+            <div class="h-fit w-fit flex gap-2 right-5 absolute">
+                <a href="#" class="" data-modal-target="popup-edit" data-modal-toggle="popup-edit">
                     <span class="material-symbols-outlined rounded-full p-2 scale-100 duration-300 ease-out bg-cBlue hover:bg-white hover:text-black text-white">
                         edit
                     </span>
                 </a>
-                <a href="#" class="p-2" data-modal-target="popup-delete" data-modal-toggle="popup-delete">
+                <a href="#" class="" data-modal-target="popup-delete" data-modal-toggle="popup-delete">
                     <span class="material-symbols-outlined rounded-full p-2 scale-100 duration-300 ease-out bg-cRed hover:bg-white hover:text-black text-white">
                         delete
                     </span>
@@ -73,22 +79,20 @@
         </div>
 
         {{-- Plan Card --}}
-        <div class="flex justify-between h-[70px] items-center gap-x-6 m-2 p-5 bg-white rounded-3xl shadow-lg hover:bg-cDarkBlue hover:text-white duration-500">
-            <div class="w-[90%]">
-                <h2 class="w-full text-md ml-10 font-bold flex text-center justify-center">
-                    Ambient
-                    <span class="material-symbols-outlined">
-                        play_arrow
-                    </span>
-                </h2>
+        <div class="flex h-fit items-center my-2 p-5 relative bg-white rounded-3xl shadow-lg hover:bg-cDarkBlue hover:text-white duration-500">
+            <div class="w-full h-fit text-md font-bold flex text-center content-center items-center justify-center">
+                Ambient
+                <span class="material-symbols-outlined">
+                    play_arrow
+                </span>
             </div>
-            <div class="w-[10%] h-full flex justify-center items-center mr-5">
-                <a href="#" class="p-2" data-modal-target="popup-edit" data-modal-toggle="popup-edit">
+            <div class="h-fit w-fit flex gap-2 right-5 absolute">
+                <a href="#" class="" data-modal-target="popup-edit" data-modal-toggle="popup-edit">
                     <span class="material-symbols-outlined rounded-full p-2 scale-100 duration-300 ease-out bg-cBlue hover:bg-white hover:text-black text-white">
                         edit
                     </span>
                 </a>
-                <a href="#" class="p-2" data-modal-target="popup-delete" data-modal-toggle="popup-delete">
+                <a href="#" class="" data-modal-target="popup-delete" data-modal-toggle="popup-delete">
                     <span class="material-symbols-outlined rounded-full p-2 scale-100 duration-300 ease-out bg-cRed hover:bg-white hover:text-black text-white">
                         delete
                     </span>
@@ -97,22 +101,20 @@
         </div>
 
         {{-- Plan Card --}}
-        <div class="flex justify-between h-[70px] items-center gap-x-6 m-2 p-5 bg-white rounded-3xl shadow-lg hover:bg-cDarkBlue hover:text-white duration-500">
-            <div class="w-[90%]">
-                <h2 class="w-full text-md ml-10 font-bold flex text-center justify-center">
-                    Nature
-                    <span class="material-symbols-outlined">
-                        play_arrow
-                    </span>
-                </h2>
+        <div class="flex h-fit items-center my-2 p-5 relative bg-white rounded-3xl shadow-lg hover:bg-cDarkBlue hover:text-white duration-500">
+            <div class="w-full h-fit text-md font-bold flex text-center content-center items-center justify-center">
+                Nature
+                <span class="material-symbols-outlined">
+                    play_arrow
+                </span>
             </div>
-            <div class="w-[10%] h-full flex justify-center items-center mr-5">
-                <a href="#" class="p-2" data-modal-target="popup-edit" data-modal-toggle="popup-edit">
+            <div class="h-fit w-fit flex gap-2 right-5 absolute">
+                <a href="#" class="" data-modal-target="popup-edit" data-modal-toggle="popup-edit">
                     <span class="material-symbols-outlined rounded-full p-2 scale-100 duration-300 ease-out bg-cBlue hover:bg-white hover:text-black text-white">
                         edit
                     </span>
                 </a>
-                <a href="#" class="p-2" data-modal-target="popup-delete" data-modal-toggle="popup-delete">
+                <a href="#" class="" data-modal-target="popup-delete" data-modal-toggle="popup-delete">
                     <span class="material-symbols-outlined rounded-full p-2 scale-100 duration-300 ease-out bg-cRed hover:bg-white hover:text-black text-white">
                         delete
                     </span>
@@ -121,22 +123,20 @@
         </div>
 
         {{-- Plan Card --}}
-        <div class="flex justify-between h-[70px] items-center gap-x-6 m-2 p-5 bg-white rounded-3xl shadow-lg hover:bg-cDarkBlue hover:text-white duration-500">
-            <div class="w-[90%]">
-                <h2 class="w-full text-md ml-10 font-bold flex text-center justify-center">
-                    Ambient
-                    <span class="material-symbols-outlined">
-                        play_arrow
-                    </span>
-                </h2>
+        <div class="flex h-fit items-center my-2 p-5 relative bg-white rounded-3xl shadow-lg hover:bg-cDarkBlue hover:text-white duration-500">
+            <div class="w-full h-fit text-md font-bold flex text-center content-center items-center justify-center">
+                Ambient
+                <span class="material-symbols-outlined">
+                    play_arrow
+                </span>
             </div>
-            <div class="w-[10%] h-full flex justify-center items-center mr-5">
-                <a href="#" class="p-2" data-modal-target="popup-edit" data-modal-toggle="popup-edit">
+            <div class="h-fit w-fit flex gap-2 right-5 absolute">
+                <a href="#" class="" data-modal-target="popup-edit" data-modal-toggle="popup-edit">
                     <span class="material-symbols-outlined rounded-full p-2 scale-100 duration-300 ease-out bg-cBlue hover:bg-white hover:text-black text-white">
                         edit
                     </span>
                 </a>
-                <a href="#" class="p-2" data-modal-target="popup-delete" data-modal-toggle="popup-delete">
+                <a href="#" class="" data-modal-target="popup-delete" data-modal-toggle="popup-delete">
                     <span class="material-symbols-outlined rounded-full p-2 scale-100 duration-300 ease-out bg-cRed hover:bg-white hover:text-black text-white">
                         delete
                     </span>
@@ -145,22 +145,20 @@
         </div>
 
         {{-- Plan Card --}}
-        <div class="flex justify-between h-[70px] items-center gap-x-6 m-2 p-5 bg-white rounded-3xl shadow-lg hover:bg-cDarkBlue hover:text-white duration-500">
-            <div class="w-[90%]">
-                <h2 class="w-full text-md ml-10 font-bold flex text-center justify-center">
-                    Ambient
-                    <span class="material-symbols-outlined">
-                        play_arrow
-                    </span>
-                </h2>
+        <div class="flex h-fit items-center my-2 p-5 relative bg-white rounded-3xl shadow-lg hover:bg-cDarkBlue hover:text-white duration-500">
+            <div class="w-full h-fit text-md font-bold flex text-center content-center items-center justify-center">
+                Nature
+                <span class="material-symbols-outlined">
+                    play_arrow
+                </span>
             </div>
-            <div class="w-[10%] h-full flex justify-center items-center mr-5">
-                <a href="#" class="p-2" data-modal-target="popup-edit" data-modal-toggle="popup-edit">
+            <div class="h-fit w-fit flex gap-2 right-5 absolute">
+                <a href="#" class="" data-modal-target="popup-edit" data-modal-toggle="popup-edit">
                     <span class="material-symbols-outlined rounded-full p-2 scale-100 duration-300 ease-out bg-cBlue hover:bg-white hover:text-black text-white">
                         edit
                     </span>
                 </a>
-                <a href="#" class="p-2" data-modal-target="popup-delete" data-modal-toggle="popup-delete">
+                <a href="#" class="" data-modal-target="popup-delete" data-modal-toggle="popup-delete">
                     <span class="material-symbols-outlined rounded-full p-2 scale-100 duration-300 ease-out bg-cRed hover:bg-white hover:text-black text-white">
                         delete
                     </span>
@@ -169,22 +167,20 @@
         </div>
 
         {{-- Plan Card --}}
-        <div class="flex justify-between h-[70px] items-center gap-x-6 m-2 p-5 bg-white rounded-3xl shadow-lg hover:bg-cDarkBlue hover:text-white duration-500">
-            <div class="w-[90%]">
-                <h2 class="w-full text-md ml-10 font-bold flex text-center justify-center">
-                    Nature
-                    <span class="material-symbols-outlined">
-                        play_arrow
-                    </span>
-                </h2>
+        <div class="flex h-fit items-center my-2 p-5 relative bg-white rounded-3xl shadow-lg hover:bg-cDarkBlue hover:text-white duration-500">
+            <div class="w-full h-fit text-md font-bold flex text-center content-center items-center justify-center">
+                Ambient
+                <span class="material-symbols-outlined">
+                    play_arrow
+                </span>
             </div>
-            <div class="w-[10%] h-full flex justify-center items-center mr-5">
-                <a href="#" class="p-2" data-modal-target="popup-edit" data-modal-toggle="popup-edit">
+            <div class="h-fit w-fit flex gap-2 right-5 absolute">
+                <a href="#" class="" data-modal-target="popup-edit" data-modal-toggle="popup-edit">
                     <span class="material-symbols-outlined rounded-full p-2 scale-100 duration-300 ease-out bg-cBlue hover:bg-white hover:text-black text-white">
                         edit
                     </span>
                 </a>
-                <a href="#" class="p-2" data-modal-target="popup-delete" data-modal-toggle="popup-delete">
+                <a href="#" class="" data-modal-target="popup-delete" data-modal-toggle="popup-delete">
                     <span class="material-symbols-outlined rounded-full p-2 scale-100 duration-300 ease-out bg-cRed hover:bg-white hover:text-black text-white">
                         delete
                     </span>
@@ -193,22 +189,20 @@
         </div>
 
         {{-- Plan Card --}}
-        <div class="flex justify-between h-[70px] items-center gap-x-6 m-2 p-5 bg-white rounded-3xl shadow-lg hover:bg-cDarkBlue hover:text-white duration-500">
-            <div class="w-[90%]">
-                <h2 class="w-full text-md ml-10 font-bold flex text-center justify-center">
-                    Ambient
-                    <span class="material-symbols-outlined">
-                        play_arrow
-                    </span>
-                </h2>
+        <div class="flex h-fit items-center my-2 p-5 relative bg-white rounded-3xl shadow-lg hover:bg-cDarkBlue hover:text-white duration-500">
+            <div class="w-full h-fit text-md font-bold flex text-center content-center items-center justify-center">
+                Nature
+                <span class="material-symbols-outlined">
+                    play_arrow
+                </span>
             </div>
-            <div class="w-[10%] h-full flex justify-center items-center mr-5">
-                <a href="#" class="p-2" data-modal-target="popup-edit" data-modal-toggle="popup-edit">
+            <div class="h-fit w-fit flex gap-2 right-5 absolute">
+                <a href="#" class="" data-modal-target="popup-edit" data-modal-toggle="popup-edit">
                     <span class="material-symbols-outlined rounded-full p-2 scale-100 duration-300 ease-out bg-cBlue hover:bg-white hover:text-black text-white">
                         edit
                     </span>
                 </a>
-                <a href="#" class="p-2" data-modal-target="popup-delete" data-modal-toggle="popup-delete">
+                <a href="#" class="" data-modal-target="popup-delete" data-modal-toggle="popup-delete">
                     <span class="material-symbols-outlined rounded-full p-2 scale-100 duration-300 ease-out bg-cRed hover:bg-white hover:text-black text-white">
                         delete
                     </span>
@@ -217,22 +211,20 @@
         </div>
 
         {{-- Plan Card --}}
-        <div class="flex justify-between h-[70px] items-center gap-x-6 m-2 p-5 bg-white rounded-3xl shadow-lg hover:bg-cDarkBlue hover:text-white duration-500">
-            <div class="w-[90%]">
-                <h2 class="w-full text-md ml-10 font-bold flex text-center justify-center">
-                    Nature
-                    <span class="material-symbols-outlined">
-                        play_arrow
-                    </span>
-                </h2>
+        <div class="flex h-fit items-center my-2 p-5 relative bg-white rounded-3xl shadow-lg hover:bg-cDarkBlue hover:text-white duration-500">
+            <div class="w-full h-fit text-md font-bold flex text-center content-center items-center justify-center">
+                Ambient
+                <span class="material-symbols-outlined">
+                    play_arrow
+                </span>
             </div>
-            <div class="w-[10%] h-full flex justify-center items-center mr-5">
-                <a href="#" class="p-2" data-modal-target="popup-edit" data-modal-toggle="popup-edit">
+            <div class="h-fit w-fit flex gap-2 right-5 absolute">
+                <a href="#" class="" data-modal-target="popup-edit" data-modal-toggle="popup-edit">
                     <span class="material-symbols-outlined rounded-full p-2 scale-100 duration-300 ease-out bg-cBlue hover:bg-white hover:text-black text-white">
                         edit
                     </span>
                 </a>
-                <a href="#" class="p-2" data-modal-target="popup-delete" data-modal-toggle="popup-delete">
+                <a href="#" class="" data-modal-target="popup-delete" data-modal-toggle="popup-delete">
                     <span class="material-symbols-outlined rounded-full p-2 scale-100 duration-300 ease-out bg-cRed hover:bg-white hover:text-black text-white">
                         delete
                     </span>

@@ -5,7 +5,7 @@
 
 {{-- Header --}}
 @section('header')
-<nav class="justify-evenly fixed bg-cLightGrey w-full z-10">
+<nav class="justify-evenly fixed bg-gradient-to-b from-cLightGrey from-30% to-transparent w-full z-10">
     <div class="max-w-screen-xl px-4 py-3 mx-auto">
         <div class="flex items-center">
             <ul class="flex flex-row font-medium mt-0 mr-6 space-x-2 text-2xl">
@@ -26,21 +26,21 @@
 @section('body')
     <div class="w-full">
         {{-- Categories --}}
-        <div class="w-full h-[300px] p-10 pt-16 bg-transparent">
-            <p class="text-cDarkBlue mt-2">Categories</p>
-            <div class="w-80% h-[160px] flex mt-2 justify-between mb-5">
+        <div class="flex flex-col w-full h-[250px] pt-16 bg-transparent md:h-[330px]">
+            <p class="relative flex text-cDarkBlue h-fit pl-7 md:pl-0 md:text-center md:justify-center">Categories</p>
+            <div class="h-[160px] md:h-[250px] flex justify-center md:w-[100%] gap-3 md:gap-7 p-5">
                 {{-- Workout Plans --}}
-                <a href="/admin/workout" class="w-[48%]">
-                    <div class="w-full h-full items-center justify-center flex flex-col bg-cDarkBlue rounded-3xl overflow-hidden md:bg-transparent @yield('isWorkoutActive')">
-                        <div class="h-[75%] -mt-3 md:w-[30%] w-full bg-cover" style="background-image: url('/assets/olahragaCategory.png')"></div>
-                        <p class="text-center text-white mt-2 md:text-cDarkBlue">Workout</p>
+                <a href="/admin/workout" class="w-[50%] md:w-[30%]">
+                    <div class="w-full h-full items-center justify-center flex flex-col bg-cDarkBlue rounded-3xl hover:bg-cBlue duration-500 @yield('isWorkoutActive')">
+                        <div class="h-full w-full rounded-t-3xl bg-cover" style="background-image: url('/assets/olahragaCategory.png')"></div>
+                        <p class="flex items-center text-center text-white p-2">Workout</p>
                     </div>
                 </a>
                 {{-- Meditation Plans --}}
-                <a href="/admin/meditation" class="w-[48%]">
-                    <div class="w-full h-full items-center justify-center flex flex-col bg-cDarkBlue rounded-3xl overflow-hidden md:bg-transparent @yield('isMeditationActive')">
-                        <div class="h-[75%] -mt-3 md:w-[30%] w-full bg-cover" style="background-image: url('/assets/meditasiCategory.png')"></div>
-                        <p class="text-center text-white mt-2 md:text-cDarkBlue">Meditation</p>
+                <a href="/admin/meditation" class="w-[50%] md:w-[30%]">
+                    <div class="w-full h-full items-center justify-center flex flex-col bg-cDarkBlue rounded-3xl hover:bg-cBlue duration-500 @yield('isMeditationActive')">
+                        <div class="h-full w-full rounded-t-3xl bg-cover" style="background-image: url('/assets/meditasiCategory.png')"></div>
+                        <p class="flex items-center text-center text-white p-2">Meditation</p>
                     </div>
                 </a>
             </div>
@@ -49,29 +49,30 @@
         {{-- Workout Plans List --}}
         <div class="pl-5 pr-5 w-full">
             {{-- Plan Card --}}
-            <div class="flex justify-between h-[240px] items-center gap-x-6 m-2 p-5 bg-white rounded-3xl shadow-lg hover:bg-cDarkBlue hover:text-white duration-500">
-                <div class="w-[60%]">
-                    <span class="top-[308px] right-7 w-[60px] h-[40px] rounded-bl-3xl rounded-tr-3xl bg-cRed absolute text-white flex justify-center items-center text-2xl">#1</span>
-                    <h2 class="text-xl font-bold">BURN FAT IN 7 DAYS!</h2>
-                    <p class="text-sm">Workout Program (Results in 1 week) include..</p>
-                    <p class="text-sm text-cYellow flex items-center">
-                        <span class="material-symbols-outlined inline-block text-cYellow mr-1">
-                            toll
-                        </span>
-                        5 points will be added!
-                    </p>
-                </div>
-                <div class="w-[40%] h-full flex justify-center items-center">
-                    <div class="w-[210px] rounded-md border border-cBlue aspect-square bg-center bg-cover" style="background-image:url('/assets/planImage.png')">
+            <div class="h-fit bg-white mb-2 relative rounded-3xl shadow-lg hover:bg-cDarkBlue hover:text-white duration-500">
+                <span class="right-0 top-0 w-fit h-hit rounded-bl-3xl rounded-tr-3xl bg-cRed absolute text-white text-xl px-4">#1</span>
+                <div class="flex py-6 px-5 items-center gap-2">
+                    <div class="flex items-center w-[85%] justify-center">
+                        <div class="flex-col w-[70%]">
+                            <p class="font-semibold items-center text-lg">BURN FAT IN 7 DAYS!</p>
+                            <p class="text-sm truncate">Workout Program (Results in 1 week) include</p>
+                            <p class="text-sm text-cYellow flex items-center">
+                                <span class="material-symbols-outlined inline-block text-cYellow mr-1">
+                                    toll
+                                </span>
+                                5 points will be added!
+                            </p>
+                        </div>
+                        <div class="w-[30%] h-fit md:w-40 rounded-md border border-cBlue aspect-square bg-center bg-cover" style="background-image:url('/assets/planImage.png')">
+                        </div>
                     </div>
-                    <div class="flex-row">
-                        <a href="#" class="p-5" data-modal-target="popup-edit" data-modal-toggle="popup-edit">
+                    <div class="absolute h-fit w-fit flex flex-col gap-2 right-3">
+                        <a href="#" class="" data-modal-target="popup-edit" data-modal-toggle="popup-edit">
                             <span class="material-symbols-outlined rounded-full p-2 scale-100 duration-300 ease-out bg-cBlue hover:bg-white hover:text-black text-white">
                                 edit
                             </span>
                         </a>
-                        <div class="bg-transparent h-2"></div>
-                        <a href="#" class="p-5" data-modal-target="popup-delete" data-modal-toggle="popup-delete">
+                        <a href="#" class="" data-modal-target="popup-delete" data-modal-toggle="popup-delete">
                             <span class="material-symbols-outlined rounded-full p-2 scale-100 duration-300 ease-out bg-cRed hover:bg-white hover:text-black text-white">
                                 delete
                             </span>
@@ -81,29 +82,30 @@
             </div>
 
             {{-- Plan Card --}}
-            <div class="flex justify-between h-[240px] items-center gap-x-6 m-2 p-5 bg-white rounded-3xl shadow-lg hover:bg-cDarkBlue hover:text-white duration-500">
-                <div class="w-[60%]">
-                    <span class="top-[556px] right-7 w-[60px] h-[40px] rounded-bl-3xl rounded-tr-3xl bg-cRed absolute text-white flex justify-center items-center text-2xl">#1</span>
-                    <h2 class="text-xl font-bold">BURN FAT IN 7 DAYS!</h2>
-                    <p class="text-sm">Workout Program (Results in 1 week) include..</p>
-                    <p class="text-sm text-cYellow flex items-center">
-                        <span class="material-symbols-outlined inline-block text-cYellow mr-1">
-                            toll
-                        </span>
-                        5 points will be added!
-                    </p>
-                </div>
-                <div class="w-[40%] h-full flex justify-center items-center">
-                    <div class="w-[210px] rounded-md border border-cBlue aspect-square bg-center bg-cover" style="background-image:url('/assets/planImage.png')">
+            <div class="h-fit bg-white mb-2 relative rounded-3xl shadow-lg hover:bg-cDarkBlue hover:text-white duration-500">
+                <span class="right-0 top-0 w-fit h-hit rounded-bl-3xl rounded-tr-3xl bg-cRed absolute text-white text-xl px-4">#1</span>
+                <div class="flex py-6 px-5 items-center gap-2">
+                    <div class="flex items-center w-[85%] justify-center">
+                        <div class="flex-col w-[70%]">
+                            <p class="font-semibold items-center text-lg">BURN FAT IN 7 DAYS!</p>
+                            <p class="text-sm truncate">Workout Program (Results in 1 week) include</p>
+                            <p class="text-sm text-cYellow flex items-center">
+                                <span class="material-symbols-outlined inline-block text-cYellow mr-1">
+                                    toll
+                                </span>
+                                5 points will be added!
+                            </p>
+                        </div>
+                        <div class="w-[30%] h-fit md:w-40 rounded-md border border-cBlue aspect-square bg-center bg-cover" style="background-image:url('/assets/planImage.png')">
+                        </div>
                     </div>
-                    <div class="flex-row">
-                        <a href="#" class="p-5" data-modal-target="popup-edit" data-modal-toggle="popup-edit">
+                    <div class="absolute h-fit w-fit flex flex-col gap-2 right-3">
+                        <a href="#" class="" data-modal-target="popup-edit" data-modal-toggle="popup-edit">
                             <span class="material-symbols-outlined rounded-full p-2 scale-100 duration-300 ease-out bg-cBlue hover:bg-white hover:text-black text-white">
                                 edit
                             </span>
                         </a>
-                        <div class="bg-transparent h-2"></div>
-                        <a href="#" class="p-5" data-modal-target="popup-delete" data-modal-toggle="popup-delete">
+                        <a href="#" class="" data-modal-target="popup-delete" data-modal-toggle="popup-delete">
                             <span class="material-symbols-outlined rounded-full p-2 scale-100 duration-300 ease-out bg-cRed hover:bg-white hover:text-black text-white">
                                 delete
                             </span>
@@ -113,29 +115,30 @@
             </div>
 
             {{-- Plan Card --}}
-            <div class="flex justify-between h-[240px] items-center gap-x-6 m-2 p-5 bg-white rounded-3xl shadow-lg hover:bg-cDarkBlue hover:text-white duration-500">
-                <div class="w-[60%]">
-                    <span class="top-[804px] right-7 w-[60px] h-[40px] rounded-bl-3xl rounded-tr-3xl bg-cRed absolute text-white flex justify-center items-center text-2xl">#1</span>
-                    <h2 class="text-xl font-bold">BURN FAT IN 7 DAYS!</h2>
-                    <p class="text-sm">Workout Program (Results in 1 week) include..</p>
-                    <p class="text-sm text-cYellow flex items-center">
-                        <span class="material-symbols-outlined inline-block text-cYellow mr-1">
-                            toll
-                        </span>
-                        5 points will be added!
-                    </p>
-                </div>
-                <div class="w-[40%] h-full flex justify-center items-center">
-                    <div class="w-[210px] rounded-md border border-cBlue aspect-square bg-center bg-cover" style="background-image:url('/assets/planImage.png')">
+            <div class="h-fit bg-white mb-2 relative rounded-3xl shadow-lg hover:bg-cDarkBlue hover:text-white duration-500">
+                <span class="right-0 top-0 w-fit h-hit rounded-bl-3xl rounded-tr-3xl bg-cRed absolute text-white text-xl px-4">#1</span>
+                <div class="flex py-6 px-5 items-center gap-2">
+                    <div class="flex items-center w-[85%] justify-center">
+                        <div class="flex-col w-[70%]">
+                            <p class="font-semibold items-center text-lg">BURN FAT IN 7 DAYS!</p>
+                            <p class="text-sm truncate">Workout Program (Results in 1 week) include</p>
+                            <p class="text-sm text-cYellow flex items-center">
+                                <span class="material-symbols-outlined inline-block text-cYellow mr-1">
+                                    toll
+                                </span>
+                                5 points will be added!
+                            </p>
+                        </div>
+                        <div class="w-[30%] h-fit md:w-40 rounded-md border border-cBlue aspect-square bg-center bg-cover" style="background-image:url('/assets/planImage.png')">
+                        </div>
                     </div>
-                    <div class="flex-row">
-                        <a href="#" class="p-5" data-modal-target="popup-edit" data-modal-toggle="popup-edit">
+                    <div class="absolute h-fit w-fit flex flex-col gap-2 right-3">
+                        <a href="#" class="" data-modal-target="popup-edit" data-modal-toggle="popup-edit">
                             <span class="material-symbols-outlined rounded-full p-2 scale-100 duration-300 ease-out bg-cBlue hover:bg-white hover:text-black text-white">
                                 edit
                             </span>
                         </a>
-                        <div class="bg-transparent h-2"></div>
-                        <a href="#" class="p-5" data-modal-target="popup-delete" data-modal-toggle="popup-delete">
+                        <a href="#" class="" data-modal-target="popup-delete" data-modal-toggle="popup-delete">
                             <span class="material-symbols-outlined rounded-full p-2 scale-100 duration-300 ease-out bg-cRed hover:bg-white hover:text-black text-white">
                                 delete
                             </span>
@@ -145,29 +148,30 @@
             </div>
 
             {{-- Plan Card --}}
-            <div class="flex justify-between h-[240px] items-center gap-x-6 m-2 p-5 bg-white rounded-3xl shadow-lg hover:bg-cDarkBlue hover:text-white duration-500">
-                <div class="w-[60%]">
-                    <span class="top-[1052px] right-7 w-[60px] h-[40px] rounded-bl-3xl rounded-tr-3xl bg-cRed absolute text-white flex justify-center items-center text-2xl">#1</span>
-                    <h2 class="text-xl font-bold">BURN FAT IN 7 DAYS!</h2>
-                    <p class="text-sm">Workout Program (Results in 1 week) include..</p>
-                    <p class="text-sm text-cYellow flex items-center">
-                        <span class="material-symbols-outlined inline-block text-cYellow mr-1">
-                            toll
-                        </span>
-                        5 points will be added!
-                    </p>
-                </div>
-                <div class="w-[40%] h-full flex justify-center items-center">
-                    <div class="w-[210px] rounded-md border border-cBlue aspect-square bg-center bg-cover" style="background-image:url('/assets/planImage.png')">
+            <div class="h-fit bg-white mb-2 relative rounded-3xl shadow-lg hover:bg-cDarkBlue hover:text-white duration-500">
+                <span class="right-0 top-0 w-fit h-hit rounded-bl-3xl rounded-tr-3xl bg-cRed absolute text-white text-xl px-4">#1</span>
+                <div class="flex py-6 px-5 items-center gap-2">
+                    <div class="flex items-center w-[85%] justify-center">
+                        <div class="flex-col w-[70%]">
+                            <p class="font-semibold items-center text-lg">BURN FAT IN 7 DAYS!</p>
+                            <p class="text-sm truncate">Workout Program (Results in 1 week) include</p>
+                            <p class="text-sm text-cYellow flex items-center">
+                                <span class="material-symbols-outlined inline-block text-cYellow mr-1">
+                                    toll
+                                </span>
+                                5 points will be added!
+                            </p>
+                        </div>
+                        <div class="w-[30%] h-fit md:w-40 rounded-md border border-cBlue aspect-square bg-center bg-cover" style="background-image:url('/assets/planImage.png')">
+                        </div>
                     </div>
-                    <div class="flex-row">
-                        <a href="#" class="p-5" data-modal-target="popup-edit" data-modal-toggle="popup-edit">
+                    <div class="absolute h-fit w-fit flex flex-col gap-2 right-3">
+                        <a href="#" class="" data-modal-target="popup-edit" data-modal-toggle="popup-edit">
                             <span class="material-symbols-outlined rounded-full p-2 scale-100 duration-300 ease-out bg-cBlue hover:bg-white hover:text-black text-white">
                                 edit
                             </span>
                         </a>
-                        <div class="bg-transparent h-2"></div>
-                        <a href="#" class="p-5" data-modal-target="popup-delete" data-modal-toggle="popup-delete">
+                        <a href="#" class="" data-modal-target="popup-delete" data-modal-toggle="popup-delete">
                             <span class="material-symbols-outlined rounded-full p-2 scale-100 duration-300 ease-out bg-cRed hover:bg-white hover:text-black text-white">
                                 delete
                             </span>
@@ -177,29 +181,63 @@
             </div>
 
             {{-- Plan Card --}}
-            <div class="flex justify-between h-[240px] items-center gap-x-6 m-2 p-5 bg-white rounded-3xl shadow-lg hover:bg-cDarkBlue hover:text-white duration-500">
-                <div class="w-[60%]">
-                    <span class="top-[1300px] right-7 w-[60px] h-[40px] rounded-bl-3xl rounded-tr-3xl bg-cRed absolute text-white flex justify-center items-center text-2xl">#1</span>
-                    <h2 class="text-xl font-bold">BURN FAT IN 7 DAYS!</h2>
-                    <p class="text-sm">Workout Program (Results in 1 week) include..</p>
-                    <p class="text-sm text-cYellow flex items-center">
-                        <span class="material-symbols-outlined inline-block text-cYellow mr-1">
-                            toll
-                        </span>
-                        5 points will be added!
-                    </p>
-                </div>
-                <div class="w-[40%] h-full flex justify-center items-center">
-                    <div class="w-[210px] rounded-md border border-cBlue aspect-square bg-center bg-cover" style="background-image:url('/assets/planImage.png')">
+            <div class="h-fit bg-white mb-2 relative rounded-3xl shadow-lg hover:bg-cDarkBlue hover:text-white duration-500">
+                <span class="right-0 top-0 w-fit h-hit rounded-bl-3xl rounded-tr-3xl bg-cRed absolute text-white text-xl px-4">#1</span>
+                <div class="flex py-6 px-5 items-center gap-2">
+                    <div class="flex items-center w-[85%] justify-center">
+                        <div class="flex-col w-[70%]">
+                            <p class="font-semibold items-center text-lg">BURN FAT IN 7 DAYS!</p>
+                            <p class="text-sm truncate">Workout Program (Results in 1 week) include</p>
+                            <p class="text-sm text-cYellow flex items-center">
+                                <span class="material-symbols-outlined inline-block text-cYellow mr-1">
+                                    toll
+                                </span>
+                                5 points will be added!
+                            </p>
+                        </div>
+                        <div class="w-[30%] h-fit md:w-40 rounded-md border border-cBlue aspect-square bg-center bg-cover" style="background-image:url('/assets/planImage.png')">
+                        </div>
                     </div>
-                    <div class="flex-row">
-                        <a href="#" class="p-5" data-modal-target="popup-edit" data-modal-toggle="popup-edit">
+                    <div class="absolute h-fit w-fit flex flex-col gap-2 right-3">
+                        <a href="#" class="" data-modal-target="popup-edit" data-modal-toggle="popup-edit">
                             <span class="material-symbols-outlined rounded-full p-2 scale-100 duration-300 ease-out bg-cBlue hover:bg-white hover:text-black text-white">
                                 edit
                             </span>
                         </a>
-                        <div class="bg-transparent h-2"></div>
-                        <a href="#" class="p-5" data-modal-target="popup-delete" data-modal-toggle="popup-delete">
+                        <a href="#" class="" data-modal-target="popup-delete" data-modal-toggle="popup-delete">
+                            <span class="material-symbols-outlined rounded-full p-2 scale-100 duration-300 ease-out bg-cRed hover:bg-white hover:text-black text-white">
+                                delete
+                            </span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            {{-- Plan Card --}}
+            <div class="h-fit bg-white mb-2 relative rounded-3xl shadow-lg hover:bg-cDarkBlue hover:text-white duration-500">
+                <span class="right-0 top-0 w-fit h-hit rounded-bl-3xl rounded-tr-3xl bg-cRed absolute text-white text-xl px-4">#1</span>
+                <div class="flex py-6 px-5 items-center gap-2">
+                    <div class="flex items-center w-[85%] justify-center">
+                        <div class="flex-col w-[70%]">
+                            <p class="font-semibold items-center text-lg">BURN FAT IN 7 DAYS!</p>
+                            <p class="text-sm truncate">Workout Program (Results in 1 week) include</p>
+                            <p class="text-sm text-cYellow flex items-center">
+                                <span class="material-symbols-outlined inline-block text-cYellow mr-1">
+                                    toll
+                                </span>
+                                5 points will be added!
+                            </p>
+                        </div>
+                        <div class="w-[30%] h-fit md:w-40 rounded-md border border-cBlue aspect-square bg-center bg-cover" style="background-image:url('/assets/planImage.png')">
+                        </div>
+                    </div>
+                    <div class="absolute h-fit w-fit flex flex-col gap-2 right-3">
+                        <a href="#" class="" data-modal-target="popup-edit" data-modal-toggle="popup-edit">
+                            <span class="material-symbols-outlined rounded-full p-2 scale-100 duration-300 ease-out bg-cBlue hover:bg-white hover:text-black text-white">
+                                edit
+                            </span>
+                        </a>
+                        <a href="#" class="" data-modal-target="popup-delete" data-modal-toggle="popup-delete">
                             <span class="material-symbols-outlined rounded-full p-2 scale-100 duration-300 ease-out bg-cRed hover:bg-white hover:text-black text-white">
                                 delete
                             </span>

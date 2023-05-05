@@ -60,7 +60,7 @@
                     <div class="text-2xl font-bold">@yield('toptitle')</div>
                     <div class="text-sm w-[300px]">@yield('topdesc')</div>
                 </div>
-                <form action="@yield('directpage')" class="flex flex-col gap-2" method="post">
+                <form action="@yield('directpage')" class="flex flex-col gap-2" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="w-[300px] h-[50px] rounded-full bg-cLightGrey flex items-center text-cDarkGrey px-4 duration-300 hover:ring-2 focus-within:text-cBlue focus-within:ring-2 hover:text-cBlue">
                         <span class="material-symbols-outlined">
@@ -117,22 +117,7 @@
                             </label>
                         @endif
                     </div>
-                    <div class="w-[300px] h-[110px] flex items-center text-cDarkGrey justify-between gap-2">
-                        <div class="relative aspect-square h-full bg-cLightGrey rounded-3xl">
-                            <input type="file" name="image" id="image" required class="hidden" onchange="loadFile(event)">
-                            <label for="image" class="h-full aspect-square rounded-3xl p-2 flex flex-col justify-center items-center cursor-pointer duration-300 hover:ring-2 focus-within:ring-2 hover:text-cBlue bg-cover bg-center absolute" id="imgBox">
-                            </label>
-                            <div class="h-full w-full flex flex-col justify-center items-center p-2">
-                                <span class="material-symbols-outlined">
-                                    image
-                                </span>
-                                <div class="text-sm">
-                                    <p>Put your photo here</p>
-                                </div>
-                            </div>
-                        </div>
-                        @yield('weight_height')
-                    </div>
+                    @yield('img_weight_height')
                     <div class="w-[300px] h-[50px] rounded-full bg-cLightGrey flex items-center text-cDarkGrey px-4 duration-300 hover:ring-2 focus-within:text-cBlue focus-within:ring-2 hover:text-cBlue">
                         <span class="material-symbols-outlined">
                             lock
