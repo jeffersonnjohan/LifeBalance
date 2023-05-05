@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class EnrollmentWorkout extends Model
 {
     use HasFactory;
+
+    public function workout(){
+        return $this->belongsTo(Workout::class);
+    }
 }

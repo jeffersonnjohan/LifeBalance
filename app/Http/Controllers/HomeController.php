@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\EnrollmentWorkout;
 use App\Models\User;
 use App\Models\UserDiet;
 use App\Models\UserWorkout;
@@ -28,7 +29,8 @@ class HomeController extends Controller
             'caloriesOut' => $caloriesOut,
             'totalCalories' => $totalCalories,
             'categoryBmi' => $this->categoryBmi($bmi),
-            'leaderboards' => $this->leaderboard()
+            'leaderboards' => $this->leaderboard(),
+            'unfinishedPlans' => $this->unfinishedPlan($id),
         ]);
     }
 
@@ -44,6 +46,10 @@ class HomeController extends Controller
 
     private function leaderboard(){
         return User::all()->sortByDesc('points')->take(5);
+    }
+
+    private function unfinishedPlan($id){
+        return EnrollmentWorkout::where('user_id', $id)->where('is_done', false)->get()->load(['workout']);
     }
 }
 ?>
