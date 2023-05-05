@@ -8,8 +8,8 @@
 </head>
 <body>
     <?php $temp = array(); ?>
-    <div>Unfinished Plan!</div>
-    @if (!$enrollments)
+    @if (count($enrollments) > 0)
+        <div>Unfinished Plan!</div>
         @foreach ($enrollments as $enrollment)
             @if ($enrollment->is_done == 0)
                 {{-- show unfinished plan--}}
