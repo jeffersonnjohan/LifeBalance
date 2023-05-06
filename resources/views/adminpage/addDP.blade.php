@@ -85,30 +85,6 @@ Dinner : Es buah)" required class="h-full border-transparent bg-transparent focu
                     </div>
                 </div>
             </div>
-            <div class="px-3">
-                <div class="pt-2 pb-2">
-                    <div class="w-full h-[50px] rounded-full bg-cGreen bg-opacity-50 flex items-center text-cDarkGrey px-4">
-                        <h2 class="border-transparent bg-transparent text-sm font-bold text-cDarkBlue text-center w-full">Day 1</h2>
-                    </div>
-                </div>
-                {{-- Add Food Recomendation --}}
-                <div class="flex flex-row w-full h-[200px] bg-black bg-opacity-10 pt-2 rounded-3xl">
-                    <div class="flex p-2 w-[75%] h-[90%]">
-                        <div class="place-content-center h-full w-full rounded-3xl bg-white flex items-center text-cDarkGrey duration-300 hover:ring-2 focus-within:text-cGreen focus-within:ring-2 hover:text-cGreen">
-                            <textarea type="text" name="description" id="description" placeholder="Description
-(e.g.,
-Breakfast : 500 gr
-Apel Lunch  : Nasi Padang
-Dinner : Es buah)" required class="h-full border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full "></textarea>
-                        </div>
-                    </div>
-                    <div class="w-[25%] h-full p-2">
-                        <div class="w-full h-[50px] rounded-full bg-white flex items-center text-cDarkGrey px-4 duration-300 hover:ring-2 focus-within:text-cGreen focus-within:ring-2 hover:text-cGreen shadow-lg">
-                            <input type="number" name="calories" id="calories" placeholder="Calories" required class="text-center border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full">
-                        </div>
-                    </div>
-                </div>
-            </div>
             {{-- <input type="button" name="buttonAdd" id="buttonAdd" placeholder="Add More" required class="text-center border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full"> --}}
             <a href="" class="flex flex-row pt-2 pb-2 text-cGreen place-content-end pr-2">
                 <span class="material-symbols-outlined ">
