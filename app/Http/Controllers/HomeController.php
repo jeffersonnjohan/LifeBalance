@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\EnrollmentWorkout;
 use App\Models\User;
 use App\Models\UserDiet;
+use App\Models\UserWeight;
 use App\Models\UserWorkout;
 use Illuminate\Http\Request;
 
@@ -20,6 +21,8 @@ class HomeController extends Controller
         $caloriesIn = UserDiet::where('user_id', $id)->sum('calories_in');
         $caloriesOut = UserWorkout::where('user_id', $id)->sum('calories_out');
         $totalCalories = $caloriesIn - $caloriesOut;
+
+        dd($this->bodyWeightStatistic($id));
 
         return view('/home_community/home', [
             'name' => $user->username,
@@ -50,6 +53,38 @@ class HomeController extends Controller
 
     private function unfinishedPlan($id){
         return EnrollmentWorkout::where('user_id', $id)->where('is_done', false)->get()->load(['workout']);
+    }
+
+    private function bodyWeightStatistic($id){
+        // Mengembalikan list berat selama 1 minggu terakhir
+
+        $endDate = date("Y-m-d").' 23:59:59';
+        $startDate = $this->dateBefore($endDate, 6);
+
+        $list = [$startDate];
+        $firstWeightList = $this->weightInDate($id, $startDate);
+        $weightList = [$firstWeightList];
+
+        $currDate = $startDate;
+        for($i = 0; $i < 6; $i++){
+            $currDate = $this->dateAfter($currDate, 1);
+            $list[] = $currDate;
+            $weightList[] = $this->weightInDate($id, $currDate);
+        }
+
+        return $weightList;
+    }
+
+    private function dateBefore($date, $n){
+        return date_format(date_sub(date_create($date), date_interval_create_from_date_string("$n days")), "Y-m-d");
+    }
+
+    private function dateAfter($date, $n){
+        return date_format(date_add(date_create($date), date_interval_create_from_date_string("$n days")), "Y-m-d");
+    }
+
+    private function weightInDate($id, $date){
+        return UserWeight::where('user_id', $id)->where('created_at', '>=' , $date)->where('created_at', '<=' , $this->dateAfter($date, 1).' 00:00:00')->get()[0]->weight ?? -1;
     }
 }
 ?>
