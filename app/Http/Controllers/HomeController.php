@@ -22,8 +22,6 @@ class HomeController extends Controller
         $caloriesOut = UserWorkout::where('user_id', $id)->sum('calories_out');
         $totalCalories = $caloriesIn - $caloriesOut;
 
-        dd($this->bodyWeightStatistic($id));
-
         return view('/home_community/home', [
             'name' => $user->username,
             'bmi' => $bmi,
@@ -34,6 +32,7 @@ class HomeController extends Controller
             'categoryBmi' => $this->categoryBmi($bmi),
             'leaderboards' => $this->leaderboard(),
             'unfinishedPlans' => $this->unfinishedPlan($id),
+            'weightList' => json_encode($this->bodyWeightStatistic($id)),
         ]);
     }
 
@@ -57,7 +56,6 @@ class HomeController extends Controller
 
     private function bodyWeightStatistic($id){
         // Mengembalikan list berat selama 1 minggu terakhir
-
         $endDate = date("Y-m-d").' 23:59:59';
         $startDate = $this->dateBefore($endDate, 6);
 

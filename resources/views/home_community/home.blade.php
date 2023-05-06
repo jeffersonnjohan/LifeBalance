@@ -148,7 +148,6 @@
                 </div>
             </a>
         </div>
-    {{-- </div> --}}
 
     {{-- On Going Plan --}}
     @foreach($unfinishedPlans as $unfinishedPlan)
@@ -201,7 +200,7 @@
                 label: "My Weight in kg",
                 backgroundColor: "hsl(252, 82.9%, 67.8%)",
                 borderColor: "hsl(252, 82.9%, 67.8%)",
-                data: [60, 60, 58, 59, 57, 58, 57],
+                data: {{ $weightList }},
                 },
             ],
             };
