@@ -8,4 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class EnrollmentDiet extends Model
 {
     use HasFactory;
+
+    public function workout(){
+        return $this->belongsTo(Workout::class);
+    }
+
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
 }

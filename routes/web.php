@@ -86,9 +86,9 @@ Route::get('/history', function () {
 //     return view('home_community.home');
 // });
 
-Route::get('/community', function () {
-    return view('home_community.community');
-});
+// Route::get('/community', function () {
+//     return view('home_community.community');
+// });
 
 // ADMIN PAGE
 Route::get('/admin/workout', function () {
@@ -142,7 +142,7 @@ Route::get('/admin/challenges/edit', function () {
 
 // Home | Community Route
 Route::get('/home', [HomeController::class, 'index']);
-// Route::post('/community', [CommunityController::class, 'index']);
+Route::get('/community', [CommunityController::class, 'index']);
 
 // Workout Route
 Route::get('/workouts', [WorkoutController::class, 'index']);
