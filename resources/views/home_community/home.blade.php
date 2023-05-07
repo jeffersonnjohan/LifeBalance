@@ -206,12 +206,12 @@
             };
 
             const configLineChart1 = {
-            type: "line",
-            data,
-            options: {},
+                type: "line",
+                data,
+                options: {},
             };
 
-            var bodyWeightGraph = new Chart(
+            const bodyWeightGraph = new Chart(
             document.getElementById("bodyWeightGraph"),
             configLineChart1
             );
@@ -225,18 +225,18 @@
                 label: "Calorie Intake in kCal",
                 backgroundColor: "hsl(252, 82.9%, 67.8%)",
                 borderColor: "hsl(252, 82.9%, 67.8%)",
-                data: [60, 80, 58, 59, 57, 58, 57],
+                data: {{ $caloriesInList }},
                 },
             ],
             };
 
             const configLineChart2 = {
             type: "line",
-            data,
+            data: data_calIn,
             options: {},
             };
 
-            var calorieIntakeGraph = new Chart(
+            const calorieIntakeGraph = new Chart(
             document.getElementById("calorieIntakeGraph"),
             configLineChart2
             );
@@ -257,11 +257,11 @@
 
             const configLineChart3 = {
             type: "line",
-            data,
+            data: labels_calOut,
             options: {},
             };
 
-            var calorieLeftGraph = new Chart(
+            const calorieLeftGraph = new Chart(
             document.getElementById("calorieLeftGraph"),
             configLineChart3
             );

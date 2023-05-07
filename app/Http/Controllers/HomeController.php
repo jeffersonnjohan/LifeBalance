@@ -33,6 +33,7 @@ class HomeController extends Controller
             'leaderboards' => $this->leaderboard(),
             'unfinishedPlans' => $this->unfinishedPlan($id),
             'weightList' => json_encode($this->bodyWeightStatistic($id)),
+            'caloriesInList' => json_encode($this->caloriesInStatistic($id)),
         ]);
     }
 
@@ -83,6 +84,29 @@ class HomeController extends Controller
 
     private function weightInDate($id, $date){
         return UserWeight::where('user_id', $id)->where('created_at', '>=' , $date)->where('created_at', '<=' , $this->dateAfter($date, 1).' 00:00:00')->get()[0]->weight ?? -1;
+    }
+
+    private function caloriesInOnDate($id, $date){
+        return UserDiet::where('user_id', $id)->where('created_at', '>=' , $date)->where('created_at', '<=' , $this->dateAfter($date, 1).' 00:00:00')->get()[0]->calories_in ?? -1;
+    }
+
+    private function caloriesInStatistic($id){
+        // Mengembalikan list berat selama 1 minggu terakhir
+        $endDate = date("Y-m-d").' 23:59:59';
+        $startDate = $this->dateBefore($endDate, 6);
+
+        $list = [$startDate];
+        $firstCaloriesIn = $this->caloriesInOnDate($id, $startDate);
+        $caloriesInList = [$firstCaloriesIn];
+
+        $currDate = $startDate;
+        for($i = 0; $i < 6; $i++){
+            $currDate = $this->dateAfter($currDate, 1);
+            $list[] = $currDate;
+            $caloriesInList[] = $this->caloriesInOnDate($id, $currDate);
+        }
+
+        return $caloriesInList;
     }
 }
 ?>
