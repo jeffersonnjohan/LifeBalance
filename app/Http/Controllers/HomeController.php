@@ -34,6 +34,7 @@ class HomeController extends Controller
             'unfinishedPlans' => $this->unfinishedPlan($id),
             'weightList' => json_encode($this->bodyWeightStatistic($id)),
             'caloriesInList' => json_encode($this->caloriesInStatistic($id)),
+            'caloriesOutList' => json_encode($this->caloriesOutStatistic($id)),
         ]);
     }
 
@@ -83,11 +84,15 @@ class HomeController extends Controller
     }
 
     private function weightInDate($id, $date){
-        return UserWeight::where('user_id', $id)->where('created_at', '>=' , $date)->where('created_at', '<=' , $this->dateAfter($date, 1).' 00:00:00')->get()[0]->weight ?? -1;
+        return UserWeight::where('user_id', $id)->where('created_at', '>=' , $date)->where('created_at', '<=' , $this->dateAfter($date, 1).' 00:00:00')->get()[0]->weight ?? 0;
     }
 
     private function caloriesInOnDate($id, $date){
-        return UserDiet::where('user_id', $id)->where('created_at', '>=' , $date)->where('created_at', '<=' , $this->dateAfter($date, 1).' 00:00:00')->get()[0]->calories_in ?? -1;
+        return UserDiet::where('user_id', $id)->where('created_at', '>=' , $date)->where('created_at', '<=' , $this->dateAfter($date, 1).' 00:00:00')->get()[0]->calories_in ?? 0;
+    }
+
+    private function caloriesOutOnDate($id, $date){
+        return UserWorkout::where('user_id', $id)->where('created_at', '>=' , $date)->where('created_at', '<=' , $this->dateAfter($date, 1).' 00:00:00')->get()[0]->calories_out ?? 0;
     }
 
     private function caloriesInStatistic($id){
@@ -107,6 +112,25 @@ class HomeController extends Controller
         }
 
         return $caloriesInList;
+    }
+
+    private function caloriesOutStatistic($id){
+        // Mengembalikan list berat selama 1 minggu terakhir
+        $endDate = date("Y-m-d").' 23:59:59';
+        $startDate = $this->dateBefore($endDate, 6);
+
+        $list = [$startDate];
+        $firstCaloriesOut = $this->caloriesOutOnDate($id, $startDate);
+        $caloriesOutList = [$firstCaloriesOut];
+
+        $currDate = $startDate;
+        for($i = 0; $i < 6; $i++){
+            $currDate = $this->dateAfter($currDate, 1);
+            $list[] = $currDate;
+            $caloriesOutList[] = $this->caloriesOutOnDate($id, $currDate);
+        }
+
+        return $caloriesOutList;
     }
 }
 ?>

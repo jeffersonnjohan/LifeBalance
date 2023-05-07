@@ -250,14 +250,14 @@
                 label: "Calorie Left in kCal",
                 backgroundColor: "hsl(252, 82.9%, 67.8%)",
                 borderColor: "hsl(252, 82.9%, 67.8%)",
-                data: [60, 60, 58, 59, 57, 58, 57],
+                data: {{ $caloriesOutList }},
                 },
             ],
             };
 
             const configLineChart3 = {
             type: "line",
-            data: labels_calOut,
+            data: data_calOut,
             options: {},
             };
 
