@@ -12,7 +12,7 @@
 
 @section('body')
     @if(session()->has('success'))
-        <div class="fixed z-10 w-fit h-fit mt-5 translate-x-[-50%] left-[50%] rounded-full bg-green-200 text-cGreen flex items-center px-4 py-2 text-sm text-center">
+        <div class="fixed z-10 w-[300px] h-fit mt-5 translate-x-[-50%] left-[50%] rounded-full bg-green-200 text-cGreen flex items-center px-4 py-2 text-sm text-center">
             <p>{{ session('success') }}</p>
         </div>
     @endif
@@ -21,22 +21,8 @@
             <p>{{ session('loginError') }}</p>
         </div>
     @endif
-    <div class="fixed h-full w-full flex gap-3 flex-col p-3">
-        <div class="w-full h-[80%] flex gap-3">
-            <div class="h-full w-[60%] flex flex-col gap-3">
-                <div class="bg-cOrange w-full h-[60%] rounded-3xl"></div>
-                <div class="bg-cRed w-full h-[40%] rounded-3xl"></div>
-            </div>
-            <div class=" h-full w-[40%] flex flex-col gap-3">
-                <div class="bg-cGreen w-full h-[40%] rounded-3xl"></div>
-                <div class="bg-cBlue w-full h-[30%] rounded-3xl"></div>
-                <div class="bg-cOrange w-full h-[30%] rounded-3xl"></div>
-            </div>
-        </div>
-        <div class="w-full h-[20%] flex gap-3">
-            <div class="bg-cGreen h-full w-[40%] rounded-3xl"></div>
-            <div class="bg-cBlue h-full w-[60%] rounded-3xl"></div>
-        </div>
+    <div class="fixed h-full w-full flex p-3">
+        @include('component.bgtemplate')
         <div class="bg-white w-fit h-fit m-auto absolute left-[50%] translate-x-[-50%] top-[50%] translate-y-[-50%] rounded-3xl flex flex-col justify-center items-center text-center p-5 shadow-lg">
             <div class="mb-5">
                 <div class="text-2xl font-bold">Welcome Back!</div>
