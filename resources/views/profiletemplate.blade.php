@@ -75,7 +75,7 @@
                     @yield('userdata')
                 </div>
             </div>
-            <div class="flex flex-col lg:flex-wrap lg:flex-row w-full lg:w-[65vw] lg:h-[850px] gap-2 justify-center lg:overflow-scroll" id="post">
+            <div class="flex flex-col lg:flex-wrap lg:flex-row w-full lg:w-[65vw] lg:h-[90vh] gap-2 justify-center lg:overflow-scroll" id="post">
                 <div class="lg:w-96 lg:h-fit bg-white shadow-lg rounded-3xl">
                     <div class="p-3 flex flex-col text-sm gap-1">
                         <div class="flex justify-between">
