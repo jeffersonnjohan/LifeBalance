@@ -15,4 +15,8 @@ class EnrollmentDiet extends Model
     {
         return $this->belongsTo(Diet::class);
     }
+
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
 }

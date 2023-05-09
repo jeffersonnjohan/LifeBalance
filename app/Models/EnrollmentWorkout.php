@@ -11,13 +11,11 @@ class EnrollmentWorkout extends Model
     use HasFactory;
     protected $guarded = ['id'];
 
-    public function workout()
-    {
+    public function workout(){
         return $this->belongsTo(Workout::class);
     }
 
-    public function user()
-    {
-        return $this->belongsToMany(User::class);
+    public function user(){
+        return $this->belongsTo(User::class);
     }
 }

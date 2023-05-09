@@ -34,29 +34,36 @@
 <div class="w-full h-fit px-2 pb-2">
     <div class="max-w-screen-xl px-4 py-3 h-20">
     </div>
-    <div class="bg-white shadow-lg rounded-3xl mb-2">
-        <div class="p-3 flex flex-col text-sm gap-1">
-            <div class="flex justify-between">
-                <div class="flex gap-3">
-                    <div class="w-[40px] aspect-square rounded-full overflow-hidden">
-                        <div class="w-full h-full bg-cover" style="background-image: url('/assets/profile1.png')"></div>
+    @foreach ($posts as $post)
+        <div class="bg-white shadow-lg rounded-3xl mb-2">
+            <div class="p-3 flex flex-col text-sm gap-1">
+                <div class="flex justify-between">
+                    <div class="flex gap-3">
+                        <div class="w-[40px] aspect-square rounded-full overflow-hidden">
+                            <div class="w-full h-full bg-cover" style="background-image: url('/assets/profile1.png')"></div>
+                        </div>
+                        <div>
+                            {{-- {{ var_dump($post) }} --}}
+                            <p class="font-bold">{{ $post->username }}</p>
+                            <p class="italic text-cDarkGrey">{{ date_create($post->updated_at)->format('l, d M Y') }}</p>
+                        </div>
                     </div>
-                    <div>
-                        <p class="font-bold">Daniel Zerge Wijaya</p>
-                        <p class="italic text-cDarkGrey">22 April 2023</p>
+                    <div class="w-fit">
+                        @if($post->type == 1)
+                            <p class="bg-cBlue text-white px-2 rounded-full font-bold">WORKOUT</p>
+                        @else
+                            <p class="bg-cGreen text-white px-2 rounded-full font-bold">DIET</p>
+                        @endif
                     </div>
                 </div>
-                <div class="w-fit">
-                    <p class="bg-cBlue text-white px-2 rounded-full font-bold">WORKOUT</p>
+                <div>
+                    <p>has completed "{{ $post->name }}"</p>
                 </div>
             </div>
-            <div>
-                <p>has completed "7 Days Barbell Workout"</p>
-            </div>
-        </div>
-        <div class="aspect-[4/3] bg-cover bg-center rounded-3xl" style="background-image: url('/assets/post1.png')"></div>
-    </div>
-    <div class="bg-white shadow-lg rounded-3xl mb-2">
+            <div class="aspect-[4/3] bg-cover bg-center rounded-3xl" style="background-image: url('/assets/post1.png')"></div>
+        </div>    
+    @endforeach
+    {{-- <div class="bg-white shadow-lg rounded-3xl mb-2">
         <div class="p-3 flex flex-col text-sm gap-1">
             <div class="flex justify-between">
                 <div class="flex gap-3">
@@ -143,8 +150,8 @@
             </div>
         </div>
         <div class="aspect-[4/3] bg-cover bg-center rounded-3xl" style="background-image: url('/assets/meditasiCategory.png')"></div>
-    </div>
-    <li class="m-5 p-2 bg-transparent"></li>
+    </div> --}}
+    <div class="m-5 p-2 bg-transparent"></div>
 </div>
 @include('component.navbar', ['active' => 'home'])
 @endsection

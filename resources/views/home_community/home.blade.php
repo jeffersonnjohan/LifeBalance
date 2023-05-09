@@ -148,22 +148,23 @@
                 </div>
             </a>
         </div>
-    {{-- </div> --}}
 
     {{-- On Going Plan --}}
+    @foreach($unfinishedPlans as $unfinishedPlan)
     <ul role="contentinfo" class="py-3">
         <a href="#" class="flex items-center h-fit p-5 bg-white rounded-3xl shadow-lg hover:bg-pink-200 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 duration-500">
             <img class="object-cover w-[100px] h-auto" src="/assets/eyediet.jpeg" alt="">
             <div class="flex flex-col justify-between p-3 gap-1">
                 <p class="font-normal text-sm text-cRed dark:text-gray-400 hover:text-white">Continue your plan.</p>
-                <p class="text-sm font-bold tracking-tight text-black dark:text-white hover:text-white">30 Days Diet Plan for a Healthy Eyes</p>
+                <p class="text-sm font-bold tracking-tight text-black dark:text-white hover:text-white">{{ $unfinishedPlan->workout->name }}</p>
                 <div class="w-full bg-gray-200 rounded-full dark:bg-cDarkGrey">
-                    <div class="bg-cRed text-xs text-transparent text-white text-center rounded-full leading-none" style="width:45%">45%</div>
+                    <div class="bg-cRed text-xs text-transparent text-white text-center rounded-full leading-none" style="width:{{ $unfinishedPlan->workout->day_count!=0? $unfinishedPlan->finished_day/$unfinishedPlan->workout->day_count*100 : 0}}%">{{ $unfinishedPlan->workout->day_count!=0? $unfinishedPlan->finished_day/$unfinishedPlan->workout->day_count*100 : 0}}%</div>
                 </div>
             </div>
         </a>
     </ul>
-
+    @endforeach
+    
     {{-- Progress Charts --}}
     <ul role="contentinfo" class="">
         <!-- component -->
@@ -199,18 +200,18 @@
                 label: "My Weight in kg",
                 backgroundColor: "hsl(252, 82.9%, 67.8%)",
                 borderColor: "hsl(252, 82.9%, 67.8%)",
-                data: [60, 60, 58, 59, 57, 58, 57],
+                data: {{ $weightList }},
                 },
             ],
             };
 
             const configLineChart1 = {
-            type: "line",
-            data,
-            options: {},
+                type: "line",
+                data,
+                options: {},
             };
 
-            var bodyWeightGraph = new Chart(
+            const bodyWeightGraph = new Chart(
             document.getElementById("bodyWeightGraph"),
             configLineChart1
             );
@@ -224,18 +225,18 @@
                 label: "Calorie Intake in kCal",
                 backgroundColor: "hsl(252, 82.9%, 67.8%)",
                 borderColor: "hsl(252, 82.9%, 67.8%)",
-                data: [60, 80, 58, 59, 57, 58, 57],
+                data: {{ $caloriesInList }},
                 },
             ],
             };
 
             const configLineChart2 = {
             type: "line",
-            data,
+            data: data_calIn,
             options: {},
             };
 
-            var calorieIntakeGraph = new Chart(
+            const calorieIntakeGraph = new Chart(
             document.getElementById("calorieIntakeGraph"),
             configLineChart2
             );
@@ -249,18 +250,18 @@
                 label: "Calorie Left in kCal",
                 backgroundColor: "hsl(252, 82.9%, 67.8%)",
                 borderColor: "hsl(252, 82.9%, 67.8%)",
-                data: [60, 60, 58, 59, 57, 58, 57],
+                data: {{ $caloriesOutList }},
                 },
             ],
             };
 
             const configLineChart3 = {
             type: "line",
-            data,
+            data: data_calOut,
             options: {},
             };
 
-            var calorieLeftGraph = new Chart(
+            const calorieLeftGraph = new Chart(
             document.getElementById("calorieLeftGraph"),
             configLineChart3
             );
