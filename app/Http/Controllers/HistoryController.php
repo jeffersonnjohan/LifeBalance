@@ -21,9 +21,6 @@ class HistoryController extends Controller
         foreach($enrollment_diets as $dietss){
             echo $dietss->diet;
         }
-
-        dd($enrollment_diets);
-        // $enrollment_diets = EnrollmentDiet::
         // $enrollment_diets = EnrollmentDiet::with('diet')->getQuery();
         // $enrollment_workouts = EnrollmentWorkout::with('workout')->getQuery();
 
