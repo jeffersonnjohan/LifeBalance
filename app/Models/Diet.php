@@ -9,6 +9,7 @@ class Diet extends Model
 {
     use HasFactory;
     public $timestamps = false;
+    protected $guarded = ['id'];
 
     public function scopeFilter($query, array $filters){
         $query->when($filters['search'] ?? false, function($query, $search) {
@@ -16,4 +17,9 @@ class Diet extends Model
                     ->orWhere('description', 'like', '%' . $search . '%');
         });
      }
+
+    //  public function enrollmentdiet()
+    // {
+    //     return $this->hasMany(Diet::class);
+    // }
 }
