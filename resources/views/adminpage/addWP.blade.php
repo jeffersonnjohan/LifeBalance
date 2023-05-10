@@ -33,17 +33,21 @@
      {{-- Page Body Section --}}
      <div class="pt-16 bg-cLightGrey w-full">
         <div class="flex flex-row gap-2 pt-2 pb-2 px-3">
+            {{-- Title --}}
             <div class="w-[75%] h-[50px] rounded-full bg-white flex items-center text-cDarkGrey px-4 duration-300 hover:ring-2 focus-within:text-cBlue focus-within:ring-2 hover:text-cBlue shadow-lg">
                 <input type="text" name="planTitle" id="planTitle" placeholder="Plan Title" required class="border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full">
             </div>
+            {{-- Point --}}
             <div class="w-[25%] h-[50px] rounded-full bg-white flex items-center text-cDarkGrey px-4 duration-300 hover:ring-2 focus-within:text-cBlue focus-within:ring-2 hover:text-cBlue shadow-lg">
                 <input type="number" name="points" id="points" placeholder="Points" required class="text-center border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full">
             </div>
         </div>
         <div class="flex flex-row gap-2 pt-2 pb-2 px-3">
+            {{-- Description --}}
             <div class="w-[75%] h-[120px] rounded-3xl bg-white flex items-center text-cDarkGrey px-4 duration-300 hover:ring-2 focus-within:text-cBlue focus-within:ring-2 hover:text-cBlue shadow-lg">
                 <input type="text" name="description" id="description" placeholder="Description" required class="border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full">
             </div>
+            {{-- Input Image --}}
             <div class="w-[25%] h-[120px] flex items-center text-cDarkGrey justify-between pl-0">
                 <div class="relative w-full aspect-square h-full bg-white rounded-3xl shadow-lg">
                     <input type="file" name="image" id="image" accept="image/*" required class="hidden" onchange="loadFile(event)">
@@ -125,4 +129,14 @@
         </div>
     </div>
 @include('adminpage.adminNavbar', ['active' => 'adminpage.listWorkout'])
+@endsection
+
+@section('scripts')
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script>
+        imgBox = document.getElementById('imgBox');
+        var loadFile = function(event) {
+            imgBox.style.backgroundImage = 'url(' + URL.createObjectURL(event.target.files[0]) + ')';
+        }
+    </script>
 @endsection
