@@ -95,12 +95,12 @@ Dinner : Es buah)" required class="h-[120px] resize-none border-transparent bg-t
             {{-- Confirm Button --}}
             <div class="bottom-0 sticky pb-[80px] w-full px-3">
                 <div class="pt-2 pb-2">
-                    <div class="w-full h-[50px] rounded-full bg-cGreen text-white flex ring-cGreen hover:ring-cGreen items-center font-bold px-4 duration-300 hover:ring-2 focus-within:text-cGreen focus-within:ring-2 hover:text-cGreen shadow-lg hover:bg-white">
+                    <div class="w-full h-[50px] rounded-full bg-cGreen text-white flex items-center font-bold px-4 duration-300 hover:ring-2 ring-cGreen focus-within:text-white focus-within:ring-2 hover:text-cGreen hover:bg-white shadow-lg">
                         <input type="submit" name="confirmButton" id="confirmButton" value="Confirm" required class="border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full">
                     </div>
                 </div>
                 <div class="pt-2 pb-2 bottom-0">
-                    <div class="w-full h-[50px] rounded-full bg-cRed text-white ring-cRed hover:ring-cRed flex items-center font-bold px-4 duration-300 hover:ring-2 focus-within:text-cRed focus-within:ring-2 hover:text-cRed shadow-lg hover:bg-white">
+                    <div class="ring-cRed hover:ring-cRed w-full h-[50px] rounded-full bg-cRed text-white flex items-center font-bold px-4 duration-300 hover:ring-2 focus-within:text-white focus-within:ring-2 hover:text-cRed hover:bg-white shadow-lg">
                         <input type="submit" name="discard" id="discardButton" value="Discard" required class="border-transparent bg-transparent focus:ring-0 focus :border-transparent text-sm w-full">
                     </div>
                 </div>
