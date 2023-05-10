@@ -31,7 +31,8 @@
 
 @section('body')
      {{-- Page Body Section --}}
-     <div class="pt-16 bg-cLightGrey w-full">
+     <div class="pt-16 w-full bg-cLightGrey">
+        {{-- Title & Point --}}
         <div class="flex flex-row gap-2 pt-2 pb-2 px-3">
             {{-- Title --}}
             <div class="w-[75%] h-[50px] rounded-full bg-white flex items-center text-cDarkGrey px-4 duration-300 hover:ring-2 focus-within:text-cBlue focus-within:ring-2 hover:text-cBlue shadow-lg">
@@ -42,6 +43,8 @@
                 <input type="number" name="points" id="points" placeholder="Points" required class="text-center border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full">
             </div>
         </div>
+
+        {{-- Description & Input Image --}}
         <div class="flex flex-row gap-2 pt-2 pb-2 px-3">
             {{-- Description --}}
             <div class="w-[75%] h-[120px] rounded-3xl bg-white flex items-center text-cDarkGrey px-4 duration-300 hover:ring-2 focus-within:text-cBlue focus-within:ring-2 hover:text-cBlue shadow-lg">
@@ -64,8 +67,55 @@
                 </div>
             </div>
         </div>
+
         {{-- Add Details per Day --}}
-        <div  class="px-3">
+        <div class="px-3 ">
+            <div  class="pt-2 pb-2 ">
+                <div class="w-full h-[50px] rounded-full bg-cBlue bg-opacity-50 flex items-center text-cDarkGrey px-4 gap-2">
+                    <h2 class="border-transparent bg-transparent text-sm font-bold text-cDarkBlue text-center w-full">Day 1</h2>
+                    <span class="material-symbols-outlined rounded-full p-2 scale-100 duration-300 ease-out bg-cRed hover:bg-white hover:text-black text-white">
+                        delete
+                    </span>
+                    <span class="material-symbols-outlined rounded-full p-2 scale-100 duration-300 ease-out bg-cBlue hover:bg-white hover:text-black text-white">
+                        add_circle
+                    </span>
+                </div>
+            </div>
+            {{-- Add Excercise --}}
+            <div  class="flex flex-row gap-2 w-full h-fit pb-2">
+                <div  class="bg-cDarkGrey bg-opacity-10 h-[140px] w-full rounded-3xl px-4 pt-4">
+                    <div class="w-full h-[50px] rounded-full bg-white flex items-center text-cDarkGrey duration-300 hover:ring-2 focus-within:text-cBlue focus-within:ring-2 hover:text-cBlue shadow-lg">
+                        <div class="border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full">
+                            <select name="excerciseName" id="excerciseName" class="border-0 bg-transparent w-full h-full rounded-full hover:border-transparent focus-within:border-transparent active:border-transparent">
+                                <option value="ExcerciseName">Excercise Name</option>
+                                @foreach ($workoutActivities as $workoutActivity)
+                                    <option value="{{ $workoutActivity->id }}">{{ $workoutActivity->name }}</option>
+                                @endforeach
+                                {{-- <option value="pushUp">Push Up</option>
+                                <option value="sitUp">Sit Up</option>
+                                <option value="squat">Squat</option>
+                                <option value="plank">Plank</option> --}}
+                            </select>
+                        </div>
+                    </div>
+                    <div class="flex flex-row justify-between pt-2 w-full h-[px] gap-2">
+                        <div class="h-[52px] w-full rounded-full bg-white flex items-center text-cDarkGrey duration-300 hover:ring-2 focus-within:text-cBlue focus-within:ring-2 hover:text-cBlue shadow-lg">
+                            <input type="text" name="repetition" id="repetition" placeholder="Repetition" required class="border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full">
+                        </div>
+                        <div class="h-[52px] w-full rounded-full bg-white flex items-center text-cDarkGrey duration-300 hover:ring-2 focus-within:text-cBlue focus-within:ring-2 hover:text-cBlue shadow-lg ">
+                            <input type="text" name="calories" id="calories" placeholder="Calories" required class="border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full">
+                        </div>
+                        <div class="h-[52px] w-full rounded-full bg-white flex items-center text-cDarkGrey duration-300 hover:ring-2 focus-within:text-cBlue focus-within:ring-2 hover:text-cBlue shadow-lg">
+                            <input type="text" name="duration" id="duration" placeholder="Duration" required class="border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full">
+                        </div>
+                    </div>
+                </div>
+                <span class=" material-symbols-outlined rounded-full h-fit my-auto p-2 scale-100 duration-300 ease-out bg-cRed hover:bg-white hover:border-cDarkBlue focus:border-5 focus:border-cDarkblue hover:text-black text-white">
+                    delete
+                </span>
+            </div>
+        </div>
+        <div class="px-3 ">
             <div  class="pt-2 pb-2 ">
                 <div class="w-full h-[50px] rounded-full bg-cBlue bg-opacity-50 flex items-center text-cDarkGrey px-4 gap-2">
                     <h2 class="border-transparent bg-transparent text-sm font-bold text-cDarkBlue text-center w-full">Day 1</h2>
@@ -108,21 +158,23 @@
                 </span>
             </div>
         </div>
-        <a href="" class="flex flex-row pt-2 pb-2 text-cBlue place-content-center pr-2">
+
+        <a href="" class="flex flex-row mb-16 pt-2 pb-2 text-cBlue place-content-center pr-2">
             <span class="material-symbols-outlined ">
                 add
             </span>
             <h3>Add More</h3>
         </a>
-        {{-- Confirm Button --}}
-        <div class="bottom-0 fixed pb-[80px] w-full px-3">
+
+        {{-- Confirm & Discard Button --}}
+        <div class="bottom-0 sticky pb-[80px] w-full px-3">
             <div class="pt-2 pb-2">
                 <div class="w-full h-[50px] rounded-full bg-cBlue text-white flex items-center font-bold px-4 duration-300 hover:ring-2 focus-within:text-cDarkBlue focus-within:ring-2 hover:text-cDarkBlue shadow-lg">
                     <input type="submit" name="confirmButton" id="confirmButton" value="Confirm" required class="border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full">
                 </div>
             </div>
             <div class="pt-2 pb-2 bottom-0">
-                <div class="w-full h-[50px] rounded-full bg-cDarkGrey bg-opacity-40 text-cDarkBlue flex items-center font-bold px-4 duration-300 hover:ring-2 focus-within:text-cBlue focus-within:ring-2 hover:text-cBlue shadow-lg">
+                <div class="w-full h-[50px] rounded-full bg-cRed text-white flex items-center font-bold px-4 duration-300 hover:ring-2 focus-within:text-cBlue focus-within:ring-2 hover:text-cBlue shadow-lg">
                     <input type="submit" name="confirmButton" id="confirmButton" value="Discard" required class="border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full">
                 </div>
             </div>
