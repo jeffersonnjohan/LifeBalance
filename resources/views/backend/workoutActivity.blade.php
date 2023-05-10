@@ -16,10 +16,8 @@
     </form>
 
     <div>{{ 'Day ' . $day }}</div>
-    @foreach ($workout_activity as $activity)
-        <div>{{ $activity->name }}</div>
-        <div>{{ $activity->description }}</div>
-        <div>{{ $activity->video }}</div>
-    @endforeach
+        <div>{{ $workout_activity->name }}</div>
+        <div>{{ $workout_activity->description }}</div>
+        <div>{{ $workout_activity->video }}</div>
 </body>
 </html>
