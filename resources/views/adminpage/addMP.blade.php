@@ -75,6 +75,8 @@
                 </div>
             </div>
         </div>
+        {{-- div batas --}}
+        <div class="h-[220px] w-full bg-transparent"></div>
         {{-- Confirm Button --}}
         <div class="bottom-0 fixed pb-[80px] w-full px-3">
             <div class="pt-2 pb-2">
@@ -84,7 +86,7 @@
             </div>
             <div class="pt-2 pb-2 bottom-0">
                 <div class="w-full h-[50px] rounded-full bg-cDarkGrey bg-opacity-40 text-cDarkBlue flex items-center font-bold px-4 duration-300 hover:ring-2 focus-within:text-cBlue focus-within:ring-2 hover:text-cBlue shadow-lg">
-                    <input type="submit" name="confirmButton" id="confirmButton" value="Discard" required class="border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full">
+                    <input type="submit" name="discard" id="discardButton" value="Discard" required class="border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full">
                 </div>
             </div>
         </div>
