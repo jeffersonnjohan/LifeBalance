@@ -95,9 +95,7 @@ Route::get('/admin/workout', function () {
     return view('adminpage.listWorkout');
 });
 
-Route::get('/admin/workout/add', function () {
-    return view('adminpage.addWP');
-});
+Route::resource('/admin/workout', WorkoutController::class);
 
 Route::get('/admin/meditation', function () {
     return view('adminpage.listMeditation');
