@@ -46,7 +46,7 @@ class DietDayController extends Controller
                                     ->where('user_id', session('activeId'))
                                     ->get();
 
-        return view('backend.dietDays', [
+        return view('diet.dietdays', [
             'diet_id' => $diet_id,
             'diet_days' => $diet_days,
             'enrollment' => $enrollment

@@ -12,7 +12,7 @@
 
 @section('body')
     @extends('component.backbutton')
-    @section('backlink', '/diet')
+    @section('backlink', '/diets')
     <div class="bg-cLightGrey w-full h-full">
         <div class="h-[70px] flex justify-center items-center text-2xl font-medium">
             <p>Intermittent Fasting</p>
