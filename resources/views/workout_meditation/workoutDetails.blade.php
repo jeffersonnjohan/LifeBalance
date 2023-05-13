@@ -4,8 +4,8 @@
 
 @section('body')
     @extends('component.backbutton')
-    @section('backlink', '/workoutmeditations')
-    
+    @section('backlink', '/workouts')
+
     <div>
         <div class="h-[70px] flex justify-center items-center text-2xl font-medium">
             <p class="-mr-8">BURN FAT IN 7 DAYS!</p>
@@ -20,7 +20,7 @@
                     </span>
                     35 points
                 </p>
-                
+
                 {{-- Indicator Container --}}
                 <div class="w-full h-[80px] flex justify-between mt-4 text-black">
                     <div class="w-[100px] h-full bg-white text-center py-2 rounded-md">
@@ -111,12 +111,12 @@
                         </div>
                     </div>
                 </a>
-    
+
             </div>
         </div>
 
     </div>
 
     @include('component.navbar', ['active' => 'workout'])
-    
+
 @endsection
