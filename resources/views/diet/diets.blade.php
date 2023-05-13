@@ -17,7 +17,7 @@
             <div class="place-items-center grid pb-6">
                 <div class="bg-white flex w-[90%] items-center justify-between rounded-xl shadow-sm mb-4 duration-300 hover:ring-2">
                     <form action="/diets" class="flex flex-row border-transparent bg-transparent focus:ring-0 focus:border-transparent text-black text-left font-normal p-2 w-full">
-                        <input type="text" name="saerchDiet" id="searchDiet" placeholder="Searching for new plan?" class="border-transparent bg-transparent focus:ring-0 focus:border-transparent text-black text-left font-normal p-2 w-full">
+                        <input type="text" name="search" id="searchDiet" placeholder="Searching for new plan?" class="border-transparent bg-transparent focus:ring-0 focus:border-transparent text-black text-left font-normal p-2 w-full"  value="{{ request('search') }}">
                         <button type="submit"class="material-symbols-outlined p-2" >
                             search
                         </button>
@@ -60,9 +60,9 @@
             @endif
         @endforeach
 
-        <h3 class="flex justify-center mt-10 text-cGreen">Not Enrolled Plan</h3>
         <?php $idx = 0;?>
         @if ( $unenroll_plans )
+        <h3 class="flex justify-center mt-10 text-cGreen">Not Enrolled Plan</h3>
             @foreach ($unenroll_plans as $plan)
                 <form action="/dietDays" method="POST" class="unenrolled_form">
                 @csrf
