@@ -78,9 +78,9 @@ Route::get('/challenges', function () {
     return view('challenges');
 });
 
-Route::get('/history', function () {
-    return view('history');
-});
+// Route::get('/history', function () {
+//     return view('history');
+// });
 
 // Route::get('/home', function () {
 //     return view('home_community.home');
