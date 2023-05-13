@@ -23,13 +23,15 @@
             @endif
         @endforeach
 
-        <div>Finished Plan</div>
-        @foreach ($temp as $temp)
-            <div>
-                <div>{{ $temp->name }}</div>
-                <div>{{ \Carbon\Carbon::parse($enrollment->updated_at)->format('d M, Y') }}</div>
-            </div>
-        @endforeach
+        @if (count($temp))
+            <div>Finished Plan</div>
+            @foreach ($temp as $temp)
+                <div>
+                    <div>{{ $temp->name }}</div>
+                    <div>{{ \Carbon\Carbon::parse($enrollment->updated_at)->format('d M, Y') }}</div>
+                </div>
+            @endforeach
+        @endif
     @else
         <div>No History</div>
     @endif

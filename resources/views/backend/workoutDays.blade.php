@@ -17,19 +17,18 @@
     </form>
     <div>{{ 'Day ' . $day }}</div>
     <?php $i = 1 ?>
-    @foreach ($workout_activities as $activity)
+    @foreach ($workout_details as $detail)
     <form action="/workoutactivity" method="POST">
         @csrf
         <button>
-            <input type="hidden" name="workout_activity_id" value="{{ $activity->workout_activity_id }} ">
             <input type="hidden" name='workout_id' value="{{ $workout_id }}">
             <input type="hidden" name='day' value="{{ $day }}">
             <input type="hidden" name="workout_day_id" value="{{ $workout_day_id }}">
-            <div>{{ $i++ . '. ' . $activity->name }}</div>
-            <div>{{ $activity->video }}</div>
-            <div>{{ 'kcal burn: ' . $activity->calories }}</div>
-            <div>{{ $activity->repetition . 'x'}}</div>
-            <div>{{ $activity->duration . 'seconds'}}</div>
+            <div>{{ $i++ . '. ' . $detail->workout_activity->name }}</div>
+            <div>{{ $detail->workout_activity->video }}</div>
+            <div>{{ 'kcal burn: ' . $detail->calories }}</div>
+            <div>{{ $detail->repetition . 'x'}}</div>
+            <div>{{ $detail->duration . 'seconds'}}</div>
         </button>
     </form>
     @endforeach

@@ -9,4 +9,10 @@ class WorkoutDay extends Model
 {
     use HasFactory;
     public $timestamps = false;
+    protected $guarded = ['id'];
+
+    public function workout()
+    {
+        return $this->belongsTo(WorkoutDay::class);
+    }
 }
