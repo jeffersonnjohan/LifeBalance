@@ -155,7 +155,6 @@ Route::post('/meditationDetails', [MeditationController::class, 'show']);
 // Diet Routes
 Route::get('/diets', [DietController::class, 'index']);
 Route::post('/dietDays', [DietDayController::class, 'index']);
-Route::get('/backtodiets', [DietDayController::class, 'index2']);
 Route::post('/backtodiets', [DietDayController::class, 'index2']);
 
 // Diet History
