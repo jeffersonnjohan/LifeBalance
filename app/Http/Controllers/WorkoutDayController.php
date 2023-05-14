@@ -28,7 +28,7 @@ class WorkoutDayController extends Controller
         $workout_days = WorkoutDay::where('id', $workout_day_id)->get();
         $workout_details = WorkoutDetail::where('workout_day_id',  $workout_day_id)->get();
 
-        return view('backend.workoutDays', [
+        return view('workout_meditation.workoutDays', [
             'workout_id' => $workout_id,
             'workout_day_id' => $workout_day_id,
             'day' => $day,

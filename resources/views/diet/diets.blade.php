@@ -16,118 +16,78 @@
             <h1 class="text-white text-3xl font-normal text-left p-6 pt-16">Jaga Pola Makan Anda dari Dini!</h1>
             <div class="place-items-center grid pb-6">
                 <div class="bg-white flex w-[90%] items-center justify-between rounded-xl shadow-sm mb-4 duration-300 hover:ring-2">
-                    <input type="text" name="saerchDiet" id="searchDiet" placeholder="Searching for new plan?" class="border-transparent bg-transparent focus:ring-0 focus:border-transparent text-black text-left font-normal p-2 w-full">
-                    <span class="material-symbols-outlined p-2">
-                        search
-                    </span>
+                    <form action="/diets" class="flex flex-row border-transparent bg-transparent focus:ring-0 focus:border-transparent text-black text-left font-normal p-2 w-full">
+                        <input type="text" name="search" id="searchDiet" placeholder="Searching for new plan?" class="border-transparent bg-transparent focus:ring-0 focus:border-transparent text-black text-left font-normal p-2 w-full"  value="{{ request('search') }}">
+                        <button type="submit"class="material-symbols-outlined p-2" >
+                            search
+                        </button>
+                    </form>
                 </div>
             </div>
+        </div>
 
-        </div>
+
+
         <h2 class="text-xl p-2 font-medium ml-3 mt-2">Plan</h2>
-        
-        <div class="place-items-center grid p-2" data-modal-target="popup-modal" data-modal-toggle="popup-modal">
-            <div class="bg-white w-[95%] h-fit place-content-center rounded-3xl p-2 flex flex-row justify-between shadow-sm" >
-                <div class="flex flex-row items-center">
-                    <div class="rounded-full bg-cover justify-end items-center h-16 w-16  m-2 border-2 border-cGreen" style="background-image: url('assets/dietMediterania.png')"></div>
-                    <div>
-                        <h2 class="font-medium text-lg">Diet Mediterania</h2>
-                        <h2 class="font-normal text-md text-cGreen">Seven days diet plan</h2>
+
+        <?php $unenroll_plans = array(); $idx = 0; ?>
+        <h3 class="flex justify-center text-cGreen">Enrolled Plan</h3>
+        @foreach ( $diets as $diet )
+            @if (in_array(strval($diet->id), $enrollments->toArray()))
+                <form action="/dietDays" method="POST" class="enrolled_form">
+                @csrf
+                    <input type="hidden" name="diet_id" value="{{ $diet->id }}">
+                    <div class="place-items-center grid p-2">
+                        <div class="enrolled_element bg-white w-[95%] h-fit place-content-center rounded-3xl p-2 flex flex-row justify-between shadow-sm  group duration-300 ease-out hover:bg-green-200 focus:ring-cGreen" >
+                            <div class="flex flex-row items-center">
+                                <div class="rounded-full bg-cover justify-end items-center h-16 w-16  m-2 border-2 border-cGreen" style="background-image: url('{{ $diet->image . '.png' }}')"></div>
+                                <div>
+                                    <h2 class="font-medium text-lg">{{ $diet->name }}</h2>
+                                    <h2 class="font-normal text-md text-cGreen"> @excerpt($diet->description)</h2>
+                                </div>
+                            </div>
+                            <div class="flex flex-row items-center p-2">
+                                <span class="material-symbols-outlined text-cYellow">
+                                    toll
+                                </span>
+                                <h3 class="font-medium text-md">{{ $diet->points }}</h3>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="flex flex-row items-center p-2">
-                    <span class="material-symbols-outlined text-cYellow">
-                        toll
-                    </span>
-                    <h3 class="font-medium text-md">5</h3>
-                </div>
-            </div>
-        </div>
-        <div class="place-items-center grid p-2" data-modal-target="popup-modal" data-modal-toggle="popup-modal">
-            <div class="bg-white w-[95%] h-fit place-content-center rounded-3xl p-2 flex flex-row justify-between shadow-sm">
-                <div class="flex flex-row items-center">
-                    <div class="rounded-full bg-cover justify-end items-center h-16 w-16  m-2 border-2 border-cGreen" style="background-image: url('assets/dietVegetarian.png')"></div>
-                    <div>
-                        <h2 class="font-medium text-lg">Diet Vegetarian</h2>
-                        <h2 class="font-normal text-md text-cGreen">Seven days diet plan</h2>
+                </form>
+            @else
+                <?php $unenroll_plans[] = $diet ?>
+            @endif
+        @endforeach
+
+        <?php $idx = 0;?>
+        @if ( $unenroll_plans )
+        <h3 class="flex justify-center mt-10 text-cGreen">Not Enrolled Plan</h3>
+            @foreach ($unenroll_plans as $plan)
+                <form action="/dietDays" method="POST" class="unenrolled_form">
+                @csrf
+                    <input type="hidden" name="diet_id" value="{{ $plan->id }}">
+                    <input type="hidden" name="is_new" value="1">
+                    <div class="place-items-center grid p-2" data-modal-target="popup-modal" data-modal-toggle="popup-modal">
+                        <div class="bg-white w-[95%] h-fit place-content-center rounded-3xl p-2 flex flex-row justify-between shadow-sm  group duration-300 ease-out hover:bg-green-200 focus:ring-cGreen" >
+                            <div class="flex flex-row items-center">
+                                <div class="rounded-full bg-cover justify-end items-center h-16 w-16  m-2 border-2 border-cGreen" style="background-image: url('{{ $plan->image . '.png' }}')"></div>
+                                <div>
+                                    <h2 class="font-medium text-lg">{{ $plan->name }}</h2>
+                                    <h2 class="font-normal text-md text-cGreen"> @excerpt($plan->description)</h2>
+                                </div>
+                            </div>
+                            <div class="flex flex-row items-center p-2">
+                                <span class="material-symbols-outlined text-cYellow">
+                                    toll
+                                </span>
+                                <h3 class="font-medium text-md">{{ $plan->points }}</h3>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="flex flex-row items-center p-2">
-                    <span class="material-symbols-outlined text-cYellow">
-                        toll
-                    </span>
-                    <h3 class="font-medium text-md">5</h3>
-                </div>
-            </div>
-        </div>
-        <div class="place-items-center grid p-2" data-modal-target="popup-modal" data-modal-toggle="popup-modal">
-            <div class="bg-white w-[95%] h-fit place-content-center rounded-3xl p-2 flex flex-row justify-between shadow-sm  group duration-300 ease-out hover:bg-green-200 focus:ring-cGreen">
-                <div class="flex flex-row items-center">
-                    <div class="rounded-full bg-cover justify-end items-center h-16 w-16  m-2 border-2 border-cGreen" style="background-image: url('assets/intermittentFasting.png')"></div>
-                    <div>
-                        <h2 class="font-medium text-lg">Intermittent Fasting</h2>
-                        <h2 class="font-normal text-md text-cGreen">Seven days diet plan</h2>
-                    </div>
-                </div>
-                <div class="flex flex-row items-center p-2">
-                    <span class="material-symbols-outlined text-cYellow">
-                        toll
-                    </span>
-                    <h3 class="font-medium text-md">5</h3>
-                </div>
-            </div>
-        </div>
-        <div class="place-items-center grid p-2" data-modal-target="popup-modal" data-modal-toggle="popup-modal">
-            <div class="bg-white w-[95%] h-fit place-content-center rounded-3xl p-2 flex flex-row justify-between shadow-sm">
-                <div class="flex flex-row items-center">
-                    <div class="rounded-full bg-cover justify-end items-center h-16 w-16  m-2 border-2 border-cGreen" style="background-image: url('assets/dietMediterania.png')"></div>
-                    <div>
-                        <h2 class="font-medium text-lg">Diet Mediterania</h2>
-                        <h2 class="font-normal text-md text-cGreen">Seven days diet plan</h2>
-                    </div>
-                </div>
-                <div class="flex flex-row items-center p-2">
-                    <span class="material-symbols-outlined text-cYellow">
-                        toll
-                    </span>
-                    <h3 class="font-medium text-md">5</h3>
-                </div>
-            </div>
-        </div>
-        <div class="place-items-center grid p-2" data-modal-target="popup-modal" data-modal-toggle="popup-modal">
-            <div class="bg-white w-[95%] h-fit place-content-center rounded-3xl p-2 flex flex-row justify-between shadow-sm">
-                <div class="flex flex-row items-center">
-                    <div class="rounded-full bg-cover justify-end items-center h-16 w-16  m-2 border-2 border-cGreen" style="background-image: url('assets/dietVegetarian.png')"></div>
-                    <div>
-                        <h2 class="font-medium text-lg">Diet Vegetarian</h2>
-                        <h2 class="font-normal text-md text-cGreen">Seven days diet plan</h2>
-                    </div>
-                </div>
-                <div class="flex flex-row items-center p-2">
-                    <span class="material-symbols-outlined text-cYellow">
-                        toll
-                    </span>
-                    <h3 class="font-medium text-md">5</h3>
-                </div>
-            </div>
-        </div>
-        <div class="place-items-center grid p-2" data-modal-target="popup-modal" data-modal-toggle="popup-modal">
-            <div class="bg-white w-[95%] h-fit place-content-center rounded-3xl p-2 flex flex-row justify-between shadow-sm">
-                <div class="flex flex-row items-center">
-                    <div class="rounded-full bg-cover justify-end items-center h-16 w-16  m-2 border-2 border-cGreen" style="background-image: url('assets/intermittentFasting.png')"></div>
-                    <div>
-                        <h2 class="font-medium text-lg">Intermittent Fasting</h2>
-                        <h2 class="font-normal text-md text-cGreen">Seven days diet plan</h2>
-                    </div>
-                </div>
-                <div class="flex flex-row items-center p-2">
-                    <span class="material-symbols-outlined text-cYellow">
-                        toll
-                    </span>
-                    <h3 class="font-medium text-md">5</h3>
-                </div>
-            </div>
-        </div>
+                </form>
+            @endforeach
+        @endif
 
         {{-- Pop up --}}
         <div id="popup-modal" tabindex="-1" class="fixed top-0 left-0 right-0 z-50 hidden p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
@@ -138,18 +98,34 @@
                         <span class="sr-only">Close modal</span>
                     </button>
                     <div class="p-6 text-center">
-    
+
                         <h3 class="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">Are you sure to join this plan?</h3>
                         <button data-modal-hide="popup-modal" type="button" class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">Cancel</button>
-                        <a href="/planDiet">
-                            <button data-modal-hide="popup-modal" type="button" class="text-white bg-cGreen hover:bg-cGreen focus:ring-4 focus:outline-none dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2">
-                                Yes, I'm sure
-                            </button>
-                        </a>
+
+                        <button data-modal-hide="popup-modal" type="button" class="popup text-white bg-cGreen hover:bg-cGreen focus:ring-4 focus:outline-none dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2">
+                        Yes, I'm sure
+                        </button>
+
                     </div>
                 </div>
             </div>
         </div>
     </div>
     @include('component.navbar', ['active' => 'diet'])
+
+    <script>
+        var form1 = document.getElementsByClassName ("enrolled_form");
+        var form2 = document.getElementsByClassName ("unenrolled_form");
+
+        for(let i = 0; i < form1.length; i++){
+            document.getElementsByClassName("enrolled_element")[i].addEventListener("click", function () {
+                form1[i].submit();
+            });
+        }
+        for(let i = 0; i < form2.length; i++){
+            document.getElementsByClassName("popup")[i].addEventListener("click", function () {
+                form2[i].submit();
+            });
+        }
+    </script>
 @endsection
