@@ -17,17 +17,17 @@
     <div class="w-full py-8">
         {{-- Container Foto --}}
         <div class="w-[90%] m-auto rounded-3xl h-[550px] bg-cover" style="background-image: url('/assets/meditationImage.png')">
-            
+
         </div>
         {{-- Bottom Blue --}}
         <div class="w-full rounded-t-[50px] h-[300px] fixed bottom-0 bg-cBlue p-4 text-center text-white">
             <hr class="w-[200px] m-auto border-2">
-            <h1 class="text-2xl font-bold mt-6">Ambient</h1>
-            <p class="text-sm font-normal mt-1">Body charming, mindful eating</p>
+            <h1 class="text-2xl font-bold mt-6">{{ $meditation[0]->name }}</h1>
+            <p class="text-sm font-normal mt-1">{{ $meditation[0]->description }}g</p>
 
             {{-- Audio --}}
             <audio loop playsinline id="audio" class="rounded-2xl w-full mt-8" preload="metadata">
-                <source src="/assets/meditationMusic.mp3">
+                <source src="{{ $meditation[0]->audio . '.mp3' }}">
                 {{-- <source src="http://www.w3schools.com/html/mov_bbb.mp4"> --}}
                 Your browser doesn't support audio
             </audio>
@@ -41,7 +41,7 @@
             </div>
             {{-- Sliding Bar --}}
             <input type="range" id="seek-bar" value="0" class="w-[300px] mb-4 ">
-            
+
             <div class="flex w-full justify-center text-black">
 
                 {{-- Button << --}}
@@ -50,14 +50,14 @@
                         fast_rewind
                     </span>
                 </button>
-    
+
                 {{-- Button Play --}}
                 <button type="button" id="play" class="block mx-4 bg-white text-cBlue w-[70px] aspect-square rounded-full">
                     <span class="material-symbols-outlined scale-[2]">
                         play_arrow
                     </span>
                 </button>
-                
+
                 {{-- Button Pause --}}
                 <button type="button" id="pause" class="hidden block mx-4 bg-white text-cBlue w-[70px] aspect-square rounded-full">
                     <span class="material-symbols-outlined scale-[2]">
@@ -98,14 +98,14 @@
         // Function Puase to Play
         function pauseToPlay(){
             audio.play()
-            
+
             playButton.classList.add('hidden')
             pauseButton.classList.remove('hidden')
         }
 
         function playToPause(){
             audio.pause()
-            
+
             pauseButton.classList.add('hidden')
             playButton.classList.remove('hidden')
         }
@@ -116,14 +116,14 @@
 
             // Update the audio time
             audio.currentTime = time;
-            
+
             audio.oncanplay = function(){
                 // audio.currentTime = time;
                 console.log(time);
                 console.log(audio.currentTime);
             }
 
-            
+
         }
 
         function format_number(num){
@@ -133,7 +133,7 @@
         audio.onloadedmetadata = function() {
             totalDuration.innerHTML = format_number(Math.floor(audio.duration/60)) + ':' + format_number(Math.floor(audio.duration % 60))
         }
-        
+
         window.onload = function() {
             // Load audio Duration
 
@@ -147,10 +147,10 @@
             seekBar.addEventListener("change", function() {
                 // Calculate the new time
                 var time = audio.duration * (seekBar.value / 100);
-                
+
                 // Update the audio time
                 audio.currentTime = time;
-                
+
             });
 
             // Update the seek bar as the audio plays
@@ -160,8 +160,8 @@
 
                 // Update the slider value
                 seekBar.value = value;
-                
-                progressDuration.innerHTML = format_number(Math.floor(audio.currentTime/60)) + ':' + format_number(Math.floor(audio.currentTime%60)) 
+
+                progressDuration.innerHTML = format_number(Math.floor(audio.currentTime/60)) + ':' + format_number(Math.floor(audio.currentTime%60))
             });
 
             // Pause the audio when the slider handle is being dragged

@@ -22,7 +22,7 @@ class WorkoutController extends Controller
      */
     public function index()
     {
-        return view('backend.workout', [
+        return view('workout_meditation.workouts', [
             "workouts" => Workout::all(),
             "enrollments" => EnrollmentWorkout::where('user_id', session('activeId'))->pluck('workout_id') // enrollment based on user
         ]);

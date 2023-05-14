@@ -25,7 +25,7 @@ class WorkoutActivityController extends Controller
         $workout_day_id =  $request->post('workout_day_id');
         $workout_activity = WorkoutDetail::firstWhere('workout_day_id',  $workout_day_id)->workout_activity;
 
-        return view('backend.workoutActivity', [
+        return view('workout_meditation.workoutActivity', [
             'workout_id' => $workout_id,
             'workout_day_id' => $workout_day_id,
             'day' => $request->post('day'),

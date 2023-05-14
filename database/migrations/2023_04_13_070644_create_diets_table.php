@@ -20,6 +20,7 @@ return new class extends Migration
             $table->integer('points');
             $table->string('image');
             $table->string('day_count')->default(0);
+            $table->integer('is_diet')->default(1);
         });
     }
 
