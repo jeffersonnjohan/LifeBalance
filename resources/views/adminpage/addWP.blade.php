@@ -321,9 +321,7 @@
         function removeDay(){
             for(let i = 0; i < containerExercise.length; i++){                
                 children = containerExercise[i].children
-                console.log(children);
                 if(children.length == 0){
-                    // console.log(i);
                     days[i].remove()
                 }
             }
