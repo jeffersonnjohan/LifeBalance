@@ -30,10 +30,10 @@
             <p>@yield('toptitle')</p>
         </div>
         <div class="w-full h-fit px-2 pb-2 lg:flex lg:items-center justify-center">
-            <div class="lg:h-fit lg:w-fit">
+            <div class="lg:h-fit lg:w-[30vw]">
                 <div class="lg:flex lg:flex-col lg:h-fit lg:gap-2 ">
-                    <div class="lg:w-fit lg:h-fit">
-                        <div class="lg:w-[400px] w-full aspect-square flex gap-2 relative mb-2">
+                    <div class="lg:w-full lg:h-fit">
+                        <div class="w-full aspect-square flex gap-2 relative mb-2">
                             <div class="w-[60%] h-full flex flex-col gap-2">
                                 <div class="w-full h-[40%] bg-cOrange rounded-3xl"></div>
                                 <div class="w-full h-[60%] bg-cRed rounded-3xl"></div>
@@ -75,7 +75,7 @@
                     @yield('userdata')
                 </div>
             </div>
-            <div class="flex flex-col lg:flex-wrap lg:flex-row w-full lg:w-[65vw] lg:h-[90vh] gap-2 justify-center lg:overflow-scroll" id="post">
+            <div class="flex flex-col lg:flex-wrap lg:flex-row w-full lg:w-[70vw] lg:h-[90vh] gap-2 justify-center lg:overflow-scroll" id="post">
                 <div class="lg:w-96 lg:h-fit bg-white shadow-lg rounded-3xl">
                     <div class="p-3 flex flex-col text-sm gap-1">
                         <div class="flex justify-between">

@@ -27,6 +27,7 @@ return new class extends Migration
             $table->integer('points')->default(0);
             $table->integer('streak_count')->default(0);
             $table->date('last_login')->default(Carbon::now());
+            $table->boolean('is_admin')->default(0);
             $table->rememberToken();
             $table->timestamps();
         });
