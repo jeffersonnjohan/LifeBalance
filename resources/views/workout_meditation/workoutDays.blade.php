@@ -5,7 +5,7 @@
 @section('body')
     @extends('component.backbutton')
     @section('backlink', '/workoutdetails')
-    
+
     <div class="w-full">
         <div class="h-[70px] flex justify-center items-center text-2xl font-medium">
             <p class="-mr-8">BURN FAT IN 7 DAYS!</p>
@@ -18,7 +18,7 @@
 
         {{-- Activities Container --}}
         <div class="w-full p-4 pb-3 ">
-            
+
             {{-- Activity Card --}}
             <a href="/workoutactivity">
                 <div class="w-full pb-2 rounded-3xl bg-white shadow-lg mb-3">
@@ -217,11 +217,11 @@
             <input id="default-checkbox" type="checkbox" value="" class="w-7 h-7 text-cBlue bg-gray-100 border-cBlue rounded focus:ring-cBlue focus:ring-2">
         </div>
         <div class="pb-28">
-            
+
         </div>
     </div>
 
-    
-    @include('component.navbar')
-    
+
+    @include('component.navbar', ['active' => 'workout'])
+
 @endsection

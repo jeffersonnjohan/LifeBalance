@@ -16,7 +16,7 @@ class MeditationController extends Controller
      */
     public function index()
     {
-        return view('backend.meditation', [
+        return view('workout_meditation.meditation', [
             'meditations' => Meditation::filter(request(['search']))->get()
         ]);
     }
@@ -52,7 +52,7 @@ class MeditationController extends Controller
     {
         $meditation_id = $request->post('meditation_id');
         $meditation = Meditation::where('meditations.id', '=', $meditation_id)->get();
-        return view('backend.meditationDetails', [
+        return view('workout_meditation.meditationDetails', [
             'meditation' => $meditation
         ]);
     }

@@ -66,21 +66,21 @@ Route::get('/otherprofile', function () {
     return view('otherprofile');
 });
 
-Route::get('/diets', function () {
-    return view('diet.diets');
-});
+// Route::get('/diets', function () {
+//     return view('diet.diets');
+// });
 
-Route::get('/planDiet', function () {
-    return view('diet.planDiet');
-});
+// Route::get('/planDiet', function () {
+//     return view('diet.planDiet');
+// });
 
 Route::get('/challenges', function () {
     return view('challenges');
 });
 
-Route::get('/history', function () {
-    return view('history');
-});
+// Route::get('/history', function () {
+//     return view('history');
+// });
 
 // Route::get('/home', function () {
 //     return view('home_community.home');
