@@ -37,8 +37,7 @@ class DietDayController extends Controller
         // temporary:
         // if day_count is 0 in diets, do this:
         if(Diet::where('day_count', 0)){
-            DB::table('diets')
-            ->join('diet_days', 'diet_days.diet_id', '=', 'diets.id')
+            Diet::join('diet_days', 'diet_days.diet_id', '=', 'diets.id')
             ->where('diet_id', '=', $diet_id)
             ->update(['day_count' => $diet_days->count()]);
         }
@@ -47,7 +46,7 @@ class DietDayController extends Controller
                                     ->where('user_id', session('activeId'))
                                     ->get();
 
-        return view('backend.dietDays', [
+        return view('diet.dietdays', [
             'diet_id' => $diet_id,
             'diet_days' => $diet_days,
             'enrollment' => $enrollment

@@ -10,6 +10,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreWorkoutRequest;
 use App\Http\Requests\UpdateWorkoutRequest;
 use App\Models\EnrollmentWorkout;
+use App\Models\WorkoutActivity;
 use Illuminate\Http\Request;
 
 class WorkoutController extends Controller
@@ -21,7 +22,7 @@ class WorkoutController extends Controller
      */
     public function index()
     {
-        return view('backend.workout', [
+        return view('workout_meditation.workouts', [
             "workouts" => Workout::all(),
             "enrollments" => EnrollmentWorkout::where('user_id', session('activeId'))->pluck('workout_id') // enrollment based on user
         ]);
@@ -32,9 +33,11 @@ class WorkoutController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        //
+    public function create(){
+        return view('adminpage.addWP', [
+            // 'workoutNames' => ['a','b'],
+            'workoutActivities' => WorkoutActivity::all(),
+        ]);;
     }
 
     /**

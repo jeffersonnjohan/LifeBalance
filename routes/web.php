@@ -52,21 +52,21 @@ Route::get('/otherprofile', function () {
     return view('otherprofile');
 })->middleware('auth');
 
-Route::get('/diets', function () {
-    return view('diet.diets');
-});
+// Route::get('/diets', function () {
+//     return view('diet.diets');
+// });
 
-Route::get('/planDiet', function () {
-    return view('diet.planDiet');
-});
+// Route::get('/planDiet', function () {
+//     return view('diet.planDiet');
+// });
 
 Route::get('/challenges', function () {
     return view('challenges');
 });
 
-Route::get('/history', function () {
-    return view('history');
-});
+// Route::get('/history', function () {
+//     return view('history');
+// });
 
 // Route::get('/home', function () {
 //     return view('home_community.home');
@@ -79,9 +79,7 @@ Route::get('/history', function () {
 // ADMIN PAGE
 Route::get('/admin/workout', [AdminController::class, 'workout'])->middleware('admin');
 
-Route::get('/admin/workout/add', function () {
-    return view('adminpage.addWP');
-})->middleware('admin');
+Route::resource('/admin/workout', WorkoutController::class)->middleware('admin');
 
 Route::get('/admin/meditation', function () {
     return view('adminpage.listMeditation');
@@ -139,9 +137,9 @@ Route::get('/meditations', [MeditationController::class, 'index']);
 Route::post('/meditationDetails', [MeditationController::class, 'show']);
 
 // Diet Routes
-Route::get('/diets', [DietController::class, 'index']);
-Route::post('/dietDays', [DietDayController::class, 'index']);
-Route::post('/backtodiets', [DietDayController::class, 'index2']);
+// Route::get('/diets', [DietController::class, 'index']);
+// Route::post('/dietDays', [DietDayController::class, 'index']);
+// Route::post('/backtodiets', [DietDayController::class, 'index2']);
 
 // Diet History
 Route::get('/history', [HistoryController::class, 'index']);

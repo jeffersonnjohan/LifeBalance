@@ -86,7 +86,7 @@ class WorkoutDetailController extends Controller
                                         ->where('user_id', session('activeId'))
                                         ->get();
 
-        return view('backend.workoutDetails', [
+        return view('workout_meditation.workoutDetails', [
             "workout_id" => $workout_id,
             "workout" => $workout,
             "workout_days"=> $workout_days,

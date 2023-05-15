@@ -25,34 +25,26 @@ class WorkoutDayController extends Controller
         $workout_day_id =  $request->post('workout_day_id');
         $day = $request->post('day');
 
-        $workout_activities = WorkoutDetail::join('workout_activities', 'workout_details.workout_activity_id', '=', 'workout_activities.id')
-                                        ->where('workout_details.workout_day_id', '=',  $workout_day_id)
-                                        ->get();
-        // workoutDetails data
-        $workout = Workout::where('id', '=', $workout_id)
-                        ->get();
-        $workout_days = WorkoutDay::where('workout_id', '=', $workout_id)
-                        ->get();
+        $workout_days = WorkoutDay::where('id', $workout_day_id)->get();
+        $workout_details = WorkoutDetail::where('workout_day_id',  $workout_day_id)->get();
 
-        $finished_day = EnrollmentWorkout::where('workout_id', $workout_id)
-                        ->where('user_id', session('activeId'))
-                        ->pluck('finished_day');
-        $checkbox = "";
-        if($finished_day[0] >= (int)$day){
-            $checkbox = "checked disabled";
-        }
-
-        return view('backend.workoutDays', [
+        return view('workout_meditation.workoutDays', [
             'workout_id' => $workout_id,
             'workout_day_id' => $workout_day_id,
             'day' => $day,
-            'workout_activities' => $workout_activities,
-            "workout" => $workout,
             "workout_days"=> $workout_days,
-            'checkbox' => $checkbox
+            "workout_details"=> $workout_details,
+            'checkbox' => $this->checkbox($workout_id, $day)
         ]);
     }
 
+    private function checkbox($workout_id, $day){
+        $finished_day = EnrollmentWorkout::where('workout_id', $workout_id)
+                        ->where('user_id', session('activeId'))
+                        ->pluck('finished_day');
+
+        return ($finished_day[0] >= (int)$day) ?  "checked disabled" : "";
+    }
     /**
      * Show the form for creating a new resource.
      *

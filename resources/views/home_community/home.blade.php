@@ -134,14 +134,14 @@
     {{-- Main Features --}}
         <div class="w-80% flex mt-4 justify-between gap-x-2 items-center">
             {{-- Workout --}}
-            <a href="/workoutmeditations" class="w-[50%]">
+            <a href="/workouts" class="w-[50%]">
                 <div class="h-[180px] flex flex-col items-center justify-center content-center shadow-lg bg-cBlue rounded-3xl overflow-hidden transition ease-in-out delay-100 hover:scale-105 duration-500">
                     <img class="h-40 w-40 rounded-lg" src="/assets/blue.png" alt="image description">
                     <figcaption class="text-sm mb-5 font-bold text-center text-white dark:text-gray-400">Workout</figcaption>
                 </div>
             </a>
             {{-- Diet --}}
-            <a href="/diet" class="w-[50%]">
+            <a href="/diets" class="w-[50%]">
                 <div class="h-[180px] flex flex-col items-center justify-center content-center shadow-lg bg-cGreen rounded-3xl overflow-hidden transition ease-in-out delay-100 hover:scale-105 duration-500">
                     <img class="ml-2 h-40 w-40 rounded-lg" src="/assets/green.png" alt="image description">
                     <figcaption class="text-sm mb-5 font-bold text-center text-white dark:text-gray-400">Diet</figcaption>
