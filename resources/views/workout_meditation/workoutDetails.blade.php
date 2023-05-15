@@ -44,8 +44,8 @@
                     $i = 1;
                     $flag = 0;
                     $updated_at = \Carbon\Carbon::parse($enrollment[0]->updated_at)->format('d/M/Y');
-                    $today = \Carbon\Carbon::now()->format('d/M/Y');
-                    $tomorrow = \Carbon\Carbon::tomorrow();
+                    $today = \Carbon\Carbon::now('GMT+8')->format('d/M/Y');
+                    $tomorrow = \Carbon\Carbon::tomorrow('GMT+8');
                 ?>
                 @foreach ($workout_days as $day)
                     {{-- if user already finished the plan before--}}
@@ -79,7 +79,7 @@
                             </div>
                             <div>
                                 Unlocked in
-                                <span id="countDown"></span>
+                                <div id="countDown"></div>
                             </div>
                         </div>
                         <?php $flag = 1 ?>

@@ -25,8 +25,8 @@ class WorkoutDetailController extends Controller
             $data = array(
                 'user_id' => session('activeId'),
                 'workout_id' => $workout_id,
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
+                'created_at' => Carbon::now('GMT+8'),
+                'updated_at' => Carbon::now('GMT+8')
             );
             EnrollmentWorkout::insert($data);
         }
@@ -57,7 +57,7 @@ class WorkoutDetailController extends Controller
                             ->pluck('day_count');
 
             // finished_day++
-            $date = \Carbon\Carbon::now()->format('Y-m-d h:i:s');
+            $date = \Carbon\Carbon::now('GMT+8')->format('Y-m-d h:i:s');
             DB::table('enrollment_workouts')
                 ->where('workout_id', '=', $workout_id)
                 ->where('user_id', session('activeId'))
