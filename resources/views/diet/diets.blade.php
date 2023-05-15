@@ -3,21 +3,30 @@
 @section('title', 'Diet')
 
 @section('style')
-    {{-- <style>
-        * {
+    <style>
+        /* * {
             border: red solid 0.5px;
-        }
-    </style> --}}
+        } */
+    </style>
 @endsection
 
 @section('body')
     <div class="bg-cLightGrey h-full w-full mb-28">
-        <div class="bg-cGreen h-fit rounded-b-[50px] ">
-            <h1 class="text-white text-3xl font-normal text-left p-6 pt-16">Jaga Pola Makan Anda dari Dini!</h1>
-            <div class="place-items-center grid pb-6">
-                <div class="bg-white flex w-[90%] items-center justify-between rounded-xl shadow-sm mb-4 duration-300 hover:ring-2">
-                    <form action="/diets" class="flex flex-row border-transparent bg-transparent focus:ring-0 focus:border-transparent text-black text-left font-normal p-2 w-full">
-                        <input type="text" name="search" id="searchDiet" placeholder="Searching for new plan?" class="border-transparent bg-transparent focus:ring-0 focus:border-transparent text-black text-left font-normal p-2 w-full"  value="{{ request('search') }}">
+
+        <div class="bg-cGreen h-fit rounded-b-[50px] lg:rounded-b-[100px]">
+            <h1 class="text-white text-3xl font-normal text-left p-6 pt-16 lg:text-center lg:text-4xl">Jaga Pola Makan Anda dari Dini!</h1>
+            <div class="place-items-center grid pb-6 hover:text-cGreen lg:justify-content-center">
+                <div class="px-2 bg-white flex w-[90%]  lg:w-[40%] items-center justify-between rounded-3xl shadow-sm mb-4 duration-300 hover:ring-2 ring-cDarkGrey focus-within:ring-cDarkGrey hover:text-cGreen hover:items-cGreen focus-within:text-cGreen">
+                    <input type="text" name="saerchDiet" id="searchDiet" placeholder="Searching for new plan?" class="focus-within:text-cGreen hover:text-cGreen  border-transparent bg-transparent focus:ring-0 focus:border-transparent text-black text-left font-normal p-2 w-full lg:text-lg lg:px-4">
+                    <span class="material-symbols-outlined p-2">
+                        search
+                    </span>
+        <div class="bg-cGreen h-fit rounded-b-[50px] lg:rounded-b-[100px]">
+            <h1 class="text-white text-3xl font-normal text-left p-6 pt-16 lg:text-center lg:text-4xl">Jaga Pola Makan Anda dari Dini!</h1>
+            <div class="place-items-center grid pb-6 hover:text-cGreen lg:justify-content-center">
+                <div class="px-2 bg-white flex w-[90%] lg:w-[40%] items-center justify-between rounded-3xl shadow-sm mb-4 duration-300 hover:ring-2">
+                    <form action="/diets" class="flex flex-row border-transparent bg-transparent focus:ring-0 focus:border-transparent text-black text-left font-normal p-2 w-full ring-cDarkGrey focus-within:ring-cDarkGrey hover:text-cGreen hover:items-cGreen focus-within:text-cGreen">
+                        <input type="text" name="search" id="searchDiet" placeholder="Searching for new plan?" class="focus-within:text-cGreen hover:text-cGreen border-transparent bg-transparent focus:ring-0 focus:border-transparent text-black text-left font-normal p-2 w-full lg:text-lg lg:px-4"  value="{{ request('search') }}">
                         <button type="submit"class="material-symbols-outlined p-2" >
                             search
                         </button>
@@ -25,32 +34,32 @@
                 </div>
             </div>
         </div>
-
-
-
-        <h2 class="text-xl p-2 font-medium ml-3 mt-2">Plan</h2>
-
+        <h2 class="text-xl p-2 lg:px-4 font-medium ml-3 mt-2 lg:text-lg">Plan</h2>
+        
         <?php $unenroll_plans = array(); $idx = 0; ?>
         <h3 class="flex justify-center text-cGreen">Enrolled Plan</h3>
+
+        <div class="lg:flex lg:flex-wrap lg:w-full lg:px-4 ">
         @foreach ( $diets as $diet )
             @if (in_array(strval($diet->id), $enrollments->toArray()))
                 <form action="/dietDays" method="POST" class="enrolled_form">
                 @csrf
                     <input type="hidden" name="diet_id" value="{{ $diet->id }}">
-                    <div class="place-items-center grid p-2">
-                        <div class="enrolled_element bg-white w-[95%] h-fit place-content-center rounded-3xl p-2 flex flex-row justify-between shadow-sm  group duration-300 ease-out hover:bg-green-200 focus:ring-cGreen" >
+                    <div class="place-items-center grid p-2 lg:w-1/3">
+                    
+                        <div class="enrolled_element bg-white w-[95%] lg:w-full h-fit lg:h-[150px] place-content-center rounded-3xl p-2 lg:p-4 flex flex-row justify-between shadow-sm group duration-300 ease-out hover:bg-green-200 focus:ring-cGreen" >
                             <div class="flex flex-row items-center">
-                                <div class="rounded-full bg-cover justify-end items-center h-16 w-16  m-2 border-2 border-cGreen" style="background-image: url('{{ $diet->image . '.png' }}')"></div>
-                                <div>
-                                    <h2 class="font-medium text-lg">{{ $diet->name }}</h2>
-                                    <h2 class="font-normal text-md text-cGreen"> @excerpt($diet->description)</h2>
+                                <div class="rounded-full lg:rounded-3xl bg-cover justify-end items-center h-16 lg:h-32 w-16 lg:w-32 m-2 lg:m-0 border-2 border-cGreen" style="background-image: url('{{ $diet->image . '.png' }}')"></div>
+                                <div class="lg:pl-2">
+                                    <h2 class="font-medium text-lg lg:text-xl">{{ $diet->name }}</h2>
+                                    <h2 class="font-normal text-md text-cGreen lg:text-lg"> @excerpt($diet->description)</h2>
                                 </div>
                             </div>
                             <div class="flex flex-row items-center p-2">
                                 <span class="material-symbols-outlined text-cYellow">
                                     toll
                                 </span>
-                                <h3 class="font-medium text-md">{{ $diet->points }}</h3>
+                                <h3 class="font-medium text-md lg:text-xl">{{ $diet->points }}</h3>
                             </div>
                         </div>
                     </div>
@@ -59,17 +68,20 @@
                 <?php $unenroll_plans[] = $diet ?>
             @endif
         @endforeach
+        </div>
 
         <?php $idx = 0;?>
         @if ( $unenroll_plans )
         <h3 class="flex justify-center mt-10 text-cGreen">Not Enrolled Plan</h3>
+        
+        <div class="lg:flex lg:flex-wrap lg:w-full lg:px-4 ">
             @foreach ($unenroll_plans as $plan)
                 <form action="/dietDays" method="POST" class="unenrolled_form">
                 @csrf
                     <input type="hidden" name="diet_id" value="{{ $plan->id }}">
                     <input type="hidden" name="is_new" value="1">
-                    <div class="place-items-center grid p-2" data-modal-target="popup-modal" data-modal-toggle="popup-modal">
-                        <div class="bg-white w-[95%] h-fit place-content-center rounded-3xl p-2 flex flex-row justify-between shadow-sm  group duration-300 ease-out hover:bg-green-200 focus:ring-cGreen" >
+                    <div class="place-items-center grid p-2 lg:w-1/3" data-modal-target="popup-modal" data-modal-toggle="popup-modal">
+                        <div class="bg-white w-[95%] lg:w-full h-fit lg:h-[150px] place-content-center rounded-3xl p-2 lg:p-4 flex flex-row justify-between shadow-sm group duration-300 ease-out hover:bg-green-200 focus:ring-cGreen" >
                             <div class="flex flex-row items-center">
                                 <div class="rounded-full bg-cover justify-end items-center h-16 w-16  m-2 border-2 border-cGreen" style="background-image: url('{{ $plan->image . '.png' }}')"></div>
                                 <div>
@@ -87,8 +99,7 @@
                     </div>
                 </form>
             @endforeach
-        @endif
-
+           </div>
         {{-- Pop up --}}
         <div id="popup-modal" tabindex="-1" class="fixed top-0 left-0 right-0 z-50 hidden p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
             <div class="relative w-full max-w-md max-h-full">
