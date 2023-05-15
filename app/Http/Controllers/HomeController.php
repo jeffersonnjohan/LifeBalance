@@ -2,17 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\EnrollmentWorkout;
 use App\Models\User;
 use App\Models\UserDiet;
 use App\Models\UserWeight;
 use App\Models\UserWorkout;
 use Illuminate\Http\Request;
+use App\Models\EnrollmentWorkout;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
     public function index() {
-        $id = session('activeId');
+        $id = Auth::user()->id;
         $user = User::firstWhere('id', $id);
 
         $bmi = round($user->weight/(($user->height/100)*($user->height/100)), 2); // BMI = weight(kg) / height(m)^2

@@ -12,9 +12,9 @@
 
 
 @section('body')
-<nav class="justify-evenly fixed bg-gradient-to-b from-cLightGrey from-70% to-transparent w-full z-10">
-    <div class="max-w-screen-xl px-4 py-3 mx-auto">
-        <div class="flex items-center">
+<nav class="justify-evenly fixed bg-gradient-to-b from-cLightGrey from-70% to-transparent w-full z-10 -top-5">
+    <div class="px-4 py-3 mx-auto">
+        <div class="flex items-center justify-between">
             <ul class="flex flex-row font-normal space-x-2 text-2xl">
                 <li>
                     <a href="/home" class="text-cRed font-bold dark:text-white hover:text-cRed">Home</a>
@@ -26,9 +26,16 @@
                     <a href="/community" class="text-cDarkGrey dark:text-white hover:text-cRed" aria-current="page">Community</a>
                 </li>
             </ul>
-            <a href="/profile" class="fixed bg-cRed rounded-b-3xl flex justify-center items-center aspect-square h-[50px] shadow-lg right-2 -top-0.5 z-10 group duration-300 ease-out hover:bg-opacity-50">
-                <div class="bg-white rounded-full p-4" style="background-image: url('/assets/male.png')"></div>
-            </a>
+            <div class="flex w-fit gap-5">
+                @can('admin')
+                    <a href="/admin/workout" class="bg-cBlue hover:bg-white duration-300 ease-out p-3 hover:ring-2 text-white hover:text-cBlue rounded-b-3xl">
+                        <div class="pt-3">Go to Admin</div>
+                    </a>
+                @endcan
+                <a href="/profile" class="bg-cRed rounded-b-3xl flex justify-center items-center aspect-square h-fit p-2 shadow-lg z-10 group duration-300 ease-out hover:bg-opacity-50">
+                    <div class="bg-white rounded-full p-4 bg-cover mt-3" style="background-image: url('/assets/male.png')"></div>
+                </a>
+            </div>
         </div>
         <p class="font-light text-sm text-cDarkGrey">Let's see your daily progress!</p>
     </div>

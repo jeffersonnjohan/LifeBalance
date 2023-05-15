@@ -1,10 +1,12 @@
 <?php
 
+use GuzzleHttp\Middleware;
 use App\Models\EnrollmentWorkout;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DietController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\SignupController;
@@ -13,9 +15,9 @@ use App\Http\Controllers\HistoryController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\WorkoutController;
 use App\Http\Controllers\CommunityController;
-use App\Http\Controllers\EditProfileController;
 use App\Http\Controllers\MeditationController;
 use App\Http\Controllers\WorkoutDayController;
+use App\Http\Controllers\EditProfileController;
 use App\Http\Controllers\WorkoutDetailController;
 use App\Http\Controllers\WorkoutActivityController;
 use App\Http\Controllers\EnrollmentWorkoutController;
@@ -33,38 +35,22 @@ use App\Http\Controllers\EnrollmentWorkoutController;
 
 Route::redirect('/', '/login');
 
-Route::get('/login', function () {
-    return view('login');
-});
-
+Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/login', [LoginController::class, 'authenticate']);
 
-// Route::get('/signup', function () {
-//     return view('signup');
-// });
-
-Route::get('/signup', [SignupController::class, 'index']);
-
+Route::get('/signup', [SignupController::class, 'index'])->middleware('guest');
 Route::post('/signup', [SignupController::class, 'store']);
 
-Route::get('/logout', [LogoutController::class, 'deleteActiveId']);
+Route::get('/logout', [LogoutController::class, 'logout']);
 
-// Route::get('/editprofile', function () {
-//     return view('editprofile');
-// });
-
-Route::get('/editprofile', [EditProfileController::class, 'index']);
+Route::get('/editprofile', [EditProfileController::class, 'index'])->middleware('auth');
 Route::post('/editprofile', [EditProfileController::class, 'updateData']);
 
-// Route::get('/profile', function () {
-//     return view('profile');
-// });
-
-Route::get('/profile', [ProfileController::class, 'index']);
+Route::get('/profile', [ProfileController::class, 'index'])->middleware('auth');
 
 Route::get('/otherprofile', function () {
     return view('otherprofile');
-});
+})->middleware('auth');
 
 // Route::get('/diets', function () {
 //     return view('diet.diets');
@@ -91,11 +77,9 @@ Route::get('/challenges', function () {
 // });
 
 // ADMIN PAGE
-Route::get('/admin/workout', function () {
-    return view('adminpage.listWorkout');
-});
+Route::get('/admin/workout', [AdminController::class, 'workout'])->middleware('admin');
 
-Route::resource('/admin/workout', WorkoutController::class);
+Route::resource('/admin/workout', WorkoutController::class)->middleware('admin');
 
 Route::get('/admin/meditation', function () {
     return view('adminpage.listMeditation');
@@ -139,7 +123,7 @@ Route::get('/admin/challenges/edit', function () {
 });
 
 // Home | Community Route
-Route::get('/home', [HomeController::class, 'index']);
+Route::get('/home', [HomeController::class, 'index'])->middleware('auth');
 Route::get('/community', [CommunityController::class, 'index']);
 
 // Workout Route
