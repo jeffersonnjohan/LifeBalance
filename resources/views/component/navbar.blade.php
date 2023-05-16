@@ -10,16 +10,16 @@
         <a href="/home" class="material-symbols-outlined iconNavbar {{ $active == 'home' ? 'text-cRed': '' }} hover:scale-[115%] duration-200 ease-out">
             home
         </a>
-        <a href="#" class="material-symbols-outlined iconNavbar {{ $active == 'workout' ? 'text-cBlue' : '' }} hover:scale-[115%] duration-200 ease-out">
+        <a href="/workouts" class="material-symbols-outlined iconNavbar {{ $active == 'workout' ? 'text-cBlue' : '' }} hover:scale-[115%] duration-200 ease-out">
             directions_run
         </a>
-        <a href="#" class="material-symbols-outlined iconNavbar {{ $active == 'diet' ? 'text-cGreen' : ''}} hover:scale-[115%] duration-200 ease-out">
+        <a href="/diets" class="material-symbols-outlined iconNavbar {{ $active == 'diet' ? 'text-cGreen' : ''}} hover:scale-[115%] duration-200 ease-out">
             local_fire_department
         </a>
-        <a href="#" class="material-symbols-outlined iconNavbar {{ $active == 'challenge' ? 'text-cOrange' : ''}} hover:scale-[115%] duration-200 ease-out">
+        <a href="/challenges" class="material-symbols-outlined iconNavbar {{ $active == 'challenge' ? 'text-cOrange' : ''}} hover:scale-[115%] duration-200 ease-out">
             workspace_premium
         </a>
-        <a href="#" class="material-symbols-outlined iconNavbar {{ $active == 'history' ? 'text-cRed' : ''}} hover:scale-[115%] duration-200 ease-out">
+        <a href="/history" class="material-symbols-outlined iconNavbar {{ $active == 'history' ? 'text-cRed' : ''}} hover:scale-[115%] duration-200 ease-out">
             history
         </a>
     </div>
