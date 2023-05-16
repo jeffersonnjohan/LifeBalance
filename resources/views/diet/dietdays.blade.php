@@ -24,20 +24,18 @@
         $i = 1;
         $flag = 0;
         $updated_at = \Carbon\Carbon::parse($enrollment[0]->updated_at)->format('d/M/Y');
-        $today = \Carbon\Carbon::now()->format('d/M/Y');
-        $tomorrow = \Carbon\Carbon::tomorrow()
+        $today = \Carbon\Carbon::now('GMT+8')->format('d/M/Y');
+        $tomorrow = \Carbon\Carbon::tomorrow('GMT+8')
     ?>
 
     <div class="bg-cLightGrey w-full h-full">
         <div class="h-[70px] flex justify-center items-center text-2xl font-medium">
-            <p>Intermittent Fasting</p>
+            <p>{{ $diet_days[0]->diet->name }}</p>
         </div>
         <div class=" h-60 w-full bg-cover" style="background-image: url('assets/intermittentFasting.png')"></div>
         <div class="bg-cGreen -mt-2">
             <p class="p-2 text-lg font-normal text-center text-white">
-                Intermittent fasting is an eating strategy that doesn’t define what you eat but instead when you eat it. It’s grown in popularity in recent years for weight loss, reducing insulin resistance, lowering inflammation, and even anti-aging.
-                <br>
-                What’s amazing is that intermittent fasting studies show you don’t have to change your diet whatsoever to lose weight.
+                {{ $diet_days[0]->diet->description }}
             </p>
         </div>
         @foreach ($diet_days as $day)
