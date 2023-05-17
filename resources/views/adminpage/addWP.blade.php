@@ -74,8 +74,8 @@
                 <div  class="pt-2 pb-2 ">
                         {{-- Button Add ExerciseDetail --}}
                         <div class="w-full h-[50px] rounded-full bg-cBlue bg-opacity-50 flex items-center text-cDarkGrey px-4 gap-2">
-                            <h2 class="border-transparent bg-transparent text-sm font-bold text-cDarkBlue text-center w-full">Day 1</h2>
-                            <span class="material-symbols-outlined rounded-full p-2 scale-100 duration-300 ease-out bg-cRed hover:bg-white hover:text-black text-white">
+                            <h2 class="dayHeader border-transparent bg-transparent text-sm font-bold text-cDarkBlue text-center w-full">Day 1</h2>
+                            <span class="deleteExerciseDetail material-symbols-outlined rounded-full p-2 scale-100 duration-300 ease-out bg-cRed hover:bg-white hover:text-black text-white">
                                 delete
                             </span>
                             <span class="exerciseDetail material-symbols-outlined rounded-full p-2 scale-100 duration-300 ease-out bg-cBlue hover:bg-white hover:text-black text-white">
@@ -146,11 +146,10 @@
 @section('scripts')
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script>
-        countDay = 1
-
+        
         // Initialization awal
         initializationElement()
-
+        
         // Untuk Preview Image
         var loadFile = function(event) {
             imgBox.style.backgroundImage = 'url(' + URL.createObjectURL(event.target.files[0]) + ')';
@@ -162,13 +161,22 @@
             addMoreButton = document.getElementById('addMore');
             containerDay = document.getElementById('containerDay');
             buttonAddExerciseDetail = document.getElementsByClassName('exerciseDetail')
-
+            buttonRemoveExerciseDetail = document.getElementsByClassName('deleteExerciseDetail')
+            
             // Remove event handler
             for(let i = 0; i < buttonAddExerciseDetail.length; i++){
                 buttonAddExerciseDetail[i] = recreateNode(buttonAddExerciseDetail[i])
             }
+
+            for(let i = 0; i < buttonRemoveExerciseDetail.length; i++){
+                buttonRemoveExerciseDetail[i] = recreateNode(buttonRemoveExerciseDetail[i])
+            }
+
+
             containerExercise = document.getElementsByClassName('containerExercise')
-            
+            countDay = containerExercise.length
+            dayHeader = document.getElementsByClassName('dayHeader')
+
             // Remove event handler
             // Remove exact exercise detail
             for(let i = 0; i < containerExercise.length; i++){
@@ -195,6 +203,13 @@
             for(let i = 0; i < buttonAddExerciseDetail.length; i++){
                 buttonAddExerciseDetail[i].addEventListener('click', function(){
                     addExerciseOnClick(i)
+                })
+            }
+
+            // Loop remove exercise detail for each day
+            for(let i = 0; i < buttonRemoveExerciseDetail.length; i++){
+                buttonRemoveExerciseDetail[i].addEventListener('click', function(){
+                    removeExactDay(i)
                 })
             }
 
@@ -226,8 +241,8 @@
             <div class="px-3">
                 <div  class="pt-2 pb-2 ">
                     <div class="w-full h-[50px] rounded-full bg-cBlue bg-opacity-50 flex items-center text-cDarkGrey px-4 gap-2">
-                        <h2 class="border-transparent bg-transparent text-sm font-bold text-cDarkBlue text-center w-full">Day `+i+`</h2>
-                        <span class="material-symbols-outlined rounded-full p-2 scale-100 duration-300 ease-out bg-cRed hover:bg-white hover:text-black text-white">
+                        <h2 class="dayHeader border-transparent bg-transparent text-sm font-bold text-cDarkBlue text-center w-full">Day `+i+`</h2>
+                        <span class="deleteExerciseDetail material-symbols-outlined rounded-full p-2 scale-100 duration-300 ease-out bg-cRed hover:bg-white hover:text-black text-white">
                             delete
                         </span>
                         <span class="exerciseDetail material-symbols-outlined rounded-full p-2 scale-100 duration-300 ease-out bg-cBlue hover:bg-white hover:text-black text-white">
@@ -322,9 +337,20 @@
             for(let i = 0; i < containerExercise.length; i++){                
                 children = containerExercise[i].children
                 if(children.length == 0){
-                    days[i].remove()
+                    removeExactDay(i)
                 }
             }
+        }
+
+        function removeExactDay(i){
+            days[i].remove()
+
+            // Update day header
+            for(let j = 0, counter = 1; j < dayHeader.length; j++){
+                dayHeader[j].innerHTML = 'Day ' + (counter++)
+            }
+
+            initializationElement()
         }
     </script>
 @endsection
