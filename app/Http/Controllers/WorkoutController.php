@@ -12,6 +12,7 @@ use App\Http\Requests\UpdateWorkoutRequest;
 use App\Models\EnrollmentWorkout;
 use App\Models\WorkoutActivity;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class WorkoutController extends Controller
 {
@@ -22,9 +23,10 @@ class WorkoutController extends Controller
      */
     public function index()
     {
+        $id = Auth::user()->id;
         return view('workout_meditation.workouts', [
             "workouts" => Workout::all(),
-            "enrollments" => EnrollmentWorkout::where('user_id', session('activeId'))->pluck('workout_id') // enrollment based on user
+            "enrollments" => EnrollmentWorkout::where('user_id', $id)->pluck('workout_id') // enrollment based on user
         ]);
     }
 

@@ -6,9 +6,11 @@ use App\Models\WorkoutDetail;
 use App\Http\Requests\StoreWorkoutDetailRequest;
 use App\Http\Requests\UpdateWorkoutDetailRequest;
 use App\Models\EnrollmentWorkout;
+use App\Models\User;
 use App\Models\Workout;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class WorkoutDetailController extends Controller
@@ -20,13 +22,14 @@ class WorkoutDetailController extends Controller
      */
     public function index(Request $request)
     {
+        $id = Auth::user()->id;
         $workout_id = $request->post('workout_id');
         if($request->post('new_plan')){
             $data = array(
-                'user_id' => session('activeId'),
+                'user_id' => $id,
                 'workout_id' => $workout_id,
-                'created_at' => Carbon::now('GMT+8'),
-                'updated_at' => Carbon::now('GMT+8')
+                'created_at' => Carbon::now('GMT+7'),
+                'updated_at' => Carbon::now('GMT+7')
             );
             EnrollmentWorkout::insert($data);
         }
@@ -42,14 +45,14 @@ class WorkoutDetailController extends Controller
 
         $is_done = DB::table('enrollment_workouts')
                     ->where('workout_id', '=', $workout_id)
-                    ->where('user_id', session('activeId'))
+                    ->where('user_id', $id)
                     ->pluck('is_done');
 
         // if checkbox checked, then workout_value = 1
         if($request->post('workout_value') && !$is_done[0]){
             $finished_day = DB::table('enrollment_workouts')
                             ->where('workout_id', '=', $workout_id)
-                            ->where('user_id', session('activeId'))
+                            ->where('user_id', $id)
                             ->pluck('finished_day');
 
             $day_count = DB::table('workouts')
@@ -57,10 +60,10 @@ class WorkoutDetailController extends Controller
                             ->pluck('day_count');
 
             // finished_day++
-            $date = \Carbon\Carbon::now('GMT+8')->format('Y-m-d h:i:s');
+            $date = \Carbon\Carbon::now('GMT+7')->format('Y-m-d h:i:s');
             DB::table('enrollment_workouts')
                 ->where('workout_id', '=', $workout_id)
-                ->where('user_id', session('activeId'))
+                ->where('user_id', $id)
                 ->update(['finished_day' => $finished_day[0] +  1,
                         'updated_at' => $date]);
 
@@ -68,8 +71,14 @@ class WorkoutDetailController extends Controller
             if($day_count->contains($finished_day[0] + 1)){
                 DB::table('enrollment_workouts')
                 ->where('workout_id', '=', $workout_id)
-                ->where('user_id', session('activeId'))
+                ->where('user_id', $id)
                 ->update(['is_done' => 1]);
+
+                 // add points to user table
+                 $user_point = User::where('id', $id)->pluck('points');
+                 $workout_point = Workout::where('id', '=', $workout_id)->pluck('points');
+                 User::where('id', $id)
+                 ->update(['points' => $user_point[0] + $workout_point[0]]);
             }
         }
 
@@ -83,7 +92,7 @@ class WorkoutDetailController extends Controller
         }
 
         $enrollment = EnrollmentWorkout::where('workout_id', $workout_id)
-                                        ->where('user_id', session('activeId'))
+                                        ->where('user_id', $id)
                                         ->get();
 
         return view('workout_meditation.workoutDetails', [

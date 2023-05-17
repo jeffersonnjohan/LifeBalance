@@ -7,8 +7,10 @@ use App\Http\Requests\StoreDietDayRequest;
 use App\Http\Requests\UpdateDietDayRequest;
 use App\Models\Diet;
 use App\Models\EnrollmentDiet;
+use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class DietDayController extends Controller
@@ -18,16 +20,18 @@ class DietDayController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
     public function index(Request $request)
     {
 
+        $id = Auth::user()->id;
         $diet_id = $request->post('diet_id');
         if($request->post('is_new')){
             $data = array(
-                'user_id' => session('activeId'),
+                'user_id' => $id,
                 'diet_id' => $diet_id,
-                'created_at' => Carbon::now('GMT+8'),
-                'updated_at' => Carbon::now('GMT+8')
+                'created_at' => Carbon::now('GMT+7'),
+                'updated_at' => Carbon::now('GMT+7')
             );
             EnrollmentDiet::insert($data);
         }
@@ -43,7 +47,7 @@ class DietDayController extends Controller
         }
 
         $enrollment = EnrollmentDiet::where('diet_id', $diet_id)
-                                    ->where('user_id', session('activeId'))
+                                    ->where('user_id', $id)
                                     ->get();
 
         return view('diet.dietdays', [
@@ -55,16 +59,17 @@ class DietDayController extends Controller
 
     public function index2(Request $request)
     {
+        $id = Auth::user()->id;
         $diet_id = $request->post('diet_id');
         $is_done = DB::table('enrollment_diets')
                     ->where('diet_id', '=', $diet_id)
-                    ->where('user_id', session('activeId'))
+                    ->where('user_id', $id)
                     ->pluck('is_done');
 
         if($request->post('diet_value') && !$is_done[0]){
             $finished_day = DB::table('enrollment_diets')
                             ->where('diet_id', '=', $diet_id)
-                            ->where('user_id', session('activeId'))
+                            ->where('user_id', $id)
                             ->pluck('finished_day');
 
             $day_count = DB::table('diets')
@@ -72,19 +77,24 @@ class DietDayController extends Controller
                             ->pluck('day_count');
 
             // finished_day++
-            $date = \Carbon\Carbon::now('GMT+8')->format('Y-m-d h:i:s');
+            $date = \Carbon\Carbon::now('GMT+7')->format('Y-m-d h:i:s');
             DB::table('enrollment_diets')
             ->where('diet_id', '=', $diet_id)
-            ->where('user_id', session('activeId'))
+            ->where('user_id', $id)
             ->update(['finished_day' => $finished_day[0] +  1,
                       'updated_at' => $date]);
 
             // if day_count == finished_day, update is_done to 1
             if($day_count->contains($finished_day[0] + 1)){
-                DB::table('enrollment_diets')
-                ->where('user_id', session('activeId'))
+                EnrollmentDiet::where('user_id', $id)
                 ->where('diet_id', '=', $diet_id)
                 ->update(['is_done' => 1]);
+
+                // add points to user table
+                $user_point = User::where('id', $id)->pluck('points');
+                $diet_point = Diet::where('id', '=', $diet_id)->pluck('points');
+                User::where('id', $id)
+                ->update(['points' => $user_point[0] + $diet_point[0]]);
             }
         }
         return redirect('/diets');
