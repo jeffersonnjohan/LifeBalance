@@ -13,6 +13,10 @@ class WorkoutDay extends Model
 
     public function workout()
     {
-        return $this->belongsTo(WorkoutDay::class);
+        return $this->belongsTo(Workout::class);
+    }
+
+    public function workout_detail(){
+        return $this->hasMany(WorkoutDetail::class);
     }
 }

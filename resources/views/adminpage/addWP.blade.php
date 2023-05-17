@@ -30,8 +30,10 @@
 </nav>
 
 @section('body')
-     {{-- Page Body Section --}}
-     <div class="pt-16 w-full bg-cLightGrey lg:flex lg:flex-row lg:w-full">
+    <form action="/admin/workout" method="post">
+    @csrf
+    {{-- Page Body Section --}}
+    <div class="pt-16 w-full bg-cLightGrey lg:flex lg:flex-row lg:w-full">
         <div class="lg:relative">
             <div class="lg:fixed lg:bg-cBlue lg:flex lg:flex-col lg:place-content-center lg:m-auto lg:h-full lg:rounded-r-[100px] lg:w-[25%]">
                 {{-- Title & Point --}}
@@ -94,7 +96,7 @@
                             <div  class="bg-cDarkGrey bg-opacity-10 h-[140px] w-full rounded-3xl px-4 pt-4">
                                 <div class="w-full h-[50px] rounded-full bg-white flex items-center text-cDarkGrey duration-300 hover:ring-2 focus-within:text-cBlue focus-within:ring-2 hover:text-cBlue shadow-lg">
                                     <div class="border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full">
-                                        <select name="exerciseName" id="exerciseName" class="border-0 bg-transparent w-full h-full rounded-full hover:border-transparent focus-within:border-transparent active:border-transparent">
+                                        <select name="exerciseID[]" id="exerciseName" class="border-0 bg-transparent w-full h-full rounded-full hover:border-transparent focus-within:border-transparent active:border-transparent">
                                             <option value="exerciseName">Exercise Name</option>
                                             @foreach ($workoutActivities as $workoutActivity)
                                                 <option value="{{ $workoutActivity->id }}">{{ $workoutActivity->name }}</option>
@@ -104,13 +106,13 @@
                                 </div>
                                 <div class="flex flex-row justify-between pt-2 w-full h-[px] gap-2">
                                     <div class="h-[52px] w-full rounded-full bg-white flex items-center text-cDarkGrey duration-300 hover:ring-2 focus-within:text-cBlue focus-within:ring-2 hover:text-cBlue shadow-lg">
-                                        <input type="text" name="repetition" id="repetition" placeholder="Repetition" required class="border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full">
+                                        <input type="text" name="repetition[]" id="repetition" placeholder="Repetition" required class="border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full">
                                     </div>
                                     <div class="h-[52px] w-full rounded-full bg-white flex items-center text-cDarkGrey duration-300 hover:ring-2 focus-within:text-cBlue focus-within:ring-2 hover:text-cBlue shadow-lg ">
-                                        <input type="text" name="calories" id="calories" placeholder="Calories" required class="border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full">
+                                        <input type="text" name="calories[]" id="calories" placeholder="Calories" required class="border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full">
                                     </div>
                                     <div class="h-[52px] w-full rounded-full bg-white flex items-center text-cDarkGrey duration-300 hover:ring-2 focus-within:text-cBlue focus-within:ring-2 hover:text-cBlue shadow-lg">
-                                        <input type="text" name="duration" id="duration" placeholder="Duration" required class="border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full">
+                                        <input type="text" name="duration[]" id="duration" placeholder="Duration" required class="border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full">
                                     </div>
                                 </div>
                             </div>
@@ -148,6 +150,7 @@
         </div>
 
     </div>
+    </form>
 {{-- @include('adminpage.adminNavbar', ['active' => 'adminpage.listWorkout']) --}}
 @endsection
 
@@ -264,7 +267,7 @@
                         <div  class="bg-cDarkGrey bg-opacity-10 h-[140px] w-full rounded-3xl px-4 pt-4">
                             <div class="w-full h-[50px] rounded-full bg-white flex items-center text-cDarkGrey duration-300 hover:ring-2 focus-within:text-cBlue focus-within:ring-2 hover:text-cBlue shadow-lg">
                                 <div class="border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full">
-                                    <select name="exerciseName" id="exerciseName" class="border-0 bg-transparent w-full h-full rounded-full hover:border-transparent focus-within:border-transparent active:border-transparent">
+                                    <select name="exerciseID[]" id="exerciseName" class="border-0 bg-transparent w-full h-full rounded-full hover:border-transparent focus-within:border-transparent active:border-transparent">
                                         <option value="exerciseName">Exercise Name</option>
                                         @foreach ($workoutActivities as $workoutActivity)
                                             <option value="{{ $workoutActivity->id }}">{{ $workoutActivity->name }}</option>
@@ -274,13 +277,13 @@
                             </div>
                             <div class="flex flex-row justify-between pt-2 w-full h-[px] gap-2">
                                 <div class="h-[52px] w-full rounded-full bg-white flex items-center text-cDarkGrey duration-300 hover:ring-2 focus-within:text-cBlue focus-within:ring-2 hover:text-cBlue shadow-lg">
-                                    <input type="text" name="repetition" id="repetition" placeholder="Repetition" required class="border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full">
+                                    <input type="text" name="repetition[]" id="repetition" placeholder="Repetition" required class="border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full">
                                 </div>
                                 <div class="h-[52px] w-full rounded-full bg-white flex items-center text-cDarkGrey duration-300 hover:ring-2 focus-within:text-cBlue focus-within:ring-2 hover:text-cBlue shadow-lg ">
-                                    <input type="text" name="calories" id="calories" placeholder="Calories" required class="border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full">
+                                    <input type="text" name="calories[]" id="calories" placeholder="Calories" required class="border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full">
                                 </div>
                                 <div class="h-[52px] w-full rounded-full bg-white flex items-center text-cDarkGrey duration-300 hover:ring-2 focus-within:text-cBlue focus-within:ring-2 hover:text-cBlue shadow-lg">
-                                    <input type="text" name="duration" id="duration" placeholder="Duration" required class="border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full">
+                                    <input type="text" name="duration[]" id="duration" placeholder="Duration" required class="border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full">
                                 </div>
                             </div>
                         </div>
@@ -301,7 +304,7 @@
                     <div  class="bg-cDarkGrey bg-opacity-10 h-[140px] w-full rounded-3xl px-4 pt-4">
                         <div class="w-full h-[50px] rounded-full bg-white flex items-center text-cDarkGrey duration-300 hover:ring-2 focus-within:text-cBlue focus-within:ring-2 hover:text-cBlue shadow-lg">
                             <div class="border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full">
-                                <select name="exerciseName" id="exerciseName" class="border-0 bg-transparent w-full h-full rounded-full hover:border-transparent focus-within:border-transparent active:border-transparent">
+                                <select name="exerciseID[]" id="exerciseName" class="border-0 bg-transparent w-full h-full rounded-full hover:border-transparent focus-within:border-transparent active:border-transparent">
                                     <option value="exerciseName">Exercise Name</option>
                                     @foreach ($workoutActivities as $workoutActivity)
                                         <option value="{{ $workoutActivity->id }}">{{ $workoutActivity->name }}</option>
@@ -311,13 +314,13 @@
                         </div>
                         <div class="flex flex-row justify-between pt-2 w-full h-[px] gap-2">
                             <div class="h-[52px] w-full rounded-full bg-white flex items-center text-cDarkGrey duration-300 hover:ring-2 focus-within:text-cBlue focus-within:ring-2 hover:text-cBlue shadow-lg">
-                                <input type="text" name="repetition" id="repetition" placeholder="Repetition" required class="border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full">
+                                <input type="text" name="repetition[]" id="repetition" placeholder="Repetition" required class="border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full">
                             </div>
                             <div class="h-[52px] w-full rounded-full bg-white flex items-center text-cDarkGrey duration-300 hover:ring-2 focus-within:text-cBlue focus-within:ring-2 hover:text-cBlue shadow-lg ">
-                                <input type="text" name="calories" id="calories" placeholder="Calories" required class="border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full">
+                                <input type="text" name="calories[]" id="calories" placeholder="Calories" required class="border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full">
                             </div>
                             <div class="h-[52px] w-full rounded-full bg-white flex items-center text-cDarkGrey duration-300 hover:ring-2 focus-within:text-cBlue focus-within:ring-2 hover:text-cBlue shadow-lg">
-                                <input type="text" name="duration" id="duration" placeholder="Duration" required class="border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full">
+                                <input type="text" name="duration[]" id="duration" placeholder="Duration" required class="border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full">
                             </div>
                         </div>
                     </div>

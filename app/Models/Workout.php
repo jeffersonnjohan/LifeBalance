@@ -10,4 +10,8 @@ class Workout extends Model
     use HasFactory;
     public $timestamps = false;
     protected $guarded = ['id'];
+
+    public function workout_day(){
+        return $this->hasMany(WorkoutDay::class);
+    }
 }
