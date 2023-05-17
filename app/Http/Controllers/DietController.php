@@ -6,6 +6,7 @@ use App\Models\Diet;
 use App\Http\Requests\StoreDietRequest;
 use App\Http\Requests\UpdateDietRequest;
 use App\Models\EnrollmentDiet;
+use Illuminate\Support\Facades\Auth;
 
 class DietController extends Controller
 {
@@ -16,9 +17,10 @@ class DietController extends Controller
      */
     public function index()
     {
+        $id = Auth::user()->id;
         return view('diet.diets', [
             'diets' => Diet::filter(request(['search']))->get(),
-            "enrollments" => EnrollmentDiet::where('user_id', session('activeId'))->pluck('diet_id')
+            "enrollments" => EnrollmentDiet::where('user_id', $id)->pluck('diet_id')
         ]);
     }
 

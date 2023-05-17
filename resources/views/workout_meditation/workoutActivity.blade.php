@@ -3,28 +3,39 @@
 @section('title', 'Workout Activity')
 
 @section('body')
-    @extends('component.backbutton')
-    @section('backlink', '/workoutdays')
-    
+    {{-- @extends('component.backbutton')
+    @section('backlink', '/workoutdays') --}}
+    <div  id ='back' class="fixed bg-white rounded-full flex justify-center items-center aspect-square h-[50px] shadow-lg top-2 left-2 z-20 group duration-300 ease-out hover:bg-cBlue">
+        <span class="material-symbols-outlined scale-110  duration-300 ease-out group-hover:text-white">
+            arrow_back
+        </span>
+    </div>
+    <form action="/workoutdays" method="POST" id='back_form'>
+        @csrf
+        <input type="hidden" name='day' value="{{ $day }}">
+        <input type="hidden" name='workout_id' value="{{ $workout_id }}">
+        <input type="hidden" name="workout_day_id" value="{{ $workout_day_id }}">
+    </form>
+
     <div class="w-full">
         <div class="h-[70px] flex justify-center items-center text-2xl font-medium">
             <p class="-mr-8">BURN FAT IN 7 DAYS!</p>
         </div>
         <div class="w-full text-white">
             <div class="h-[60px] w-full bg-cBlue flex justify-center items-center">
-                <h2 class="text-2xl text-center">DAY 1</h2>
+                <h2 class="text-2xl text-center">{{ 'DAY ' . $day }}</h2>
             </div>
         </div>
 
         {{-- Detail Workout Activity Container --}}
         <div class="w-[90%] m-auto px-5 py-8 rounded-3xl shadow-lg my-5">
-            <h2 class="text-xl">1. Push Up</h2>
-            <p class="mt-4 text-justify text-sm">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Reiciendis, doloribus sequi! Provident neque repudiandae hic eligendi sequi earum, tenetur aliquam et similique. Accusamus delectus tempore quae incidunt quasi sequi doloremque?
-            </p>
+            <h2 class="text-xl">{{ $workout_activity->name }}</h2>
+            <p class="mt-4 text-justify text-sm">{{ $workout_activity->description }}</p>
 
             {{-- Video --}}
             <video loop muted playsinline id="video" class="rounded-2xl w-full mt-8">
                 <source src="http://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                    {{-- {{ $workout_activity->video }} --}}
                 Your browser doesn't support video
             </video>
 
@@ -37,7 +48,7 @@
             </div>
             {{-- Sliding Bar --}}
             <input type="range" id="seek-bar" value="0" class="w-full mb-4">
-            
+
             <div class="flex w-full justify-center">
 
                 {{-- Button << --}}
@@ -46,14 +57,14 @@
                         fast_rewind
                     </span>
                 </button>
-    
+
                 {{-- Button Play --}}
                 <button type="button" id="play" class="block mx-4 bg-black text-white w-[40px] aspect-[5/4] rounded-full">
                     <span class="material-symbols-outlined">
                         play_arrow
                     </span>
                 </button>
-                
+
                 {{-- Button Pause --}}
                 <button type="button" id="pause" class="hidden block mx-4 bg-black text-white w-[40px] aspect-[5/4] rounded-full">
                     <span class="material-symbols-outlined">
@@ -72,16 +83,21 @@
 
         {{-- Space Bottom For Navbar --}}
         <div class="pb-28">
-            
+
         </div>
     </div>
 
-    @include('component.navbar')
-    
+    @include('component.navbar', ['active' => 'workout'])
+
 @endsection
 
 @section('scripts')
     <script>
+        var form = document.getElementById ("back_form");
+            document.getElementById ("back").addEventListener("click", function () {
+                form.submit();
+        });
+
         // Video
         var video = document.getElementById("video");
 
@@ -103,14 +119,14 @@
         // Function Puase to Play
         function pauseToPlay(){
             video.play()
-            
+
             playButton.classList.add('hidden')
             pauseButton.classList.remove('hidden')
         }
 
         function playToPause(){
             video.pause()
-            
+
             pauseButton.classList.add('hidden')
             playButton.classList.remove('hidden')
         }
@@ -153,8 +169,8 @@
 
                 // Update the slider value
                 seekBar.value = value;
-                
-                progressDuration.innerHTML = format_number(Math.floor(video.currentTime/60)) + ':' + format_number(Math.floor(video.currentTime%60)) 
+
+                progressDuration.innerHTML = format_number(Math.floor(video.currentTime/60)) + ':' + format_number(Math.floor(video.currentTime%60))
             });
 
             // Pause the video when the slider handle is being dragged

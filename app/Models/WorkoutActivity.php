@@ -10,4 +10,9 @@ class WorkoutActivity extends Model
     use HasFactory;
     public $timestamps = false;
     protected $guarded = ['id'];
+
+    public function workout_detail()
+    {
+        return $this->hasMany(WorkoutDetail::class);
+    }
 }
