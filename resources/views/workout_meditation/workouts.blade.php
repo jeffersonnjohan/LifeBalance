@@ -9,7 +9,7 @@
         <?php $unenroll_plans = array() ?>
         <h3 class="flex justify-center text-white">Enrolled Plan</h3>
         @foreach ($workouts as $workout)
-            @if (in_array(strval($workout->id), $enrollments->toArray()))
+        @if (in_array(strval($workout->id), $enrollments->toArray()))
                 <form action="/workoutdetails" method="POST"  class="enrolled_form">
                     @csrf
                     <input type="hidden" name="workout_id" value="{{ $workout->id }}">

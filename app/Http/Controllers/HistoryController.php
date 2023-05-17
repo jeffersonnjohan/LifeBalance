@@ -7,17 +7,19 @@ use App\Models\EnrollmentDiet;
 use App\Models\EnrollmentWorkout;
 use App\Models\History;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class HistoryController extends Controller
 {
     public function index()
     {
+        $id = Auth::user()->id;
         // add validation, based on user enrollment
         $enrollment_diets = EnrollmentDiet::join('diets', 'diets.id', '=', 'enrollment_diets.diet_id')
-                                        ->where('user_id', session('activeId'));
+                                        ->where('user_id', $id);
         $enrollment_workouts = EnrollmentWorkout::join('workouts', 'workouts.id', '=', 'enrollment_workouts.workout_id')
-                                        ->where('user_id', session('activeId'));
+                                        ->where('user_id', $id);
 
         // $enrollment_diets = EnrollmentDiet::all();
         // foreach($enrollment_diets as $dietss){

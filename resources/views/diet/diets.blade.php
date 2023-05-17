@@ -120,7 +120,7 @@
                     </div>
                 </div>
             @endforeach
-           </div>
+        </div>
         @endif
 
     </div>

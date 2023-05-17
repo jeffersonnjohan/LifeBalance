@@ -10,6 +10,7 @@ use App\Models\EnrollmentWorkoutsFinish;
 use App\Models\Workout;
 use App\Models\WorkoutDetail;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class WorkoutDayController extends Controller
 {
@@ -39,8 +40,9 @@ class WorkoutDayController extends Controller
     }
 
     private function checkbox($workout_id, $day){
+        $id = Auth::user()->id;
         $finished_day = EnrollmentWorkout::where('workout_id', $workout_id)
-                        ->where('user_id', session('activeId'))
+                        ->where('user_id', $id)
                         ->pluck('finished_day');
 
         return ($finished_day[0] >= (int)$day) ?  "checked disabled" : "";
