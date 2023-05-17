@@ -24,8 +24,8 @@
         $i = 1;
         $flag = 0;
         $updated_at = \Carbon\Carbon::parse($enrollment[0]->updated_at)->format('d/M/Y');
-        $today = \Carbon\Carbon::now('GMT+8')->format('d/M/Y');
-        $tomorrow = \Carbon\Carbon::tomorrow('GMT+8')
+        $today = \Carbon\Carbon::now('GMT+7')->format('d/M/Y');
+        $tomorrow = \Carbon\Carbon::tomorrow('GMT+7')
     ?>
 
     <div class="bg-cLightGrey w-full h-full">

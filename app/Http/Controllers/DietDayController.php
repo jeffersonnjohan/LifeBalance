@@ -26,8 +26,8 @@ class DietDayController extends Controller
             $data = array(
                 'user_id' => session('activeId'),
                 'diet_id' => $diet_id,
-                'created_at' => Carbon::now('GMT+8'),
-                'updated_at' => Carbon::now('GMT+8')
+                'created_at' => Carbon::now('GMT+7'),
+                'updated_at' => Carbon::now('GMT+7')
             );
             EnrollmentDiet::insert($data);
         }
@@ -72,7 +72,7 @@ class DietDayController extends Controller
                             ->pluck('day_count');
 
             // finished_day++
-            $date = \Carbon\Carbon::now('GMT+8')->format('Y-m-d h:i:s');
+            $date = \Carbon\Carbon::now('GMT+7')->format('Y-m-d h:i:s');
             DB::table('enrollment_diets')
             ->where('diet_id', '=', $diet_id)
             ->where('user_id', session('activeId'))
