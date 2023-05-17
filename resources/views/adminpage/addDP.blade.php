@@ -45,7 +45,7 @@
                             <input type="number" name="points" id="points" placeholder="Points" required class="text-center border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full">
                         </div>
                     </div>
-                    <div class="flex flex-row lg:flex-col gap-2 pt-2 lg:pt-0 pb-2 px-3 ">
+                    <div class="flex flex-row lg:flex-col lg:pt-0 gap-2 pt-2 pb-2 px-3 ">
                         <div class="ring-cGreen hover:ring-cGreen w-[75%] lg:w-full h-[120px] rounded-3xl bg-white flex items-center text-cDarkGrey px-4 duration-300 hover:ring-2 focus-within:text-cGreen focus-within:ring-2 hover:text-cGreen shadow-lg">
                             <input type="text" name="description" id="description" placeholder="Description" required class="text-center border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full ">
                         </div>
