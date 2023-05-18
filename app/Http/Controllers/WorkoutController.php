@@ -23,10 +23,14 @@ class WorkoutController extends Controller
      */
     public function index()
     {
-        $id = Auth::user()->id;
-        return view('workout_meditation.workouts', [
-            "workouts" => Workout::all(),
-            "enrollments" => EnrollmentWorkout::where('user_id', $id)->pluck('workout_id') // enrollment based on user
+        // // $id = Auth::user()->id;
+        // return view('workout_meditation.workouts', [
+        //     "workouts" => Workout::all(),
+        //     "enrollments" => EnrollmentWorkout::where('user_id', $id)->pluck('workout_id') // enrollment based on user
+        // ]);
+
+        return view('adminpage.listWorkout', [
+            "workouts" => Workout::all()
         ]);
     }
 

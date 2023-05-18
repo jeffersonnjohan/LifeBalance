@@ -77,9 +77,9 @@ Route::get('/challenges', function () {
 // });
 
 // ADMIN PAGE
-Route::get('/admin/workout', [AdminController::class, 'workout'])->middleware('admin');
+Route::get('/admin/workout', [WorkoutController::class, 'index'])->middleware('admin');
 
-Route::resource('/admin/workout', WorkoutController::class)->middleware('admin');
+Route::resource('/admin/workout', WorkoutController::class)->only('create', 'store')->middleware('admin');
 
 Route::get('/admin/meditation', function () {
     return view('adminpage.listMeditation');
