@@ -8,6 +8,7 @@
 
 @section('title', 'Edit Workout Plan - Admin Page')
 
+{{-- @dd(json_encode($workout->workout_day[0]->workout_detail->toArray())) --}}
 <nav class="justify-evenly fixed bg-cLightGrey w-full z-10">
     <div class="max-w-screen-xl px-4 py-3 mx-auto lg:mx-4">
         <div class="flex items-center">
@@ -381,6 +382,13 @@
         }
 
         initializationElement()
+    }
+
+    var dayInPlan = {{ count($workout->workout_day) }}
+    for(let i = 0; i < dayInPlan; i++){
+        // var countExerciseInDay = {{ count($workout->workout_day[0]->workout_detail) }}
+        // var arrayExerciseInDay = {{ json_encode($workout->workout_day[0]->workout_detail->toArray()) }}
+        // console.log(arrayExerciseInDay);
     }
 </script>
 @endsection
