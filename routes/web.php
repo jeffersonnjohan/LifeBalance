@@ -79,6 +79,7 @@ Route::get('/challenges', function () {
 // ADMIN PAGE
 Route::post('/admin/workout/edit', [WorkoutController::class, 'edit'])->middleware('admin');
 Route::post('/admin/workout/delete', [WorkoutController::class, 'destroy'])->middleware('admin');
+Route::post('/admin/workout/update', [WorkoutController::class, 'update'])->middleware('admin');
 
 Route::resource('/admin/workout', WorkoutController::class)->only('index', 'create', 'store')->middleware('admin');
 

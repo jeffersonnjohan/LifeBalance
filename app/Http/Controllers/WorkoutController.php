@@ -119,9 +119,13 @@ class WorkoutController extends Controller
      * @param  \App\Models\Workout  $workout
      * @return \Illuminate\Http\Response
      */
-    public function edit(Workout $workout, Request $request)
+    public function edit(Request $request)
     {
-        return $request;
+        $workout = Workout::find($request->workoutEditID)->load(['workout_day']);
+        return view('adminpage.editWP', [
+            'workoutActivities' => WorkoutActivity::all(),
+            'workout' => $workout,
+        ]);
     }
 
     /**
@@ -133,7 +137,7 @@ class WorkoutController extends Controller
      */
     public function update(UpdateWorkoutRequest $request, Workout $workout)
     {
-        //
+        return $request;
     }
 
     /**
