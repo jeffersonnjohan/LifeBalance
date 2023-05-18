@@ -99,7 +99,7 @@ class WorkoutController extends Controller
             $workoutDaysSaved[$i]->workout_detail()->saveMany($workout_details[$i]);
         }
         
-        return $request;
+        return redirect('/admin/workout');
     }
 
     /**
@@ -119,9 +119,9 @@ class WorkoutController extends Controller
      * @param  \App\Models\Workout  $workout
      * @return \Illuminate\Http\Response
      */
-    public function edit(Workout $workout)
+    public function edit(Workout $workout, Request $request)
     {
-        //
+        return $request;
     }
 
     /**
@@ -142,8 +142,9 @@ class WorkoutController extends Controller
      * @param  \App\Models\Workout  $workout
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Workout $workout)
+    public function destroy(Workout $workout, Request $request)
     {
         //
+        return $request;
     }
 }
