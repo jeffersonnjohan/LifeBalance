@@ -8,7 +8,6 @@
 
 @section('title', 'Edit Workout Plan - Admin Page')
 
-{{-- @dd(json_encode($workout->workout_day[0]->workout_detail->toArray())) --}}
 <nav class="justify-evenly fixed bg-cLightGrey w-full z-10">
     <div class="max-w-screen-xl px-4 py-3 mx-auto lg:mx-4">
         <div class="flex items-center">
@@ -30,6 +29,7 @@
 @section('body')
 <form action="/admin/workout/update" method="post">
     @csrf
+    <input type="hidden" name="workoutID" value="{{ $workout->id }}">
     {{-- Page Body Section --}}
     <div class="pt-16 w-full bg-cLightGrey lg:flex lg:flex-row lg:w-full">
         <div class="lg:relative">
@@ -75,11 +75,13 @@
         <div class="lg:flex lg:flex-col lg:w-[75%] lg:ml-[25%]">
             {{-- Add Details per Day --}}
             <div id="containerDay">
+                @foreach($workoutExercises as $workoutExerciseInADay)
                 <div class="px-3 ">
+                    <input type="hidden" name="workoutDayID[]" value="{{ $workout->workout_day[$loop->index]->id }}">
                     <div  class="pt-2 pb-2 ">
                             {{-- Button Add ExerciseDetail --}}
                             <div class="w-full h-[50px] rounded-full bg-cBlue bg-opacity-50 flex items-center text-cDarkGrey px-4 gap-2">
-                                <h2 class="dayHeader border-transparent bg-transparent text-sm font-bold text-cDarkBlue text-center w-full">Day 1</h2>
+                                <h2 class="dayHeader border-transparent bg-transparent text-sm font-bold text-cDarkBlue text-center w-full">Day {{ $loop->iteration }}</h2>
                                 <span class="deleteExerciseDetail material-symbols-outlined rounded-full p-2 scale-100 duration-300 ease-out bg-cRed hover:bg-white hover:text-black text-white">
                                     delete
                                 </span>
@@ -90,38 +92,46 @@
                     </div>
                     <div class="containerExercise">
                         {{-- Add Exercise --}}
+                        @foreach ($workoutExerciseInADay as $workoutExerciseEach)
                         <div  class="flex flex-row gap-2 w-full h-fit pb-2">
                             <div  class="bg-cDarkGrey bg-opacity-10 h-[140px] w-full rounded-3xl px-4 pt-4">
                                 <div class="w-full h-[50px] rounded-full bg-white flex items-center text-cDarkGrey duration-300 hover:ring-2 focus-within:text-cBlue focus-within:ring-2 hover:text-cBlue shadow-lg">
                                     <div class="border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full">
-                                        <select name="exerciseID[0][]" id="exerciseName" class="border-0 bg-transparent w-full h-full rounded-full hover:border-transparent focus-within:border-transparent active:border-transparent">
+                                        <select name="exerciseID[{{ $loop->parent->index }}][]" id="exerciseName" class="border-0 bg-transparent w-full h-full rounded-full hover:border-transparent focus-within:border-transparent active:border-transparent">
                                             <option value="exerciseName">Exercise Name</option>
                                             @foreach ($workoutActivities as $workoutActivity)
-                                                <option value="{{ $workoutActivity->id }}">{{ $workoutActivity->name }}</option>
+                                                @if($workoutActivity->id == $workoutExerciseEach->workout_activity_id)
+                                                    <option value="{{ $workoutActivity->id }}" selected>{{ $workoutActivity->name }}</option>
+                                                @else
+                                                    <option value="{{ $workoutActivity->id }}">{{ $workoutActivity->name }}</option>
+                                                @endif
                                             @endforeach
                                         </select>
                                     </div>
                                 </div>
                                 <div class="flex flex-row justify-between pt-2 w-full h-[px] gap-2">
                                     <div class="h-[52px] w-full rounded-full bg-white flex items-center text-cDarkGrey duration-300 hover:ring-2 focus-within:text-cBlue focus-within:ring-2 hover:text-cBlue shadow-lg">
-                                        <input type="text" name="repetition[0][]" id="repetition" placeholder="Repetition" required class="border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full">
+                                        <input type="text" name="repetition[{{ $loop->parent->index }}][]" id="repetition" placeholder="Repetition" value="{{ $workoutExerciseEach->repetition }}" required class="border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full">
                                     </div>
                                     <div class="h-[52px] w-full rounded-full bg-white flex items-center text-cDarkGrey duration-300 hover:ring-2 focus-within:text-cBlue focus-within:ring-2 hover:text-cBlue shadow-lg ">
-                                        <input type="text" name="calories[0][]" id="calories" placeholder="Calories" required class="border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full">
+                                        <input type="text" name="calories[{{ $loop->parent->index }}][]" id="calories" placeholder="Calories" value="{{ $workoutExerciseEach->calories }}" required class="border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full">
                                     </div>
                                     <div class="h-[52px] w-full rounded-full bg-white flex items-center text-cDarkGrey duration-300 hover:ring-2 focus-within:text-cBlue focus-within:ring-2 hover:text-cBlue shadow-lg">
-                                        <input type="text" name="duration[0][]" id="duration" placeholder="Duration" required class="border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full">
+                                        <input type="text" name="duration[{{ $loop->parent->index }}][]" id="duration" placeholder="Duration" value="{{ $workoutExerciseEach->duration }}" required class="border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full">
                                     </div>
+                                    <input type="hidden" name="workoutDetailID[{{ $loop->parent->index }}][]" value="{{ $workoutExerciseEach->id }}">
                                 </div>
                             </div>
                             <span class=" material-symbols-outlined rounded-full h-fit my-auto p-2 scale-100 duration-300 ease-out bg-cRed hover:bg-white hover:border-cDarkBlue focus:border-5 focus:border-cDarkblue hover:text-black text-white">
                                 delete
                             </span>
-                        </div>
+                        </div>            
+                        @endforeach
 
                     </div>
 
                 </div>
+                @endforeach
             </div>
             <div id="addMore" class="flex flex-row mb-16 pt-2 pb-2 text-cBlue place-content-center pr-2">
                 <span class="material-symbols-outlined ">
@@ -198,6 +208,7 @@
 
         days = containerDay.children;
 
+        updateDayNumbering()
         onClickSetter()
     }
 
@@ -354,6 +365,10 @@
     function removeExactDay(i){
         days[i].remove()
 
+        initializationElement()
+    }
+
+    function updateDayNumbering(){
         // Update day header
         for(let j = 0, counter = 1; j < dayHeader.length; j++){
             dayHeader[j].innerHTML = 'Day ' + (counter++)
@@ -362,7 +377,6 @@
             let hariKeJ = containerExercise[j].children;
 
             for(let k = 0; k < hariKeJ.length; k++){
-                // let exerciseKHariKeJ = hariKeJ.
                 let elementSelectKHariKeJ = hariKeJ[k].children[0].children[0].children[0].lastElementChild
                 elementSelectKHariKeJ.setAttribute('name', "exerciseID["+j+"][]")
 
@@ -376,19 +390,9 @@
                 
                 let inputDurKHariKeJ = containerRepCalDurKHariKeJ.children[2].children[0]
                 inputDurKHariKeJ.setAttribute('name', "duration["+j+"][]")
-
             }
-            // console.log(hariKeJ.length)
         }
-
-        initializationElement()
     }
 
-    var dayInPlan = {{ count($workout->workout_day) }}
-    for(let i = 0; i < dayInPlan; i++){
-        // var countExerciseInDay = {{ count($workout->workout_day[0]->workout_detail) }}
-        // var arrayExerciseInDay = {{ json_encode($workout->workout_day[0]->workout_detail->toArray()) }}
-        // console.log(arrayExerciseInDay);
-    }
 </script>
 @endsection

@@ -69,7 +69,7 @@ class WorkoutController extends Controller
             'description' => $request->description,
             'points' => $request->points,
             'image' => 'images/workoutplan',
-            'day_count' => count($workoutDays),
+            'day_count' => $dayCount,
         ]);
         
         // Workout Details
@@ -122,9 +122,23 @@ class WorkoutController extends Controller
     public function edit(Request $request)
     {
         $workout = Workout::find($request->workoutEditID)->load(['workout_day']);
+
+        $workoutExercises = [];
+        for($i = 0; $i < count($workout->workout_day); $i++){
+            $workoutDetailInDayI = $workout->workout_day[$i]->workout_detail;
+
+            $workoutExercise = [];
+            for($j = 0; $j < count($workoutDetailInDayI); $j++){
+                $workoutExercise[] = $workoutDetailInDayI[$j];
+            }
+            $workoutExercises[] = $workoutExercise;
+        }
+
+        // dd(json_encode($workoutExercises));
         return view('adminpage.editWP', [
             'workoutActivities' => WorkoutActivity::all(),
             'workout' => $workout,
+            'workoutExercises' => $workoutExercises
         ]);
     }
 
@@ -135,9 +149,63 @@ class WorkoutController extends Controller
      * @param  \App\Models\Workout  $workout
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateWorkoutRequest $request, Workout $workout)
+    public function update(UpdateWorkoutRequest $request)
     {
-        return $request;
+        $dayCount = count($request->exerciseID);
+        // Workout Day
+        $workoutDays = [];
+        
+        for($i = 0; $i < $dayCount; $i++){
+
+            if(isset($request->workoutDayID[$i])){
+                $workoutDays[] = WorkoutDay::find($request->workoutDayID[$i]);
+            } else{
+                $workoutDays[] = new WorkoutDay();
+            }
+        }
+        
+        $workout = Workout::find($request->workoutID);
+        $workout->update([
+            'name' => $request->planTitle,
+            'description' => $request->description,
+            'points' => $request->points,
+            'image' => 'images/workoutplan',
+            'day_count' => $dayCount,
+        ]);
+        // Workout Details
+        $workout_details = [];
+        
+        for($i = 0; $i < $dayCount; $i++){
+            $detailOnDayICount = count($request->exerciseID[$i]);
+            
+            $workoutDetailInDayI = [];
+            for($j = 0; $j < $detailOnDayICount; $j++){
+                $data = [
+                    'repetition' => $request->repetition[$i][$j],
+                    'calories' => $request->calories[$i][$j],
+                    'duration' => $request->duration[$i][$j],
+                    'workout_activity_id' => $request->exerciseID[$i][$j]
+                ];
+
+                if(isset($request->workoutDetailID[$i][$j])){
+                    WorkoutDetail::find($request->workoutDetailID[$i][$j])->update($data);
+                    $workoutDetailInDayI[] = WorkoutDetail::find($request->workoutDetailID[$i][$j]);
+                } else{
+                    $workoutDetailInDayI[] = new WorkoutDetail($data);
+                }
+                
+            }
+            
+            $workout_details[] = $workoutDetailInDayI;
+        }
+        
+        $workoutDaysSaved = $workout->workout_day()->saveMany($workoutDays);
+        
+        for($i = 0; $i < count($workoutDaysSaved); $i++){
+            $workoutDaysSaved[$i]->workout_detail()->saveMany($workout_details[$i]);
+        }
+        
+        return redirect('/admin/workout');
     }
 
     /**
