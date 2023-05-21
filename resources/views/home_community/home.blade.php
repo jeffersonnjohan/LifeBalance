@@ -10,36 +10,38 @@
     </style> --}}
 @endsection
 
-
 @section('body')
-<nav class="justify-evenly fixed bg-gradient-to-b from-cLightGrey from-70% to-transparent w-full z-10 -top-5">
+<nav class="justify-evenly fixed bg-gradient-to-b from-cLightGrey from-70% to-transparent w-full z-10 -top-3">
     <div class="px-4 py-3 mx-auto">
         <div class="flex items-center justify-between">
-            <ul class="flex flex-row font-normal space-x-2 text-2xl">
-                <li>
-                    <a href="/home" class="text-cRed font-bold dark:text-white hover:text-cRed">Home</a>
-                </li>
-                <li class="text-cDarkGrey">
-                    |
-                </li>
-                <li>
-                    <a href="/community" class="text-cDarkGrey dark:text-white hover:text-cRed" aria-current="page">Community</a>
-                </li>
-            </ul>
+            <div class="flex-col">
+                <ul class="flex font-normal space-x-2 text-2xl">
+                    <li>
+                        <a href="/home" class="text-cRed font-bold dark:text-white hover:text-cRed">Home</a>
+                    </li>
+                    <li class="text-cDarkGrey">
+                        |
+                    </li>
+                    <li>
+                        <a href="/community" class="text-cDarkGrey dark:text-white hover:text-cRed" aria-current="page">Community</a>
+                    </li>
+                </ul>
+                <p class="font-light text-sm text-cDarkGrey">Let's see your daily progress!</p>
+            </div>
             <div class="flex w-fit gap-5">
                 @can('admin')
-                    <a href="/admin/workout" class="bg-cBlue hover:bg-white duration-300 ease-out p-3 hover:ring-2 text-white hover:text-cBlue rounded-b-3xl">
-                        <div class="pt-3">Go to Admin</div>
-                    </a>
+                <a href="/admin/workout" class="bg-cBlue hover:bg-white duration-300 ease-out p-3 hover:ring-2 text-white hover:text-cBlue rounded-b-3xl">
+                    <div class="pt-3">Go to Admin</div>
+                </a>
                 @endcan
-                <a href="/profile" class="bg-cRed rounded-b-3xl flex justify-center items-center aspect-square h-fit p-2 shadow-lg z-10 group duration-300 ease-out hover:bg-opacity-50">
-                    <div class="bg-white rounded-full p-4 bg-cover mt-3" style="background-image: url('/assets/male.png')"></div>
+                <a href="/profile" class="bg-cRed rounded-b-3xl flex justify-center items-center aspect-square h-fit p-2 shadow-lg z-10 group duration-300 ease-out hover:bg-cBlue">
+                    <div class="bg-white rounded-full p-4 bg-cover mt-2" style="background-image: url('/assets/female.png')"></div>
                 </a>
             </div>
         </div>
-        <p class="font-light text-sm text-cDarkGrey">Let's see your daily progress!</p>
     </div>
 </nav>
+
 <div class="w-full h-fit px-2 pb-2">
     <div class="max-w-screen-xl px-4 py-3 h-20"></div>
     <div class="text-center font-bold text-xl">Good Morning, {{$name}}!</div>

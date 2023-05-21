@@ -24,33 +24,35 @@
 </nav>
 
 @section('body')
-    <div class="w-full">
+    <div class="w-full h-full lg:flex lg:fixed">
         {{-- Categories --}}
-        <div class="flex flex-col w-full h-[250px] pt-16 bg-transparent md:h-[330px]">
-            <p class="relative flex text-cDarkBlue h-fit pl-7 md:pl-0 md:text-center md:justify-center">Categories</p>
-            <div class="h-[160px] md:h-[250px] flex justify-center md:w-[100%] gap-3 md:gap-7 p-5">
-                {{-- Workout Plans --}}
-                <a href="/admin/workout" class="w-[50%] md:w-[30%]">
-                    <div class="w-full h-full items-center justify-center flex flex-col bg-cDarkBlue rounded-3xl hover:bg-cBlue duration-500 @yield('isWorkoutActive')">
-                        <div class="h-full w-full rounded-t-3xl bg-cover" style="background-image: url('/assets/olahragaCategory.png')"></div>
-                        <p class="flex items-center text-center text-white p-2">Workout</p>
-                    </div>
-                </a>
-                {{-- Meditation Plans --}}
-                <a href="/admin/meditation" class="w-[50%] md:w-[30%]">
-                    <div class="w-full h-full items-center justify-center flex flex-col bg-cDarkBlue rounded-3xl hover:bg-cBlue duration-500 @yield('isMeditationActive')">
-                        <div class="h-full w-full rounded-t-3xl bg-cover" style="background-image: url('/assets/meditasiCategory.png')"></div>
-                        <p class="flex items-center text-center text-white p-2">Meditation</p>
-                    </div>
-                </a>
+        <div class="lg:w-[30vw]">
+            <div class="flex flex-col w-full h-[250px] pt-16 bg-transparent">
+                <p class="relative flex text-cDarkBlue h-fit pl-7 lg:ml-0 lg:text-center lg:justify-center">Categories</p>
+                <div class="h-[160px] lg:h-[280px] lg:w-full lg:flex-col flex justify-center md:w-[100%] gap-3 lg:gap-7 p-5 lg:mt-32 lg:ml-10 lg:items-center lg:justify-center">
+                    {{-- Workout Plans --}}
+                    <a href="/admin/workout" class="w-[50%] lg:w-full">
+                        <div class="w-full h-full items-center justify-center flex flex-col bg-cDarkBlue rounded-3xl hover:bg-cBlue duration-500 @yield('isWorkoutActive')">
+                            <div class="h-full w-full rounded-t-3xl bg-cover" style="background-image: url('/assets/olahragaCategory.png')"></div>
+                            <p class="flex items-center text-center text-white p-2">Workout</p>
+                        </div>
+                    </a>
+                    {{-- Meditation Plans --}}
+                    <a href="/admin/meditation" class="w-[50%] lg:w-full">
+                        <div class="w-full h-full items-center justify-center flex flex-col bg-cDarkBlue rounded-3xl hover:bg-cBlue duration-500 @yield('isMeditationActive')">
+                            <div class="h-full w-full rounded-t-3xl bg-cover" style="background-image: url('/assets/meditasiCategory.png')"></div>
+                            <p class="flex items-center text-center text-white p-2">Meditation</p>
+                        </div>
+                    </a>
+                </div>
             </div>
         </div>
 
         {{-- Workout Plans List --}}
-        <div class="pl-5 pr-5 w-full">
+        <div class="pl-5 pr-5 w-full lg:pt-16 lg:flex lg:items-center lg:justify-center lg:gap-2 lg:flex-wrap lg:flex-row lg:overflow-scroll">
             @foreach ($workouts as $workout)
                 {{-- Plan Card --}}
-                <div class="h-fit bg-white mb-2 relative rounded-3xl shadow-lg hover:bg-cDarkBlue hover:text-white duration-500">
+                <div class="lg:w-fit lg:h-fit h-fit bg-white mb-2 relative rounded-3xl shadow-lg hover:bg-cDarkBlue hover:text-white duration-500">
                     <span class="right-0 top-0 w-fit h-hit rounded-bl-3xl rounded-tr-3xl bg-cRed absolute text-white text-xl px-4">#{{ $loop->iteration }}</span>
                     <div class="flex py-6 px-5 items-center gap-2">
                         <div class="flex items-center w-[85%] justify-center">
