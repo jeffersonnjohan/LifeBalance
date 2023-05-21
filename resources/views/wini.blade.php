@@ -8,5 +8,6 @@
 </head>
 <body>
     <p class="bg-slate-600 text-center w-full">Hello! This is Wini's page.</p>
+    <p class="bg-slate-600 text-center w-full">Commit test ulang git vscode.</p>
 </body>
 </html>
