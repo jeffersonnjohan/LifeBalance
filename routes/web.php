@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ChallengeController;
 use GuzzleHttp\Middleware;
 use App\Models\EnrollmentWorkout;
 use Illuminate\Support\Facades\DB;
@@ -60,9 +61,11 @@ Route::get('/otherprofile', function () {
 //     return view('diet.planDiet');
 // });
 
-Route::get('/challenges', function () {
-    return view('challenges');
-});
+// Route::get('/challenges', function () {
+//     return view('challenges');
+// });
+
+Route::resource('/challenges', ChallengeController::class)->middleware('auth');
 
 // Route::get('/history', function () {
 //     return view('history');
