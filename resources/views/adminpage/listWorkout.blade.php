@@ -29,7 +29,7 @@
         <div class="lg:w-[30vw]">
             <div class="flex flex-col w-full h-[250px] pt-16 bg-transparent">
                 <p class="relative flex text-cDarkBlue h-fit pl-7 lg:ml-0 lg:text-center lg:justify-center">Categories</p>
-                <div class="h-[160px] lg:h-[280px] lg:w-full lg:flex-col flex justify-center md:w-[100%] gap-3 lg:gap-7 p-5 lg:mt-32 lg:ml-10 lg:items-center lg:justify-center">
+                <div class="h-[160px] lg:h-[280px] lg:w-full lg:flex-col flex justify-center md:w-[100%] gap-7 lg:gap-7 p-5 lg:mt-32 lg:ml-10 lg:items-center lg:justify-center">
                     {{-- Workout Plans --}}
                     <a href="/admin/workout" class="w-[50%] lg:w-full">
                         <div class="w-full h-full items-center justify-center flex flex-col bg-cDarkBlue rounded-3xl hover:bg-cBlue duration-500 @yield('isWorkoutActive')">
@@ -137,7 +137,7 @@
         </div>
 
     {{-- Add Workout Plan --}}
-    <a href="/admin/workout/create" class="object-bottom fixed bg-black rounded-full flex justify-center items-center aspect-square h-[50px] shadow-lg bottom-20 right-2 z-10 group duration-300 ease-out hover:bg-cBLue">
+    <a href="/admin/workout/create" class="object-bottom fixed bg-black rounded-full flex justify-center items-center aspect-square h-[50px] shadow-lg bottom-20 right-2 lg:bottom-5 lg:right-5 z-10 group duration-300 ease-out hover:bg-cBLue">
         <span class="material-symbols-outlined scale-110 duration-300 ease-out group-hover:text-white text-white mb-100px">
             add
         </span>

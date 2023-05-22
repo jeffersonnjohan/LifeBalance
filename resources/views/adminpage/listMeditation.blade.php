@@ -37,7 +37,7 @@
     <div class="lg:w-[30vw]">
         <div class="flex flex-col w-full h-[250px] pt-16 bg-transparent">
             <p class="relative flex text-cDarkBlue h-fit pl-7 lg:text-center lg:ml-10 lg:justify-center">Categories</p>
-            <div class="h-[160px] lg:h-[280px] lg:gap-7 flex justify-center lg:w-full gap-3 p-5 lg:flex-col lg:mt-32 lg:ml-10 lg:items-center lg:justify-center">
+            <div class="h-[160px] lg:h-[280px] lg:gap-7 flex justify-center lg:w-full gap-7 p-5 lg:flex-col lg:mt-32 lg:ml-10 lg:items-center lg:justify-center">
                 {{-- Workout Plans --}}
                 <a href="/admin/workout" class="w-[50%] lg:w-full">
                     <div class="w-full h-full items-center justify-center flex flex-col bg-cDarkBlue rounded-3xl hover:bg-cBlue duration-500 @yield('isWorkoutActive')">
