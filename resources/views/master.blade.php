@@ -30,6 +30,7 @@
 </head>
 <body class="font-[Poppins] flex bg-cLightGrey relative box-border">
     @yield('body')
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     @yield('scripts')
 </body>
 </html>

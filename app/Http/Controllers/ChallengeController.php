@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use DateTime;
 use App\Models\Challenge;
+use App\Models\EnrollmentDiet;
+use App\Models\EnrollmentWorkout;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\StoreChallengeRequest;
 use App\Http\Requests\UpdateChallengeRequest;
 
@@ -15,7 +19,30 @@ class ChallengeController extends Controller
      */
     public function index()
     {
-        //
+        $id = Auth::user()->id;
+        $challengeData = Challenge::where('id', 0);
+        $arrworkout = [];
+        $arrdiet = [];
+        // range tanggal dari challenge
+        // where tanggal work dan diets nya dalam challenge
+        // workout dan diets append
+        // lanjut tanggal berikutnya
+        for($i = 0; $i < $challengeData->count(); $i++) {
+            $filteredworkout = EnrollmentWorkout::where([
+                ['created_at', '>', $challengeData[$i]['start_date']],
+                ['updated_at', '<', $challengeData[$i]['end_date']],
+                ['is_done', 1]
+                ])->count();
+            array_push($arrworkout, $filteredworkout);
+            $filtereddiet = EnrollmentDiet::where([
+                ['created_at', '>', $challengeData[$i]['start_date']],
+                ['updated_at', '<', $challengeData[$i]['end_date']],
+                ['is_done', 1]
+                ])->count();
+            array_push($arrdiet, $filtereddiet);
+        }
+        // dd($arrworkout, $arrdiet);
+        return view('challenges', compact('challengeData', 'arrworkout', 'arrdiet'));
     }
 
     /**
