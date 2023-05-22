@@ -29,9 +29,9 @@
 @section('body')
 <div class="w-full">
     {{-- Challenges Plans List --}}
-    <div class="px-2 pt-16 w-full">
+    <div class="px-2 pt-16 w-full md:flex md:items-center md:justify-center md:gap-2 md:flex-wrap lg:flex lg:items-center lg:justify-center lg:gap-2 lg:flex-wrap">
         {{-- Plan Card --}}
-        <div class="h-fit bg-white mb-2 relative rounded-3xl shadow-lg hover:bg-cOrange hover:text-white duration-500">
+        <div class="lg:w-80 lg:h-fit h-fit bg-white mb-2 relative rounded-3xl shadow-lg hover:bg-cOrange hover:text-white duration-500">
             <div class="absolute bg-cOrange h-fit w-fit px-4 text-white rounded-bl-3xl rounded-tr-3xl top-0 right-0 text-md">15-17 Apr</div>
             <div class="flex py-6 px-5 items-center">
                 <div class="flex flex-col">
@@ -59,7 +59,7 @@
             </div>
         </div>
         {{-- Plan Card --}}
-        <div class="h-fit bg-white mb-2 relative rounded-3xl shadow-lg hover:bg-cOrange hover:text-white duration-500">
+        <div class="lg:w-80 lg:h-fit h-fit bg-white mb-2 relative rounded-3xl shadow-lg hover:bg-cOrange hover:text-white duration-500">
             <div class="absolute bg-cOrange h-fit w-fit px-4 text-white rounded-bl-3xl rounded-tr-3xl top-0 right-0 text-md">15-17 Apr</div>
             <div class="flex py-6 px-5 items-center">
                 <div class="flex flex-col">
@@ -87,7 +87,7 @@
             </div>
         </div>
         {{-- Plan Card --}}
-        <div class="h-fit bg-white mb-2 relative rounded-3xl shadow-lg hover:bg-cOrange hover:text-white duration-500">
+        <div class="lg:w-80 lg:h-fit h-fit bg-white mb-2 relative rounded-3xl shadow-lg hover:bg-cOrange hover:text-white duration-500">
             <div class="absolute bg-cOrange h-fit w-fit px-4 text-white rounded-bl-3xl rounded-tr-3xl top-0 right-0 text-md">15-17 Apr</div>
             <div class="flex py-6 px-5 items-center">
                 <div class="flex flex-col">
@@ -115,7 +115,7 @@
             </div>
         </div>
         {{-- Plan Card --}}
-        <div class="h-fit bg-white mb-2 relative rounded-3xl shadow-lg hover:bg-cOrange hover:text-white duration-500">
+        <div class="lg:w-80 lg:h-fit h-fit bg-white mb-2 relative rounded-3xl shadow-lg hover:bg-cOrange hover:text-white duration-500">
             <div class="absolute bg-cOrange h-fit w-fit px-4 text-white rounded-bl-3xl rounded-tr-3xl top-0 right-0 text-md">15-17 Apr</div>
             <div class="flex py-6 px-5 items-center">
                 <div class="flex flex-col">
@@ -143,7 +143,7 @@
             </div>
         </div>
         {{-- Plan Card --}}
-        <div class="h-fit bg-white mb-2 relative rounded-3xl shadow-lg hover:bg-cOrange hover:text-white duration-500">
+        <div class="lg:w-80 lg:h-fit h-fit bg-white mb-2 relative rounded-3xl shadow-lg hover:bg-cOrange hover:text-white duration-500">
             <div class="absolute bg-cOrange h-fit w-fit px-4 text-white rounded-bl-3xl rounded-tr-3xl top-0 right-0 text-md">15-17 Apr</div>
             <div class="flex py-6 px-5 items-center">
                 <div class="flex flex-col">
@@ -171,7 +171,7 @@
             </div>
         </div>
         {{-- Plan Card --}}
-        <div class="h-fit bg-white mb-2 relative rounded-3xl shadow-lg hover:bg-cOrange hover:text-white duration-500">
+        <div class="lg:w-80 lg:h-fit h-fit bg-white mb-2 relative rounded-3xl shadow-lg hover:bg-cOrange hover:text-white duration-500">
             <div class="absolute bg-cOrange h-fit w-fit px-4 text-white rounded-bl-3xl rounded-tr-3xl top-0 right-0 text-md">15-17 Apr</div>
             <div class="flex py-6 px-5 items-center">
                 <div class="flex flex-col">
@@ -199,7 +199,7 @@
             </div>
         </div>
         {{-- Plan Card --}}
-        <div class="h-fit bg-white mb-2 relative rounded-3xl shadow-lg hover:bg-cOrange hover:text-white duration-500">
+        <div class="lg:w-80 lg:h-fit h-fit bg-white mb-2 relative rounded-3xl shadow-lg hover:bg-cOrange hover:text-white duration-500">
             <div class="absolute bg-cOrange h-fit w-fit px-4 text-white rounded-bl-3xl rounded-tr-3xl top-0 right-0 text-md">15-17 Apr</div>
             <div class="flex py-6 px-5 items-center">
                 <div class="flex flex-col">
@@ -227,7 +227,7 @@
             </div>
         </div>
         {{-- Plan Card --}}
-        <div class="h-fit bg-white mb-2 relative rounded-3xl shadow-lg hover:bg-cOrange hover:text-white duration-500">
+        <div class="lg:w-80 lg:h-fit h-fit bg-white mb-2 relative rounded-3xl shadow-lg hover:bg-cOrange hover:text-white duration-500">
             <div class="absolute bg-cOrange h-fit w-fit px-4 text-white rounded-bl-3xl rounded-tr-3xl top-0 right-0 text-md">15-17 Apr</div>
             <div class="flex py-6 px-5 items-center">
                 <div class="flex flex-col">
@@ -299,7 +299,7 @@
     </div>
 
 {{-- Add Challenges Plan --}}
-<a href="/admin/challenges/add" class="object-bottom fixed bg-black rounded-full flex justify-center items-center aspect-square h-[50px] shadow-lg bottom-20 right-2 z-10 group duration-300 ease-out hover:bg-cOrange">
+<a href="/admin/challenges/add" class="object-bottom fixed bg-black rounded-full flex justify-center items-center aspect-square h-[50px] shadow-lg bottom-20 right-2 lg:bottom-5 lg:right-5 z-10 group duration-300 ease-out hover:bg-cOrange">
     <span class="material-symbols-outlined scale-110 duration-300 ease-out group-hover:text-white text-white mb-100px">
         add
     </span>

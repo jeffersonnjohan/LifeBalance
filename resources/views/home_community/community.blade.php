@@ -3,67 +3,84 @@
 @section('title', 'Community')
 
 @section('style')
-    <style>
-    </style>
+    {{-- <style>
+        * {
+            border: solid red;
+        }
+    </style> --}}
 @endsection
 
 @section('body')
 {{-- Header --}}
-<nav class="justify-evenly fixed bg-gradient-to-b from-cLightGrey from-70% to-transparent w-full">
-    <div class="max-w-screen-xl px-4 py-3 mx-auto">
-        <div class="flex items-center">
-            <ul class="flex flex-row font-normal space-x-2 text-2xl">
-                <li>
-                    <a href="/home" class="text-cDarkGrey dark:text-white hover:text-cRed">Home</a>
-                </li>
-                <li class="text-cDarkGrey">
-                    |
-                </li>
-                <li>
-                    <a href="/community" class="text-cRed font-bold dark:text-white hover:text-cRed" aria-current="page">Community</a>
-                </li>
-            </ul>
-            <a href="/profile" class="fixed bg-cRed rounded-b-3xl flex justify-center items-center aspect-square h-[50px] shadow-lg right-2 -top-0.5 z-10 group duration-300 ease-out hover:bg-opacity-50">
+<nav class="justify-evenly fixed bg-gradient-to-b from-cLightGrey from-70% to-transparent w-full z-10 -top-3">
+    <div class="px-4 py-3 mx-auto">
+        <div class="flex items-center justify-between">
+            <div class="flex-col">
+                <ul class="flex font-normal space-x-2 text-2xl">
+                    <li>
+                        <a href="/home" class="text-cDarkGrey dark:text-white hover:text-cRed">Home</a>
+                    </li>
+                    <li class="text-cDarkGrey">
+                        |
+                    </li>
+                    <li>
+                        <a href="/community" class="text-cRed font-bold dark:text-white hover:text-cRed" aria-current="page">Community</a>
+                    </li>
+                </ul>
+                <p class="font-light text-sm text-cDarkGrey whitespace-break-spaces">See what others has done!</p>
+            </div>
+            <div class="flex w-fit gap-5">
+                @can('admin')
+                    <a href="/admin/workout" class="bg-cBlue hover:bg-white duration-300 ease-out p-3 hover:ring-2 text-white hover:text-cBlue rounded-b-3xl">
+                        <div class="pt-3">Go to Admin</div>
+                    </a>
+                @endcan
+                <a href="/profile" class="bg-cRed rounded-b-3xl flex justify-center items-center aspect-square h-fit p-2 shadow-lg z-10 group duration-300 ease-out hover:bg-cBlue">
+                    <div class="bg-white rounded-full p-4 bg-cover mt-2" style="background-image: url('/assets/male.png')"></div>
+                </a>
+            </div>
+            {{-- <a href="/profile" class="bg-cRed rounded-b-3xl flex justify-center items-center aspect-square h-fit p-2 shadow-lg z-10 group duration-300 ease-out hover:bg-opacity-50">
                 <div class="bg-white rounded-full p-4" style="background-image: url('/assets/male.png')"></div>
-            </a>
+            </a> --}}
         </div>
-        <div class="font-light text-sm text-cDarkGrey whitespace-break-spaces">See what others has done!</div>
     </div>
 </nav>
+
 {{-- Body --}}
 <div class="w-full h-fit px-2 pb-2">
-    <div class="max-w-screen-xl px-4 py-3 h-20">
-    </div>
-    @foreach ($posts as $post)
-        <div class="bg-white shadow-lg rounded-3xl mb-2">
-            <div class="p-3 flex flex-col text-sm gap-1">
-                <div class="flex justify-between">
-                    <div class="flex gap-3">
-                        <div class="w-[40px] aspect-square rounded-full overflow-hidden">
-                            <div class="w-full h-full bg-cover" style="background-image: url('/assets/profile1.png')"></div>
+    <div class="max-w-screen-xl px-4 py-3 h-16"></div>
+    <div class="flex-col lg:flex lg:items-center lg:flex-wrap lg:flex-row lg:gap-2">
+        @foreach ($posts as $post)
+            <div class="bg-white shadow-lg rounded-3xl mb-2 lg:w-96 lg:h-fit">
+                <div class="p-3 flex flex-col text-sm gap-1">
+                    <div class="flex justify-between">
+                        <div class="flex gap-3">
+                            <div class="w-[40px] aspect-square rounded-full overflow-hidden">
+                                <div class="w-full h-full bg-cover" style="background-image: url('/assets/profile1.png')"></div>
+                            </div>
+                            <div>
+                                {{-- {{ var_dump($post) }} --}}
+                                <p class="font-bold">{{ $post->username }}</p>
+                                <p class="italic text-cDarkGrey">{{ date_create($post->updated_at)->format('l, d M Y') }}</p>
+                            </div>
                         </div>
-                        <div>
-                            {{-- {{ var_dump($post) }} --}}
-                            <p class="font-bold">{{ $post->username }}</p>
-                            <p class="italic text-cDarkGrey">{{ date_create($post->updated_at)->format('l, d M Y') }}</p>
+                        <div class="w-fit">
+                            @if($post->type == 1)
+                                <p class="bg-cBlue text-white px-2 rounded-full font-bold">WORKOUT</p>
+                            @else
+                                <p class="bg-cGreen text-white px-2 rounded-full font-bold">DIET</p>
+                            @endif
                         </div>
                     </div>
-                    <div class="w-fit">
-                        @if($post->type == 1)
-                            <p class="bg-cBlue text-white px-2 rounded-full font-bold">WORKOUT</p>
-                        @else
-                            <p class="bg-cGreen text-white px-2 rounded-full font-bold">DIET</p>
-                        @endif
+                    <div>
+                        <p>has completed "{{ $post->name }}"</p>
                     </div>
                 </div>
-                <div>
-                    <p>has completed "{{ $post->name }}"</p>
-                </div>
+                <div class="aspect-[4/3] bg-cover bg-center rounded-3xl" style="background-image: url('/assets/post1.png')"></div>
             </div>
-            <div class="aspect-[4/3] bg-cover bg-center rounded-3xl" style="background-image: url('/assets/post1.png')"></div>
-        </div>    
-    @endforeach
-    {{-- <div class="bg-white shadow-lg rounded-3xl mb-2">
+        @endforeach
+    </div>
+    {{-- <div class="bg-white shadow-lg rounded-3xl mb-2 lg:w-96 lg:h-fit">
         <div class="p-3 flex flex-col text-sm gap-1">
             <div class="flex justify-between">
                 <div class="flex gap-3">
@@ -85,7 +102,7 @@
         </div>
         <div class="aspect-[4/3] bg-cover bg-center rounded-3xl" style="background-image: url('/assets/post2.png')"></div>
     </div>
-    <div class="bg-white shadow-lg rounded-3xl mb-2">
+    <div class="bg-white shadow-lg rounded-3xl mb-2 lg:w-96 lg:h-fit">
         <div class="p-3 flex flex-col text-sm gap-1">
             <div class="flex justify-between">
                 <div class="flex gap-3">
