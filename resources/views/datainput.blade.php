@@ -13,26 +13,6 @@
             display: none;
             -webkit-appearance: none;
         }
-
-        .divscroll::-webkit-scrollbar-track
-        {
-            -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-            border-radius: 10px;
-            background-color: #F5F5F5;
-        }
-
-        .divscroll::-webkit-scrollbar
-        {
-            width: 12px;
-            background-color: #F5F5F5;
-        }
-
-        .divscroll::-webkit-scrollbar-thumb
-        {
-            border-radius: 10px;
-            -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
-            background-color: #7E7E7E;
-        }
     </style>
 @endsection
 

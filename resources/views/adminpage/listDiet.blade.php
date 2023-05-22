@@ -29,9 +29,36 @@
 @section('body')
 <div class="w-full">
     {{-- Diet Plans List --}}
-    <div class="pl-5 pr-5 pt-16 w-full">
+    <div class="pl-5 pr-5 pt-16 w-full md:flex md:items-center md:justify-center md:gap-2 md:flex-wrap md:flex-row lg:flex lg:items-center lg:justify-center lg:gap-2 lg:flex-wrap lg:flex-row">
         {{-- Plan Card --}}
-        <div class="h-fit mb-2 bg-white relative rounded-3xl shadow-lg hover:bg-green-200 duration-500">
+        <div class="lg:w-80 lg:h-fit md:h-fit h-fit mb-2 bg-white relative rounded-3xl shadow-lg hover:bg-green-200 duration-500">
+            <div class="flex items-center">
+                <div class="flex items-center gap-3 w-fit truncate m-1">
+                    <img class="rounded-full bg-cover justify-end items-center h-[50px] border-2 border-cGreen" src="/assets/green.png">
+                    <div class="py-2">
+                        <h2 class="font-medium text-sm">Intermittent Fasting</h2>
+                        <h2 class="font-normal text-sm text-cGreen">Seven days diet plan</h2>
+                    </div>
+                </div>
+                <span class="material-symbols-outlined text-cYellow">toll</span>
+                <p class="text-xs">5</p>
+                <div class="h-fit w-fit flex gap-2 px-2 right-2">
+                    <a href="#" class="" data-modal-target="popup-edit" data-modal-toggle="popup-edit">
+                        <span class="material-symbols-outlined rounded-full p-2 scale-100 duration-300 ease-out bg-cGreen hover:bg-white hover:text-black text-white">
+                            edit
+                        </span>
+                    </a>
+                    <a href="#" class="" data-modal-target="popup-delete" data-modal-toggle="popup-delete">
+                        <span class="material-symbols-outlined rounded-full p-2 scale-100 duration-300 ease-out bg-cRed hover:bg-white hover:text-black text-white">
+                            delete
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        {{-- Plan Card --}}
+        <div class="lg:w-80 lg:h-fit h-fit mb-2 bg-white relative rounded-3xl shadow-lg hover:bg-green-200 duration-500">
             <div class="flex items-center">
                 <div class="flex items-center gap-3 w-fit truncate m-1">
                     <img class="rounded-full bg-cover justify-end items-center h-[50px] border-2 border-cGreen" src="/assets/green.png">
@@ -58,7 +85,7 @@
         </div>
 
         {{-- Plan Card --}}
-        <div class="h-fit mb-2 bg-white relative rounded-3xl shadow-lg hover:bg-green-200 duration-500">
+        <div class="lg:w-80 lg:h-fit h-fit mb-2 bg-white relative rounded-3xl shadow-lg hover:bg-green-200 duration-500">
             <div class="flex items-center">
                 <div class="flex items-center gap-3 w-fit truncate m-1">
                     <img class="rounded-full bg-cover justify-end items-center h-[50px] border-2 border-cGreen" src="/assets/green.png">
@@ -85,7 +112,7 @@
         </div>
 
         {{-- Plan Card --}}
-        <div class="h-fit mb-2 bg-white relative rounded-3xl shadow-lg hover:bg-green-200 duration-500">
+        <div class="lg:w-80 lg:h-fit h-fit mb-2 bg-white relative rounded-3xl shadow-lg hover:bg-green-200 duration-500">
             <div class="flex items-center">
                 <div class="flex items-center gap-3 w-fit truncate m-1">
                     <img class="rounded-full bg-cover justify-end items-center h-[50px] border-2 border-cGreen" src="/assets/green.png">
@@ -112,7 +139,7 @@
         </div>
 
         {{-- Plan Card --}}
-        <div class="h-fit mb-2 bg-white relative rounded-3xl shadow-lg hover:bg-green-200 duration-500">
+        <div class="lg:w-80 lg:h-fit h-fit mb-2 bg-white relative rounded-3xl shadow-lg hover:bg-green-200 duration-500">
             <div class="flex items-center">
                 <div class="flex items-center gap-3 w-fit truncate m-1">
                     <img class="rounded-full bg-cover justify-end items-center h-[50px] border-2 border-cGreen" src="/assets/green.png">
@@ -139,7 +166,7 @@
         </div>
 
         {{-- Plan Card --}}
-        <div class="h-fit mb-2 bg-white relative rounded-3xl shadow-lg hover:bg-green-200 duration-500">
+        <div class="lg:w-80 lg:h-fit h-fit mb-2 bg-white relative rounded-3xl shadow-lg hover:bg-green-200 duration-500">
             <div class="flex items-center">
                 <div class="flex items-center gap-3 w-fit truncate m-1">
                     <img class="rounded-full bg-cover justify-end items-center h-[50px] border-2 border-cGreen" src="/assets/green.png">
@@ -166,7 +193,7 @@
         </div>
 
         {{-- Plan Card --}}
-        <div class="h-fit mb-2 bg-white relative rounded-3xl shadow-lg hover:bg-green-200 duration-500">
+        <div class="lg:w-80 lg:h-fit h-fit mb-2 bg-white relative rounded-3xl shadow-lg hover:bg-green-200 duration-500">
             <div class="flex items-center">
                 <div class="flex items-center gap-3 w-fit truncate m-1">
                     <img class="rounded-full bg-cover justify-end items-center h-[50px] border-2 border-cGreen" src="/assets/green.png">
@@ -193,7 +220,7 @@
         </div>
 
         {{-- Plan Card --}}
-        <div class="h-fit mb-2 bg-white relative rounded-3xl shadow-lg hover:bg-green-200 duration-500">
+        <div class="lg:w-80 lg:h-fit h-fit mb-2 bg-white relative rounded-3xl shadow-lg hover:bg-green-200 duration-500">
             <div class="flex items-center">
                 <div class="flex items-center gap-3 w-fit truncate m-1">
                     <img class="rounded-full bg-cover justify-end items-center h-[50px] border-2 border-cGreen" src="/assets/green.png">
@@ -220,7 +247,7 @@
         </div>
 
         {{-- Plan Card --}}
-        <div class="h-fit mb-2 bg-white relative rounded-3xl shadow-lg hover:bg-green-200 duration-500">
+        <div class="lg:w-80 lg:h-fit h-fit mb-2 bg-white relative rounded-3xl shadow-lg hover:bg-green-200 duration-500">
             <div class="flex items-center">
                 <div class="flex items-center gap-3 w-fit truncate m-1">
                     <img class="rounded-full bg-cover justify-end items-center h-[50px] border-2 border-cGreen" src="/assets/green.png">
@@ -247,7 +274,7 @@
         </div>
 
         {{-- Plan Card --}}
-        <div class="h-fit mb-2 bg-white relative rounded-3xl shadow-lg hover:bg-green-200 duration-500">
+        <div class="lg:w-80 lg:h-fit h-fit mb-2 bg-white relative rounded-3xl shadow-lg hover:bg-green-200 duration-500">
             <div class="flex items-center">
                 <div class="flex items-center gap-3 w-fit truncate m-1">
                     <img class="rounded-full bg-cover justify-end items-center h-[50px] border-2 border-cGreen" src="/assets/green.png">
@@ -274,7 +301,7 @@
         </div>
 
         {{-- Plan Card --}}
-        <div class="h-fit mb-2 bg-white relative rounded-3xl shadow-lg hover:bg-green-200 duration-500">
+        <div class="lg:w-80 lg:h-fit h-fit mb-2 bg-white relative rounded-3xl shadow-lg hover:bg-green-200 duration-500">
             <div class="flex items-center">
                 <div class="flex items-center gap-3 w-fit truncate m-1">
                     <img class="rounded-full bg-cover justify-end items-center h-[50px] border-2 border-cGreen" src="/assets/green.png">
@@ -301,7 +328,7 @@
         </div>
 
         {{-- Plan Card --}}
-        <div class="h-fit mb-2 bg-white relative rounded-3xl shadow-lg hover:bg-green-200 duration-500">
+        <div class="lg:w-80 lg:h-fit h-fit mb-2 bg-white relative rounded-3xl shadow-lg hover:bg-green-200 duration-500">
             <div class="flex items-center">
                 <div class="flex items-center gap-3 w-fit truncate m-1">
                     <img class="rounded-full bg-cover justify-end items-center h-[50px] border-2 border-cGreen" src="/assets/green.png">
@@ -328,7 +355,7 @@
         </div>
 
         {{-- Plan Card --}}
-        <div class="h-fit mb-2 bg-white relative rounded-3xl shadow-lg hover:bg-green-200 duration-500">
+        <div class="lg:w-80 lg:h-fit h-fit mb-2 bg-white relative rounded-3xl shadow-lg hover:bg-green-200 duration-500">
             <div class="flex items-center">
                 <div class="flex items-center gap-3 w-fit truncate m-1">
                     <img class="rounded-full bg-cover justify-end items-center h-[50px] border-2 border-cGreen" src="/assets/green.png">
@@ -355,7 +382,7 @@
         </div>
 
         {{-- Plan Card --}}
-        <div class="h-fit mb-2 bg-white relative rounded-3xl shadow-lg hover:bg-green-200 duration-500">
+        <div class="lg:w-80 lg:h-fit h-fit mb-2 bg-white relative rounded-3xl shadow-lg hover:bg-green-200 duration-500">
             <div class="flex items-center">
                 <div class="flex items-center gap-3 w-fit truncate m-1">
                     <img class="rounded-full bg-cover justify-end items-center h-[50px] border-2 border-cGreen" src="/assets/green.png">
@@ -382,7 +409,7 @@
         </div>
 
         {{-- Plan Card --}}
-        <div class="h-fit mb-2 bg-white relative rounded-3xl shadow-lg hover:bg-green-200 duration-500">
+        <div class="lg:w-80 lg:h-fit h-fit mb-2 bg-white relative rounded-3xl shadow-lg hover:bg-green-200 duration-500">
             <div class="flex items-center">
                 <div class="flex items-center gap-3 w-fit truncate m-1">
                     <img class="rounded-full bg-cover justify-end items-center h-[50px] border-2 border-cGreen" src="/assets/green.png">
@@ -409,7 +436,250 @@
         </div>
 
         {{-- Plan Card --}}
-        <div class="h-fit mb-2 bg-white relative rounded-3xl shadow-lg hover:bg-green-200 duration-500">
+        <div class="lg:w-80 lg:h-fit h-fit mb-2 bg-white relative rounded-3xl shadow-lg hover:bg-green-200 duration-500">
+            <div class="flex items-center">
+                <div class="flex items-center gap-3 w-fit truncate m-1">
+                    <img class="rounded-full bg-cover justify-end items-center h-[50px] border-2 border-cGreen" src="/assets/green.png">
+                    <div class="py-2">
+                        <h2 class="font-medium text-sm">Intermittent Fasting</h2>
+                        <h2 class="font-normal text-sm text-cGreen">Seven days diet plan</h2>
+                    </div>
+                </div>
+                <span class="material-symbols-outlined text-cYellow">toll</span>
+                <p class="text-xs">5</p>
+                <div class="h-fit w-fit flex gap-2 px-2">
+                    <a href="#" class="" data-modal-target="popup-edit" data-modal-toggle="popup-edit">
+                        <span class="material-symbols-outlined rounded-full p-2 scale-100 duration-300 ease-out bg-cGreen hover:bg-white hover:text-black text-white">
+                            edit
+                        </span>
+                    </a>
+                    <a href="#" class="" data-modal-target="popup-delete" data-modal-toggle="popup-delete">
+                        <span class="material-symbols-outlined rounded-full p-2 scale-100 duration-300 ease-out bg-cRed hover:bg-white hover:text-black text-white">
+                            delete
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        {{-- Plan Card --}}
+        <div class="lg:w-80 lg:h-fit h-fit mb-2 bg-white relative rounded-3xl shadow-lg hover:bg-green-200 duration-500">
+            <div class="flex items-center">
+                <div class="flex items-center gap-3 w-fit truncate m-1">
+                    <img class="rounded-full bg-cover justify-end items-center h-[50px] border-2 border-cGreen" src="/assets/green.png">
+                    <div class="py-2">
+                        <h2 class="font-medium text-sm">Intermittent Fasting</h2>
+                        <h2 class="font-normal text-sm text-cGreen">Seven days diet plan</h2>
+                    </div>
+                </div>
+                <span class="material-symbols-outlined text-cYellow">toll</span>
+                <p class="text-xs">5</p>
+                <div class="h-fit w-fit flex gap-2 px-2">
+                    <a href="#" class="" data-modal-target="popup-edit" data-modal-toggle="popup-edit">
+                        <span class="material-symbols-outlined rounded-full p-2 scale-100 duration-300 ease-out bg-cGreen hover:bg-white hover:text-black text-white">
+                            edit
+                        </span>
+                    </a>
+                    <a href="#" class="" data-modal-target="popup-delete" data-modal-toggle="popup-delete">
+                        <span class="material-symbols-outlined rounded-full p-2 scale-100 duration-300 ease-out bg-cRed hover:bg-white hover:text-black text-white">
+                            delete
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        {{-- Plan Card --}}
+        <div class="lg:w-80 lg:h-fit h-fit mb-2 bg-white relative rounded-3xl shadow-lg hover:bg-green-200 duration-500">
+            <div class="flex items-center">
+                <div class="flex items-center gap-3 w-fit truncate m-1">
+                    <img class="rounded-full bg-cover justify-end items-center h-[50px] border-2 border-cGreen" src="/assets/green.png">
+                    <div class="py-2">
+                        <h2 class="font-medium text-sm">Intermittent Fasting</h2>
+                        <h2 class="font-normal text-sm text-cGreen">Seven days diet plan</h2>
+                    </div>
+                </div>
+                <span class="material-symbols-outlined text-cYellow">toll</span>
+                <p class="text-xs">5</p>
+                <div class="h-fit w-fit flex gap-2 px-2">
+                    <a href="#" class="" data-modal-target="popup-edit" data-modal-toggle="popup-edit">
+                        <span class="material-symbols-outlined rounded-full p-2 scale-100 duration-300 ease-out bg-cGreen hover:bg-white hover:text-black text-white">
+                            edit
+                        </span>
+                    </a>
+                    <a href="#" class="" data-modal-target="popup-delete" data-modal-toggle="popup-delete">
+                        <span class="material-symbols-outlined rounded-full p-2 scale-100 duration-300 ease-out bg-cRed hover:bg-white hover:text-black text-white">
+                            delete
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        {{-- Plan Card --}}
+        <div class="lg:w-80 lg:h-fit h-fit mb-2 bg-white relative rounded-3xl shadow-lg hover:bg-green-200 duration-500">
+            <div class="flex items-center">
+                <div class="flex items-center gap-3 w-fit truncate m-1">
+                    <img class="rounded-full bg-cover justify-end items-center h-[50px] border-2 border-cGreen" src="/assets/green.png">
+                    <div class="py-2">
+                        <h2 class="font-medium text-sm">Intermittent Fasting</h2>
+                        <h2 class="font-normal text-sm text-cGreen">Seven days diet plan</h2>
+                    </div>
+                </div>
+                <span class="material-symbols-outlined text-cYellow">toll</span>
+                <p class="text-xs">5</p>
+                <div class="h-fit w-fit flex gap-2 px-2">
+                    <a href="#" class="" data-modal-target="popup-edit" data-modal-toggle="popup-edit">
+                        <span class="material-symbols-outlined rounded-full p-2 scale-100 duration-300 ease-out bg-cGreen hover:bg-white hover:text-black text-white">
+                            edit
+                        </span>
+                    </a>
+                    <a href="#" class="" data-modal-target="popup-delete" data-modal-toggle="popup-delete">
+                        <span class="material-symbols-outlined rounded-full p-2 scale-100 duration-300 ease-out bg-cRed hover:bg-white hover:text-black text-white">
+                            delete
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        {{-- Plan Card --}}
+        <div class="lg:w-80 lg:h-fit h-fit mb-2 bg-white relative rounded-3xl shadow-lg hover:bg-green-200 duration-500">
+            <div class="flex items-center">
+                <div class="flex items-center gap-3 w-fit truncate m-1">
+                    <img class="rounded-full bg-cover justify-end items-center h-[50px] border-2 border-cGreen" src="/assets/green.png">
+                    <div class="py-2">
+                        <h2 class="font-medium text-sm">Intermittent Fasting</h2>
+                        <h2 class="font-normal text-sm text-cGreen">Seven days diet plan</h2>
+                    </div>
+                </div>
+                <span class="material-symbols-outlined text-cYellow">toll</span>
+                <p class="text-xs">5</p>
+                <div class="h-fit w-fit flex gap-2 px-2">
+                    <a href="#" class="" data-modal-target="popup-edit" data-modal-toggle="popup-edit">
+                        <span class="material-symbols-outlined rounded-full p-2 scale-100 duration-300 ease-out bg-cGreen hover:bg-white hover:text-black text-white">
+                            edit
+                        </span>
+                    </a>
+                    <a href="#" class="" data-modal-target="popup-delete" data-modal-toggle="popup-delete">
+                        <span class="material-symbols-outlined rounded-full p-2 scale-100 duration-300 ease-out bg-cRed hover:bg-white hover:text-black text-white">
+                            delete
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        {{-- Plan Card --}}
+        <div class="lg:w-80 lg:h-fit h-fit mb-2 bg-white relative rounded-3xl shadow-lg hover:bg-green-200 duration-500">
+            <div class="flex items-center">
+                <div class="flex items-center gap-3 w-fit truncate m-1">
+                    <img class="rounded-full bg-cover justify-end items-center h-[50px] border-2 border-cGreen" src="/assets/green.png">
+                    <div class="py-2">
+                        <h2 class="font-medium text-sm">Intermittent Fasting</h2>
+                        <h2 class="font-normal text-sm text-cGreen">Seven days diet plan</h2>
+                    </div>
+                </div>
+                <span class="material-symbols-outlined text-cYellow">toll</span>
+                <p class="text-xs">5</p>
+                <div class="h-fit w-fit flex gap-2 px-2">
+                    <a href="#" class="" data-modal-target="popup-edit" data-modal-toggle="popup-edit">
+                        <span class="material-symbols-outlined rounded-full p-2 scale-100 duration-300 ease-out bg-cGreen hover:bg-white hover:text-black text-white">
+                            edit
+                        </span>
+                    </a>
+                    <a href="#" class="" data-modal-target="popup-delete" data-modal-toggle="popup-delete">
+                        <span class="material-symbols-outlined rounded-full p-2 scale-100 duration-300 ease-out bg-cRed hover:bg-white hover:text-black text-white">
+                            delete
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        {{-- Plan Card --}}
+        <div class="lg:w-80 lg:h-fit h-fit mb-2 bg-white relative rounded-3xl shadow-lg hover:bg-green-200 duration-500">
+            <div class="flex items-center">
+                <div class="flex items-center gap-3 w-fit truncate m-1">
+                    <img class="rounded-full bg-cover justify-end items-center h-[50px] border-2 border-cGreen" src="/assets/green.png">
+                    <div class="py-2">
+                        <h2 class="font-medium text-sm">Intermittent Fasting</h2>
+                        <h2 class="font-normal text-sm text-cGreen">Seven days diet plan</h2>
+                    </div>
+                </div>
+                <span class="material-symbols-outlined text-cYellow">toll</span>
+                <p class="text-xs">5</p>
+                <div class="h-fit w-fit flex gap-2 px-2">
+                    <a href="#" class="" data-modal-target="popup-edit" data-modal-toggle="popup-edit">
+                        <span class="material-symbols-outlined rounded-full p-2 scale-100 duration-300 ease-out bg-cGreen hover:bg-white hover:text-black text-white">
+                            edit
+                        </span>
+                    </a>
+                    <a href="#" class="" data-modal-target="popup-delete" data-modal-toggle="popup-delete">
+                        <span class="material-symbols-outlined rounded-full p-2 scale-100 duration-300 ease-out bg-cRed hover:bg-white hover:text-black text-white">
+                            delete
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        {{-- Plan Card --}}
+        <div class="lg:w-80 lg:h-fit h-fit mb-2 bg-white relative rounded-3xl shadow-lg hover:bg-green-200 duration-500">
+            <div class="flex items-center">
+                <div class="flex items-center gap-3 w-fit truncate m-1">
+                    <img class="rounded-full bg-cover justify-end items-center h-[50px] border-2 border-cGreen" src="/assets/green.png">
+                    <div class="py-2">
+                        <h2 class="font-medium text-sm">Intermittent Fasting</h2>
+                        <h2 class="font-normal text-sm text-cGreen">Seven days diet plan</h2>
+                    </div>
+                </div>
+                <span class="material-symbols-outlined text-cYellow">toll</span>
+                <p class="text-xs">5</p>
+                <div class="h-fit w-fit flex gap-2 px-2">
+                    <a href="#" class="" data-modal-target="popup-edit" data-modal-toggle="popup-edit">
+                        <span class="material-symbols-outlined rounded-full p-2 scale-100 duration-300 ease-out bg-cGreen hover:bg-white hover:text-black text-white">
+                            edit
+                        </span>
+                    </a>
+                    <a href="#" class="" data-modal-target="popup-delete" data-modal-toggle="popup-delete">
+                        <span class="material-symbols-outlined rounded-full p-2 scale-100 duration-300 ease-out bg-cRed hover:bg-white hover:text-black text-white">
+                            delete
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        {{-- Plan Card --}}
+        <div class="lg:w-80 lg:h-fit h-fit mb-2 bg-white relative rounded-3xl shadow-lg hover:bg-green-200 duration-500">
+            <div class="flex items-center">
+                <div class="flex items-center gap-3 w-fit truncate m-1">
+                    <img class="rounded-full bg-cover justify-end items-center h-[50px] border-2 border-cGreen" src="/assets/green.png">
+                    <div class="py-2">
+                        <h2 class="font-medium text-sm">Intermittent Fasting</h2>
+                        <h2 class="font-normal text-sm text-cGreen">Seven days diet plan</h2>
+                    </div>
+                </div>
+                <span class="material-symbols-outlined text-cYellow">toll</span>
+                <p class="text-xs">5</p>
+                <div class="h-fit w-fit flex gap-2 px-2">
+                    <a href="#" class="" data-modal-target="popup-edit" data-modal-toggle="popup-edit">
+                        <span class="material-symbols-outlined rounded-full p-2 scale-100 duration-300 ease-out bg-cGreen hover:bg-white hover:text-black text-white">
+                            edit
+                        </span>
+                    </a>
+                    <a href="#" class="" data-modal-target="popup-delete" data-modal-toggle="popup-delete">
+                        <span class="material-symbols-outlined rounded-full p-2 scale-100 duration-300 ease-out bg-cRed hover:bg-white hover:text-black text-white">
+                            delete
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        {{-- Plan Card --}}
+        <div class="lg:w-80 lg:h-fit h-fit mb-2 bg-white relative rounded-3xl shadow-lg hover:bg-green-200 duration-500">
             <div class="flex items-center">
                 <div class="flex items-center gap-3 w-fit truncate m-1">
                     <img class="rounded-full bg-cover justify-end items-center h-[50px] border-2 border-cGreen" src="/assets/green.png">
@@ -479,7 +749,7 @@
     </div>
 
 {{-- Add Diet Plan --}}
-<a href="/admin/diet/add" class="object-bottom fixed bg-black rounded-full flex justify-center items-center aspect-square h-[50px] shadow-lg bottom-20 right-2 z-10 group duration-300 ease-out hover:bg-cGreen">
+<a href="/admin/diet/add" class="object-bottom fixed bg-black rounded-full flex justify-center items-center aspect-square h-[50px] shadow-lg bottom-20 right-2 lg:bottom-5 lg:right-5 z-10 group duration-300 ease-out hover:bg-cGreen">
     <span class="material-symbols-outlined scale-110 duration-300 ease-out group-hover:text-white text-white mb-100px">
         add
     </span>
