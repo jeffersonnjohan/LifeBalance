@@ -21,14 +21,16 @@ class WorkoutController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function allWorkouts()
     {
-        // // $id = Auth::user()->id;
-        // return view('workout_meditation.workouts', [
-        //     "workouts" => Workout::all(),
-        //     "enrollments" => EnrollmentWorkout::where('user_id', $id)->pluck('workout_id') // enrollment based on user
-        // ]);
-
+        $id = Auth::user()->id;
+        return view('workout_meditation.workouts', [
+            "workouts" => Workout::all(),
+            "enrollments" => EnrollmentWorkout::where('user_id', $id)->pluck('workout_id') // enrollment based on user
+        ]);
+    }
+    
+    public function index(){
         return view('adminpage.listWorkout', [
             "workouts" => Workout::all()
         ]);
