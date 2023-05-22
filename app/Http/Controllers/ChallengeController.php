@@ -20,7 +20,8 @@ class ChallengeController extends Controller
     public function index()
     {
         $id = Auth::user()->id;
-        $challengeData = Challenge::where('id', 0);
+        $challengeData = Challenge::all();
+        // dd($challengeData);
         $arrworkout = [];
         $arrdiet = [];
         // range tanggal dari challenge
