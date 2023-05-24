@@ -56,7 +56,6 @@ class WorkoutController extends Controller
      */
     public function store(StoreWorkoutRequest $request)
     {
-        
         $dayCount = count($request->exerciseID);
         // Workout Day
         $workoutDays = [];

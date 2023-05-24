@@ -200,6 +200,7 @@
 
             days = containerDay.children;
 
+            updateDayHeader()
             onClickSetter()
         }
 
@@ -356,7 +357,13 @@
         function removeExactDay(i){
             days[i].remove()
 
-            // Update day header
+            updateDayHeader()
+
+            initializationElement()
+        }
+
+        function updateDayHeader(){
+            // Update day header and set repetition[j][]
             for(let j = 0, counter = 1; j < dayHeader.length; j++){
                 dayHeader[j].innerHTML = 'Day ' + (counter++)
 
@@ -382,8 +389,6 @@
                 }
                 // console.log(hariKeJ.length)
             }
-
-            initializationElement()
         }
     </script>
 @endsection
