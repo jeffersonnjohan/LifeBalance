@@ -89,12 +89,19 @@
                             </button>
                             <div class="p-6 text-center">
                                 <h3 class="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">Are you sure to delete this plan?</h3>
-                                <button data-modal-hide="popup-delete{{ $loop->iteration }}" type="button" class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">Cancel</button>
-                                <a href="#">
-                                    <button data-modal-hide="popup-delete{{ $loop->iteration }}" type="button" class="text-white bg-cRed hover:bg-cRed focus:ring-4 focus:outline-none dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2">
-                                        Yes
-                                    </button>
-                                </a>
+                                <div class="flex justify-center">
+
+                                    <button data-modal-hide="popup-delete{{ $loop->iteration }}" type="button" class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">Cancel</button>
+                                    <form action="/admin/diet/delete" method="post">
+                                        @csrf
+                                        <input type="hidden" name="deleteID" value={{ $diet->id }}>
+                                        {{-- <a href="#"> --}}
+                                            <button data-modal-hide="popup-delete{{ $loop->iteration }}" type="submit" class="text-white bg-cRed hover:bg-cRed focus:ring-4 focus:outline-none dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2">
+                                                Yes
+                                            </button>
+                                        {{-- </a> --}}
+                                    </form>
+                                </div>
                             </div>
                         </div>
                     </div>

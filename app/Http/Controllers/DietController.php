@@ -3,11 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Diet;
-use App\Http\Requests\StoreDietRequest;
-use App\Http\Requests\UpdateDietRequest;
 use App\Models\DietDay;
+use Illuminate\Http\Request;
 use App\Models\EnrollmentDiet;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\StoreDietRequest;
+use App\Http\Requests\UpdateDietRequest;
 
 class DietController extends Controller
 {
@@ -113,8 +114,17 @@ class DietController extends Controller
      * @param  \App\Models\Diet  $diet
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Diet $diet)
+    public function destroy(Request $request)
     {
-        //
+        // return $request;
+        $prevDietPlans = Diet::find($request->deleteID)->dietDay;
+
+        foreach($prevDietPlans as $prevDietPlan){
+            DietDay::destroy($prevDietPlan->id);
+        }
+
+        Diet::destroy($request->deleteID);
+
+        return redirect('/admin/diet');
     }
 }

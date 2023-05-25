@@ -95,6 +95,7 @@ Route::get('/admin/meditation/add', function () {
     return view('adminpage.addMP');
 });
 
+Route::post('/admin/diet/delete', [DietController::class, 'destroy']);
 Route::resource('/admin/diet', DietController::class);
 
 // Route::get('/admin/diet', function () {
