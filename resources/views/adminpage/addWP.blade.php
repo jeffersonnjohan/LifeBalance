@@ -357,8 +357,6 @@
         function removeExactDay(i){
             days[i].remove()
 
-            updateDayHeader()
-
             initializationElement()
         }
 
