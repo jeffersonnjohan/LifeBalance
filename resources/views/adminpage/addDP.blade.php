@@ -30,6 +30,8 @@
 </nav>
 
 @section('body')
+<form action="/admin/diet" method="post">
+    @csrf
         {{-- Page Body Section --}}
         <div class="pt-16 bg-cLightGrey w-full overflow-auto lg:flex lg:flex-row lg:w-full ">
             <div class="lg:relative">
@@ -47,7 +49,7 @@
                     </div>
                     <div class="flex flex-row lg:flex-col lg:pt-0 gap-2 pt-2 pb-2 px-3 ">
                         <div class="ring-cGreen hover:ring-cGreen w-[75%] lg:w-full h-[120px] rounded-3xl bg-white flex items-center text-cDarkGrey px-4 duration-300 hover:ring-2 focus-within:text-cGreen focus-within:ring-2 hover:text-cGreen shadow-lg">
-                            <input type="text" name="description[]" id="description" placeholder="Description" required class="text-center border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full ">
+                            <input type="text" name="description" id="description" placeholder="Description" required class="text-center border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full ">
                         </div>
                         <div class="w-[25%] h-[120px] flex items-center text-cDarkGrey justify-between pl-0 lg:w-full">
                             <div class="relative w-full aspect-square h-full bg-white rounded-3xl shadow-lg">
@@ -83,7 +85,7 @@
                         <div class="flex flex-row w-full h-[200px] bg-black bg-opacity-10 pt-2 rounded-3xl">
                             <div class="flex p-2 w-[75%] h-[90%]">
                                 <div class="place-content-center h-full w-full rounded-3xl bg-white flex items-center text-cDarkGrey duration-300 ring-cGreen hover:ring-cGreen hover:ring-2 focus-within:text-cGreen focus-within:ring-2 hover:text-cGreen">
-                                    <textarea type="text" name="description" id="description" placeholder="Description
+                                    <textarea type="text" name="dietDayDescription[]" id="description" placeholder="Description
 (e.g.,
 Breakfast : 500 gr
 Apel Lunch  : Nasi Padang
@@ -116,7 +118,7 @@ Dinner : Es buah)" required class="h-[120px] resize-none border-transparent bg-t
                         </div>
                         <div class="pt-2 pb-2 bottom-0 lg:w-[50%]">
                             <div class="ring-cRed hover:ring-cRed w-full h-[50px] rounded-full bg-cRed text-white flex items-center font-bold px-4 duration-300 hover:ring-2 focus-within:text-white focus-within:ring-2 hover:text-cRed hover:bg-white shadow-lg">
-                                <input type="submit" name="discard" id="discardButton" value="Discard" required class="border-transparent bg-transparent focus:ring-0 focus :border-transparent text-sm w-full">
+                                <input type="reset" name="discard" id="discardButton" value="Discard" required class="border-transparent bg-transparent focus:ring-0 focus :border-transparent text-sm w-full">
                             </div>
                         </div>
                     </div>
@@ -195,7 +197,7 @@ Dinner : Es buah)" required class="h-[120px] resize-none border-transparent bg-t
                         <div class="flex flex-row w-full h-[200px] bg-black bg-opacity-10 pt-2 rounded-3xl">
                             <div class="flex p-2 w-[75%] h-[90%]">
                                 <div class="place-content-center h-full w-full rounded-3xl bg-white flex items-center text-cDarkGrey duration-300 ring-cGreen hover:ring-cGreen hover:ring-2 focus-within:text-cGreen focus-within:ring-2 hover:text-cGreen">
-                                    <textarea type="text" name="description" id="description" placeholder="Description
+                                    <textarea type="text" name="dietDayDescription[]" id="description" placeholder="Description
 (e.g.,
 Breakfast : 500 gr
 Apel Lunch  : Nasi Padang
@@ -229,4 +231,5 @@ Dinner : Es buah)" required class="h-[120px] resize-none border-transparent bg-t
             }
         }
     </script>
+</form>
 @endsection

@@ -22,4 +22,8 @@ class Diet extends Model
     // {
     //     return $this->hasMany(Diet::class);
     // }
+
+    public function dietDay(){
+        return $this->hasMany(DietDay::class);
+    }
 }
