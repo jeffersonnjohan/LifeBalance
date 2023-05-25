@@ -15,12 +15,18 @@ class DietController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function allDiets()
     {
         $id = Auth::user()->id;
         return view('diet.diets', [
             'diets' => Diet::filter(request(['search']))->get(),
             "enrollments" => EnrollmentDiet::where('user_id', $id)->pluck('diet_id')
+        ]);
+    }
+
+    public function index(){
+        return view('adminpage.listDiet', [
+            'diets' => Diet::all()
         ]);
     }
 

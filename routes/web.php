@@ -22,6 +22,7 @@ use App\Http\Controllers\EditProfileController;
 use App\Http\Controllers\WorkoutDetailController;
 use App\Http\Controllers\WorkoutActivityController;
 use App\Http\Controllers\EnrollmentWorkoutController;
+use App\Models\Diet;
 
 /*
 |--------------------------------------------------------------------------
@@ -94,13 +95,15 @@ Route::get('/admin/meditation/add', function () {
     return view('adminpage.addMP');
 });
 
-Route::get('/admin/diet', function () {
-    return view('adminpage.listDiet');
-});
+Route::resource('/admin/diet', DietController::class);
 
-Route::get('/admin/diet/add', function () {
-    return view('adminpage.addDP');
-});
+// Route::get('/admin/diet', function () {
+//     return view('adminpage.listDiet');
+// });
+
+// Route::get('/admin/diet/add', function () {
+//     return view('adminpage.addDP');
+// });
 
 Route::get('/admin/challenges', function () {
     return view('adminpage.listChallenges');
@@ -115,9 +118,9 @@ Route::get('/admin/meditation/edit', function () {
     return view('adminpage.editMP');
 });
 
-Route::get('/admin/diet/edit', function () {
-    return view('adminpage.editDP');
-});
+// Route::get('/admin/diet/edit', function () {
+//     return view('adminpage.editDP');
+// });
 
 Route::get('/admin/challenges/edit', function () {
     return view('adminpage.editChallenge');
@@ -138,7 +141,7 @@ Route::get('/meditations', [MeditationController::class, 'index']);
 Route::post('/meditationDetails', [MeditationController::class, 'show']);
 
 // Diet Routes
-Route::get('/diets', [DietController::class, 'index']);
+Route::get('/diets', [DietController::class, 'allDiets']);
 Route::post('/dietDays', [DietDayController::class, 'index']);
 Route::post('/backtodiets', [DietDayController::class, 'index2']);
 
