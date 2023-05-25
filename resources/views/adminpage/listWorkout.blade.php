@@ -144,6 +144,6 @@
     </a>
 
     {{-- Blank Space --}}
-    <li class="h-[75px] bg-transparent"></li>
+    <div class="h-[75px] bg-transparent"></div>
     @include('adminpage.adminNavbar', ['active' => 'adminpage.listWorkout'])
 @endsection

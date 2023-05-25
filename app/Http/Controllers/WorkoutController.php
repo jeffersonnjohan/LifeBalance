@@ -225,9 +225,20 @@ class WorkoutController extends Controller
      * @param  \App\Models\Workout  $workout
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Workout $workout, Request $request)
+    public function destroy(Request $request)
     {
-        //
-        return $request;
+        $prevWorkoutDays = Workout::find($request->workoutDeleteID)->workout_day;
+
+        foreach($prevWorkoutDays as $prevWorkoutDay){
+            $prevWorkoutDetailsInADay = $prevWorkoutDay->workout_detail;
+            foreach($prevWorkoutDetailsInADay as $prevWorkoutDetailInADay){
+                WorkoutDetail::destroy($prevWorkoutDetailInADay->id);
+            }
+            WorkoutDay::destroy($prevWorkoutDay->id);
+        }
+
+        Workout::destroy($request->workoutDeleteID);
+
+        return redirect('/admin/workout');
     }
 }

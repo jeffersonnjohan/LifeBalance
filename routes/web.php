@@ -111,10 +111,6 @@ Route::get('/admin/challenges/add', function () {
 });
 
 // ADDITIONAL ADMIN PAGE - EDIT PLAN
-Route::get('/admin/workout/edit', function () {
-    return view('adminpage.editWP');
-});
-
 Route::get('/admin/meditation/edit', function () {
     return view('adminpage.editMP');
 });
@@ -148,30 +144,3 @@ Route::post('/backtodiets', [DietDayController::class, 'index2']);
 
 // Diet History
 Route::get('/history', [HistoryController::class, 'index']);
-
-
-
-// Routes Jeff. Nanti hapus aja
-// Route::get('/workoutmeditationsjeff', function () {
-//     return view('workout_meditation.workouts');
-// });
-
-// Route::get('/meditationsjeff', function () {
-//     return view('workout_meditation.meditation');
-// });
-
-// Route::get('/workoutdetailsjeff', function () {
-//     return view('workout_meditation.workoutDetails');
-// });
-
-// Route::get('/workoutdaysjeff', function () {
-//     return view('workout_meditation.workoutDays');
-// });
-
-// Route::get('/workoutactivityjeff', function () {
-//     return view('workout_meditation.workoutactivity');
-// });
-
-// Route::get('/meditationdetailsjeff', function () {
-//     return view('workout_meditation.meditationDetails');
-// });
