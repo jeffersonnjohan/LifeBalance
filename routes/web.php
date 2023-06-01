@@ -96,6 +96,8 @@ Route::get('/admin/meditation/add', function () {
 });
 
 Route::post('/admin/diet/delete', [DietController::class, 'destroy']);
+Route::post('/admin/diet/edit', [DietController::class, 'edit']);
+Route::post('/admin/diet/update', [DietController::class, 'update']);
 Route::resource('/admin/diet', DietController::class);
 
 // Route::get('/admin/diet', function () {
