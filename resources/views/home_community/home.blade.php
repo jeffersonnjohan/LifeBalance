@@ -333,20 +333,22 @@
                 <div class="bg-cBlue h-full w-[60%] rounded-3xl"></div>
             </div>
             <div class="bg-cLightGrey w-[80%] lg:w-[60%] h-fit absolute left-[50%] translate-x-[-50%] top-[50%] translate-y-[-50%] rounded-3xl flex flex-col justify-center items-center text-center p-8 shadow-lg">
-                <div class="mb-5 flex flex-col text-center items-center">
-                    <div class="text-2xl font-bold">Hey!</div>
-                    <div class="text-sm text-center">Please input your current weight.</div>
-                    <div class="w-[60%] border-2 h-7 my-5 p-8 flex justify-center content-center items-center rounded-3xl text-cBlue">
-                        <span class="material-symbols-outlined scale-150">
-                            weight
-                        </span>
-                        <input type="number" placeholder="Input Weight" class="border-transparent p-5 bg-transparent focus:ring-0 focus:border-transparent text-sm">
-                        <p class="font-bold text-lg">kg</p>
+                <form action="/home" method="post">
+                    @csrf
+                    <div class="mb-5 flex flex-col text-center items-center">
+                        <div class="text-2xl font-bold">Hey!</div>
+                        <div class="text-sm text-center">Please input your current weight.</div>
+                        <div class="w-[60%] border-2 h-7 my-5 p-8 flex justify-center content-center items-center rounded-3xl text-cBlue">
+                            <span class="material-symbols-outlined scale-150">
+                                weight
+                            </span>
+                            <input type="number" placeholder="Input Weight" name="weight" class="border-transparent p-5 bg-transparent focus:ring-0 focus:border-transparent text-sm">
+                            <p class="font-bold text-lg">kg</p>
+                        </div>
+    
+                        <input type="submit" value="Confirm" class="w-[200px] h-[50px] rounded-full bg-cBlue text-white hover:bg-white hover:text-cBlue border-2 border-cBlue duration-300 ease-out cursor-pointer text-sm">
                     </div>
-                    <a href="/home">
-                    <input type="submit" value="Confirm" class="w-[200px] h-[50px] rounded-full bg-cBlue text-white hover:bg-white hover:text-cBlue border-2 border-cBlue duration-300 ease-out cursor-pointer text-sm">
-                    </a>
-                </div>
+                </form>
             </div>
         </div>
     </div>

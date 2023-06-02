@@ -23,6 +23,7 @@ use App\Http\Controllers\WorkoutDetailController;
 use App\Http\Controllers\WorkoutActivityController;
 use App\Http\Controllers\EnrollmentWorkoutController;
 use App\Models\Diet;
+use App\Models\UserWeight;
 
 /*
 |--------------------------------------------------------------------------
@@ -131,6 +132,7 @@ Route::get('/admin/challenges/edit', function () {
 
 // Home | Community Route
 Route::get('/home', [HomeController::class, 'index'])->middleware('auth');
+Route::post('/home', [UserWeight::class, 'store'])->middleware('auth');
 Route::get('/community', [CommunityController::class, 'index']);
 
 // Workout Route
