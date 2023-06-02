@@ -24,6 +24,9 @@ class UserWeight extends Model
             'weight' => $request->weight,
             'created_at' => Carbon::now()->toDateTimeString()
         ]);
+
+        // Update weight user menjadi yang terbaru
+        User::find($userId)->update(['weight' => $request->weight]);
         return redirect('/home');
     }
 }
