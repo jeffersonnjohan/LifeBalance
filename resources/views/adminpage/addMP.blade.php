@@ -102,3 +102,12 @@
     {{-- @include('adminpage.adminNavbar', ['active' => 'adminpage.listWorkout']) --}}
 
 @endsection
+
+@section('scripts')
+<script>
+    imgBox = document.getElementById('imgBox');
+    var loadFile = function(event) {
+        imgBox.style.backgroundImage = 'url(' + URL.createObjectURL(event.target.files[0]) + ')';
+    }
+</script>
+@endsection

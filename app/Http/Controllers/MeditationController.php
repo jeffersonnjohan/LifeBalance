@@ -44,7 +44,14 @@ class MeditationController extends Controller
      */
     public function store(StoreMeditationRequest $request)
     {
-        return 'store';
+        Meditation::create([
+            'name' => $request->planTitle,
+            'description' => $request->description,
+            'image' => 'images/meditation.png',
+            'audio' => 'audio/meditation.mp3',
+        ]);
+
+        return redirect('/admin/meditation');
     }
 
     /**
@@ -68,9 +75,11 @@ class MeditationController extends Controller
      * @param  \App\Models\Meditation  $meditation
      * @return \Illuminate\Http\Response
      */
-    public function edit(Meditation $meditation)
+    public function edit(Request $request)
     {
-        return 'hi';
+        return view('adminpage.editMP', [
+            'meditation' => Meditation::find($request->editID)
+        ]);
     }
 
     /**
@@ -80,9 +89,15 @@ class MeditationController extends Controller
      * @param  \App\Models\Meditation  $meditation
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateMeditationRequest $request, Meditation $meditation)
+    public function update(UpdateMeditationRequest $request)
     {
-        //
+        Meditation::find($request->editID)->update([
+            'name' => $request->planTitle,
+            'description' => $request->description,
+            'image' => 'images/meditation.png',
+            'audio' => 'audio/meditation.mp3',
+        ]);
+        return redirect('/admin/meditation');
     }
 
     /**
@@ -91,8 +106,9 @@ class MeditationController extends Controller
      * @param  \App\Models\Meditation  $meditation
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Meditation $meditation)
+    public function destroy(Request $request)
     {
-        return 'destroy';
+        Meditation::find($request->deleteID)->delete();
+        return redirect('admin/meditation');
     }
 }
