@@ -88,26 +88,23 @@ Route::post('/admin/workout/update', [WorkoutController::class, 'update'])->midd
 
 Route::resource('/admin/workout', WorkoutController::class)->only('index', 'create', 'store')->middleware('admin');
 
-Route::get('/admin/meditation', function () {
-    return view('adminpage.listMeditation');
-});
+Route::post('/admin/meditation/edit', [MeditationController::class, 'edit'])->middleware('admin');
+Route::post('/admin/meditation/delete', [MeditationController::class, 'destroy'])->middleware('admin');
+Route::post('/admin/meditation/update', [MeditationController::class, 'update'])->middleware('admin');
+Route::resource('/admin/meditation', MeditationController::class)->only('index', 'create', 'store')->middleware('admin');
 
-Route::get('/admin/meditation/add', function () {
-    return view('adminpage.addMP');
-});
+// Route::get('/admin/meditation', function () {
+//     return view('adminpage.listMeditation');
+// });
+
+// Route::get('/admin/meditation/add', function () {
+//     return view('adminpage.addMP');
+// });
 
 Route::post('/admin/diet/delete', [DietController::class, 'destroy']);
 Route::post('/admin/diet/edit', [DietController::class, 'edit']);
 Route::post('/admin/diet/update', [DietController::class, 'update']);
 Route::resource('/admin/diet', DietController::class);
-
-// Route::get('/admin/diet', function () {
-//     return view('adminpage.listDiet');
-// });
-
-// Route::get('/admin/diet/add', function () {
-//     return view('adminpage.addDP');
-// });
 
 Route::get('/admin/challenges', function () {
     return view('adminpage.listChallenges');
@@ -118,9 +115,9 @@ Route::get('/admin/challenges/add', function () {
 });
 
 // ADDITIONAL ADMIN PAGE - EDIT PLAN
-Route::get('/admin/meditation/edit', function () {
-    return view('adminpage.editMP');
-});
+// Route::get('/admin/meditation/edit', function () {
+//     return view('adminpage.editMP');
+// });
 
 // Route::get('/admin/diet/edit', function () {
 //     return view('adminpage.editDP');
@@ -142,7 +139,7 @@ Route::post('/workoutdays', [WorkoutDayController::class, 'index']);
 Route::post('/workoutactivity',  [WorkoutActivityController::class, 'index']);
 
 // Meditation Routes
-Route::get('/meditations', [MeditationController::class, 'index']);
+Route::get('/meditations', [MeditationController::class, 'showAll']);
 Route::post('/meditationDetails', [MeditationController::class, 'show']);
 
 // Diet Routes

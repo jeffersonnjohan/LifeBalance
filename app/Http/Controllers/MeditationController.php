@@ -14,10 +14,16 @@ class MeditationController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function showAll()
     {
         return view('workout_meditation.meditation', [
             'meditations' => Meditation::filter(request(['search']))->get()
+        ]);
+    }
+
+    public function index(){
+        return view('adminpage.listMeditation', [
+            'meditations' => Meditation::all()
         ]);
     }
 
@@ -26,9 +32,8 @@ class MeditationController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        //
+    public function create(){
+        return view('adminpage.addMP');
     }
 
     /**
@@ -39,7 +44,7 @@ class MeditationController extends Controller
      */
     public function store(StoreMeditationRequest $request)
     {
-        //
+        return 'store';
     }
 
     /**
@@ -65,7 +70,7 @@ class MeditationController extends Controller
      */
     public function edit(Meditation $meditation)
     {
-        //
+        return 'hi';
     }
 
     /**
@@ -88,6 +93,6 @@ class MeditationController extends Controller
      */
     public function destroy(Meditation $meditation)
     {
-        //
+        return 'destroy';
     }
 }
