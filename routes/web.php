@@ -22,6 +22,8 @@ use App\Http\Controllers\EditProfileController;
 use App\Http\Controllers\WorkoutDetailController;
 use App\Http\Controllers\WorkoutActivityController;
 use App\Http\Controllers\EnrollmentWorkoutController;
+use App\Models\Diet;
+use App\Models\UserWeight;
 
 /*
 |--------------------------------------------------------------------------
@@ -87,21 +89,23 @@ Route::post('/admin/workout/update', [WorkoutController::class, 'update'])->midd
 
 Route::resource('/admin/workout', WorkoutController::class)->only('index', 'create', 'store')->middleware('admin');
 
-Route::get('/admin/meditation', function () {
-    return view('adminpage.listMeditation');
-});
+Route::post('/admin/meditation/edit', [MeditationController::class, 'edit'])->middleware('admin');
+Route::post('/admin/meditation/delete', [MeditationController::class, 'destroy'])->middleware('admin');
+Route::post('/admin/meditation/update', [MeditationController::class, 'update'])->middleware('admin');
+Route::resource('/admin/meditation', MeditationController::class)->only('index', 'create', 'store')->middleware('admin');
 
-Route::get('/admin/meditation/add', function () {
-    return view('adminpage.addMP');
-});
+// Route::get('/admin/meditation', function () {
+//     return view('adminpage.listMeditation');
+// });
 
-Route::get('/admin/diet', function () {
-    return view('adminpage.listDiet');
-});
+// Route::get('/admin/meditation/add', function () {
+//     return view('adminpage.addMP');
+// });
 
-Route::get('/admin/diet/add', function () {
-    return view('adminpage.addDP');
-});
+Route::post('/admin/diet/delete', [DietController::class, 'destroy']);
+Route::post('/admin/diet/edit', [DietController::class, 'edit']);
+Route::post('/admin/diet/update', [DietController::class, 'update']);
+Route::resource('/admin/diet', DietController::class);
 
 Route::get('/admin/challenges', function () {
     return view('adminpage.listChallenges');
@@ -112,17 +116,13 @@ Route::get('/admin/challenges/add', function () {
 });
 
 // ADDITIONAL ADMIN PAGE - EDIT PLAN
-Route::get('/admin/workout/edit', function () {
-    return view('adminpage.editWP');
-});
+// Route::get('/admin/meditation/edit', function () {
+//     return view('adminpage.editMP');
+// });
 
-Route::get('/admin/meditation/edit', function () {
-    return view('adminpage.editMP');
-});
-
-Route::get('/admin/diet/edit', function () {
-    return view('adminpage.editDP');
-});
+// Route::get('/admin/diet/edit', function () {
+//     return view('adminpage.editDP');
+// });
 
 Route::get('/admin/challenges/edit', function () {
     return view('adminpage.editChallenge');
@@ -130,6 +130,7 @@ Route::get('/admin/challenges/edit', function () {
 
 // Home | Community Route
 Route::get('/home', [HomeController::class, 'index'])->middleware('auth');
+Route::post('/home', [UserWeight::class, 'store'])->middleware('auth');
 Route::get('/community', [CommunityController::class, 'index']);
 
 // Workout Route
@@ -139,40 +140,13 @@ Route::post('/workoutdays', [WorkoutDayController::class, 'index']);
 Route::post('/workoutactivity',  [WorkoutActivityController::class, 'index']);
 
 // Meditation Routes
-Route::get('/meditations', [MeditationController::class, 'index']);
+Route::get('/meditations', [MeditationController::class, 'showAll']);
 Route::post('/meditationDetails', [MeditationController::class, 'show']);
 
 // Diet Routes
-Route::get('/diets', [DietController::class, 'index']);
+Route::get('/diets', [DietController::class, 'allDiets']);
 Route::post('/dietDays', [DietDayController::class, 'index']);
 Route::post('/backtodiets', [DietDayController::class, 'index2']);
 
 // Diet History
 Route::get('/history', [HistoryController::class, 'index']);
-
-
-
-// Routes Jeff. Nanti hapus aja
-// Route::get('/workoutmeditationsjeff', function () {
-//     return view('workout_meditation.workouts');
-// });
-
-// Route::get('/meditationsjeff', function () {
-//     return view('workout_meditation.meditation');
-// });
-
-// Route::get('/workoutdetailsjeff', function () {
-//     return view('workout_meditation.workoutDetails');
-// });
-
-// Route::get('/workoutdaysjeff', function () {
-//     return view('workout_meditation.workoutDays');
-// });
-
-// Route::get('/workoutactivityjeff', function () {
-//     return view('workout_meditation.workoutactivity');
-// });
-
-// Route::get('/meditationdetailsjeff', function () {
-//     return view('workout_meditation.meditationDetails');
-// });

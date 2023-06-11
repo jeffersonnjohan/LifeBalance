@@ -312,7 +312,7 @@
 
 
     {{-- + button popup input weight--}}
-    <a href="#" class="object-bottom fixed bg-black rounded-full flex justify-center items-center aspect-square h-[50px] shadow-lg bottom-20 right-2 z-10 group duration-300 ease-out hover:bg-cRed" data-modal-target="popup-inputweight" data-modal-toggle="popup-inputweight">
+    <a class="object-bottom fixed bg-black rounded-full flex justify-center items-center aspect-square h-[50px] shadow-lg bottom-20 right-2 z-10 group duration-300 ease-out hover:bg-cRed" data-modal-target="popup-inputweight" data-modal-toggle="popup-inputweight">
         <span class="material-symbols-outlined scale-110 duration-300 ease-out group-hover:text-white text-white mb-100px">
             add
         </span>
@@ -332,21 +332,23 @@
                 <div class="bg-cGreen h-full w-[40%] rounded-3xl"></div>
                 <div class="bg-cBlue h-full w-[60%] rounded-3xl"></div>
             </div>
-            <div class="bg-cLightGrey w-[80%] lg:w-[60%] h-fit absolute left-[50%] translate-x-[-50%] top-[50%] translate-y-[-50%] rounded-3xl flex flex-col justify-center items-center text-center p-5 shadow-lg">
-                <div class="mb-5 flex-auto text-center">
-                    <div class="text-2xl font-bold">Hey!</div>
-                    <div class="text-sm text-center">Please input your current weight.</div>
-                    <div class="w-[60%] bg-white h-20 m-5 ml-20 mr-20 flex justify-center content-center items-center rounded-3xl text-cBlue gap-3">
-                        <span class="material-symbols-outlined scale-150 ml-5">
-                            weight
-                        </span>
-                        <input type="number" placeholder="Input Weight" class="border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm">
-                        <p class="font-bold text-lg -ml-40 mr-5">kg</p>
+            <div class="bg-cLightGrey w-[80%] lg:w-[60%] h-fit absolute left-[50%] translate-x-[-50%] top-[50%] translate-y-[-50%] rounded-3xl flex flex-col justify-center items-center text-center p-8 shadow-lg">
+                <form action="/home" method="post">
+                    @csrf
+                    <div class="mb-5 flex flex-col text-center items-center">
+                        <div class="text-2xl font-bold">Hey!</div>
+                        <div class="text-sm text-center">Please input your current weight.</div>
+                        <div class="w-[60%] border-2 h-7 my-5 p-8 flex justify-center content-center items-center rounded-3xl text-cBlue">
+                            <span class="material-symbols-outlined scale-150">
+                                weight
+                            </span>
+                            <input type="number" placeholder="Input Weight" name="weight" class="border-transparent p-5 bg-transparent focus:ring-0 focus:border-transparent text-sm">
+                            <p class="font-bold text-lg">kg</p>
+                        </div>
+    
+                        <input type="submit" value="Confirm" class="w-[200px] h-[50px] rounded-full bg-cBlue text-white hover:bg-white hover:text-cBlue border-2 border-cBlue duration-300 ease-out cursor-pointer text-sm">
                     </div>
-                    <a href="/home">
-                    <input type="submit" value="Confirm" class="w-[50%] h-[50px] rounded-full bg-cBlue text-white hover:bg-white hover:text-cBlue border-2 border-cBlue duration-300 ease-out cursor-pointer text-sm">
-                    </a>
-                </div>
+                </form>
             </div>
         </div>
     </div>

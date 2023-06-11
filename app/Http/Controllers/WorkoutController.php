@@ -56,7 +56,6 @@ class WorkoutController extends Controller
      */
     public function store(StoreWorkoutRequest $request)
     {
-        
         $dayCount = count($request->exerciseID);
         // Workout Day
         $workoutDays = [];
@@ -153,17 +152,27 @@ class WorkoutController extends Controller
      */
     public function update(UpdateWorkoutRequest $request)
     {
+        $prevWorkoutDays = Workout::find($request->workoutID)->workout_day;
+
+        foreach($prevWorkoutDays as $prevWorkoutDay){
+            $prevWorkoutDetailsInADay = $prevWorkoutDay->workout_detail;
+            foreach($prevWorkoutDetailsInADay as $prevWorkoutDetailInADay){
+                WorkoutDetail::destroy($prevWorkoutDetailInADay->id);
+            }
+            WorkoutDay::destroy($prevWorkoutDay->id);
+        }
+
         $dayCount = count($request->exerciseID);
         // Workout Day
         $workoutDays = [];
         
         for($i = 0; $i < $dayCount; $i++){
 
-            if(isset($request->workoutDayID[$i])){
-                $workoutDays[] = WorkoutDay::find($request->workoutDayID[$i]);
-            } else{
+            // if(isset($request->workoutDayID[$i])){
+            //     $workoutDays[] = WorkoutDay::find($request->workoutDayID[$i]);
+            // } else{
                 $workoutDays[] = new WorkoutDay();
-            }
+            // }
         }
         
         $workout = Workout::find($request->workoutID);
@@ -189,12 +198,12 @@ class WorkoutController extends Controller
                     'workout_activity_id' => $request->exerciseID[$i][$j]
                 ];
 
-                if(isset($request->workoutDetailID[$i][$j])){
-                    WorkoutDetail::find($request->workoutDetailID[$i][$j])->update($data);
-                    $workoutDetailInDayI[] = WorkoutDetail::find($request->workoutDetailID[$i][$j]);
-                } else{
+                // if(isset($request->workoutDetailID[$i][$j])){
+                //     WorkoutDetail::find($request->workoutDetailID[$i][$j])->update($data);
+                //     $workoutDetailInDayI[] = WorkoutDetail::find($request->workoutDetailID[$i][$j]);
+                // } else{
                     $workoutDetailInDayI[] = new WorkoutDetail($data);
-                }
+                // }
                 
             }
             
@@ -216,9 +225,20 @@ class WorkoutController extends Controller
      * @param  \App\Models\Workout  $workout
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Workout $workout, Request $request)
+    public function destroy(Request $request)
     {
-        //
-        return $request;
+        $prevWorkoutDays = Workout::find($request->workoutDeleteID)->workout_day;
+
+        foreach($prevWorkoutDays as $prevWorkoutDay){
+            $prevWorkoutDetailsInADay = $prevWorkoutDay->workout_detail;
+            foreach($prevWorkoutDetailsInADay as $prevWorkoutDetailInADay){
+                WorkoutDetail::destroy($prevWorkoutDetailInADay->id);
+            }
+            WorkoutDay::destroy($prevWorkoutDay->id);
+        }
+
+        Workout::destroy($request->workoutDeleteID);
+
+        return redirect('/admin/workout');
     }
 }

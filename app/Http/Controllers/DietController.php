@@ -3,10 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\Diet;
-use App\Http\Requests\StoreDietRequest;
-use App\Http\Requests\UpdateDietRequest;
+use App\Models\DietDay;
+use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use App\Models\EnrollmentDiet;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\StoreDietRequest;
+use App\Http\Requests\UpdateDietRequest;
 
 class DietController extends Controller
 {
@@ -15,7 +18,7 @@ class DietController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function allDiets()
     {
         $id = Auth::user()->id;
         return view('diet.diets', [
@@ -24,14 +27,19 @@ class DietController extends Controller
         ]);
     }
 
+    public function index(){
+        return view('adminpage.listDiet', [
+            'diets' => Diet::all()
+        ]);
+    }
+
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        //
+    public function create(){
+        return view('adminpage.addDP');
     }
 
     /**
@@ -40,9 +48,31 @@ class DietController extends Controller
      * @param  \App\Http\Requests\StoreDietRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreDietRequest $request)
-    {
-        //
+    public function store(StoreDietRequest $request){
+
+        $diet = new Diet([
+            'name' => $request->planTitle,
+            'description' => $request->description,
+            'points' => $request->points,
+            'image' => 'images/dietplan',
+        ]);
+
+        $dayCount = count($request->dietDayDescription);
+        
+        // Workout Details
+        $diet_details = [];
+
+        for($i = 0; $i < $dayCount; $i++){
+            $diet_details[] = new DietDay([
+                'calories' => $request->calories[$i],
+                'description' => $request->dietDayDescription[$i]
+            ]);
+        }
+
+        $diet->save();
+        $diet->dietDay()->saveMany($diet_details);
+
+        return redirect('/admin/diet');
     }
 
     /**
@@ -62,9 +92,14 @@ class DietController extends Controller
      * @param  \App\Models\Diet  $diet
      * @return \Illuminate\Http\Response
      */
-    public function edit(Diet $diet)
-    {
-        //
+    public function edit(Request $request){
+        // dd($request);
+        // return Diet::find($request->editID);
+        $diet = Diet::find($request->editID);
+        return view('adminpage.editDP', [
+            'diet' => $diet,
+            'dietDays' => $diet->dietDay
+        ]);
     }
 
     /**
@@ -74,9 +109,37 @@ class DietController extends Controller
      * @param  \App\Models\Diet  $diet
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateDietRequest $request, Diet $diet)
+    public function update(UpdateDietRequest $request)
     {
-        //
+        // return $request;
+        $diet = Diet::find($request->dietID);
+        $prevDietDays = $diet->dietDay;
+
+        foreach($prevDietDays as $prevDietDay){
+            DietDay::destroy($prevDietDay->id);
+        }
+
+        $diet->name = $request->planTitle;
+        $diet->description = $request->description;
+        $diet->points = $request->points;
+        $diet->image = 'images/dietplan';
+
+        $dayCount = count($request->dietDayDescription);
+        
+        // Workout Details
+        $diet_details = [];
+
+        for($i = 0; $i < $dayCount; $i++){
+            $diet_details[] = new DietDay([
+                'calories' => $request->calories[$i],
+                'description' => $request->dietDayDescription[$i]
+            ]);
+        }
+
+        $diet->update();
+        $diet->dietDay()->saveMany($diet_details);
+
+        return redirect('/admin/diet');
     }
 
     /**
@@ -85,8 +148,17 @@ class DietController extends Controller
      * @param  \App\Models\Diet  $diet
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Diet $diet)
+    public function destroy(Request $request)
     {
-        //
+        // return $request;
+        $prevDietPlans = Diet::find($request->deleteID)->dietDay;
+
+        foreach($prevDietPlans as $prevDietPlan){
+            DietDay::destroy($prevDietPlan->id);
+        }
+
+        Diet::destroy($request->deleteID);
+
+        return redirect('/admin/diet');
     }
 }
