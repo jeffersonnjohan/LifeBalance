@@ -169,7 +169,7 @@
                         <p class="font-normal text-sm text-cRed dark:text-gray-400 hover:text-white">Continue your plan.</p>
                         <p class="text-sm font-bold tracking-tight text-black dark:text-white hover:text-white">{{ $unfinishedPlan->workout->name }}</p>
                         <div class="w-full bg-gray-200 rounded-full dark:bg-cDarkGrey">
-                            <div class="bg-cRed text-xs text-transparent text-white text-center rounded-full leading-none" style="width:{{ $unfinishedPlan->workout->day_count!=0? $unfinishedPlan->finished_day/$unfinishedPlan->workout->day_count*100 : 0}}%">{{ $unfinishedPlan->workout->day_count!=0? $unfinishedPlan->finished_day/$unfinishedPlan->workout->day_count*100 : 0}}%</div>
+                            <div class="bg-cRed text-xs text-transparent text-white text-center rounded-full leading-none" style="width:{{ $unfinishedPlan->workout->day_count!=0? round($unfinishedPlan->finished_day/$unfinishedPlan->workout->day_count*100, 2) : 0}}%">{{ $unfinishedPlan->workout->day_count!=0? round($unfinishedPlan->finished_day/$unfinishedPlan->workout->day_count*100, 2) : 0}}%</div>
                         </div>
                     </div>
                 </a>
