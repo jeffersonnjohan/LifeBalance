@@ -19,6 +19,11 @@
                     <p class="text-black font-extrabold dark:text-white hover:text-cOrange">List</p>
                 </li>
             </ul>
+            @can('admin')
+                <a href="/home" class="fixed right-16 bg-cOrange hover:bg-white duration-300 ease-out p-3 hover:ring-2 text-white hover:text-cOrange rounded-b-3xl w-20 lg:w-auto text-center ring-cOrange">
+                    <div class="pt-3">Go to Home</div>
+                </a>
+            @endcan
             <a href="#" class="fixed bg-cOrange rounded-b-3xl flex justify-center items-center aspect-square h-[50px] shadow-lg right-2 -top-0.5 z-10 group duration-300 ease-out hover:bg-white">
                 <div class="bg-white rounded-full p-4" style="background-image: url('/assets/male.png')"></div>
             </a>
