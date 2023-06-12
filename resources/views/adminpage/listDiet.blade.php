@@ -35,7 +35,7 @@
             {{-- Plan Card --}}
             <div class="lg:w-80 lg:h-fit md:h-fit h-fit mb-2 bg-white relative rounded-3xl shadow-lg hover:bg-green-200 duration-500">
                 <div class="flex items-center">
-                    <div class="flex items-center gap-3 w-fit truncate m-1">
+                    <div class="flex items-center gap-3 w-full truncate m-1">
                         <img class="rounded-full bg-cover justify-end items-center h-[50px] border-2 border-cGreen" src="/assets/green.png">
                         <div class="py-2">
                             <h2 class="font-medium text-sm">{{ $diet->name }}</h2>
@@ -80,7 +80,7 @@
                         </div>
                     </div>
                 </div>
-        
+
                 {{-- Pop Up Delete --}}
                 <div id="popup-delete{{ $loop->iteration }}" tabindex="-1" class="fixed top-0 left-0 right-0 z-50 hidden p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
                     <div class="relative w-full max-w-md max-h-full">
