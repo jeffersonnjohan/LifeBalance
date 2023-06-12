@@ -24,8 +24,8 @@
                     <div class="pt-3">Go to Home</div>
                 </a>
             @endcan
-            <a href="#" class="fixed bg-cGreen rounded-b-3xl flex justify-center items-center aspect-square h-[50px] shadow-lg right-2 -top-0.5 z-10 group duration-300 ease-out hover:bg-white">
-                <div class="bg-white rounded-full p-4" style="background-image: url('/assets/male.png')"></div>
+            <a href="/profile"" class="fixed bg-cGreen rounded-b-3xl flex justify-center items-center aspect-square h-[50px] shadow-lg right-2 -top-0.5 z-10 group duration-300 ease-out hover:bg-white">
+                <div class="bg-white rounded-full p-4 bg-cover mt-2" style="background-image: url({{ '/storage/'. App\Models\User::find(Auth::user()->id)['image'] }})"></div>
             </a>
         </div>
     </div>
