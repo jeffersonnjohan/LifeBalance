@@ -19,8 +19,13 @@
                     <p class="text-black font-extrabold dark:text-white hover:text-cGreen">Plans</p>
                 </li>
             </ul>
-            <a href="#" class="fixed bg-cGreen rounded-b-3xl flex justify-center items-center aspect-square h-[50px] shadow-lg right-2 -top-0.5 z-10 group duration-300 ease-out hover:bg-white">
-                <div class="bg-white rounded-full p-4" style="background-image: url('/assets/male.png')"></div>
+            @can('admin')
+                <a href="/home" class="fixed right-16 bg-cGreen hover:bg-white duration-300 ease-out p-3 hover:ring-2 text-white hover:text-cGreen rounded-b-3xl w-20 lg:w-auto text-center ring-cGreen">
+                    <div class="pt-3">Go to Home</div>
+                </a>
+            @endcan
+            <a href="/profile"" class="fixed bg-cGreen rounded-b-3xl flex justify-center items-center aspect-square h-[50px] shadow-lg right-2 -top-0.5 z-10 group duration-300 ease-out hover:bg-white">
+                <div class="bg-white rounded-full p-4 bg-cover mt-2" style="background-image: url({{ '/storage/'. App\Models\User::find(Auth::user()->id)['image'] }})"></div>
             </a>
         </div>
     </div>
@@ -35,7 +40,7 @@
             {{-- Plan Card --}}
             <div class="lg:w-80 lg:h-fit md:h-fit h-fit mb-2 bg-white relative rounded-3xl shadow-lg hover:bg-green-200 duration-500">
                 <div class="flex items-center">
-                    <div class="flex items-center gap-3 w-fit truncate m-1">
+                    <div class="flex items-center gap-3 w-full truncate m-1">
                         <img class="rounded-full bg-cover justify-end items-center h-[50px] border-2 border-cGreen" src="/assets/green.png">
                         <div class="py-2">
                             <h2 class="font-medium text-sm">{{ $diet->name }}</h2>
@@ -80,7 +85,7 @@
                         </div>
                     </div>
                 </div>
-        
+
                 {{-- Pop Up Delete --}}
                 <div id="popup-delete{{ $loop->iteration }}" tabindex="-1" class="fixed top-0 left-0 right-0 z-50 hidden p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
                     <div class="relative w-full max-w-md max-h-full">

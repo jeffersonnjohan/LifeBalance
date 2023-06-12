@@ -30,12 +30,12 @@
             </div>
             <div class="flex w-fit gap-5">
                 @can('admin')
-                <a href="/admin/workout" class="bg-cBlue hover:bg-white duration-300 ease-out p-3 hover:ring-2 text-white hover:text-cBlue rounded-b-3xl">
+                <a href="/admin/workout" class="-mr-4 bg-cRed hover:bg-white duration-300 ease-out p-3 hover:ring-2 text-white hover:text-cRed rounded-b-3xl text-center ring-cRed">
                     <div class="pt-3">Go to Admin</div>
                 </a>
                 @endcan
                 <a href="/profile" class="bg-cRed rounded-b-3xl flex justify-center items-center aspect-square h-fit p-2 shadow-lg z-10 group duration-300 ease-out hover:bg-cBlue">
-                    <div class="bg-white rounded-full p-4 bg-cover mt-2" style="background-image: url('/assets/female.png')"></div>
+                    <div class="bg-white rounded-full p-4 bg-cover mt-2" style="background-image: url({{ '/storage/'. App\Models\User::find(Auth::user()->id)['image'] }})"></div>
                 </a>
             </div>
         </div>
@@ -169,7 +169,7 @@
                         <p class="font-normal text-sm text-cRed dark:text-gray-400 hover:text-white">Continue your plan.</p>
                         <p class="text-sm font-bold tracking-tight text-black dark:text-white hover:text-white">{{ $unfinishedPlan->workout->name }}</p>
                         <div class="w-full bg-gray-200 rounded-full dark:bg-cDarkGrey">
-                            <div class="bg-cRed text-xs text-transparent text-white text-center rounded-full leading-none" style="width:{{ $unfinishedPlan->workout->day_count!=0? $unfinishedPlan->finished_day/$unfinishedPlan->workout->day_count*100 : 0}}%">{{ $unfinishedPlan->workout->day_count!=0? $unfinishedPlan->finished_day/$unfinishedPlan->workout->day_count*100 : 0}}%</div>
+                            <div class="bg-cRed text-xs text-transparent text-white text-center rounded-full leading-none" style="width:{{ $unfinishedPlan->workout->day_count!=0? round($unfinishedPlan->finished_day/$unfinishedPlan->workout->day_count*100, 2) : 0}}%">{{ $unfinishedPlan->workout->day_count!=0? round($unfinishedPlan->finished_day/$unfinishedPlan->workout->day_count*100, 2) : 0}}%</div>
                         </div>
                     </div>
                 </a>
