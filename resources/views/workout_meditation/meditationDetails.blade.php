@@ -34,6 +34,7 @@
 
             {{-- Audio Controls --}}
             {{-- Time --}}
+            <div id="loadingIndicator">Loading...</div>
             <div class="mt-7 mb-3">
                 <span id="progressDuration">00:00</span>
                 <span>/</span>
@@ -95,6 +96,12 @@
         var progressDuration = document.getElementById("progressDuration");
         var totalDuration = document.getElementById("totalDuration");
 
+        // Loading
+        var loadingIndicator = document.getElementById('loadingIndicator');
+
+        // Menyembunyikan indikator loading saat awalnya
+        loadingIndicator.style.display = 'none';
+
         // Function Puase to Play
         function pauseToPlay(){
             audio.play()
@@ -113,17 +120,10 @@
         function fast_rewind(n){
             // Calculate the new time
             var time = audio.duration * (seekBar.value / 100) + n;
-
+            
             // Update the audio time
             audio.currentTime = time;
-
-            audio.oncanplay = function(){
-                // audio.currentTime = time;
-                console.log(time);
-                console.log(audio.currentTime);
-            }
-
-
+            console.log(audio.currentTime);
         }
 
         function format_number(num){
@@ -143,63 +143,74 @@
             // Event listener for the pause button
             pauseButton.addEventListener("click", playToPause);
 
-            // Event listener for the seek bar
-            seekBar.addEventListener("change", function() {
-                // Calculate the new time
-                var time = audio.duration * (seekBar.value / 100);
+            audio.addEventListener('loadedmetadata', function(){
+                // Menampilkan audio dan menyembunyikan indikator loading setelah metadata audio berhasil dimuat
+                audio.style.display = 'block';
+                loadingIndicator.style.display = 'none';
 
-                // Update the audio time
-                audio.currentTime = time;
-
-            });
-
-            // Update the seek bar as the audio plays
-            audio.addEventListener("timeupdate", function() {
-                // Calculate the slider value
-                var value = (100 / audio.duration) * audio.currentTime;
-
-                // Update the slider value
-                seekBar.value = value;
-
-                progressDuration.innerHTML = format_number(Math.floor(audio.currentTime/60)) + ':' + format_number(Math.floor(audio.currentTime%60))
-            });
-
-            // Pause the audio when the slider handle is being dragged
-            seekBar.addEventListener("mousedown", function() {
-                audio.pause();
-            });
-
-            // Play the audio when the slider handle is dropped
-            seekBar.addEventListener("mouseup", function() {
-                audio.play();
-            });
-
-            // Event listener for the forward and rewind bar
-            forwardButton.addEventListener("click", function(){
-                fast_rewind(5)
-            });
-
-            rewindButton.addEventListener("click", function(){
-                fast_rewind(-5)
-            });
-
-            // Keyboard
-            document.addEventListener('keydown', function(event) {
-                if(event.key === ' ') {
-                    if(audio.paused){
-                        pauseToPlay()
-                    } else{
-                        playToPause()
-                    }
-                }
-                else if(event.keyCode == 37) {
-                    fast_rewind(-5)
-                }
-                else if(event.keyCode == 39) {
+                // Event listener for the seek bar
+                seekBar.addEventListener("change", function() {
+                    // Calculate the new time
+                    var time = audio.duration * (seekBar.value / 100);
+    
+                    // Update the audio time
+                    audio.currentTime = time;
+    
+                });
+    
+                // Update the seek bar as the audio plays
+                audio.addEventListener("timeupdate", function() {
+                    // Calculate the slider value
+                    var value = (100 / audio.duration) * audio.currentTime;
+    
+                    // Update the slider value
+                    seekBar.value = value;
+    
+                    progressDuration.innerHTML = format_number(Math.floor(audio.currentTime/60)) + ':' + format_number(Math.floor(audio.currentTime%60))
+                });
+    
+                // Pause the audio when the slider handle is being dragged
+                seekBar.addEventListener("mousedown", function() {
+                    audio.pause();
+                });
+    
+                // Play the audio when the slider handle is dropped
+                seekBar.addEventListener("mouseup", function() {
+                    audio.play();
+                });
+    
+                // Event listener for the forward and rewind bar
+                forwardButton.addEventListener("click", function(){
                     fast_rewind(5)
-                }
-            });
+                });
+    
+                rewindButton.addEventListener("click", function(){
+                    fast_rewind(-5)
+                });
+    
+                // Keyboard
+                document.addEventListener('keydown', function(event) {
+                    if(event.key === ' ') {
+                        if(audio.paused){
+                            pauseToPlay()
+                        } else{
+                            playToPause()
+                        }
+                    }
+                    else if(event.keyCode == 37) {
+                        fast_rewind(-5)
+                    }
+                    else if(event.keyCode == 39) {
+                        fast_rewind(5)
+                    }
+                });
 
+            })
+
+            audio.addEventListener('loadeddata', function() {
+                // Menampilkan indikator loading saat data audio sedang dimuat
+                loadingIndicator.style.display = 'block';
+            });
         }
     </script>
 @endsection

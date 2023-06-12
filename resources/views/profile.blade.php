@@ -7,7 +7,7 @@
 @section('toptitle', 'Profile')
 
 @section('name')
-    ID {{ session('activeId') }} : {{ $userdata['username'] }}
+    Hi, {{ $userdata['username'] }}
 @endsection
 
 @section('userdata')

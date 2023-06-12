@@ -76,116 +76,35 @@
                 </div>
             </div>
             <div class="flex flex-col lg:flex-wrap lg:flex-row w-full lg:w-[70vw] lg:h-[90vh] gap-2 justify-center lg:overflow-scroll" id="post">
-                <div class="lg:w-96 lg:h-fit bg-white shadow-lg rounded-3xl">
-                    <div class="p-3 flex flex-col text-sm gap-1">
-                        <div class="flex justify-between">
-                            <div class="flex gap-3">
-                                <div class="w-[40px] aspect-square rounded-full overflow-hidden">
-                                    <div class="w-full h-full bg-cover" style="background-image: url('/assets/profile2.png')"></div>
+                @foreach ($posts as $post)
+                    <div class="bg-white shadow-lg rounded-3xl mb-2 lg:w-96 lg:h-fit">
+                        <div class="p-3 flex flex-col text-sm gap-1">
+                            <div class="flex justify-between">
+                                <div class="flex gap-3">
+                                    <div class="w-[40px] aspect-square rounded-full overflow-hidden">
+                                        <div class="w-full h-full bg-cover" style="background-image: url('/assets/profile1.png')"></div>
+                                    </div>
+                                    <div>
+                                        {{-- {{ var_dump($post) }} --}}
+                                        <p class="font-bold">{{ $post->username }}</p>
+                                        <p class="italic text-cDarkGrey">{{ date_create($post->updated_at)->format('l, d M Y') }}</p>
+                                    </div>
                                 </div>
-                                <div>
-                                    <p class="font-bold">@yield('name')</p>
-                                    <p class="italic text-cDarkGrey">22 January 2023</p>
+                                <div class="w-fit">
+                                    @if($post->type == 1)
+                                        <p class="bg-cBlue text-white px-2 rounded-full font-bold">WORKOUT</p>
+                                    @else
+                                        <p class="bg-cGreen text-white px-2 rounded-full font-bold">DIET</p>
+                                    @endif
                                 </div>
                             </div>
-                            <div class="w-fit">
-                                <p class="bg-cBlue text-white px-2 py- rounded-full font-bold">WORKOUT</p>
+                            <div>
+                                <p>has completed "{{ $post->name }}"</p>
                             </div>
                         </div>
-                        <div>
-                            <p>Completed "7 Hari dengan Barbel"</p>
-                        </div>
+                        <div class="aspect-[4/3] bg-cover bg-center rounded-3xl" style="background-image: url('/assets/post1.png')"></div>
                     </div>
-                    <div class="aspect-[4/3] bg-cover bg-center rounded-3xl" style="background-image: url('/assets/post1.png')"></div>
-                </div>
-                <div class="lg:w-96 lg:h-fit bg-white shadow-lg rounded-3xl">
-                    <div class="p-3 flex flex-col text-sm gap-1">
-                        <div class="flex justify-between">
-                            <div class="flex gap-3">
-                                <div class="w-[40px] aspect-square rounded-full overflow-hidden">
-                                    <div class="w-full h-full bg-cover" style="background-image: url('/assets/profile2.png')"></div>
-                                </div>
-                                <div>
-                                    <p class="font-bold">@yield('name')</p>
-                                    <p class="italic text-cDarkGrey">22 January 2023</p>
-                                </div>
-                            </div>
-                            <div class="w-fit">
-                                <p class="bg-cGreen text-white px-2 py- rounded-full font-bold">DIET</p>
-                            </div>
-                        </div>
-                        <div>
-                            <p>Completed "7 Hari dengan Diet Sayur"</p>
-                        </div>
-                    </div>
-                    <div class="aspect-[4/3] bg-cover bg-center rounded-3xl" style="background-image: url('/assets/post2.png')"></div>
-                </div>
-                <div class="lg:w-96 lg:h-fit bg-white shadow-lg rounded-3xl">
-                    <div class="p-3 flex flex-col text-sm gap-1">
-                        <div class="flex justify-between">
-                            <div class="flex gap-3">
-                                <div class="w-[40px] aspect-square rounded-full overflow-hidden">
-                                    <div class="w-full h-full bg-cover" style="background-image: url('/assets/profile2.png')"></div>
-                                </div>
-                                <div>
-                                    <p class="font-bold">@yield('name')</p>
-                                    <p class="italic text-cDarkGrey">22 January 2023</p>
-                                </div>
-                            </div>
-                            <div class="w-fit">
-                                <p class="bg-cGreen text-white px-2 py- rounded-full font-bold">DIET</p>
-                            </div>
-                        </div>
-                        <div>
-                            <p>Completed "7 Hari dengan Diet Sayur"</p>
-                        </div>
-                    </div>
-                    <div class="aspect-[4/3] bg-cover bg-center rounded-3xl" style="background-image: url('/assets/post2.png')"></div>
-                </div>
-                <div class="lg:w-96 lg:h-fit bg-white shadow-lg rounded-3xl">
-                    <div class="p-3 flex flex-col text-sm gap-1">
-                        <div class="flex justify-between">
-                            <div class="flex gap-3">
-                                <div class="w-[40px] aspect-square rounded-full overflow-hidden">
-                                    <div class="w-full h-full bg-cover" style="background-image: url('/assets/profile2.png')"></div>
-                                </div>
-                                <div>
-                                    <p class="font-bold">@yield('name')</p>
-                                    <p class="italic text-cDarkGrey">22 January 2023</p>
-                                </div>
-                            </div>
-                            <div class="w-fit">
-                                <p class="bg-cGreen text-white px-2 py- rounded-full font-bold">DIET</p>
-                            </div>
-                        </div>
-                        <div>
-                            <p>Completed "7 Hari dengan Diet Sayur"</p>
-                        </div>
-                    </div>
-                    <div class="aspect-[4/3] bg-cover bg-center rounded-3xl" style="background-image: url('/assets/post2.png')"></div>
-                </div>
-                <div class="lg:w-96 lg:h-fit bg-white shadow-lg rounded-3xl">
-                    <div class="p-3 flex flex-col text-sm gap-1">
-                        <div class="flex justify-between">
-                            <div class="flex gap-3">
-                                <div class="w-[40px] aspect-square rounded-full overflow-hidden">
-                                    <div class="w-full h-full bg-cover" style="background-image: url('/assets/profile2.png')"></div>
-                                </div>
-                                <div>
-                                    <p class="font-bold">@yield('name')</p>
-                                    <p class="italic text-cDarkGrey">22 January 2023</p>
-                                </div>
-                            </div>
-                            <div class="w-fit">
-                                <p class="bg-cGreen text-white px-2 py- rounded-full font-bold">DIET</p>
-                            </div>
-                        </div>
-                        <div>
-                            <p>Completed "7 Hari dengan Diet Sayur"</p>
-                        </div>
-                    </div>
-                    <div class="aspect-[4/3] bg-cover bg-center rounded-3xl" style="background-image: url('/assets/post2.png')"></div>
-                </div>
+                @endforeach
             </div>
         </div>
     </div>

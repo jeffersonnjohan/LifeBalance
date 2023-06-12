@@ -24,8 +24,13 @@
                     <p class="text-black font-extrabold dark:text-white hover:text-cBlue">Plans</p>
                 </li>
             </ul>
-            <a href="#" class="fixed bg-cBlue rounded-b-3xl flex justify-center items-center aspect-square h-[50px] shadow-lg right-2 -top-0.5 z-10 group duration-300 ease-out hover:bg-white">
-                <div class="bg-white rounded-full p-4" style="background-image: url('/assets/male.png')"></div>
+            @can('admin')
+                <a href="/home" class="fixed right-16 bg-cBlue hover:bg-white duration-300 ease-out p-3 hover:ring-2 text-white hover:text-cBlue rounded-b-3xl w-20 lg:w-auto text-center">
+                    <div class="pt-3">Go to Home</div>
+                </a>
+            @endcan
+            <a href="/profile"" class="fixed bg-cBlue rounded-b-3xl flex justify-center items-center aspect-square h-[50px] shadow-lg right-2 -top-0.5 z-10 group duration-300 ease-out hover:bg-white">
+                <div class="bg-white rounded-full p-4 bg-cover mt-2" style="background-image: url({{ '/storage/'. App\Models\User::find(Auth::user()->id)['image'] }})"></div>
             </a>
         </div>
     </div>

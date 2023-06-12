@@ -22,8 +22,8 @@
                     <p class="text-black font-extrabold dark:text-white hover:text-cGreen">Plans</p>
                 </li>
             </ul>
-            <a href="#" class="fixed bg-cGreen rounded-b-3xl flex justify-center items-center aspect-square h-[50px] shadow-lg right-2 -top-0.5 z-10 group duration-300 ease-out hover:bg-white">
-                <div class="bg-white rounded-full p-4" style="background-image: url('/assets/male.png')"></div>
+            <a href="/profile"" class="fixed bg-cGreen rounded-b-3xl flex justify-center items-center aspect-square h-[50px] shadow-lg right-2 -top-0.5 z-10 group duration-300 ease-out hover:bg-white">
+                <div class="bg-white rounded-full p-4 bg-cover mt-2" style="background-image: url({{ '/storage/'. App\Models\User::find(Auth::user()->id)['image'] }})"></div>
             </a>
         </div>
     </div>
@@ -117,9 +117,9 @@ Dinner : Es buah)" required class="h-[120px] resize-none border-transparent bg-t
                             </div>
                         </div>
                         <div class="pt-2 pb-2 bottom-0 lg:w-[50%]">
-                            <div class="ring-cRed hover:ring-cRed w-full h-[50px] rounded-full bg-cRed text-white flex items-center font-bold px-4 duration-300 hover:ring-2 focus-within:text-white focus-within:ring-2 hover:text-cRed hover:bg-white shadow-lg">
-                                <input type="reset" name="discard" id="discardButton" value="Discard" required class="border-transparent bg-transparent focus:ring-0 focus :border-transparent text-sm w-full">
-                            </div>
+                            <a href="/admin/workout" class="w-full h-[50px] rounded-full bg-cRed text-white flex items-center font-bold px-4 duration-300 hover:ring-2 focus-within:text-white focus-within:ring-2 hover:text-cRed hover:bg-white shadow-lg ring-cRed hover:ring-cRed">
+                                <div class="border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full text-center">Discard</div>
+                            </a>
                         </div>
                     </div>
                 </div>

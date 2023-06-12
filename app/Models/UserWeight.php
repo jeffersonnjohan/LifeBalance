@@ -17,7 +17,7 @@ class UserWeight extends Model
         $userId = auth()->user()->id;
 
         // Hapus jika ada
-        UserWeight::where('user_id', $userId)->delete();
+        UserWeight::where('user_id', $userId)->whereDate('created_at', Carbon::now()->format('Y-m-d'))->delete();
 
         UserWeight::create([
             'user_id' => $userId,
