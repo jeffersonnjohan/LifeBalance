@@ -50,15 +50,30 @@ class DietController extends Controller
      */
     public function store(StoreDietRequest $request){
 
+        // $newDiet = $request->all();
+        // if($request->file('image')) {
+        //     $newDiet['image'] = $request->file('image')->store('diet-images');
+        // }
+        // dd($request);
+        // dd($newDiet);
+
         $diet = new Diet([
             'name' => $request->planTitle,
             'description' => $request->description,
             'points' => $request->points,
-            'image' => 'images/dietplan',
+            // 'image' => $request->image
+            'image' => 'images/dietplan.png'
         ]);
 
+        // if($request->file('image')) {
+        //     $diet['image'] = $request->file('image')->store('diet-images');
+        // }
+
+        // dd($diet);
+
+
         $dayCount = count($request->dietDayDescription);
-        
+
         // Workout Details
         $diet_details = [];
 
@@ -98,7 +113,8 @@ class DietController extends Controller
         $diet = Diet::find($request->editID);
         return view('adminpage.editDP', [
             'diet' => $diet,
-            'dietDays' => $diet->dietDay
+            'dietDays' => $diet->dietDay,
+            'oldImg' => $diet->oldImg
         ]);
     }
 
@@ -125,7 +141,7 @@ class DietController extends Controller
         $diet->image = 'images/dietplan';
 
         $dayCount = count($request->dietDayDescription);
-        
+
         // Workout Details
         $diet_details = [];
 

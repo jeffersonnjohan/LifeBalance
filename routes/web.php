@@ -36,19 +36,19 @@ use App\Models\UserWeight;
 |
 */
 
-Route::redirect('/', '/login');
+Route::redirect('/', '/login')->middleware('guest');
 
 
 Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
-Route::post('/login', [LoginController::class, 'authenticate']);
+Route::post('/login', [LoginController::class, 'authenticate'])->middleware('guest');
 
 Route::get('/signup', [SignupController::class, 'index'])->middleware('guest');
-Route::post('/signup', [SignupController::class, 'store']);
+Route::post('/signup', [SignupController::class, 'store'])->middleware('guest');
 
-Route::get('/logout', [LogoutController::class, 'logout']);
+Route::get('/logout', [LogoutController::class, 'logout'])->middleware('auth');
 
 Route::get('/editprofile', [EditProfileController::class, 'index'])->middleware('auth');
-Route::post('/editprofile', [EditProfileController::class, 'updateData']);
+Route::post('/editprofile', [EditProfileController::class, 'updateData'])->middleware('auth');
 
 Route::get('/profile', [ProfileController::class, 'index'])->middleware('auth');
 
@@ -102,18 +102,18 @@ Route::resource('/admin/meditation', MeditationController::class)->only('index',
 //     return view('adminpage.addMP');
 // });
 
-Route::post('/admin/diet/delete', [DietController::class, 'destroy']);
-Route::post('/admin/diet/edit', [DietController::class, 'edit']);
-Route::post('/admin/diet/update', [DietController::class, 'update']);
-Route::resource('/admin/diet', DietController::class);
+Route::post('/admin/diet/delete', [DietController::class, 'destroy'])->middleware('admin');
+Route::post('/admin/diet/edit', [DietController::class, 'edit'])->middleware('admin');
+Route::post('/admin/diet/update', [DietController::class, 'update'])->middleware('admin');
+Route::resource('/admin/diet', DietController::class)->middleware('admin');
 
 Route::get('/admin/challenges', function () {
     return view('adminpage.listChallenges');
-});
+})->middleware('admin');
 
 Route::get('/admin/challenges/add', function () {
     return view('adminpage.addChallenge');
-});
+})->middleware('admin');
 
 // ADDITIONAL ADMIN PAGE - EDIT PLAN
 // Route::get('/admin/meditation/edit', function () {
@@ -126,27 +126,27 @@ Route::get('/admin/challenges/add', function () {
 
 Route::get('/admin/challenges/edit', function () {
     return view('adminpage.editChallenge');
-});
+})->middleware('admin');
 
 // Home | Community Route
 Route::get('/home', [HomeController::class, 'index'])->middleware('auth');
 Route::post('/home', [UserWeight::class, 'store'])->middleware('auth');
-Route::get('/community', [CommunityController::class, 'index']);
+Route::get('/community', [CommunityController::class, 'index'])->middleware('auth');
 
 // Workout Route
-Route::get('/workouts', [WorkoutController::class, 'allWorkouts']);
-Route::post('/workoutdetails', [WorkoutDetailController::class, 'index']);
-Route::post('/workoutdays', [WorkoutDayController::class, 'index']);
-Route::post('/workoutactivity',  [WorkoutActivityController::class, 'index']);
+Route::get('/workouts', [WorkoutController::class, 'allWorkouts'])->middleware('auth');
+Route::post('/workoutdetails', [WorkoutDetailController::class, 'index'])->middleware('auth');
+Route::post('/workoutdays', [WorkoutDayController::class, 'index'])->middleware('auth');
+Route::post('/workoutactivity',  [WorkoutActivityController::class, 'index'])->middleware('auth');
 
 // Meditation Routes
-Route::get('/meditations', [MeditationController::class, 'showAll']);
-Route::post('/meditationDetails', [MeditationController::class, 'show']);
+Route::get('/meditations', [MeditationController::class, 'showAll'])->middleware('auth');
+Route::post('/meditationDetails', [MeditationController::class, 'show'])->middleware('auth');
 
 // Diet Routes
-Route::get('/diets', [DietController::class, 'allDiets']);
-Route::post('/dietDays', [DietDayController::class, 'index']);
-Route::post('/backtodiets', [DietDayController::class, 'index2']);
+Route::get('/diets', [DietController::class, 'allDiets'])->middleware('auth');
+Route::post('/dietDays', [DietDayController::class, 'index'])->middleware('auth');
+Route::post('/backtodiets', [DietDayController::class, 'index2'])->middleware('auth');
 
 // Diet History
-Route::get('/history', [HistoryController::class, 'index']);
+Route::get('/history', [HistoryController::class, 'index'])->middleware('auth');

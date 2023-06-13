@@ -30,7 +30,7 @@
 </nav>
 
 @section('body')
-<form action="/admin/diet/update" method="post">
+<form action="/admin/diet/update" method="post" enctype="multipart/form-data">
     <input type="hidden" name="dietID" value={{ $diet->id }}>
     @csrf
         {{-- Page Body Section --}}
@@ -54,15 +54,16 @@
                         </div>
                         <div class="w-[25%] h-[120px] flex items-center text-cDarkGrey justify-between pl-0 lg:w-full">
                             <div class="relative w-full aspect-square h-full bg-white rounded-3xl shadow-lg">
-                                <input type="file" name="image" id="image" accept="image/png, image/jpeg, image/jpg" required class="hidden" onchange="loadFile(event)">
-                                <label for="image" class="h-full w-full ring-cGreen hover:ring-cGreen aspect-square rounded-3xl p-2 flex flex-col justify-center items-center cursor-pointer duration-300 hover:ring-2 focus-within:ring-2 hover:text-cGreen bg-cover bg-center absolute" id="imgBox">
+                                <input type="file" name="image" id="image" onchange="loadFile(event)" class="hidden">
+                                <input type="hidden" name="oldImage" value="{{ $oldImg }}">
+                                <label for="image" class="h-full aspect-square rounded-3xl p-2 flex flex-col justify-center items-center cursor-pointer duration-300 hover:ring-2 focus-within:ring-2 hover:text-cBlue bg-cover bg-center absolute" id="imgBox" style="background-image: url('{{ asset('/storage/'.$oldImg) }}')">
                                 </label>
                                 <div class="h-full w-full flex flex-col justify-center items-center p-2">
                                     <span class="material-symbols-outlined">
                                         image
                                     </span>
-                                    <div class="text-sm text-center">
-                                        <p>Input Img</p>
+                                    <div class="text-sm">
+                                        <p>Put your photo here</p>
                                     </div>
                                 </div>
                             </div>
@@ -103,8 +104,8 @@ Dinner : Es buah)" required class="h-[120px] resize-none border-transparent bg-t
                     </div>
                     @endforeach
                 </div>
-                
-                
+
+
                 <div class="mb-10 flex flex-row pt-2 pb-2 text-cGreen place-content-end pr-2" id="addMore">
                     <span class="material-symbols-outlined ">
                         add
@@ -137,7 +138,7 @@ Dinner : Es buah)" required class="h-[120px] resize-none border-transparent bg-t
     <script>
         // Initialization awal
         initializationElement()
-        
+
         // Untuk Preview Image
         var loadFile = function(event) {
             imgBox.style.backgroundImage = 'url(' + URL.createObjectURL(event.target.files[0]) + ')';
@@ -152,7 +153,7 @@ Dinner : Es buah)" required class="h-[120px] resize-none border-transparent bg-t
             countDay = dayHeader.length
             buttonRemoveDay = document.getElementsByClassName('deleteDay')
             days = containerDay.children
-            
+
             for(let i = 0; i < buttonRemoveDay.length; i++){
                 buttonRemoveDay[i] = recreateNode(buttonRemoveDay[i])
             }

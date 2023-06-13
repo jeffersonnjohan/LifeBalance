@@ -21,6 +21,8 @@ class SignupController extends Controller
             $validatedData['image'] = $request->file('image')->store('profile-images');
         }
 
+        dd($validatedData);
+
         // return $temp;
         $validatedData['password'] = bcrypt($validatedData['password']);
         User::create($validatedData);
