@@ -38,10 +38,10 @@ class WorkoutDetailController extends Controller
         $workout = DB::table('workouts')
                         ->where('id', '=', $workout_id)
                         ->get();
+
         $workout_days = DB::table('workout_days')
                         ->where('workout_id', '=', $workout_id)
                         ->get();
-
 
         $is_done = DB::table('enrollment_workouts')
                     ->where('workout_id', '=', $workout_id)
@@ -58,6 +58,13 @@ class WorkoutDetailController extends Controller
             $day_count = DB::table('workouts')
                             ->where('id', '=', $workout_id)
                             ->pluck('day_count');
+
+            $user_workout = DB::table('user_workouts')
+                            ->insert([
+                                'user_id' => $id,
+                                'calories_out' => $request->post('total_kcal'),
+                                'created_at' => now()
+                            ]);
 
             // finished_day++
             $date = \Carbon\Carbon::now('GMT+7')->format('Y-m-d h:i:s');
