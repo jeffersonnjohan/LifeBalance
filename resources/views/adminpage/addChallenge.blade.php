@@ -5,8 +5,8 @@
 @section('style')
     <style>
         /* *{
-                border: red solid 0.5px;
-            } */
+                    border: red solid 0.5px;
+                } */
     </style>
 @endsection
 
@@ -83,13 +83,13 @@
                     class="ring-cOrange hover:ring-cOrange w-[50%] h-[50px] rounded-full bg-white flex items-center text-cDarkGrey px-4 duration-300 hover:ring-2  focus-within:text-cOrange focus-within:ring-2 hover:text-cOrange shadow-lg ">
                     <input type="text" name="startDate" id="startDate" placeholder="Start Date" required
                         class="text-center border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full p-0 "
-                        {{-- onfocus="(this.type='date')" onblur="(this.type= this.value ? 'date' : 'text')" --}}
-                        >
+                        onfocus="(this.type='date')" onblur="(this.type= this.value ? 'date' : 'text')">
                 </div>
                 <div
                     class="ring-cOrange hover:ring-cOrange w-[50%] h-[50px] rounded-full bg-white flex items-center text-cDarkGrey px-4 duration-300 hover:ring-2  focus-within:text-cOrange focus-within:ring-2 hover:text-cOrange shadow-lg ">
                     <input type="text" name="endDate" id="endDate" placeholder="End Date" required
-                        class="text-center border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full p-0 ">
+                        class="text-center border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full p-0"
+                        onfocus="(this.type='date')" onblur="(this.type= this.value ? 'date' : 'text')">
                 </div>
             </div>
             <div class="flex flex-row lg:flex-col gap-2 pt-2 pb-2 px-3">
@@ -133,7 +133,5 @@
 @endsection
 
 @section('scripts')
-<script>
-
-</script>
+    <script></script>
 @endsection
