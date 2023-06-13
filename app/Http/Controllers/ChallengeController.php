@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use DateTime;
+use App\Models\Collect;
 use App\Models\Challenge;
 use App\Models\EnrollmentDiet;
 use App\Models\EnrollmentWorkout;
@@ -21,6 +22,9 @@ class ChallengeController extends Controller
     {
         $id = Auth::user()->id;
         $challengeData = Challenge::all();
+        $collected = Collect::where('user_id', $id)->get()->pluck('challenge_id');
+        // dd($collected);
+        $challengeData = Challenge::where('end_date', '>=', now())->whereNotIn('id', $collected)->get();
         // dd($challengeData);
         $arrworkout = [];
         $arrdiet = [];

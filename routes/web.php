@@ -1,6 +1,7 @@
 <?php
 
-use App\Http\Controllers\ChallengeController;
+use App\Models\Diet;
+use App\Models\UserWeight;
 use GuzzleHttp\Middleware;
 use App\Models\EnrollmentWorkout;
 use Illuminate\Support\Facades\DB;
@@ -15,15 +16,15 @@ use App\Http\Controllers\DietDayController;
 use App\Http\Controllers\HistoryController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\WorkoutController;
+use App\Http\Controllers\ChallengeController;
 use App\Http\Controllers\CommunityController;
 use App\Http\Controllers\MeditationController;
 use App\Http\Controllers\WorkoutDayController;
 use App\Http\Controllers\EditProfileController;
 use App\Http\Controllers\WorkoutDetailController;
+use App\Http\Controllers\ChallengesClaimController;
 use App\Http\Controllers\WorkoutActivityController;
 use App\Http\Controllers\EnrollmentWorkoutController;
-use App\Models\Diet;
-use App\Models\UserWeight;
 
 /*
 |--------------------------------------------------------------------------
@@ -69,6 +70,7 @@ Route::get('/otherprofile', function () {
 // });
 
 Route::resource('/challenges', ChallengeController::class)->middleware('auth');
+Route::get('/challenges/claim/{id}', [ChallengesClaimController::class, 'index'])->middleware('auth');
 
 // Route::get('/history', function () {
 //     return view('history');
