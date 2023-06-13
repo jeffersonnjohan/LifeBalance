@@ -42,15 +42,21 @@
                             <h4 class="pl-2 pr-2 mr-20 lg:mr-17 text-sm">{{ $challengeData[$i]['description'] }}</h4>
                             <div class="flex p-2 gap-2">
                                 @if( $challengeData[$i]['workout_plan_count'] != 0)
-                                    <div class="font-bold rounded-full border-2 border-cBlue h-7 w-2/5 text-center relative flex overflow-hidden">
-                                        <div class="bg-cBlue h-full {{ $wbar }}"></div>
-                                        <p class="absolute translate-x-[-50%] left-[50%]">{{ $arrworkout[$i] }}/{{ $challengeData[$i]['workout_plan_count'] }}</p>
+                                    <div class="w-2/5 font-bold">
+                                        <div class="rounded-full border-2 border-cBlue h-7 w-full text-center relative flex overflow-hidden">
+                                            <div class="bg-cBlue h-full {{ $wbar }}"></div>
+                                            <p class="absolute translate-x-[-50%] left-[50%]">{{ $arrworkout[$i] }}/{{ $challengeData[$i]['workout_plan_count'] }}</p>
+                                        </div>
+                                        <p class="font-bold text-center text-cBlue">WORKOUT</p>
                                     </div>
                                 @endif
                                 @if( $challengeData[$i]['diet_plan_count'] != 0)
-                                    <div class="font-bold rounded-full border-2 border-cGreen h-7 w-2/5 text-center relative flex overflow-hidden">
-                                        <div class="bg-cGreen h-full {{ $dbar }}"></div>
-                                        <p class="absolute translate-x-[-50%] left-[50%]">{{ $arrdiet[$i] }}/{{ $challengeData[$i]['diet_plan_count'] }}</p>
+                                    <div class="w-2/5 font-bold">
+                                        <div class="rounded-full border-2 border-cGreen h-7 text-center relative flex overflow-hidden">
+                                            <div class="bg-cGreen h-full {{ $dbar }}"></div>
+                                            <p class="absolute translate-x-[-50%] left-[50%]">{{ $arrdiet[$i] }}/{{ $challengeData[$i]['diet_plan_count'] }}</p>
+                                        </div>
+                                        <p class="font-bold text-center text-cGreen">DIET</p>
                                     </div>
                                 @endif
                                 <div class="flex gap-1">

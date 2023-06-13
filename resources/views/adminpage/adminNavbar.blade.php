@@ -1,6 +1,6 @@
 {{-- Admin Page's Navbar --}}
 <div class="lg:fixed lg:flex lg:h-fit lg:w-fit lg:items-center lg:translate-y-[-50%] lg:top-[50%] lg:-right-10 duration-300 ease-out lg:-translate-x-12" id="navbar">
-    <button class="bg-white rounded-3xl py-3 w-[75px] flex hover:bg-cDarkGrey hover:text-white duration-200 ease-out hover:-translate-x-1 shadow-lg" onclick="navbarpopup()">
+    <button class="bg-white rounded-3xl py-3 w-[75px] lg:flex hidden hover:bg-cDarkGrey hover:text-white duration-200 ease-out hover:-translate-x-1 shadow-lg" onclick="navbarpopup()">
         <div class="material-symbols-outlined iconNavbar rotate-180" id="arrow">
             chevron_left
         </div>
