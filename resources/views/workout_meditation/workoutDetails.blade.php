@@ -106,29 +106,6 @@
                         </div>
                     @endif
                 @endforeach
-                {{-- Day Card --}}
-                {{-- <a href="/workoutdays">
-                    <div class="aspect-square bg-white rounded-3xl flex justify-center items-center border-2 text-cBlue border-cBlue">
-                        DAY 1
-                    </div>
-                </a>
-                <a href="/workoutdays">
-                    <div class="aspect-square bg-white rounded-3xl flex justify-center items-center border-2 text-cBlue border-cBlue">
-                        DAY 2
-                    </div>
-                </a> --}}
-                {{-- Day Card Locked--}}
-                {{-- <a href="/workoutdays">
-                    <div class="aspect-square bg-white rounded-3xl flex justify-center items-center border-2 text-cDarkGrey border-cDarkGrey relative">
-                        DAY 3 --}}
-                        {{-- Overlay Gembok --}}
-                        {{-- <div class="absolute top-0 bottom-0 left-0 right-0 bg-[rgba(255,255,255,0.75)] rounded-3xl flex justify-center items-center">
-                            <span class="material-symbols-outlined scale-[2] text-black opacity-100">
-                                lock
-                            </span>
-                        </div>
-                    </div>
-                </a> --}}
 
             </div>
         </div>

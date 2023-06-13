@@ -63,11 +63,11 @@ class WorkoutDetailController extends Controller
                             ->insert([
                                 'user_id' => $id,
                                 'calories_out' => $request->post('total_kcal'),
-                                'created_at' => now()
+                                'created_at' => now('GMT+7')
                             ]);
 
             // finished_day++
-            $date = \Carbon\Carbon::now('GMT+7')->format('Y-m-d h:i:s');
+            $date = \Carbon\Carbon::now('GMT+7');//->format('Y-m-d h:i:s');
             DB::table('enrollment_workouts')
                 ->where('workout_id', '=', $workout_id)
                 ->where('user_id', $id)
