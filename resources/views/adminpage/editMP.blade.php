@@ -92,9 +92,9 @@
                     </div>
                 </div>
                 <div class="pt-2 pb-2 bottom-0 lg:w-[50%]">
-                    <div class="ring-cRed hover:ring-cRed w-full h-[50px] rounded-full bg-cRed text-white flex items-center font-bold px-4 duration-300 hover:ring-2 focus-within:text-white focus-within:ring-2 hover:text-cRed hover:bg-white shadow-lg">
-                        <input type="reset" name="discard" id="discardButton" value="Discard" required class="border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full">
-                    </div>
+                <a href="/admin/meditation" class="w-full h-[50px] rounded-full bg-cRed text-white flex items-center font-bold px-4 duration-300 hover:ring-2 focus-within:text-white focus-within:ring-2 hover:text-cRed hover:bg-white shadow-lg ring-cRed hover:ring-cRed">
+                        <div class="border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full text-center">Discard</div>
+                    </a>
                 </div>
             </div>
         </div>
