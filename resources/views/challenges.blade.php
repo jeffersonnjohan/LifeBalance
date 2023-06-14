@@ -21,13 +21,15 @@
                 @if($arrworkout[$i] >= $challengeData[$i]['workout_plan_count'])
                     <?php $wbar = 'full'; ?>
                 @else
-                    <?php $wbar = strval($arrworkout[$i]).'/'.strval($challengeData[$i]['workout_plan_count']); ?>
+                    <?php $wbar = strval($arrworkout[$i])/strval($challengeData[$i]['workout_plan_count'])*100; ?>
+                    <?php $wbar = '['.$wbar.'%]'; ?>
                 @endif
 
                 @if($arrdiet[$i] >= $challengeData[$i]['diet_plan_count'])
                     <?php $dbar = 'full'; ?>
                 @else
-                    <?php $dbar = strval($arrdiet[$i]).'/'.strval($challengeData[$i]['diet_plan_count']); ?>
+                    <?php $dbar = strval($arrdiet[$i])/strval($challengeData[$i]['diet_plan_count'])*100; ?>
+                    <?php $dbar = '['.$dbar.'%]'; ?>
                 @endif
                 <div class="p-2 lg:w-1/3 lg:h-fit">
                     <div class="bg-white rounded-3xl h-fit shadow-lg group duration-300 ease-out hover:bg-orange-100 focus:ring-cOrange flex flex-col">
@@ -47,7 +49,6 @@
                                 @if( $challengeData[$i]['workout_plan_count'] != 0)
                                     <div class="w-2/5 font-bold">
                                         <div class="rounded-full border-2 border-cBlue h-7 w-full text-center relative flex overflow-hidden">
-                                            {{-- <div class="bg-cBlue h-full {{ $wbar }}"></div> --}}
                                             <div class="bg-cBlue h-full w-{{ $wbar }}"></div>
                                             <p class="absolute translate-x-[-50%] left-[50%]">{{ $arrworkout[$i] }}/{{ $challengeData[$i]['workout_plan_count'] }}</p>
                                         </div>
