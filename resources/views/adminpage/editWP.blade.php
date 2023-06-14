@@ -43,14 +43,14 @@
                         class="w-[75%] lg:w-full h-[50px] rounded-full bg-white flex items-center text-cDarkGrey px-4 duration-300 hover:ring-2 focus-within:text-cBlue focus-within:ring-2 hover:text-cBlue shadow-lg">
                         <input type="text" name="planTitle" id="planTitle" placeholder="Plan Title"
                             value="{{ $workout->name }}" required
-                            class=" lg:text-center border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full">
+                            class="p-0 text-left lg:text-center border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full">
                     </div>
                     {{-- Point --}}
                     <div
                         class="w-[25%] lg:w-full h-[50px] rounded-full bg-white flex items-center text-cDarkGrey px-4 duration-300 hover:ring-2 focus-within:text-cBlue focus-within:ring-2 hover:text-cBlue shadow-lg">
                         <input type="number" name="points" id="points" placeholder="Points"
                             value="{{ $workout->points }}" required
-                            class="text-center border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full">
+                            class="p-0 text-center border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full">
                     </div>
                 </div>
 
@@ -61,7 +61,7 @@
                         class="w-[75%] lg:w-full h-[120px] rounded-3xl bg-white flex items-center text-cDarkGrey px-4 duration-300 hover:ring-2 focus-within:text-cBlue focus-within:ring-2 hover:text-cBlue shadow-lg">
                         <input type="text" name="description" id="description" placeholder="Description"
                             value="{{ $workout->description }}" required
-                            class=" lg:text-center border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full">
+                            class="p-0 text-left lg:text-center border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full">
                     </div>
                     {{-- Input Image --}}
                     <div class="w-[25%] lg:w-full h-[120px] flex items-center text-cDarkGrey justify-between pl-0">
@@ -178,8 +178,9 @@
                 <h3>Add More</h3>
             </div>
 
+            <div class="pb-40"></div>
             {{-- Confirm & Discard Button --}}
-            <div class="bottom-0 sticky pb-[80px] lg:pb-0 w-full px-3">
+            <div class="bottom-0 fixed lg:pb-0 w-full px-3">
                 <div class="lg:fixed lg:right-0 lg:left-[25%] lg:px-4 lg:pb-2 lg:flex-row lg:flex lg:gap-2 lg:bottom-0">
                     <div class="pt-2 pb-2 lg:w-[50%]">
                         <div
@@ -202,7 +203,7 @@
 
         </div>
         {{-- </form> --}}
-        @include('adminpage.adminNavbar', ['active' => 'adminpage.listWorkout'])
+        {{-- @include('adminpage.adminNavbar', ['active' => 'adminpage.listWorkout']) --}}
     @endsection
 
     @section('scripts')

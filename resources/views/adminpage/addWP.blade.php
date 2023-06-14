@@ -46,13 +46,13 @@
                         <div
                             class="w-[75%] lg:w-full h-[50px] rounded-full bg-white flex items-center text-cDarkGrey px-4 duration-300 hover:ring-2 focus-within:text-cBlue focus-within:ring-2 hover:text-cBlue shadow-lg">
                             <input type="text" name="planTitle" id="planTitle" placeholder="Plan Title" required
-                                class=" lg:text-center border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full">
+                                class="p-0 text-left lg:text-center border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full">
                         </div>
                         {{-- Point --}}
                         <div
                             class="w-[25%] lg:w-full h-[50px] rounded-full bg-white flex items-center text-cDarkGrey px-4 duration-300 hover:ring-2 focus-within:text-cBlue focus-within:ring-2 hover:text-cBlue shadow-lg">
                             <input type="number" name="points" id="points" placeholder="Points" required
-                                class="text-center border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full">
+                                class="p-0 text-center border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full">
                         </div>
                     </div>
 
@@ -62,7 +62,7 @@
                         <div
                             class="w-[75%] lg:w-full h-[120px] rounded-3xl bg-white flex items-center text-cDarkGrey px-4 duration-300 hover:ring-2 focus-within:text-cBlue focus-within:ring-2 hover:text-cBlue shadow-lg">
                             <input type="text" name="description" id="description" placeholder="Description" required
-                                class=" lg:text-center border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full">
+                                class="p-0 text-left lg:text-center border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full">
                         </div>
                         {{-- Input Image --}}
                         <div class="w-[25%] lg:w-full h-[120px] flex items-center text-cDarkGrey justify-between pl-0">

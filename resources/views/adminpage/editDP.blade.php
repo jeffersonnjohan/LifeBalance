@@ -42,15 +42,15 @@
                     </div> --}}
                     <div class="flex flex-row lg:flex-col gap-2 pt-2 pb-2 px-3 ">
                         <div class="ring-cGreen hover:ring-cGreen w-[75%] lg:w-full h-[50px] rounded-full bg-white flex items-center text-cDarkGrey px-4 duration-300 hover:ring-2  focus-within:text-cGreen focus-within:ring-2 hover:text-cGreen shadow-lg">
-                            <input type="text" name="planTitle" id="planTitle" placeholder="Plan Title" value="{{ $diet->name }}" required class="text-center border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full">
+                            <input type="text" name="planTitle" id="planTitle" placeholder="Plan Title" value="{{ $diet->name }}" required class="p-0 text-left lg:text-center border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full">
                         </div>
                         <div class="ring-cGreen hover:ring-cGreen w-[25%] lg:w-full h-[50px] rounded-full bg-white flex items-center text-cDarkGrey px-4 duration-300 hover:ring-2 focus-within:text-cGreen focus-within:ring-2 hover:text-cGreen shadow-lg">
-                            <input type="number" name="points" id="points" placeholder="Points" value="{{ $diet->points }}" required class="text-center border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full">
+                            <input type="number" name="points" id="points" placeholder="Points" value="{{ $diet->points }}" required class="p-0 text-center border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full">
                         </div>
                     </div>
                     <div class="flex flex-row lg:flex-col lg:pt-0 gap-2 pt-2 pb-2 px-3 ">
                         <div class="ring-cGreen hover:ring-cGreen w-[75%] lg:w-full h-[120px] rounded-3xl bg-white flex items-center text-cDarkGrey px-4 duration-300 hover:ring-2 focus-within:text-cGreen focus-within:ring-2 hover:text-cGreen shadow-lg">
-                            <input type="text" name="description" id="description" placeholder="Description" value="{{ $diet->description }}" required class="text-center border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full ">
+                            <input type="text" name="description" id="description" placeholder="Description" value="{{ $diet->description }}" required class="p-0 text-left lg:text-center border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full ">
                         </div>
                         <div class="w-[25%] h-[120px] flex items-center text-cDarkGrey justify-between pl-0 lg:w-full">
                             <div class="relative w-full aspect-square h-full bg-white rounded-3xl shadow-lg">
@@ -63,7 +63,7 @@
                                         image
                                     </span>
                                     <div class="text-sm">
-                                        <p>Put your photo here</p>
+                                        <p>Input img</p>
                                     </div>
                                 </div>
                             </div>
