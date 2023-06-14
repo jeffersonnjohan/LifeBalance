@@ -30,10 +30,10 @@
 </nav>
 
 @section('body')
-<form action="/admin/diet" method="post">
+<form action="/admin/diet" method="post" class="pt-16 bg-cLightGrey w-full overflow-auto lg:flex lg:flex-row lg:w-full ">
     @csrf
         {{-- Page Body Section --}}
-        <div class="pt-16 bg-cLightGrey w-full overflow-auto lg:flex lg:flex-row lg:w-full ">
+        {{-- <div > --}}
             <div class="lg:relative">
                 <div class="lg:fixed lg:bg-cGreen lg:flex lg:flex-col lg:place-content-center lg:m-auto lg:h-full lg:rounded-r-[100px] lg:w-[25%]">
                     {{-- <div class="invisible lg:visible">
@@ -129,7 +129,7 @@ Dinner : Es buah)" required class="h-[120px] resize-none border-transparent bg-t
                     </div>
                 </div>
             </div>
-        </div>
+        {{-- </div> --}}
     {{-- @include('adminpage.adminNavbar', ['active' => 'adminpage.listDiet']) --}}
 @endsection
 

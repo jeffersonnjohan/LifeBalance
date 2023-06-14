@@ -33,10 +33,10 @@
 </nav>
 
 @section('body')
-    <form action="/admin/workout" method="post">
+    <form action="/admin/workout" method="post" class="pt-16 w-full bg-cLightGrey lg:flex lg:flex-row lg:w-full">
         @csrf
         {{-- Page Body Section --}}
-        <div class="pt-16 w-full bg-cLightGrey lg:flex lg:flex-row lg:w-full">
+        {{-- <div > --}}
             <div class="lg:relative lg:w-[25%]">
                 <div
                     class="lg:fixed lg:bg-cBlue lg:flex lg:flex-col lg:place-content-center lg:m-auto lg:h-full lg:rounded-r-[100px] lg:w-[25%]">
@@ -87,7 +87,7 @@
                 </div>
             </div>
 
-            <div class="lg:flex lg:flex-col lg:w-[75%] lg:ml-[25%]">
+            <div class="lg:flex lg:flex-col lg:w-[75%]">
                 {{-- Add Details per Day --}}
                 <div id="containerDay">
                     <div class="px-3 ">
@@ -185,7 +185,7 @@
                 </div>
             </div>
 
-        </div>
+        {{-- </div> --}}
     </form>
     {{-- @include('adminpage.adminNavbar', ['active' => 'adminpage.listWorkout']) --}}
 @endsection

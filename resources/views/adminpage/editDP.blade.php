@@ -30,11 +30,11 @@
 </nav>
 
 @section('body')
-<form action="/admin/diet/update" method="post" enctype="multipart/form-data">
+<form action="/admin/diet/update" method="post" enctype="multipart/form-data" class="pt-16 bg-cLightGrey w-full overflow-auto lg:flex lg:flex-row lg:w-full ">
     <input type="hidden" name="dietID" value={{ $diet->id }}>
     @csrf
         {{-- Page Body Section --}}
-        <div class="pt-16 bg-cLightGrey w-full overflow-auto lg:flex lg:flex-row lg:w-full ">
+        {{-- <div > --}}
             <div class="lg:relative">
                 <div class="lg:fixed lg:bg-cGreen lg:flex lg:flex-col lg:place-content-center lg:m-auto lg:h-full lg:rounded-r-[100px] lg:w-[25%]">
                     {{-- <div class="invisible lg:visible">
@@ -112,8 +112,10 @@ Dinner : Es buah)" required class="h-[120px] resize-none border-transparent bg-t
                     </span>
                     <h3>Add More</h3>
                 </div>
+
+                <div class="pb-40"></div>
                 {{-- Confirm Button --}}
-                <div class="bottom-0 sticky lg:relative pb-[80px] lg:pb-0 w-full px-3">
+                <div class="bottom-0 fixed lg:relative lg:pb-0 w-full px-3">
                     <div class="lg:fixed lg:right-0 lg:left-[25%] lg:px-4 lg:pb-2 lg:flex-row lg:flex lg:gap-2 lg:bottom-0">
                         <div class="pt-2 pb-2 lg:w-[50%]">
                             <div class="w-full h-[50px] rounded-full bg-cGreen text-white flex items-center font-bold px-4 duration-300 hover:ring-2 ring-cGreen focus-within:text-white focus-within:ring-2 hover:text-cGreen hover:bg-white shadow-lg">
@@ -129,7 +131,7 @@ Dinner : Es buah)" required class="h-[120px] resize-none border-transparent bg-t
                     </div>
                 </div>
             </div>
-        </div>
+        {{-- </div> --}}
     {{-- @include('adminpage.adminNavbar', ['active' => 'adminpage.listDiet']) --}}
 </form>
 @endsection
