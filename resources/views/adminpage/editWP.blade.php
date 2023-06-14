@@ -136,21 +136,21 @@
                                         <div class="flex flex-row justify-between pt-2 w-full h-[px] gap-2">
                                             <div
                                                 class="h-[52px] w-full rounded-full bg-white flex items-center text-cDarkGrey duration-300 hover:ring-2 focus-within:text-cBlue focus-within:ring-2 hover:text-cBlue shadow-lg">
-                                                <input type="text" name="repetition[{{ $loop->parent->index }}][]"
+                                                <input type="number" name="repetition[{{ $loop->parent->index }}][]"
                                                     id="repetition" placeholder="Repetition"
                                                     value="{{ $workoutExerciseEach->repetition }}" required
                                                     class="border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full">
                                             </div>
                                             <div
                                                 class="h-[52px] w-full rounded-full bg-white flex items-center text-cDarkGrey duration-300 hover:ring-2 focus-within:text-cBlue focus-within:ring-2 hover:text-cBlue shadow-lg ">
-                                                <input type="text" name="calories[{{ $loop->parent->index }}][]"
+                                                <input type="number" name="calories[{{ $loop->parent->index }}][]"
                                                     id="calories" placeholder="Calories"
                                                     value="{{ $workoutExerciseEach->calories }}" required
                                                     class="border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full">
                                             </div>
                                             <div
                                                 class="h-[52px] w-full rounded-full bg-white flex items-center text-cDarkGrey duration-300 hover:ring-2 focus-within:text-cBlue focus-within:ring-2 hover:text-cBlue shadow-lg">
-                                                <input type="text" name="duration[{{ $loop->parent->index }}][]"
+                                                <input type="number" name="duration[{{ $loop->parent->index }}][]"
                                                     id="duration" placeholder="Duration"
                                                     value="{{ $workoutExerciseEach->duration }}" required
                                                     class="border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full">
@@ -330,13 +330,13 @@
                         </div>
                         <div class="flex flex-row justify-between pt-2 w-full h-[px] gap-2">
                             <div class="h-[52px] w-full rounded-full bg-white flex items-center text-cDarkGrey duration-300 hover:ring-2 focus-within:text-cBlue focus-within:ring-2 hover:text-cBlue shadow-lg">
-                                <input type="text" name="repetition[][]" id="repetition" placeholder="Repetition" required class="border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full">
+                                <input type="number" name="repetition[][]" id="repetition" placeholder="Repetition" required class="border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full">
                             </div>
                             <div class="h-[52px] w-full rounded-full bg-white flex items-center text-cDarkGrey duration-300 hover:ring-2 focus-within:text-cBlue focus-within:ring-2 hover:text-cBlue shadow-lg ">
-                                <input type="text" name="calories[][]" id="calories" placeholder="Calories" required class="border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full">
+                                <input type="number" name="calories[][]" id="calories" placeholder="Calories" required class="border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full">
                             </div>
                             <div class="h-[52px] w-full rounded-full bg-white flex items-center text-cDarkGrey duration-300 hover:ring-2 focus-within:text-cBlue focus-within:ring-2 hover:text-cBlue shadow-lg">
-                                <input type="text" name="duration[][]" id="duration" placeholder="Duration" required class="border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full">
+                                <input type="number" name="duration[][]" id="duration" placeholder="Duration" required class="border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full">
                             </div>
                         </div>
                     </div>
@@ -367,13 +367,13 @@
                     </div>
                     <div class="flex flex-row justify-between pt-2 w-full h-[px] gap-2">
                         <div class="h-[52px] w-full rounded-full bg-white flex items-center text-cDarkGrey duration-300 hover:ring-2 focus-within:text-cBlue focus-within:ring-2 hover:text-cBlue shadow-lg">
-                            <input type="text" name="repetition[][]" id="repetition" placeholder="Repetition" required class="border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full">
+                            <input type="number" name="repetition[][]" id="repetition" placeholder="Repetition" required class="border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full">
                         </div>
                         <div class="h-[52px] w-full rounded-full bg-white flex items-center text-cDarkGrey duration-300 hover:ring-2 focus-within:text-cBlue focus-within:ring-2 hover:text-cBlue shadow-lg ">
-                            <input type="text" name="calories[][]" id="calories" placeholder="Calories" required class="border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full">
+                            <input type="number" name="calories[][]" id="calories" placeholder="Calories" required class="border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full">
                         </div>
                         <div class="h-[52px] w-full rounded-full bg-white flex items-center text-cDarkGrey duration-300 hover:ring-2 focus-within:text-cBlue focus-within:ring-2 hover:text-cBlue shadow-lg">
-                            <input type="text" name="duration[][]" id="duration" placeholder="Duration" required class="border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full">
+                            <input type="number" name="duration[][]" id="duration" placeholder="Duration" required class="border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full">
                         </div>
                     </div>
                 </div>
