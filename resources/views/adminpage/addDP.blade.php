@@ -147,7 +147,7 @@ Dinner : Es buah)" required class="h-[120px] resize-none border-transparent bg-t
         // Initilization Element
         function initializationElement(){
             imgBox = document.getElementById('imgBox');
-            addMoreBut`n = document.getElementById('addMore');
+            addMoreButton = document.getElementById('addMore');
             containerDay = document.getElementById('containerDay');
             dayHeader = document.getElementsByClassName('dayHeader')
             countDay = dayHeader.length
