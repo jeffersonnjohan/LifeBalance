@@ -6,6 +6,7 @@ use DateTime;
 use App\Models\Collect;
 use App\Models\Challenge;
 use App\Models\EnrollmentDiet;
+use Illuminate\Support\Carbon;
 use App\Models\EnrollmentWorkout;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\StoreChallengeRequest;
@@ -63,7 +64,7 @@ class ChallengeController extends Controller
      */
     public function create()
     {
-        //
+        return view('adminpage.addChallenge');
     }
 
     /**
@@ -74,7 +75,20 @@ class ChallengeController extends Controller
      */
     public function store(StoreChallengeRequest $request)
     {
-        //
+        // return $request;
+        // {"_token":"biyMF91K8ZpOllW7oqmBDBxgrbSCUevgql2cd6wV","planTitle":"asa","points":"1","description":"sa","image":"flowchart-methodology.png","startDate":"2023-06-06","endDate":"2023-06-18","totalWorkout":"10","totaDiet":"5","confirmButton":"Confirm"}
+        Challenge::create([
+            'name' => $request->planTitle,
+            'description' => $request->description,
+            'points' => $request->points,
+            'image' => 'images/challenge',
+            'start_date' => Carbon::createFromFormat('Y-m-d', $request->startDate)->addHour(),
+            'end_date' => Carbon::createFromFormat('Y-m-d', $request->endDate)->addHour(),
+            'workout_plan_count' => $request->totalWorkout,
+            'diet_plan_count' => $request->totalDiet
+        ]);
+
+        return redirect('/admin/challenges');
     }
 
     /**

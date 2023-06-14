@@ -47,7 +47,7 @@
                     </div>
                 </div>
                 <div class="flex pb-6 pt-10 px-5 items-center">
-                    <div class="flex flex-col">
+                    <div class="flex flex-col w-full">
                         <p class="font-semibold items-center text-lg">{{ $challenge->name }}</p>
                         <p class="text-sm">{{ $challenge->description }}</p>
                         <div class="flex ">

@@ -110,10 +110,9 @@ Route::post('/admin/diet/update', [DietController::class, 'update'])->middleware
 Route::resource('/admin/diet', DietController::class)->middleware('admin');
 
 Route::get('/admin/challenges', [ChallengeController::class, 'showAllAdmin'])->middleware('admin');
+Route::post('/admin/challenges', [ChallengeController::class, 'store'])->middleware('admin');
 
-Route::get('/admin/challenges/add', function () {
-    return view('adminpage.addChallenge');
-})->middleware('admin');
+Route::get('/admin/challenges/add', [ChallengeController::class, 'create'])->middleware('admin');
 
 // ADDITIONAL ADMIN PAGE - EDIT PLAN
 // Route::get('/admin/meditation/edit', function () {

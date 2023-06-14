@@ -33,6 +33,8 @@
 </nav>
 
 @section('body')
+<form action="/admin/challenges" method="post">
+    @csrf
     {{-- Page Body Section --}}
     <div class="pt-16 bg-cLightGrey w-full overflow-auto lg:flex lg:flex-row lg:w-full ">
         <div
@@ -100,7 +102,7 @@
                 </div>
                 <div
                     class="ring-cOrange hover:ring-cOrange w-[50%] lg:w-full h-[50px] rounded-full bg-white flex items-center text-cDarkGrey px-4 duration-300 hover:ring-2  focus-within:text-cOrange focus-within:ring-2 hover:text-cOrange shadow-lg ">
-                    <input type="text" name="totaDiet" id="totaDiet" placeholder="Total Diet" required
+                    <input type="text" name="totalDiet" id="totaDiet" placeholder="Total Diet" required
                         class="text-center border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full p-0 ">
                 </div>
             </div>
@@ -130,8 +132,15 @@
         </div>
     </div>
     {{-- @include('adminpage.adminNavbar', ['active' => 'adminpage.listChallenges']) --}}
+</form>
 @endsection
 
 @section('scripts')
-    <script></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script>
+        // Untuk Preview Image
+        var loadFile = function(event) {
+            imgBox.style.backgroundImage = 'url(' + URL.createObjectURL(event.target.files[0]) + ')';
+        }
+    </script>
 @endsection
