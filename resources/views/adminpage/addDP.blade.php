@@ -70,7 +70,9 @@
                 </div>
             </div>
             <div class="lg:flex lg:flex-col lg:w-[75%] lg:ml-[25%]">
-                <div id="containerDay">
+                {{-- <h1>TEST</h1> --}}
+
+                <div id="containerDay" >
                     {{-- Add Plan per Days --}}
                     <div class="px-3">
                         <div class="pt-2 pb-2">
@@ -100,16 +102,19 @@ Dinner : Es buah)" required class="h-[120px] resize-none border-transparent bg-t
                         </div>
                     </div>
                 </div>
-                
-                
+
+
                 <div class="mb-10 flex flex-row pt-2 pb-2 text-cGreen place-content-end pr-2" id="addMore">
                     <span class="material-symbols-outlined ">
                         add
                     </span>
                     <h3>Add More</h3>
                 </div>
+
+
+                <div class="pb-40"></div>
                 {{-- Confirm Button --}}
-                <div class="bottom-0 sticky lg:relative pb-[80px] lg:pb-0 w-full px-3">
+                <div class="bottom-0 fixed lg:relative pb-4 lg:pb-0 w-full px-3">
                     <div class="lg:fixed lg:right-0 lg:left-[25%] lg:px-4 lg:pb-2 lg:flex-row lg:flex lg:gap-2 lg:bottom-0">
                         <div class="pt-2 pb-2 lg:w-[50%]">
                             <div class="w-full h-[50px] rounded-full bg-cGreen text-white flex items-center font-bold px-4 duration-300 hover:ring-2 ring-cGreen focus-within:text-white focus-within:ring-2 hover:text-cGreen hover:bg-white shadow-lg">
@@ -133,7 +138,7 @@ Dinner : Es buah)" required class="h-[120px] resize-none border-transparent bg-t
     <script>
         // Initialization awal
         initializationElement()
-        
+
         // Untuk Preview Image
         var loadFile = function(event) {
             imgBox.style.backgroundImage = 'url(' + URL.createObjectURL(event.target.files[0]) + ')';
@@ -148,7 +153,7 @@ Dinner : Es buah)" required class="h-[120px] resize-none border-transparent bg-t
             countDay = dayHeader.length
             buttonRemoveDay = document.getElementsByClassName('deleteDay')
             days = containerDay.children
-            
+
             for(let i = 0; i < buttonRemoveDay.length; i++){
                 buttonRemoveDay[i] = recreateNode(buttonRemoveDay[i])
             }

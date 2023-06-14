@@ -76,8 +76,15 @@ class DietDayController extends Controller
                             ->where('id', '=', $diet_id)
                             ->pluck('day_count');
 
+            $user_diet = DB::table('user_diets')
+            ->insert([
+                'user_id' => $id,
+                'calories_in' => $request->post('total_kcal'),
+                'created_at' => now('GMT+7')
+            ]);
+
             // finished_day++
-            $date = \Carbon\Carbon::now('GMT+7')->format('Y-m-d h:i:s');
+            $date = \Carbon\Carbon::now('GMT+7');//->format('Y-m-d h:i:s')
             DB::table('enrollment_diets')
             ->where('diet_id', '=', $diet_id)
             ->where('user_id', $id)

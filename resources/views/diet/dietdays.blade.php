@@ -14,15 +14,11 @@
             arrow_back
         </span>
     </div>
-    <form action="/backtodiets" method="POST" id='back_form'>
-        @csrf
-        <input type="hidden" id="diet_value" name="diet_value">
-        <input type="hidden" name="diet_id" value="{{ $diet_id }}">
-    </form>
 
     <?php
         $i = 1;
         $flag = 0;
+        $total_kcal = 0;
         $updated_at = \Carbon\Carbon::parse($enrollment[0]->updated_at)->format('d/M/Y');
         $today = \Carbon\Carbon::now('GMT+7')->format('d/M/Y');
         $tomorrow = \Carbon\Carbon::tomorrow('GMT+7')
@@ -55,9 +51,12 @@
             </div>
             {{-- unlocked ongoing plan or if it's user first day--}}
             @elseif ($flag == 0 and $enrollment[0]->finished_day == 0)
+            @php
+                $total_kcal = $day->calories;
+            @endphp
             <div class="m-3 border-2 border-cGreen rounded-lg shadow-md">
                 <h1 class="text-center text-cGreen font-bold text-2xl">{{'DAY ' . $i++ . ' :'}}</h1>
-                <h2 class="text-center text-cGreen font-bold text-md">{{ $day->calories . ' Kcal Consumed'}} </h2>
+                <h2 class="text-center text-cGreen font-bold text-md">{{ $total_kcal . ' Kcal Consumed'}} </h2>
                 <p class="text-lg font-normal text-black p-2">
                     {{ $day->description }}
                 </p>
@@ -83,9 +82,12 @@
             <?php $flag = 1 ?>
             {{--  unlocked plan --}}
             @elseif (!$flag)
+            @php
+                $total_kcal = $day->calories;
+            @endphp
             <div class="m-3 border-2 border-cGreen rounded-lg shadow-md">
                 <h1 class="text-center text-cGreen font-bold text-2xl">{{'DAY ' . $i++ . ' :'}}</h1>
-                <h2 class="text-center text-cGreen font-bold text-md">{{ $day->calories . ' Kcal Consumed'}} </h2>
+                <h2 class="text-center text-cGreen font-bold text-md">{{ $total_kcal . ' Kcal Consumed'}} </h2>
                 <p class="text-lg font-normal text-black p-2">
                     {{ $day->description }}
                 </p>
@@ -109,6 +111,12 @@
             @endif
         @endforeach
 
+        <form action="/backtodiets" method="POST" id='back_form'>
+            @csrf
+            <input type="hidden" id="diet_value" name="diet_value">
+            <input type="hidden" name="diet_id" value="{{ $diet_id }}">
+            <input type="hidden" name="total_kcal" value="{{ $total_kcal }}">
+        </form>
 
         {{-- <div class="m-3 border-2 border-cGreen rounded-lg shadow-md">
             <h1 class="text-center text-cGreen font-bold text-2xl">DAY 1 :</h1>
@@ -165,19 +173,7 @@
                 <span class="material-symbols-outlined -mt-8">
                     lock
                 </span>
-            </div> --}}
-        </div>
-
-
-        {{-- <div class="pb-16 flex flex-row place-content-end mr-4 ">
-            <h3 class="text-cGreen font-bold text-xl">DONE</h3>
-            <div class="border-cGreen border-4 w-5 h-5 self-center ml-2">
             </div>
-        </div> --}}
-        {{-- Done --}}
-        {{-- <div class="px-8 flex items-center justify-end">
-            <label for="default-checkbox" class="mr-4 text-3xl font-bold text-cGreen">DONE</label>
-            <input id="default-checkbox" type="checkbox" value="" class="w-7 h-7 text-cGreen bg-gray-100 border-cGreen rounded focus:ring-cGreen focus:ring-2">
         </div> --}}
         @include('backend.countdown-js')
     </div>
