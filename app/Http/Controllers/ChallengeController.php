@@ -25,7 +25,8 @@ class ChallengeController extends Controller
         $challengeData = Challenge::all();
         $collected = Collect::where('user_id', $id)->get()->pluck('challenge_id');
         // dd($collected);
-        $challengeData = Challenge::where('end_date', '>=', now())->whereNotIn('id', $collected)->get();
+
+        $challengeData = Challenge::whereDate('end_date', '>=', now())->whereNotIn('id', $collected)->get();
         // dd($challengeData);
         $arrworkout = [];
         $arrdiet = [];
@@ -82,8 +83,8 @@ class ChallengeController extends Controller
             'description' => $request->description,
             'points' => $request->points,
             'image' => 'images/challenge',
-            'start_date' => Carbon::createFromFormat('Y-m-d', $request->startDate)->addHour(),
-            'end_date' => Carbon::createFromFormat('Y-m-d', $request->endDate)->addHour(),
+            'start_date' => Carbon::createFromFormat('Y-m-d', $request->startDate)->setTime(23, 59, 59),
+            'end_date' => Carbon::createFromFormat('Y-m-d', $request->endDate)->setTime(23, 59, 59),
             'workout_plan_count' => $request->totalWorkout,
             'diet_plan_count' => $request->totalDiet
         ]);
