@@ -4,9 +4,9 @@
 
 @section('style')
     <style>
-        * {
-            border: red solid 0.5px;
-        }
+        /* * {
+                border: red solid 0.5px;
+            } */
     </style>
 @endsection
 
@@ -22,7 +22,8 @@
                     <p class="text-black font-extrabold dark:text-white hover:text-cBlue">Plans</p>
                 </li>
             </ul>
-            <a href="/profile" class="fixed bg-cBlue rounded-b-3xl flex justify-center items-center aspect-square h-[50px] shadow-lg right-2 -top-0.5 z-10 group duration-300 ease-out hover:bg-white">
+            <a href="/profile"
+                class="fixed bg-cBlue rounded-b-3xl flex justify-center items-center aspect-square h-[50px] shadow-lg right-2 -top-0.5 z-10 group duration-300 ease-out hover:bg-white">
                 <div class="bg-white rounded-full p-4 bg-cover mt-2"
                     style="background-image: url({{ '/storage/' . App\Models\User::find(Auth::user()->id)['image'] }})">
                 </div>
@@ -156,15 +157,17 @@
 
                     </div>
                 </div>
-                <div id="addMore" class="flex flex-row mb-16 pt-2 pb-2 text-cBlue place-content-center pr-2">
+                <div id="addMore" class="flex flex-row pt-2 pb-2 text-cBlue place-content-center pr-2">
                     <span class="material-symbols-outlined ">
                         add
                     </span>
                     <h3>Add More</h3>
                 </div>
 
+
+                <div class="pb-40"></div>
                 {{-- Confirm & Discard Button --}}
-                <div class="bottom-0 sticky pb-[80px] lg:pb-0 w-full px-3">
+                <div class="bottom-0 fixed pb-4 lg:pb-0 w-full px-3">
                     <div class="lg:fixed lg:right-0 lg:left-[25%] lg:px-4 lg:pb-2 lg:flex-row lg:flex lg:gap-2 lg:bottom-0">
                         <div class="pt-2 pb-2 lg:w-[50%]">
                             <div
@@ -173,26 +176,16 @@
                                     class="border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full">
                             </div>
                         </div>
-                        <<<<<<< HEAD <div class="pt-2 pb-2 bottom-0 lg:w-[50%]">
+                        <div class="pt-2 pb-2 bottom-0 lg:w-[50%]">
                             <div
                                 class="w-full h-[50px] rounded-full bg-cRed text-white flex items-center font-bold px-4 duration-300 hover:ring-2 focus-within:text-white focus-within:ring-2 hover:text-cRed hover:bg-white shadow-lg ring-cRed hover:ring-cRed">
                                 <input type="submit" name="confirmButton" id="confirmButton" value="Discard" required
                                     class="border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full">
                             </div>
+                        </div>
                     </div>
-                    =======
-                </div>
-                <div class="pt-2 pb-2 bottom-0 lg:w-[50%]">
-                    <a href="/admin/workout"
-                        class="w-full h-[50px] rounded-full bg-cRed text-white flex items-center font-bold px-4 duration-300 hover:ring-2 focus-within:text-white focus-within:ring-2 hover:text-cRed hover:bg-white shadow-lg ring-cRed hover:ring-cRed">
-                        <div
-                            class="border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full text-center">
-                            Discard</div>
-                    </a>
-                    >>>>>>> e21da42e091c0494cdddaf007c16f2737c2ee6ff
                 </div>
             </div>
-        </div>
 
         </div>
     </form>

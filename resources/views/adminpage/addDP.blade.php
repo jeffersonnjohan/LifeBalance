@@ -110,9 +110,11 @@ Dinner : Es buah)" required class="h-[120px] resize-none border-transparent bg-t
                     </span>
                     <h3>Add More</h3>
                 </div>
-                {{-- Confirm Button --}}
-                <div class="bottom-0 sticky lg:relative pb-[80px] lg:pb-0 w-full px-3">
 
+
+                <div class="pb-40"></div>
+                {{-- Confirm Button --}}
+                <div class="bottom-0 fixed lg:relative pb-4 lg:pb-0 w-full px-3">
                     <div class="lg:fixed lg:right-0 lg:left-[25%] lg:px-4 lg:pb-2 lg:flex-row lg:flex lg:gap-2 lg:bottom-0">
                         <div class="pt-2 pb-2 lg:w-[50%]">
                             <div class="w-full h-[50px] rounded-full bg-cGreen text-white flex items-center font-bold px-4 duration-300 hover:ring-2 ring-cGreen focus-within:text-white focus-within:ring-2 hover:text-cGreen hover:bg-white shadow-lg">
