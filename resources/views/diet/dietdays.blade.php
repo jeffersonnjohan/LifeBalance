@@ -70,7 +70,7 @@
             {{-- locked ongoing plan --}}
             @elseif ($flag == 0 and $today == $updated_at)
             <div class="m-3 border-2 border-cGreen rounded-lg shadow-md">
-                <h1 class="text-center text-cGreen font-bold text-2xl">{{'DAY ' . $i++ . ' :'}}</h1>
+                <h1 class=" text-center text-cGreen font-bold text-2xl">{{'DAY ' . $i++ . ' :'}}</h1>
                 {{-- Done --}}
                 <div class="px-8 flex items-center justify-end mb-6">
                     <label for="default-checkbox" class="mr-4 text-3xl font-bold text-cGreen">
