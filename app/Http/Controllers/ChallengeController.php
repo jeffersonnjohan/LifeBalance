@@ -50,6 +50,12 @@ class ChallengeController extends Controller
         return view('challenges', compact('challengeData', 'arrworkout', 'arrdiet'));
     }
 
+    public function showAllAdmin(){
+        return view('adminpage.listChallenges', [
+            'challenges' => Challenge::all()
+        ]);
+    }
+
     /**
      * Show the form for creating a new resource.
      *

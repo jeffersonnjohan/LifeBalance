@@ -109,9 +109,7 @@ Route::post('/admin/diet/edit', [DietController::class, 'edit'])->middleware('ad
 Route::post('/admin/diet/update', [DietController::class, 'update'])->middleware('admin');
 Route::resource('/admin/diet', DietController::class)->middleware('admin');
 
-Route::get('/admin/challenges', function () {
-    return view('adminpage.listChallenges');
-})->middleware('admin');
+Route::get('/admin/challenges', [ChallengeController::class, 'showAllAdmin'])->middleware('admin');
 
 Route::get('/admin/challenges/add', function () {
     return view('adminpage.addChallenge');
