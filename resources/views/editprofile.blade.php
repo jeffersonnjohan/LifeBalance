@@ -1,10 +1,5 @@
 @extends('datainput')
 
-@section('backbtn')
-    @extends('component.backbutton')
-    @section('backlink', '/profile')
-@endsection
-
 @section('toptitle', 'Edit Profile')
 
 @section('topdesc', 'Let LifeBalance know more about yourself!')
@@ -31,7 +26,7 @@
 @section('img_weight_height')
 <div class="w-[300px] h-[110px] flex items-center text-cDarkGrey justify-between gap-2">
     <div class="relative aspect-square h-full bg-cLightGrey rounded-3xl">
-        <input type="file" name="image" id="image" onchange="loadFile(event)" class="hidden">
+        <input type="file" name="image" id="image" accept="image/png, image/jpeg, image/jpg" onchange="loadFile(event)" class="hidden">
         <input type="hidden" name="oldImage" value="{{ $userdata['image'] }}">
         <label for="image" class="h-full aspect-square rounded-3xl p-2 flex flex-col justify-center items-center cursor-pointer duration-300 hover:ring-2 focus-within:ring-2 hover:text-cBlue bg-cover bg-center absolute" id="imgBox" style="background-image: url('{{ asset('/storage/'.$userdata['image']) }}')">
         </label>

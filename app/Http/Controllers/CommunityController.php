@@ -14,17 +14,17 @@ class CommunityController extends Controller
             ->where('is_done', true)
             ->join('workouts', 'workout_id', '=', 'workouts.id')
             ->join('users', 'user_id', '=', 'users.id')
-            ->select(DB::raw('`enrollment_workouts`.id,`enrollment_workouts`.updated_at,`workouts`.name,`workouts`.image,`users`.username'))
+            ->select(DB::raw('`enrollment_workouts`.id,`enrollment_workouts`.updated_at,`workouts`.name,`workouts`.image,`users`.username,`users`.id'))
             ->addSelect(DB::raw('1 as type'));
-            
-            $dietPosts = DB::table('enrollment_diets')
+
+        $dietPosts = DB::table('enrollment_diets')
             ->where('is_done', true)
             ->join('diets', 'diet_id', '=', 'diets.id')
             ->join('users', 'user_id', '=', 'users.id')
-            ->select(DB::raw('`enrollment_diets`.id,`enrollment_diets`.updated_at,`diets`.name,`diets`.image,`users`.username'))
+            ->select(DB::raw('`enrollment_diets`.id,`enrollment_diets`.updated_at,`diets`.name,`diets`.image,`users`.username,`users`.id'))
             ->addSelect(DB::raw('2 as type'));
 
-        // Type 1 for workout and 2 for diet 
+        // Type 1 for workout and 2 for diet
 
         $posts = $workoutPosts->union($dietPosts)->get()->sortByDesc('updated_at');
         return view('home_community.community', [

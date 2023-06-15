@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Meditation;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\StoreMeditationRequest;
 use App\Http\Requests\UpdateMeditationRequest;
-use Illuminate\Http\Request;
 
 class MeditationController extends Controller
 {
@@ -44,11 +45,20 @@ class MeditationController extends Controller
      */
     public function store(StoreMeditationRequest $request)
     {
+        $newMeditation= $request->all();
+        if($request->file('image')) {
+            $newMeditation['image'] = $request->file('image')->store('meditation-images');
+        }
+
+        if($request->file('song')) {
+            $newMeditation['song'] = $request->file('song')->store('meditation-songs');
+        }
+
         Meditation::create([
             'name' => $request->planTitle,
             'description' => $request->description,
-            'image' => 'images/meditation.png',
-            'audio' => 'audio/meditation.mp3',
+            'image' => $newMeditation['image'],
+            'audio' => $newMeditation['song'],
         ]);
 
         return redirect('/admin/meditation');
@@ -77,8 +87,12 @@ class MeditationController extends Controller
      */
     public function edit(Request $request)
     {
+        $temp = Meditation::find($request->editID);
+
         return view('adminpage.editMP', [
-            'meditation' => Meditation::find($request->editID)
+            'meditation' => $temp,
+            'oldImg' => $temp->image,
+            'oldSong' => $temp->audio
         ]);
     }
 
@@ -91,12 +105,33 @@ class MeditationController extends Controller
      */
     public function update(UpdateMeditationRequest $request)
     {
-        Meditation::find($request->editID)->update([
+        $meditation = Meditation::find($request->editID);
+
+        if($request->file('image')) {
+            if($request->oldImage) {
+                Storage::delete($request->oldImage);
+            }
+            $meditation->image = $request->file('image')->store('meditation-images');
+        } else {
+            $meditation->image = $request->oldImage;
+        }
+
+        if($request->file('song')) {
+            if($request->oldSong) {
+                Storage::delete($request->oldSong);
+            }
+            $meditation->audio = $request->file('song')->store('meditation-songs');
+        } else {
+            $meditation->audio = $request->oldSong;
+        }
+
+        $meditation->update([
             'name' => $request->planTitle,
             'description' => $request->description,
-            'image' => 'images/meditation.png',
-            'audio' => 'audio/meditation.mp3',
+            'image' =>  $meditation->image,
+            'audio' => $meditation->audio
         ]);
+
         return redirect('/admin/meditation');
     }
 
@@ -108,7 +143,14 @@ class MeditationController extends Controller
      */
     public function destroy(Request $request)
     {
-        Meditation::find($request->deleteID)->delete();
+        $meditationImg = Meditation::find($request->deleteID)->image;
+        $meditationSong = Meditation::find($request->deleteID)->audio;
+
+        Storage::delete($meditationImg);
+        Storage::delete($meditationSong);
+
+        // Meditation::find($request->deleteID)->delete();
+        Meditation::destroy($request->deleteID);
         return redirect('admin/meditation');
     }
 }

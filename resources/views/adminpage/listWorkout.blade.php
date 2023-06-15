@@ -6,11 +6,11 @@
 {{-- Header --}}
 @section('header')
 <nav class="justify-evenly fixed bg-gradient-to-b from-cLightGrey from-30% to-transparent w-full z-10">
-    
+
     <div class="max-w-screen-xl px-4 py-3 mx-auto">
-        
+
         <div class="flex items-center">
-            
+
             <ul class="flex flex-row font-medium mt-0 mr-6 space-x-2 text-2xl">
                 <li>
                     <p class="text-cBlue font-extrabold dark:text-white hover:text-cBlue">Workout</p>
@@ -75,7 +75,8 @@
                                     {{ $workout->points }} points will be added!
                                 </p>
                             </div>
-                            <div class="w-[30%] h-fit md:w-40 rounded-md border border-cBlue aspect-square bg-center bg-cover" style="background-image:url('/assets/planImage.png')">
+                            {{-- <div class="w-[30%] h-fit md:w-40 rounded-md border border-cBlue aspect-square bg-center bg-cover" style="background-image:url('/assets/planImage.png')"> --}}
+                            <div class="w-[30%] h-fit md:w-40 rounded-md border border-cBlue aspect-square bg-center bg-cover" style="background-image: url('{{ asset('/storage/'.$workout->image) }}')">
                             </div>
                         </div>
                         <div class="absolute h-fit w-fit flex flex-col gap-2 right-3">

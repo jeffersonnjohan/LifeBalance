@@ -9,6 +9,7 @@ use Illuminate\Http\Response;
 use App\Models\EnrollmentDiet;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\StoreDietRequest;
+use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\UpdateDietRequest;
 
 class DietController extends Controller
@@ -50,27 +51,19 @@ class DietController extends Controller
      */
     public function store(StoreDietRequest $request){
 
-        // $newDiet = $request->all();
-        // if($request->file('image')) {
-        //     $newDiet['image'] = $request->file('image')->store('diet-images');
-        // }
-        // dd($request);
-        // dd($newDiet);
+        $newDiet = $request->all();
+        if($request->file('image')) {
+            $newDiet['image'] = $request->file('image')->store('diet-images');
+        }
 
         $diet = new Diet([
-            'name' => $request->planTitle,
-            'description' => $request->description,
-            'points' => $request->points,
-            // 'image' => $request->image
-            'image' => 'images/dietplan.png'
+            'name' => $newDiet['planTitle'],
+            'description' => $newDiet['description'],
+            'points' => $newDiet['points'],
+            'image' => $newDiet['image']
         ]);
 
-        // if($request->file('image')) {
-        //     $diet['image'] = $request->file('image')->store('diet-images');
-        // }
-
         // dd($diet);
-
 
         $dayCount = count($request->dietDayDescription);
 
@@ -114,7 +107,7 @@ class DietController extends Controller
         return view('adminpage.editDP', [
             'diet' => $diet,
             'dietDays' => $diet->dietDay,
-            'oldImg' => $diet->oldImg
+            'oldImg' => $diet->image
         ]);
     }
 
@@ -138,7 +131,15 @@ class DietController extends Controller
         $diet->name = $request->planTitle;
         $diet->description = $request->description;
         $diet->points = $request->points;
-        $diet->image = 'images/dietplan';
+
+        if($request->file('image')) {
+            if($request->oldImage) {
+                Storage::delete($request->oldImage);
+            }
+            $diet->image = $request->file('image')->store('diet-images');
+        } else {
+            $diet->image = $request->oldImage;
+        }
 
         $dayCount = count($request->dietDayDescription);
 
@@ -173,6 +174,9 @@ class DietController extends Controller
             DietDay::destroy($prevDietPlan->id);
         }
 
+        $dietImg = Diet::find($request->deleteID)->image;
+
+        Storage::delete($dietImg);
         Diet::destroy($request->deleteID);
 
         return redirect('/admin/diet');

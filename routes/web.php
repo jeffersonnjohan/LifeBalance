@@ -21,6 +21,7 @@ use App\Http\Controllers\CommunityController;
 use App\Http\Controllers\MeditationController;
 use App\Http\Controllers\WorkoutDayController;
 use App\Http\Controllers\EditProfileController;
+use App\Http\Controllers\OtherProfileController;
 use App\Http\Controllers\WorkoutDetailController;
 use App\Http\Controllers\ChallengesClaimController;
 use App\Http\Controllers\WorkoutActivityController;
@@ -53,9 +54,7 @@ Route::post('/editprofile', [EditProfileController::class, 'updateData'])->middl
 
 Route::get('/profile', [ProfileController::class, 'index'])->middleware('auth');
 
-Route::get('/otherprofile', function () {
-    return view('otherprofile');
-})->middleware('auth');
+Route::post('/otherprofile', [OtherProfileController::class, 'index'])->middleware('auth');
 
 // Route::get('/diets', function () {
 //     return view('diet.diets');

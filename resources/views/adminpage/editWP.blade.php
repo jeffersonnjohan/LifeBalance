@@ -27,7 +27,7 @@
 </nav>
 
 @section('body')
-<form action="/admin/workout/update" method="post">
+<form action="/admin/workout/update" method="post" enctype="multipart/form-data">
     @csrf
     <input type="hidden" name="workoutID" value="{{ $workout->id }}">
     {{-- Page Body Section --}}
@@ -55,8 +55,9 @@
                     {{-- Input Image --}}
                     <div class="w-[25%] lg:w-full h-[120px] flex items-center text-cDarkGrey justify-between pl-0">
                         <div class="relative w-full aspect-square h-full bg-white rounded-3xl shadow-lg">
-                            <input type="file" name="image" id="image" accept="image/*" required class="hidden" onchange="loadFile(event)">
-                            <label for="image" class="h-full w-full aspect-square rounded-3xl p-2 flex flex-col justify-center items-center cursor-pointer duration-300 hover:ring-2 focus-within:ring-2 hover:text-cBlue bg-cover bg-center absolute" id="imgBox">
+                            <input type="file" name="image" id="image" accept="image/png, image/jpeg, image/jpg" onchange="loadFile(event)" class="hidden">
+                            <input type="hidden" name="oldImage" value="{{ $oldImg }}">
+                            <label for="image" class="h-full w-full aspect-square rounded-3xl p-2 flex flex-col justify-center items-center cursor-pointer duration-300 hover:ring-2 focus-within:ring-2 hover:text-cBlue bg-cover bg-center absolute" id="imgBox" style="background-image: url('{{ asset('/storage/'.$oldImg) }}')">
                             </label>
                             <div class="h-full w-full flex flex-col justify-center items-center p-2">
                                 <span class="material-symbols-outlined">
@@ -125,7 +126,7 @@
                             <span class=" material-symbols-outlined rounded-full h-fit my-auto p-2 scale-100 duration-300 ease-out bg-cRed hover:bg-white hover:border-cDarkBlue focus:border-5 focus:border-cDarkblue hover:text-black text-white">
                                 delete
                             </span>
-                        </div>            
+                        </div>
                         @endforeach
 
                     </div>
@@ -165,10 +166,10 @@
 @section('scripts')
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 <script>
-    
+
     // Initialization awal
     initializationElement()
-    
+
     // Untuk Preview Image
     var loadFile = function(event) {
         imgBox.style.backgroundImage = 'url(' + URL.createObjectURL(event.target.files[0]) + ')';
@@ -181,7 +182,7 @@
         containerDay = document.getElementById('containerDay');
         buttonAddExerciseDetail = document.getElementsByClassName('exerciseDetail')
         buttonRemoveExerciseDetail = document.getElementsByClassName('deleteExerciseDetail')
-        
+
         // Remove event handler
         for(let i = 0; i < buttonAddExerciseDetail.length; i++){
             buttonAddExerciseDetail[i] = recreateNode(buttonAddExerciseDetail[i])
@@ -384,10 +385,10 @@
 
                 let inputRepKHariKeJ = containerRepCalDurKHariKeJ.children[0].children[0]
                 inputRepKHariKeJ.setAttribute('name', "repetition["+j+"][]")
-                
+
                 let inputCalKHariKeJ = containerRepCalDurKHariKeJ.children[1].children[0]
                 inputCalKHariKeJ.setAttribute('name', "calories["+j+"][]")
-                
+
                 let inputDurKHariKeJ = containerRepCalDurKHariKeJ.children[2].children[0]
                 inputDurKHariKeJ.setAttribute('name', "duration["+j+"][]")
             }

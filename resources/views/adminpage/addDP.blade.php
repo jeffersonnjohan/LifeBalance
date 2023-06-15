@@ -30,7 +30,7 @@
 </nav>
 
 @section('body')
-<form action="/admin/diet" method="post">
+<form action="/admin/diet" method="post" enctype="multipart/form-data">
     @csrf
         {{-- Page Body Section --}}
         <div class="pt-16 bg-cLightGrey w-full overflow-auto lg:flex lg:flex-row lg:w-full ">

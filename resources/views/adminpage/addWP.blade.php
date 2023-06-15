@@ -33,7 +33,7 @@
 </nav>
 
 @section('body')
-    <form action="/admin/workout" method="post">
+    <form action="/admin/workout" method="post" enctype="multipart/form-data">
         @csrf
         {{-- Page Body Section --}}
         <div class="pt-16 w-full bg-cLightGrey lg:flex lg:flex-row lg:w-full">
@@ -67,7 +67,7 @@
                         {{-- Input Image --}}
                         <div class="w-[25%] lg:w-full h-[120px] flex items-center text-cDarkGrey justify-between pl-0">
                             <div class="relative w-full aspect-square h-full bg-white rounded-3xl shadow-lg">
-                                <input type="file" name="image" id="image" accept="image/*" required class="hidden"
+                                <input type="file" name="image" id="image" accept="image/png, image/jpeg, image/jpg" required class="hidden"
                                     onchange="loadFile(event)">
                                 <label for="image"
                                     class="h-full w-full aspect-square rounded-3xl p-2 flex flex-col justify-center items-center cursor-pointer duration-300 hover:ring-2 focus-within:ring-2 hover:text-cBlue bg-cover bg-center absolute"
