@@ -32,8 +32,8 @@
 @section('body')
 
     {{-- Page Body Section --}}
-    <div class="pt-16  bg-cLightGrey w-full overflow-auto lg:flex lg:flex-row lg:w-full ">
-        <form action="/admin/meditation/update" method="post">
+    {{-- <div > --}}
+        <form action="/admin/meditation/update" method="post" class="pt-16  bg-cLightGrey w-full overflow-auto lg:flex lg:flex-row lg:w-full ">
         @csrf
         <input type="hidden" name="editID" value="{{ $meditation->id }}">
         <div class="lg:fixed lg:bg-cBlue lg:flex lg:flex-col lg:place-content-center lg:m-auto lg:h-full lg:rounded-r-[100px] lg:w-[25%]">
@@ -46,7 +46,8 @@
             </div>
             <div class="pt-4 px-3">
                 <div class="w-full h-[120px] rounded-3xl bg-white flex items-center text-cDarkGrey px-4 duration-300 hover:ring-2 focus-within:text-cBlue focus-within:ring-2 hover:text-cBlue shadow-lg">
-                    <input type="text" name="description" id="description" placeholder="Description" value="{{ $meditation->description }}" required class="p-0 text-left lg:text-center border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full">
+                    {{-- <input type="text" name="description" id="description" placeholder="Description" value="{{ $meditation->description }}" required class="p-0 text-left lg:text-center border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full"> --}}
+                    <textarea type="text" name="description" id="description" placeholder="Description" required class="p-0 lg:py-10 pt text-left lg:text-center lg:self-center h-[100px] resize-none border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full"></textarea>
                 </div>
             </div>
             <div class="flex-row flex px-3 pb-10">
@@ -99,7 +100,7 @@
             </div>
         </div>
         </form>
-    </div>
+    {{-- </div> --}}
     {{-- @include('adminpage.adminNavbar', ['active' => 'adminpage.listWorkout']) --}}
 
 @endsection

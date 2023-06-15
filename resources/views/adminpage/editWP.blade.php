@@ -59,9 +59,10 @@
                     {{-- Description --}}
                     <div
                         class="w-[75%] lg:w-full h-[120px] rounded-3xl bg-white flex items-center text-cDarkGrey px-4 duration-300 hover:ring-2 focus-within:text-cBlue focus-within:ring-2 hover:text-cBlue shadow-lg">
-                        <input type="text" name="description" id="description" placeholder="Description"
+                        <textarea type="text" name="description" id="description" placeholder="Description" value="{{ $workout->description }}" required class="p-0 lg:py-10 pt text-left lg:text-center lg:self-center h-[100px] resize-none border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full"></textarea>
+                        {{-- <input type="text" name="description" id="description" placeholder="Description"
                             value="{{ $workout->description }}" required
-                            class="p-0 text-left lg:text-center border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full">
+                            class="p-0 text-left lg:text-center border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full"> --}}
                     </div>
                     {{-- Input Image --}}
                     <div class="w-[25%] lg:w-full h-[120px] flex items-center text-cDarkGrey justify-between pl-0">
