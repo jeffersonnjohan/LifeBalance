@@ -49,7 +49,7 @@
                 <div class="flex pb-6 pt-10 px-5 items-center">
                     <div class="flex flex-col w-full">
                         <p class="font-semibold items-center text-lg">{{ $challenge->name }}</p>
-                        <p class="text-sm">{{ $challenge->description }}</p>
+                        <p class="text-sm h-fit lg:h-[90px]">{{ $challenge->description }}</p>
                         <div class="flex ">
                             <span class="material-symbols-outlined text-cYellow">
                                 toll
@@ -117,9 +117,9 @@
             </div>
         @endforeach
 
-        
 
-        
+
+
     </div>
 
 {{-- Add Challenges Plan --}}

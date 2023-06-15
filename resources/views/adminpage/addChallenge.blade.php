@@ -97,12 +97,12 @@
         <div class="flex flex-row lg:flex-col gap-2 pt-2 pb-2 px-3">
             <div
                 class="ring-cOrange hover:ring-cOrange w-[50%] lg:w-full h-[50px] rounded-full bg-white flex items-center text-cDarkGrey px-4 duration-300 hover:ring-2  focus-within:text-cOrange focus-within:ring-2 hover:text-cOrange shadow-lg ">
-                <input type="text" name="totalWorkout" id="totalWorkout" placeholder="Total Workout" required
+                <input type="number" name="totalWorkout" id="totalWorkout" placeholder="Total Workout" required
                     class="text-center border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full p-0 ">
             </div>
             <div
                 class="ring-cOrange hover:ring-cOrange w-[50%] lg:w-full h-[50px] rounded-full bg-white flex items-center text-cDarkGrey px-4 duration-300 hover:ring-2  focus-within:text-cOrange focus-within:ring-2 hover:text-cOrange shadow-lg ">
-                <input type="text" name="totalDiet" id="totaDiet" placeholder="Total Diet" required
+                <input type="number" name="totalDiet" id="totaDiet" placeholder="Total Diet" required
                     class="text-center border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full p-0 ">
             </div>
         </div>

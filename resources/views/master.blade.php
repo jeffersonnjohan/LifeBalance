@@ -25,6 +25,17 @@
             'GRAD' 0,
             'opsz' 48
         }
+        /* Firefox */
+        input[type=number] {
+            -moz-appearance: textfield;
+        }
+
+        /* Chrome, Safari, Edge, Opera */
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+        }
     </style>
     @yield('style')
 </head>

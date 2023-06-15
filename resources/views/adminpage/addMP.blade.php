@@ -46,14 +46,14 @@
                     <div
                         class="w-full h-[50px] rounded-full bg-white flex items-center text-cDarkGrey px-4 duration-300 hover:ring-2 focus-within:text-cBlue focus-within:ring-2 hover:text-cBlue shadow-lg">
                         <input type="text" name="planTitle" id="planTitle" placeholder="Plan Title" required
-                            class="border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full">
+                            class="p-0 text-left lg:text-center border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full">
                     </div>
                 </div>
                 <div class="pt-4 px-3">
                     <div
                         class="w-full h-[120px] rounded-3xl bg-white flex items-center text-cDarkGrey px-4 duration-300 hover:ring-2 focus-within:text-cBlue focus-within:ring-2 hover:text-cBlue shadow-lg">
                         <input type="text" name="description" id="description" placeholder="Description" required
-                            class="border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full">
+                            class="p-0 text-left lg:text-center border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full">
                     </div>
                 </div>
                 <div class="flex-row flex px-3 pb-10">

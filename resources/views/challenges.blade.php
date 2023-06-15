@@ -14,7 +14,7 @@
     <div class="bg-cLightGrey h-full w-full mb-28">
         <div class="bg-cOrange h-fit rounded-b-[50px] lg:rounded-b-[100px] mb-2">
             <h1 class="text-white text-3xl font-n'id'ormal text-left pt-12 pb-12 pl-10 pr-10 lg:text-center">Ayo Ikuti Challenge
-            <br> Dan Dapan Keuntungan Pointnya!</h1>
+            <br> Dan Dapatkan Keuntungan Pointnya!</h1>
         </div>
         <div class="lg:flex lg:flex-wrap lg:p-4">
             @for ($i = 0; $i < $challengeData->count(); $i++)
@@ -43,7 +43,7 @@
                         <div class="p-2 flex flex-col pt-7 gap-2">
                             <div>
                                 <h3 class="font-semibold pl-2 pr-2 mr-20 lg:mr-17 pt-4 text-lg">{{ $challengeData[$i]['name'] }}</h3>
-                                <h4 class="pl-2 pr-2 mr-20 lg:mr-17 text-sm">{{ $challengeData[$i]['description'] }}</h4>
+                                <h4 class="pl-2 pr-2 mr-20 h-fit lg:h-[90px] lg:mr-17 text-sm">{{ $challengeData[$i]['description'] }}</h4>
                             </div>
                             <div class="flex gap-2">
                                 @if( $challengeData[$i]['workout_plan_count'] != 0)

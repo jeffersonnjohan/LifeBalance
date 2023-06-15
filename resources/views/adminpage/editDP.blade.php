@@ -30,11 +30,11 @@
 </nav>
 
 @section('body')
-<form action="/admin/diet/update" method="post" enctype="multipart/form-data">
+<form action="/admin/diet/update" method="post" enctype="multipart/form-data" class="pt-16 bg-cLightGrey w-full overflow-auto lg:flex lg:flex-row lg:w-full ">
     <input type="hidden" name="dietID" value={{ $diet->id }}>
     @csrf
         {{-- Page Body Section --}}
-        <div class="pt-16 bg-cLightGrey w-full overflow-auto lg:flex lg:flex-row lg:w-full ">
+        {{-- <div > --}}
             <div class="lg:relative">
                 <div class="lg:fixed lg:bg-cGreen lg:flex lg:flex-col lg:place-content-center lg:m-auto lg:h-full lg:rounded-r-[100px] lg:w-[25%]">
                     {{-- <div class="invisible lg:visible">
@@ -42,15 +42,15 @@
                     </div> --}}
                     <div class="flex flex-row lg:flex-col gap-2 pt-2 pb-2 px-3 ">
                         <div class="ring-cGreen hover:ring-cGreen w-[75%] lg:w-full h-[50px] rounded-full bg-white flex items-center text-cDarkGrey px-4 duration-300 hover:ring-2  focus-within:text-cGreen focus-within:ring-2 hover:text-cGreen shadow-lg">
-                            <input type="text" name="planTitle" id="planTitle" placeholder="Plan Title" value="{{ $diet->name }}" required class="text-center border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full">
+                            <input type="text" name="planTitle" id="planTitle" placeholder="Plan Title" value="{{ $diet->name }}" required class="p-0 text-left lg:text-center border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full">
                         </div>
                         <div class="ring-cGreen hover:ring-cGreen w-[25%] lg:w-full h-[50px] rounded-full bg-white flex items-center text-cDarkGrey px-4 duration-300 hover:ring-2 focus-within:text-cGreen focus-within:ring-2 hover:text-cGreen shadow-lg">
-                            <input type="number" name="points" id="points" placeholder="Points" value="{{ $diet->points }}" required class="text-center border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full">
+                            <input type="number" name="points" id="points" placeholder="Points" value="{{ $diet->points }}" required class="p-0 text-center border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full">
                         </div>
                     </div>
                     <div class="flex flex-row lg:flex-col lg:pt-0 gap-2 pt-2 pb-2 px-3 ">
                         <div class="ring-cGreen hover:ring-cGreen w-[75%] lg:w-full h-[120px] rounded-3xl bg-white flex items-center text-cDarkGrey px-4 duration-300 hover:ring-2 focus-within:text-cGreen focus-within:ring-2 hover:text-cGreen shadow-lg">
-                            <input type="text" name="description" id="description" placeholder="Description" value="{{ $diet->description }}" required class="text-center border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full ">
+                            <input type="text" name="description" id="description" placeholder="Description" value="{{ $diet->description }}" required class="p-0 text-left lg:text-center border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full ">
                         </div>
                         <div class="w-[25%] h-[120px] flex items-center text-cDarkGrey justify-between pl-0 lg:w-full">
                             <div class="relative w-full aspect-square h-full bg-white rounded-3xl shadow-lg">
@@ -63,7 +63,7 @@
                                         image
                                     </span>
                                     <div class="text-sm">
-                                        <p>Put your photo here</p>
+                                        <p>Input img</p>
                                     </div>
                                 </div>
                             </div>
@@ -112,8 +112,10 @@ Dinner : Es buah)" required class="h-[120px] resize-none border-transparent bg-t
                     </span>
                     <h3>Add More</h3>
                 </div>
+
+                <div class="pb-40"></div>
                 {{-- Confirm Button --}}
-                <div class="bottom-0 sticky lg:relative pb-[80px] lg:pb-0 w-full px-3">
+                <div class="bottom-0 fixed lg:relative lg:pb-0 w-full px-3">
                     <div class="lg:fixed lg:right-0 lg:left-[25%] lg:px-4 lg:pb-2 lg:flex-row lg:flex lg:gap-2 lg:bottom-0">
                         <div class="pt-2 pb-2 lg:w-[50%]">
                             <div class="w-full h-[50px] rounded-full bg-cGreen text-white flex items-center font-bold px-4 duration-300 hover:ring-2 ring-cGreen focus-within:text-white focus-within:ring-2 hover:text-cGreen hover:bg-white shadow-lg">
@@ -129,7 +131,7 @@ Dinner : Es buah)" required class="h-[120px] resize-none border-transparent bg-t
                     </div>
                 </div>
             </div>
-        </div>
+        {{-- </div> --}}
     {{-- @include('adminpage.adminNavbar', ['active' => 'adminpage.listDiet']) --}}
 </form>
 @endsection
