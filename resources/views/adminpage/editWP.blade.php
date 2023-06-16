@@ -30,6 +30,8 @@
 @section('body')
 
     <form action="/admin/workout/update" method="post" class="pt-16 w-full bg-cLightGrey lg:flex lg:flex-row lg:w-full" enctype="multipart/form-data">
+        @csrf
+        <input type="hidden" name="workoutID" value="{{ $workout->id }}">
         <div class="lg:relative">
             <div
                 class="lg:fixed lg:bg-cBlue lg:flex lg:flex-col lg:place-content-center lg:m-auto lg:h-full lg:rounded-r-[100px] lg:w-[25%]">
@@ -56,7 +58,9 @@
                     {{-- Description --}}
                     <div
                         class="w-[75%] lg:w-full h-[120px] rounded-3xl bg-white flex items-center text-cDarkGrey px-4 duration-300 hover:ring-2 focus-within:text-cBlue focus-within:ring-2 hover:text-cBlue shadow-lg">
-                        <textarea type="text" name="description" id="description" placeholder="Description" value="{{ $workout->description }}" required class="p-0 lg:py-10 pt text-left lg:text-center lg:self-center h-[100px] resize-none border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full"></textarea>
+                        <textarea type="text" name="description" id="description" placeholder="Description" required class="p-0 lg:py-10 pt text-left lg:text-center lg:self-center h-[100px] resize-none border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full">
+{{ $workout->description }}
+                        </textarea>
                         {{-- <input type="text" name="description" id="description" placeholder="Description"
                             value="{{ $workout->description }}" required
                             class="p-0 text-left lg:text-center border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full"> --}}
@@ -163,9 +167,6 @@
                                     </span>
                                 </div>
                             </div>
-                            <span class=" material-symbols-outlined rounded-full h-fit my-auto p-2 scale-100 duration-300 ease-out bg-cRed hover:bg-white hover:border-cDarkBlue focus:border-5 focus:border-cDarkblue hover:text-black text-white">
-                                delete
-                            </span>
                         </div>
                         @endforeach
 

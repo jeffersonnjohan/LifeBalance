@@ -80,8 +80,7 @@
                 </div>
                 <div class="w-3/6 h-[120px] items-center text-cDarkGrey justify-between gap-2 pt-4 p-2 pr-0">
                     <div class="relative aspect-square w-full h-full bg-white rounded-3xl shadow-lg">
-                        <input type="file" name="song" id="song" accept="audio/*" required class="hidden"
-                            onchange="loadFile(event)">
+                        <input type="file" name="song" id="song" accept="audio/*" required class="hidden">
                         {{-- onchange="loadFile(this.files);"> --}}
                         <label for="song"
                             class="h-full w-full aspect-square rounded-3xl p-2 flex flex-col justify-center items-center cursor-pointer duration-300 hover:ring-2 focus-within:ring-2 hover:text-cBlue bg-cover bg-center absolute"
