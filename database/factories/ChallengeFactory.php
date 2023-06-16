@@ -28,7 +28,6 @@ class ChallengeFactory extends Factory
             'name' => fake()->words(mt_rand(1,3),true),
             'description' => fake()->text(),
             'points' => mt_rand(10,50),
-            'image' => 'images/challenge',
             'start_date' => $this->start_date,
             'end_date' => Carbon::createFromFormat('Y-m-d H:i:s',$this->start_date)->addHour(),
             'workout_plan_count' => $this->workout_plan_count,
