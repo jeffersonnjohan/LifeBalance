@@ -32,8 +32,8 @@
 @section('body')
 
     {{-- Page Body Section --}}
-    {{-- <div > --}}
-        <form action="/admin/meditation/update" method="post" class="pt-16  bg-cLightGrey w-full overflow-auto lg:flex lg:flex-row lg:w-full ">
+        <form action="/admin/meditation/update" method="post" class="pt-16  bg-cLightGrey w-full overflow-auto lg:flex lg:flex-row lg:w-full  enctype="multipart/form-data">
+
         @csrf
         <input type="hidden" name="editID" value="{{ $meditation->id }}">
         <div class="lg:fixed lg:bg-cBlue lg:flex lg:flex-col lg:place-content-center lg:m-auto lg:h-full lg:rounded-r-[100px] lg:w-[25%]">
@@ -53,8 +53,9 @@
             <div class="flex-row flex px-3 pb-10">
                 <div class="w-3/6 h-[120px] flex items-center text-cDarkGrey justify-between gap-2 pt-4 p-2 pl-0">
                     <div class="relative w-full aspect-square h-full bg-white rounded-3xl shadow-lg">
-                        <input type="file" name="image" id="image" accept="image/*,video/*" required class="hidden" onchange="loadFile(event)">
-                        <label for="image" class="h-full w-full aspect-square rounded-3xl p-2 flex flex-col justify-center items-center cursor-pointer duration-300 hover:ring-2 focus-within:ring-2 hover:text-cBlue bg-cover bg-center absolute" id="imgBox">
+                        <input type="file" name="image" id="image" accept="image/*,video/*" class="hidden" onchange="loadFile(event)">
+                        <input type="hidden" name="oldImage" value="{{ $oldImg }}">
+                        <label for="image" class="h-full w-full aspect-square rounded-3xl p-2 flex flex-col justify-center items-center cursor-pointer duration-300 hover:ring-2 focus-within:ring-2 hover:text-cBlue bg-cover bg-center absolute" id="imgBox" style="background-image: url('{{ asset('/storage/'.$oldImg) }}')">
                         </label>
                         <div class="h-full w-full flex flex-col justify-center items-center p-2">
                             <span class="material-symbols-outlined">
@@ -68,18 +69,23 @@
                 </div>
                 <div class="w-3/6 h-[120px] items-center text-cDarkGrey justify-between gap-2 pt-4 p-2 pr-0">
                     <div class="relative aspect-square w-full h-full bg-white rounded-3xl shadow-lg">
-                        <input type="file" name="song" id="song" accept="audio/*" required class="hidden" onchange="loadFile(event)">
-                        {{-- onchange="loadFile(this.files);"> --}}
-                        <label for="song" class="h-full w-full aspect-square rounded-3xl p-2 flex flex-col justify-center items-center cursor-pointer duration-300 hover:ring-2 focus-within:ring-2 hover:text-cBlue bg-cover bg-center absolute" id="imgBox">
+                        <input type="file" name="song" id="song" accept="audio/*" class="hidden">
+                        <input type="hidden" name="oldSong" value="{{ $oldSong }}">
+                        <label for="song"
+                            class="h-full w-full aspect-square rounded-3xl p-2 flex flex-col justify-center items-center cursor-pointer duration-300 hover:ring-2 focus-within:ring-2 hover:text-cBlue bg-cover bg-center absolute"
+                            id="imgBox">
                         </label>
                         <div class="h-full w-full flex flex-col justify-center items-center p-2">
                             <span class="material-symbols-outlined">
                                 library_music
                             </span>
                             <div class="text-sm text-center">
-                                <p>Input Song</p>
+                                <p id="songtxt">Current Song</p>
                             </div>
                         </div>
+                        <audio id="audio" controls class="hidden" autoplay>
+                            <source src="{{ asset('/storage/'.$oldSong) }}" id="src" />
+                        </audio>
                     </div>
                 </div>
             </div>
@@ -106,10 +112,33 @@
 @endsection
 
 @section('scripts')
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script>
     imgBox = document.getElementById('imgBox');
     var loadFile = function(event) {
         imgBox.style.backgroundImage = 'url(' + URL.createObjectURL(event.target.files[0]) + ')';
     }
+
+    songtxt = document.getElementById('songtxt')
+
+    $(document).ready(function() {
+        $('#song').change(function(e) {
+            var songname = e.target.files[0].name
+            songtxt.innerHTML = songname
+        });
+    });
+
+    function handleFiles(event) {
+        var files = event.target.files;
+        $("#src").attr("src", URL.createObjectURL(files[0]));
+        document.getElementById("audio").load();
+    }
+
+    document.getElementById("song").addEventListener("change", handleFiles, false);
+
+    function myFunction() {
+        var x = document.getElementById("audio").autoplay;
+    }
+
 </script>
 @endsection

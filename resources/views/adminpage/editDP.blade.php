@@ -55,7 +55,7 @@
                         </div>
                         <div class="w-[25%] h-[120px] flex items-center text-cDarkGrey justify-between pl-0 lg:w-full">
                             <div class="relative w-full aspect-square h-full bg-white rounded-3xl shadow-lg">
-                                <input type="file" name="image" id="image" onchange="loadFile(event)" class="hidden">
+                                <input type="file" name="image" id="image" accept="image/png, image/jpeg, image/jpg" onchange="loadFile(event)" class="hidden">
                                 <input type="hidden" name="oldImage" value="{{ $oldImg }}">
                                 <label for="image" class="h-full aspect-square rounded-3xl p-2 flex flex-col justify-center items-center cursor-pointer duration-300 hover:ring-2 focus-within:ring-2 hover:text-cBlue bg-cover bg-center absolute" id="imgBox" style="background-image: url('{{ asset('/storage/'.$oldImg) }}')">
                                 </label>

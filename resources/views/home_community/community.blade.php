@@ -51,7 +51,19 @@
     <div class="max-w-screen-xl px-4 py-3 h-16"></div>
     <div class="flex-col lg:flex lg:items-center lg:flex-wrap lg:flex-row lg:gap-2">
         @foreach ($posts as $post)
-            <div class="bg-white shadow-lg rounded-3xl mb-2 lg:w-96 lg:h-fit">
+        <form action="/otherprofile" method="post">
+            @csrf
+            <?php $color = '' ?>
+            <?php $txt = '' ?>
+            @if($post->type == 1)
+                <?php $color = 'cBlue' ?>
+                <?php $txt = 'WORKOUT' ?>
+            @else
+                <?php $color = 'cGreen' ?>
+                <?php $txt = 'DIET' ?>
+            @endif
+            <input type="hidden" name="userid" id="submit" value="{{ $post->id }}">
+            <button class="w-full text-left bg-white shadow-lg rounded-3xl mb-2 lg:w-96 lg:h-fit border-2 hover:border-{{ $color }} duration-300 ease-out">
                 <div class="p-3 flex flex-col text-sm gap-1">
                     <div class="flex justify-between">
                         <div class="flex gap-3">
@@ -65,19 +77,16 @@
                             </div>
                         </div>
                         <div class="w-fit">
-                            @if($post->type == 1)
-                                <p class="bg-cBlue text-white px-2 rounded-full font-bold">WORKOUT</p>
-                            @else
-                                <p class="bg-cGreen text-white px-2 rounded-full font-bold">DIET</p>
-                            @endif
+                            <p class="bg-{{ $color }} text-white px-2 rounded-full font-bold">{{ $txt }}</p>
                         </div>
                     </div>
                     <div>
                         <p>has completed "{{ $post->name }}"</p>
                     </div>
                 </div>
-                <div class="aspect-[4/3] bg-cover bg-center rounded-3xl" style="background-image: url('/assets/post1.png')"></div>
-            </div>
+                <div class="aspect-[4/3] bg-cover bg-center rounded-3xl" style="background-image: url('{{ asset('/storage/'.$post->image) }}')"></div>
+            </button>
+        </form>
         @endforeach
     </div>
     {{-- <div class="bg-white shadow-lg rounded-3xl mb-2 lg:w-96 lg:h-fit">

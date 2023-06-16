@@ -66,7 +66,7 @@ class DietDayController extends Controller
                     ->where('user_id', $id)
                     ->pluck('is_done');
 
-        if($request->post('diet_value') && !$is_done[0]){
+        if(!$is_done[0]){
             $finished_day = DB::table('enrollment_diets')
                             ->where('diet_id', '=', $diet_id)
                             ->where('user_id', $id)
