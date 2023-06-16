@@ -2,8 +2,6 @@
 
 @section('bar', 'Profile')
 
-@section('backlink', '/home')
-
 @section('toptitle', 'Profile')
 
 @section('name')

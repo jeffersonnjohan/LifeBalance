@@ -284,15 +284,19 @@
                 <ul role="list" class="lg:justify-center lg:text-center lg:w-[50%] md:justify-center md:text-center md:w-[50%]">
                     <div class="text-center font-bold mt-5">Leaderboard</div>
                     @foreach($leaderboards as $leaderboard)
-                    <li class="flex justify-between items-center m-2 p-3 bg-white rounded-3xl shadow-lg hover:bg-pink-200 duration-500">
-                        <div class="flex items-center gap-3 w-fit">
-                            <img class="h-12 w-12 flex-none rounded-full bg-gray-50" src="/assets/female.png" alt="">
-                            <div class="w-fit flex-auto py-2">
-                                <p class="text-xs w-fit text-gray-900">{{ $leaderboard->username }}</p>
+                    <form action="/otherprofile" method="post">
+                        @csrf
+                        <input type="hidden" name="userid" id="submit" value="{{ $leaderboard->id }}">
+                        <button type="submit" name="submit" id="submit" class="w-full flex justify-between items-center m-2 p-3 bg-white rounded-3xl shadow-lg hover:bg-pink-200 duration-500 hover:cursor-pointer">
+                            <div class="flex items-center gap-3 w-fit">
+                                <img class="h-12 w-12 flex-none rounded-full bg-gray-50" src="{{ '/storage/'.$leaderboard->image }}" alt="">
+                                <div class="w-fit flex-auto py-2">
+                                    <p class="text-xs w-fit text-gray-900">{{ $leaderboard->username }}</p>
+                                </div>
                             </div>
-                        </div>
-                        <p class="h-fit text-xs text-gray-900">ⓒ {{ $leaderboard->points }}</p>
-                    </li>
+                            <p class="h-fit text-xs text-gray-900">ⓒ {{ $leaderboard->points }}</p>
+                        </button>
+                    </form>
                     @endforeach
                     {{-- <li class="flex justify-between items-center m-2 p-3 bg-white rounded-3xl shadow-lg hover:bg-pink-200 duration-500">
                         <div class="flex items-center gap-3 w-fit">
@@ -345,7 +349,7 @@
                             <input type="number" placeholder="Input Weight" name="weight" class="border-transparent p-5 bg-transparent focus:ring-0 focus:border-transparent text-sm">
                             <p class="font-bold text-lg">kg</p>
                         </div>
-    
+
                         <input type="submit" value="Confirm" class="w-[200px] h-[50px] rounded-full bg-cBlue text-white hover:bg-white hover:text-cBlue border-2 border-cBlue duration-300 ease-out cursor-pointer text-sm">
                     </div>
                 </form>

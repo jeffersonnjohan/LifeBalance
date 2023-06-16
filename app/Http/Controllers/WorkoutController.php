@@ -4,15 +4,16 @@ namespace App\Http\Controllers;
 
 use App\Models\Workout;
 use App\Models\WorkoutDay;
+use Illuminate\Http\Request;
 use App\Models\WorkoutDetail;
+use App\Models\WorkoutActivity;
+use App\Models\EnrollmentWorkout;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\StoreWorkoutRequest;
 use App\Http\Requests\UpdateWorkoutRequest;
-use App\Models\EnrollmentWorkout;
-use App\Models\WorkoutActivity;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
 class WorkoutController extends Controller
 {
@@ -29,7 +30,7 @@ class WorkoutController extends Controller
             "enrollments" => EnrollmentWorkout::where('user_id', $id)->pluck('workout_id') // enrollment based on user
         ]);
     }
-    
+
     public function index(){
         return view('adminpage.listWorkout', [
             "workouts" => Workout::all()
@@ -59,20 +60,24 @@ class WorkoutController extends Controller
         $dayCount = count($request->exerciseID);
         // Workout Day
         $workoutDays = [];
-        
+
         for($i = 0; $i < $dayCount; $i++){
             $workoutDays[] = new WorkoutDay();
         }
-        
-        
+
+        $newWorkout = $request->all();
+        if($request->file('image')) {
+            $newWorkout['image'] = $request->file('image')->store('workout-images');
+        }
+
         $workout = new Workout([
-            'name' => $request->planTitle,
-            'description' => $request->description,
-            'points' => $request->points,
-            'image' => 'images/workoutplan',
+            'name' => $newWorkout['planTitle'],
+            'description' => $newWorkout['description'],
+            'points' => $newWorkout['points'],
+            'image' => $newWorkout['image'],
             'day_count' => $dayCount,
         ]);
-        
+
         // Workout Details
         $workout_details = [];
 
@@ -91,15 +96,15 @@ class WorkoutController extends Controller
 
             $workout_details[] = $workoutDetailInDayI;
         }
-        
+
         $workout->save();
-        
+
         $workoutDaysSaved = $workout->workout_day()->saveMany($workoutDays);
 
         for($i = 0; $i < count($workoutDaysSaved); $i++){
             $workoutDaysSaved[$i]->workout_detail()->saveMany($workout_details[$i]);
         }
-        
+
         return redirect('/admin/workout');
     }
 
@@ -124,6 +129,8 @@ class WorkoutController extends Controller
     {
         $workout = Workout::find($request->workoutEditID)->load(['workout_day']);
 
+        // dd($workout->image);
+
         $workoutExercises = [];
         for($i = 0; $i < count($workout->workout_day); $i++){
             $workoutDetailInDayI = $workout->workout_day[$i]->workout_detail;
@@ -139,7 +146,8 @@ class WorkoutController extends Controller
         return view('adminpage.editWP', [
             'workoutActivities' => WorkoutActivity::all(),
             'workout' => $workout,
-            'workoutExercises' => $workoutExercises
+            'workoutExercises' => $workoutExercises,
+            'oldImg' => $workout->image
         ]);
     }
 
@@ -165,7 +173,7 @@ class WorkoutController extends Controller
         $dayCount = count($request->exerciseID);
         // Workout Day
         $workoutDays = [];
-        
+
         for($i = 0; $i < $dayCount; $i++){
 
             // if(isset($request->workoutDayID[$i])){
@@ -174,21 +182,30 @@ class WorkoutController extends Controller
                 $workoutDays[] = new WorkoutDay();
             // }
         }
-        
         $workout = Workout::find($request->workoutID);
+
+        if($request->file('image')) {
+            if($request->oldImage) {
+                Storage::delete($request->oldImage);
+            }
+            $workout->image = $request->file('image')->store('workout-images');
+        } else {
+            $workout->image = $request->oldImage;
+        }
+
         $workout->update([
             'name' => $request->planTitle,
             'description' => $request->description,
             'points' => $request->points,
-            'image' => 'images/workoutplan',
+            'image' => $workout->image,
             'day_count' => $dayCount,
         ]);
         // Workout Details
         $workout_details = [];
-        
+
         for($i = 0; $i < $dayCount; $i++){
             $detailOnDayICount = count($request->exerciseID[$i]);
-            
+
             $workoutDetailInDayI = [];
             for($j = 0; $j < $detailOnDayICount; $j++){
                 $data = [
@@ -204,18 +221,18 @@ class WorkoutController extends Controller
                 // } else{
                     $workoutDetailInDayI[] = new WorkoutDetail($data);
                 // }
-                
+
             }
-            
+
             $workout_details[] = $workoutDetailInDayI;
         }
-        
+
         $workoutDaysSaved = $workout->workout_day()->saveMany($workoutDays);
-        
+
         for($i = 0; $i < count($workoutDaysSaved); $i++){
             $workoutDaysSaved[$i]->workout_detail()->saveMany($workout_details[$i]);
         }
-        
+
         return redirect('/admin/workout');
     }
 
@@ -237,6 +254,9 @@ class WorkoutController extends Controller
             WorkoutDay::destroy($prevWorkoutDay->id);
         }
 
+        $workoutImg = Workout::find($request->workoutDeleteID)->image;
+
+        Storage::delete($workoutImg);
         Workout::destroy($request->workoutDeleteID);
 
         return redirect('/admin/workout');
