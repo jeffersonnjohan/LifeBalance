@@ -26,6 +26,7 @@ use App\Http\Controllers\WorkoutDetailController;
 use App\Http\Controllers\ChallengesClaimController;
 use App\Http\Controllers\WorkoutActivityController;
 use App\Http\Controllers\EnrollmentWorkoutController;
+use App\Models\Challenge;
 
 /*
 |--------------------------------------------------------------------------
@@ -112,6 +113,7 @@ Route::get('/admin/challenges', [ChallengeController::class, 'showAllAdmin'])->m
 Route::post('/admin/challenges', [ChallengeController::class, 'store'])->middleware('admin');
 
 Route::get('/admin/challenges/add', [ChallengeController::class, 'create'])->middleware('admin');
+Route::post('/admin/challenges/destroy', [ChallengeController::class, 'destroy'])->middleware('admin');
 
 // ADDITIONAL ADMIN PAGE - EDIT PLAN
 // Route::get('/admin/meditation/edit', function () {
@@ -122,9 +124,8 @@ Route::get('/admin/challenges/add', [ChallengeController::class, 'create'])->mid
 //     return view('adminpage.editDP');
 // });
 
-Route::get('/admin/challenges/edit', function () {
-    return view('adminpage.editChallenge');
-})->middleware('admin');
+Route::post('/admin/challenges/edit', [ChallengeController::class, 'edit'])->middleware('admin');
+Route::post('/admin/challenges/update', [ChallengeController::class, 'update'])->middleware('admin');
 
 // Home | Community Route
 Route::get('/home', [HomeController::class, 'index'])->middleware('auth');

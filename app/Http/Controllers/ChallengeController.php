@@ -11,6 +11,7 @@ use App\Models\EnrollmentWorkout;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\StoreChallengeRequest;
 use App\Http\Requests\UpdateChallengeRequest;
+use Illuminate\Http\Request;
 
 class ChallengeController extends Controller
 {
@@ -109,9 +110,18 @@ class ChallengeController extends Controller
      * @param  \App\Models\Challenge  $challenge
      * @return \Illuminate\Http\Response
      */
-    public function edit(Challenge $challenge)
+    public function edit(Request $request)
     {
-        //
+        $challenge = Challenge::find($request->editId);
+        return view('adminpage.editChallenge', [
+            'challenge' => $challenge
+        ]);
+
+        // return view('adminpage.editDP', [
+        //     'diet' => $diet,
+        //     'dietDays' => $diet->dietDay,
+        //     'oldImg' => $diet->oldImg
+        // ]);
     }
 
     /**
@@ -121,9 +131,27 @@ class ChallengeController extends Controller
      * @param  \App\Models\Challenge  $challenge
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateChallengeRequest $request, Challenge $challenge)
+    public function update(UpdateChallengeRequest $request)
     {
-        //
+        // {"_token":"biyMF91K8ZpOllW7oqmBDBxgrbSCUevgql2cd6wV","challengeId":"10","planTitle":"Plan baru banget nih","points":"10","description":"Makan makan hehehehe","image":"flowchart-methodology.png","startDate":"2023-06-13","endDate":"2023-06-13","totalWorkout":"10","totalDiet":"5","confirmButton":"Confirm"}
+        // return $request;
+
+        // return $request;
+        $challenge = Challenge::find($request->challengeId);
+
+        $challenge->name = $request->planTitle;
+        $challenge->description = $request->description;
+        $challenge->points = $request->points;
+        $challenge->image = 'images/challengeplan';
+        $challenge->start_date = 'images/challengeplan';
+        $challenge->start_date = Carbon::createFromFormat('Y-m-d', $request->startDate)->setTime(23, 59, 59);
+        $challenge->end_date = Carbon::createFromFormat('Y-m-d', $request->endDate)->setTime(23, 59, 59);
+        $challenge->workout_plan_count = $request->totalWorkout;
+        $challenge->diet_plan_count = $request->totalDiet;
+
+        $challenge->update();
+
+        return redirect('/admin/challenges');
     }
 
     /**
@@ -132,8 +160,10 @@ class ChallengeController extends Controller
      * @param  \App\Models\Challenge  $challenge
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Challenge $challenge)
+    public function destroy(Request $request)
     {
-        //
+        Challenge::destroy($request->deleteId);
+
+        return redirect('/admin/challenges');
     }
 }

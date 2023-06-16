@@ -41,12 +41,12 @@
         <div class="lg:flex lg:flex-col lg:w-full lg:ml-[25%]">
             <div class="px-3">
                 <div class="w-full h-[50px] rounded-full bg-white flex items-center text-cDarkGrey px-4 duration-300 hover:ring-2 focus-within:text-cBlue focus-within:ring-2 hover:text-cBlue shadow-lg">
-                    <input type="text" name="planTitle" id="planTitle" placeholder="Plan Title" value="{{ $meditation->name }}" required class="border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full">
+                    <input type="text" name="planTitle" id="planTitle" placeholder="Plan Title" value="{{ $meditation->name }}" required class="p-0 text-left lg:text-center border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full">
                 </div>
             </div>
             <div class="pt-4 px-3">
                 <div class="w-full h-[120px] rounded-3xl bg-white flex items-center text-cDarkGrey px-4 duration-300 hover:ring-2 focus-within:text-cBlue focus-within:ring-2 hover:text-cBlue shadow-lg">
-                    <input type="text" name="description" id="description" placeholder="Description" value="{{ $meditation->description }}" required class="border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full">
+                    <input type="text" name="description" id="description" placeholder="Description" value="{{ $meditation->description }}" required class="p-0 text-left lg:text-center border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full">
                 </div>
             </div>
             <div class="flex-row flex px-3 pb-10">
@@ -90,7 +90,7 @@
             </div>
         </div>
         {{-- Confirm Button --}}
-        <div class="bottom-0 fixed pb-[80px] w-full px-3 lg:pb-0 ">
+        <div class="bottom-0 fixed w-full px-3 lg:pb-0 ">
             <div class="lg:fixed lg:right-0 lg:left-[25%] lg:px-4 lg:pb-2 lg:flex-row lg:flex lg:gap-2 lg:bottom-0">
                 <div class="pt-2 pb-2 lg:w-[50%]">
                     <div class="w-full h-[50px] rounded-full bg-cBlue text-white flex items-center font-bold px-4 duration-300 hover:ring-2 focus-within:text-white focus-within:ring-2 hover:text-cBlue hover:bg-white shadow-lg">

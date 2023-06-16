@@ -12,20 +12,10 @@
 
 @section('body')
     <div class="bg-cLightGrey h-full w-full mb-28">
-
-        {{-- <div class="bg-cGreen h-fit rounded-b-[50px] lg:rounded-b-[100px]">
-            <h1 class="text-white text-3xl font-normal text-left p-6 pt-16 lg:text-center lg:text-4xl">Jaga Pola Makan Anda dari Dini!</h1>
-            <div class="place-items-center grid pb-6 hover:text-cGreen lg:justify-content-center">
-                <div class="px-2 bg-white flex w-[90%]  lg:w-[40%] items-center justify-between rounded-3xl shadow-sm mb-4 duration-300 hover:ring-2 ring-cDarkGrey focus-within:ring-cDarkGrey hover:text-cGreen hover:items-cGreen focus-within:text-cGreen">
-                    <input type="text" name="saerchDiet" id="searchDiet" placeholder="Searching for new plan?" class="focus-within:text-cGreen hover:text-cGreen  border-transparent bg-transparent focus:ring-0 focus:border-transparent text-black text-left font-normal p-2 w-full lg:text-lg lg:px-4">
-                    <span class="material-symbols-outlined p-2">
-                        search
-                    </span> --}}
         <div class="bg-cGreen h-fit rounded-b-[50px] lg:rounded-b-[100px]">
             <h1 class="text-white text-3xl font-normal text-left p-6 pt-16 lg:text-center lg:text-4xl">Jaga Pola Makan Anda
                 dari Dini!</h1>
             <div class="place-items-center grid pb-6 hover:text-cGreen lg:justify-content-center">
-                {{-- <div class="px-2 bg-white flex w-[90%] lg:w-[40%] items-center justify-between rounded-3xl shadow-sm mb-4 duration-300 hover:ring-2"> --}}
                 <div
                     class="px-2 bg-white flex w-[90%]  lg:w-[40%] items-center justify-between rounded-3xl shadow-sm mb-4 duration-300 hover:ring-2 ring-cDarkGrey focus-within:ring-cDarkGrey hover:text-cGreen hover:items-cGreen focus-within:text-cGreen">
                     <form action="/diets"
@@ -44,8 +34,9 @@
 
         <?php $unenroll_plans = [];
         $idx = 0; ?>
+        @if ($enrollments->toArray())
         <h3 class="flex justify-center text-cGreen">Enrolled Plan</h3>
-
+        @endif
         <div class="lg:flex lg:flex-wrap lg:w-full lg:px-4 ">
             @foreach ($diets as $diet)
                 @if (in_array(strval($diet->id), $enrollments->toArray()))
@@ -80,9 +71,10 @@
         </div>
 
         <?php $idx = 0; ?>
+        @if ($enrollments->toArray())
+        <h3 class="flex justify-center mt-10 text-cGreen">Not Enrolled Plan</h3>
+        @endif
         @if ($unenroll_plans)
-            <h3 class="flex justify-center mt-10 text-cGreen">Not Enrolled Plan</h3>
-
             <div class="lg:flex lg:flex-wrap lg:w-full lg:px-4 ">
                 @foreach ($unenroll_plans as $plan)
                     <form action="/dietDays" method="POST" class="unenrolled_form">
