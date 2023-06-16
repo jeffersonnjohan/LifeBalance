@@ -3,8 +3,11 @@
 @section('title', 'Workout Detail')
 
 @section('body')
-    @extends('component.backbutton')
-    @section('backlink', '/workouts')
+    <a href="/workouts" class="fixed bg-white rounded-full flex justify-center items-center aspect-square h-[50px] shadow-lg top-2 left-2 z-20 group duration-300 ease-out hover:bg-cBlue">
+        <span class="material-symbols-outlined scale-110  duration-300 ease-out group-hover:text-white">
+            arrow_back
+        </span>
+    </a>
 
     <div>
         <div class="h-[70px] flex justify-center items-center text-2xl font-medium">
@@ -29,11 +32,11 @@
                     </div>
                     <div class="w-[100px] h-full bg-white text-center py-2 rounded-md">
                         <p>Kcal Burn</p>
-                        <p class="font-bold text-2xl text-cBlue">550...</p>
+                        <p class="font-bold text-2xl text-cBlue">550</p>
                     </div>
                     <div class="w-[100px] h-full bg-white text-center py-2 rounded-md">
                         <p>Total Pose</p>
-                        <p class="font-bold text-2xl text-cBlue">11...</p>
+                        <p class="font-bold text-2xl text-cBlue">11</p>
                     </div>
                 </div>
             </div>
@@ -77,7 +80,7 @@
                             <div>
                                 {{ 'Day ' . $i++ }}
                             </div>
-                            <div>
+                            <div class="text-xl">
                                 Unlocked in
                                 <div id="countDown"></div>
                             </div>
@@ -95,8 +98,8 @@
                         </form>
                         <?php $flag = 1 ?>
                     @else
-                        <div class="aspect-square bg-white rounded-3xl flex justify-center items-center border-2 text-cDarkGrey border-cDarkGrey relative">
-                            {{ 'DAY ' . $i++ . ' locked'}}
+                        <div class="flex flex-col text-center aspect-square bg-white rounded-3xl flex justify-center items-center border-2 text-cDarkGrey border-cDarkGrey relative">
+                            {{ 'DAY ' . $i++ . ' Locked'}}
                             {{-- Overlay Gembok --}}
                             <div class="absolute top-0 bottom-0 left-0 right-0 bg-[rgba(255,255,255,0.75)] rounded-3xl flex justify-center items-center">
                                 <span class="material-symbols-outlined scale-[2] text-black opacity-100">
