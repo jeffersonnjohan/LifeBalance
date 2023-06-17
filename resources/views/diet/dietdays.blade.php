@@ -197,8 +197,11 @@
         // })
 
         var form = document.getElementById ("done_form");
-        document.getElementById ("done").addEventListener("click", function () {
-            form.submit();
-        });
+        var done = document.getElementById ("done");
+        if(done){
+            done.addEventListener("click", function () {
+                form.submit();
+            });
+        }
     </script>
 @endsection
