@@ -35,17 +35,17 @@ class WorkoutDayController extends Controller
             'day' => $day,
             "workout_days"=> $workout_days,
             "workout_details"=> $workout_details,
-            'checkbox' => $this->checkbox($workout_id, $day)
+            'done' => $this->done($workout_id, $day)
         ]);
     }
 
-    private function checkbox($workout_id, $day){
+    private function done($workout_id, $day){
         $id = Auth::user()->id;
         $finished_day = EnrollmentWorkout::where('workout_id', $workout_id)
                         ->where('user_id', $id)
                         ->pluck('finished_day');
 
-        return ($finished_day[0] >= (int)$day) ?  "checked disabled" : "";
+        return ($finished_day[0] >= (int)$day) ?  "done" : "";
     }
     /**
      * Show the form for creating a new resource.

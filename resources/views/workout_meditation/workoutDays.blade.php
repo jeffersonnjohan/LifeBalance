@@ -54,11 +54,19 @@
                     @endphp
                 </form>
                 @endforeach
+                @if ($done == 'done')
+                <div class="flex items-center justify-end pb-24">
+                    <button class="w-40 h-fit py-2 px-5  rounded-full bg-gray-300 text-gray-400 border-2 cursor-pointer text-center text-2xl">
+                        DONE
+                    </button>
+                </div>
+                @else
                 <div id="done" class="flex items-center justify-end pb-24">
                     <button type="submit" class="w-40 h-fit py-2 px-5  rounded-full bg-cBlue text-white border-2 hover:bg-white hover:border-cBlue hover:text-cBlue duration-300 ease-out cursor-pointer text-center text-2xl">
                         DONE
                     </button>
                 </div>
+                @endif
         </div>
     </div>
 
@@ -86,11 +94,14 @@
         // })
 
         var form1 = document.getElementById("form");
-        document.getElementById("done").addEventListener("click", function(){
-            document.getElementById('workout_value').value = 1;
-            console.log(document.getElementById('workout_value'))
-            form1.submit();
-        })
+        var done = document.getElementById("done");
+        if(done){
+            done.addEventListener("click", function(){
+                document.getElementById('workout_value').value = 1;
+                console.log(document.getElementById('workout_value'))
+                form1.submit();
+            })
+        }
         document.getElementById("back").addEventListener("click", function(){
             form1.submit();
         })
