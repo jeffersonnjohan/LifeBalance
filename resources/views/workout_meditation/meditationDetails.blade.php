@@ -11,8 +11,7 @@
 @endsection
 
 @section('body')
-    @extends('component.backbutton')
-    @section('backlink', '/meditations')
+    <x-back-get hover-bg="bg-cBlue" backlink="/meditations"/>
 
     <div class="w-full py-8">
         {{-- Container Foto --}}
@@ -113,7 +112,7 @@
         function fast_rewind(n){
             // Calculate the new time
             var time = audio.duration * (seekBar.value / 100) + n;
-            
+
             // Update the audio time
             audio.currentTime = time;
             console.log(audio.currentTime);
