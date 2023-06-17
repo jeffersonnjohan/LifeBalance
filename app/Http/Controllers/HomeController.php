@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\EnrollmentDiet;
 use App\Models\User;
 use App\Models\UserDiet;
 use App\Models\UserWeight;
@@ -32,7 +33,8 @@ class HomeController extends Controller
             'totalCalories' => $totalCalories,
             'categoryBmi' => $this->categoryBmi($bmi),
             'leaderboards' => $this->leaderboard(),
-            'unfinishedPlans' => $this->unfinishedPlan($id),
+            'unfinishedWorkoutPlans' => $this->unfinishedWorkoutPlan($id),
+            'unfinishedDietPlans' => $this->unfinishedDietPlan($id),
             'weightList' => json_encode($this->bodyWeightStatistic($id)),
             'caloriesInList' => json_encode($this->caloriesInStatistic($id)),
             'caloriesOutList' => json_encode($this->caloriesOutStatistic($id)),
@@ -53,8 +55,12 @@ class HomeController extends Controller
         return User::all()->sortByDesc('points')->take(5);
     }
 
-    private function unfinishedPlan($id){
+    private function unfinishedWorkoutPlan($id){
         return EnrollmentWorkout::where('user_id', $id)->where('is_done', false)->get()->load(['workout']);
+    }
+
+    private function unfinishedDietPlan($id){
+        return EnrollmentDiet::where('user_id', $id)->where('is_done', false)->get()->load(['diet']);
     }
 
     private function bodyWeightStatistic($id){
