@@ -89,11 +89,11 @@ class HomeController extends Controller
     }
 
     private function caloriesInOnDate($id, $date){
-        return UserDiet::where('user_id', $id)->where('created_at', '>=' , $date)->where('created_at', '<=' , $this->dateAfter($date, 1).' 00:00:00')->get()[0]->calories_in ?? 0;
+        return isset(UserDiet::where('user_id', $id)->where('created_at', '>=' , $date)->where('created_at', '<=' , $this->dateAfter($date, 1).' 00:00:00')->get()[0]->calories_in) ? UserDiet::where('user_id', $id)->where('created_at', '>=' , $date)->where('created_at', '<=' , $this->dateAfter($date, 1).' 00:00:00')->get()->sum('calories_in'):0;
     }
 
     private function caloriesOutOnDate($id, $date){
-        return UserWorkout::where('user_id', $id)->where('created_at', '>=' , $date)->where('created_at', '<=' , $this->dateAfter($date, 1).' 00:00:00')->get()[0]->calories_out ?? 0;
+        return isset(UserWorkout::where('user_id', $id)->where('created_at', '>=' , $date)->where('created_at', '<=' , $this->dateAfter($date, 1).' 00:00:00')->get()[0]->calories_out) ? UserWorkout::where('user_id', $id)->where('created_at', '>=' , $date)->where('created_at', '<=' , $this->dateAfter($date, 1).' 00:00:00')->get()->sum('calories_out') : 0;
     }
 
     private function caloriesInStatistic($id){
