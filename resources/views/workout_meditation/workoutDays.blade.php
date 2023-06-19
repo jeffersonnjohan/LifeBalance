@@ -3,18 +3,16 @@
 @section('title', 'Workout Days')
 
 @section('body')
-    {{-- @extends('component.backbutton')
-    @section('backlink', '/workoutdetails') --}}
     @php
         $i = 1;
         $total_kcal = 0;
     @endphp
 
-    <div id ='back' class="fixed bg-white rounded-full flex justify-center items-center aspect-square h-[50px] shadow-lg top-2 left-2 z-20 group duration-300 ease-out hover:bg-cBlue">
+    <button id="back" class="fixed bg-white rounded-full flex justify-center items-center aspect-square h-[50px] shadow-lg top-2 left-2 z-20 group duration-300 ease-out hover:bg-cBlue">
         <span class="material-symbols-outlined scale-110  duration-300 ease-out group-hover:text-white">
             arrow_back
         </span>
-    </div>
+    </button>
 
     <div class="w-full">
         <div class="h-[70px] flex justify-center items-center text-2xl font-medium">
@@ -59,19 +57,17 @@
                         $total_kcal += $detail->calories
                     @endphp
                 </form>
-            @endforeach
+                @endforeach
+                <div id="done" class="flex items-center justify-end pb-24">
+                    <button type="submit" class="w-40 h-fit py-2 px-5  rounded-full bg-cBlue text-white border-2 hover:bg-white hover:border-cBlue hover:text-cBlue duration-300 ease-out cursor-pointer text-center text-2xl">
+                        DONE
+                    </button>
+                </div>
         </div>
-
-        {{-- Done --}}
-        <div class="px-8 flex items-center justify-end">
-            <label for="default-checkbox" class="mr-4 text-3xl font-bold text-cBlue">DONE</label>
-            <input id="workout_checkbox" type="checkbox" class="w-7 h-7 text-cBlue bg-gray-100 border-cBlue rounded focus:ring-cBlue focus:ring-2" {{ $checkbox }}>
-        </div>
-        <div class="pb-28"></div>
     </div>
 
-    {{-- back form --}}
-    <form action="/workoutdetails" method="POST" id='back-form'>
+    {{-- done/back form --}}
+    <form action="/workoutdetails" method="POST" id='form'>
         @csrf
         <input type="hidden" name='workout_id' value="{{ $workout_id }}">
         <input type="hidden" name='day' value="{{ $day }}">
@@ -84,16 +80,21 @@
 
 @section('scripts')
     <script>
-        let checkbox = document.getElementById('workout_checkbox');
-        $("#back").click(function(){
-            if(checkbox.checked && !checkbox.disabled){
-                $("#workout_value").val(1);
-            } else {
-                $("#workout_value").val(0);
-            }
-        })
+        // let checkbox = document.getElementById('workout_checkbox');
+        // $("#back").click(function(){
+        //     if(checkbox.checked && !checkbox.disabled){
+        //         $("#workout_value").val(1);
+        //     } else {
+        //         $("#workout_value").val(0);
+        //     }
+        // })
 
-        var form1 = document.getElementById("back-form");
+        var form1 = document.getElementById("form");
+        document.getElementById("done").addEventListener("click", function(){
+            document.getElementById('workout_value').value = 1;
+            console.log(document.getElementById('workout_value'))
+            form1.submit();
+        })
         document.getElementById("back").addEventListener("click", function(){
             form1.submit();
         })

@@ -28,11 +28,10 @@
 </nav>
 
 @section('body')
-    <form action="/admin/workout/update" method="post" class="pt-16 w-full bg-cLightGrey lg:flex lg:flex-row lg:w-full">
+
+    <form action="/admin/workout/update" method="post" class="pt-16 w-full bg-cLightGrey lg:flex lg:flex-row lg:w-full" enctype="multipart/form-data">
         @csrf
         <input type="hidden" name="workoutID" value="{{ $workout->id }}">
-        {{-- Page Body Section --}}
-        {{-- <div > --}}
         <div class="lg:relative">
             <div
                 class="lg:fixed lg:bg-cBlue lg:flex lg:flex-col lg:place-content-center lg:m-auto lg:h-full lg:rounded-r-[100px] lg:w-[25%]">
@@ -59,7 +58,9 @@
                     {{-- Description --}}
                     <div
                         class="w-[75%] lg:w-full h-[120px] rounded-3xl bg-white flex items-center text-cDarkGrey px-4 duration-300 hover:ring-2 focus-within:text-cBlue focus-within:ring-2 hover:text-cBlue shadow-lg">
-                        <textarea type="text" name="description" id="description" placeholder="Description" value="{{ $workout->description }}" required class="p-0 lg:py-10 pt text-left lg:text-center lg:self-center h-[100px] resize-none border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full"></textarea>
+                        <textarea type="text" name="description" id="description" placeholder="Description" required class="p-0 lg:py-10 pt text-left lg:text-center lg:self-center h-[100px] resize-none border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full">
+{{ $workout->description }}
+                        </textarea>
                         {{-- <input type="text" name="description" id="description" placeholder="Description"
                             value="{{ $workout->description }}" required
                             class="p-0 text-left lg:text-center border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full"> --}}
@@ -67,11 +68,11 @@
                     {{-- Input Image --}}
                     <div class="w-[25%] lg:w-full h-[120px] flex items-center text-cDarkGrey justify-between pl-0">
                         <div class="relative w-full aspect-square h-full bg-white rounded-3xl shadow-lg">
-                            <input type="file" name="image" id="image" accept="image/*" required class="hidden"
-                                onchange="loadFile(event)">
-                            <label for="image"
-                                class="h-full w-full aspect-square rounded-3xl p-2 flex flex-col justify-center items-center cursor-pointer duration-300 hover:ring-2 focus-within:ring-2 hover:text-cBlue bg-cover bg-center absolute"
-                                id="imgBox">
+
+                           <input type="file" name="image" id="image" accept="image/png, image/jpeg, image/jpg" onchange="loadFile(event)" class="hidden">
+                           <input type="hidden" name="oldImage" value="{{ $oldImg }}">
+                           <label for="image" class="h-full w-full aspect-square rounded-3xl p-2 flex flex-col justify-center items-center cursor-pointer duration-300 hover:ring-2 focus-within:ring-2 hover:text-cBlue bg-cover bg-center absolute" id="imgBox" style="background-image: url('{{ asset('/storage/'.$oldImg) }}')">
+
                             </label>
                             <div class="h-full w-full flex flex-col justify-center items-center p-2">
                                 <span class="material-symbols-outlined">
@@ -165,7 +166,10 @@
                                         delete
                                     </span>
                                 </div>
-                            @endforeach
+                            </div>
+                        </div>
+                        @endforeach
+
 
                         </div>
 
@@ -203,8 +207,8 @@
         </div>
 
         </div>
-        {{-- </form> --}}
-        {{-- @include('adminpage.adminNavbar', ['active' => 'adminpage.listWorkout']) --}}
+        </form>
+        @include('adminpage.adminNavbar', ['active' => 'adminpage.listWorkout'])
     @endsection
 
     @section('scripts')

@@ -35,9 +35,8 @@
 @section('body')
 
     {{-- Page Body Section --}}
-    {{-- <div > --}}
     <form action="/admin/meditation" method="post"
-        class="pt-16  bg-cLightGrey w-full overflow-auto lg:flex lg:flex-row lg:w-full ">
+        class="pt-16  bg-cLightGrey w-full overflow-auto lg:flex lg:flex-row lg:w-full " enctype="multipart/form-data">
         @csrf
         <div
             class="lg:fixed lg:bg-cBlue lg:flex lg:flex-col lg:place-content-center lg:m-auto lg:h-full lg:rounded-r-[100px] lg:w-[25%]">
@@ -81,8 +80,7 @@
                 </div>
                 <div class="w-3/6 h-[120px] items-center text-cDarkGrey justify-between gap-2 pt-4 p-2 pr-0">
                     <div class="relative aspect-square w-full h-full bg-white rounded-3xl shadow-lg">
-                        <input type="file" name="song" id="song" accept="audio/*" required class="hidden"
-                            onchange="loadFile(event)">
+                        <input type="file" name="song" id="song" accept="audio/*" required class="hidden">
                         {{-- onchange="loadFile(this.files);"> --}}
                         <label for="song"
                             class="h-full w-full aspect-square rounded-3xl p-2 flex flex-col justify-center items-center cursor-pointer duration-300 hover:ring-2 focus-within:ring-2 hover:text-cBlue bg-cover bg-center absolute"
@@ -95,6 +93,9 @@
                             <div class="text-sm text-center">
                                 <p>Input Song</p>
                             </div>
+                            <audio id="audio" controls class="hidden" autoplay>
+                                <source src="" id="src" />
+                            </audio>
                         </div>
                     </div>
                 </div>
@@ -127,10 +128,32 @@
 @endsection
 
 @section('scripts')
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
     <script>
-        imgBox = document.getElementById('imgBox');
+        imgBox = document.getElementById('imgBox')
         var loadFile = function(event) {
-            imgBox.style.backgroundImage = 'url(' + URL.createObjectURL(event.target.files[0]) + ')';
+            imgBox.style.backgroundImage = 'url(' + URL.createObjectURL(event.target.files[0]) + ')'
+        }
+
+        songtxt = document.getElementById('songtxt')
+
+        $(document).ready(function() {
+            $('#song').change(function(e) {
+                var songname = e.target.files[0].name
+                songtxt.innerHTML = songname
+            });
+        });
+
+        function handleFiles(event) {
+            var files = event.target.files;
+            $("#src").attr("src", URL.createObjectURL(files[0]));
+            document.getElementById("audio").load();
+        }
+
+        document.getElementById("song").addEventListener("change", handleFiles, false);
+
+        function myFunction() {
+            var x = document.getElementById("audio").autoplay;
         }
     </script>
 @endsection

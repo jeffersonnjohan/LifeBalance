@@ -7,7 +7,9 @@
     {{-- Cards Plan Container --}}
     <div class="pb-28">
         <?php $unenroll_plans = array() ?>
-        <h3 class="flex justify-center text-white">Enrolled Plan</h3>
+        @if ($enrollments->toArray())
+        <h3 class="flex justify-center text-cBlue">Enrolled Plan</h3>
+        @endif
         @foreach ($workouts as $workout)
         @if (in_array(strval($workout->id), $enrollments->toArray()))
                 <form action="/workoutdetails" method="POST"  class="enrolled_form">
@@ -32,7 +34,7 @@
                         {{-- Section Kanan --}}
                         <div class="w-[30%] h-full flex justify-center items-center">
                             {{-- Image --}}
-                            <div class="w-[90%] rounded-md border border-cBlue aspect-square bg-center bg-cover" style="background-image:url('{{ $workout->image . '.png' }}')">
+                            <div class="w-[90%] rounded-md border border-cBlue aspect-square bg-center bg-cover" style="background-image:url('{{ '/storage/' . $workout->image }}')">
 
                             </div>
                         </div>
@@ -44,8 +46,10 @@
         @endforeach
 
         <?php $idx = 0;?>
+        @if ($enrollments->toArray())
+        <h3 class="flex justify-center mt-10 text-cBlue">Not Enrolled Plan</h3>
+        @endif
         @if ( $unenroll_plans )
-            <h3 class="flex justify-center mt-10 text-cBlue">Not Enrolled Plan</h3>
             @foreach ($unenroll_plans as $plan)
                 <form action="/workoutdetails" method="POST"  class="unenrolled_form">
                     @csrf
@@ -70,7 +74,7 @@
                         {{-- Section Kanan --}}
                         <div class="w-[30%] h-full flex justify-center items-center">
                             {{-- Image --}}
-                            <div class="w-[90%] rounded-md border border-cBlue aspect-square bg-center bg-cover" style="background-image:url('{{ $workout->image . '.png' }}')">
+                            <div class="w-[90%] rounded-md border border-cBlue aspect-square bg-center bg-cover" style="background-image:url('{{ '/storage/'. $workout->image }}')">
 
                             </div>
                         </div>

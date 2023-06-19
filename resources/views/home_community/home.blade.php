@@ -161,15 +161,29 @@
             </div>
 
             {{-- On Going Plan --}}
-            @foreach($unfinishedPlans as $unfinishedPlan)
+            @foreach($unfinishedWorkoutPlans as $unfinishedWorkoutPlan)
             <ul role="contentinfo" class="py-3">
                 <a href="#" class="flex items-center h-fit p-5 bg-white rounded-3xl shadow-lg hover:bg-pink-200 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 duration-500">
-                    <img class="object-cover w-[100px] h-auto" src="/assets/eyediet.jpeg" alt="">
+                    <img class="object-cover w-[100px] h-auto" src="{{ '/storage/'.$unfinishedWorkoutPlan->workout->image }}" alt="">
                     <div class="flex flex-col justify-between p-3 gap-1">
                         <p class="font-normal text-sm text-cRed dark:text-gray-400 hover:text-white">Continue your plan.</p>
-                        <p class="text-sm font-bold tracking-tight text-black dark:text-white hover:text-white">{{ $unfinishedPlan->workout->name }}</p>
+                        <p class="text-sm font-bold tracking-tight text-black dark:text-white hover:text-white">{{ $unfinishedWorkoutPlan->workout->name }}</p>
                         <div class="w-full bg-gray-200 rounded-full dark:bg-cDarkGrey">
-                            <div class="bg-cRed text-xs text-transparent text-white text-center rounded-full leading-none" style="width:{{ $unfinishedPlan->workout->day_count!=0? round($unfinishedPlan->finished_day/$unfinishedPlan->workout->day_count*100, 2) : 0}}%">{{ $unfinishedPlan->workout->day_count!=0? round($unfinishedPlan->finished_day/$unfinishedPlan->workout->day_count*100, 2) : 0}}%</div>
+                            <div class="bg-cRed text-xs text-transparent text-white text-center rounded-full leading-none" style="width:{{ $unfinishedWorkoutPlan->workout->day_count!=0? round($unfinishedWorkoutPlan->finished_day/$unfinishedWorkoutPlan->workout->day_count*100, 2) : 0}}%">{{ $unfinishedWorkoutPlan->workout->day_count!=0? round($unfinishedWorkoutPlan->finished_day/$unfinishedWorkoutPlan->workout->day_count*100, 2) : 0}}%</div>
+                        </div>
+                    </div>
+                </a>
+            </ul>
+            @endforeach
+            @foreach($unfinishedDietPlans as $unfinishedDietPlan)
+            <ul role="contentinfo" class="py-3">
+                <a href="#" class="flex items-center h-fit p-5 bg-white rounded-3xl shadow-lg hover:bg-pink-200 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 duration-500">
+                    <img class="object-cover w-[100px] h-auto" src="{{ '/storage/'.$unfinishedDietPlan->diet->image }}" alt="">
+                    <div class="flex flex-col justify-between p-3 gap-1">
+                        <p class="font-normal text-sm text-cRed dark:text-gray-400 hover:text-white">Continue your plan.</p>
+                        <p class="text-sm font-bold tracking-tight text-black dark:text-white hover:text-white">{{ $unfinishedDietPlan->diet->name }}</p>
+                        <div class="w-full bg-gray-200 rounded-full dark:bg-cDarkGrey">
+                            <div class="bg-cRed text-xs text-transparent text-white text-center rounded-full leading-none" style="width:{{ $unfinishedDietPlan->diet->day_count!=0? round($unfinishedDietPlan->finished_day/$unfinishedDietPlan->diet->day_count*100, 2) : 0}}%">{{ $unfinishedDietPlan->diet->day_count!=0? round($unfinishedDietPlan->finished_day/$unfinishedDietPlan->diet->day_count*100, 2) : 0}}%</div>
                         </div>
                     </div>
                 </a>
@@ -284,15 +298,19 @@
                 <ul role="list" class="lg:justify-center lg:text-center lg:w-[50%] md:justify-center md:text-center md:w-[50%]">
                     <div class="text-center font-bold mt-5">Leaderboard</div>
                     @foreach($leaderboards as $leaderboard)
-                    <li class="flex justify-between items-center m-2 p-3 bg-white rounded-3xl shadow-lg hover:bg-pink-200 duration-500">
-                        <div class="flex items-center gap-3 w-fit">
-                            <img class="h-12 w-12 flex-none rounded-full bg-gray-50" src="/assets/female.png" alt="">
-                            <div class="w-fit flex-auto py-2">
-                                <p class="text-xs w-fit text-gray-900">{{ $leaderboard->username }}</p>
+                    <form action="/otherprofile" method="post">
+                        @csrf
+                        <input type="hidden" name="userid" id="submit" value="{{ $leaderboard->id }}">
+                        <button type="submit" name="submit" id="submit" class="w-full flex justify-between items-center m-2 p-3 bg-white rounded-3xl shadow-lg hover:bg-pink-200 duration-500 hover:cursor-pointer">
+                            <div class="flex items-center gap-3 w-fit">
+                                <img class="h-12 w-12 flex-none rounded-full bg-gray-50" src="{{ '/storage/'.$leaderboard->image }}" alt="">
+                                <div class="w-fit flex-auto py-2">
+                                    <p class="text-xs w-fit text-gray-900">{{ $leaderboard->username }}</p>
+                                </div>
                             </div>
-                        </div>
-                        <p class="h-fit text-xs text-gray-900">ⓒ {{ $leaderboard->points }}</p>
-                    </li>
+                            <p class="h-fit text-xs text-gray-900">ⓒ {{ $leaderboard->points }}</p>
+                        </button>
+                    </form>
                     @endforeach
                     {{-- <li class="flex justify-between items-center m-2 p-3 bg-white rounded-3xl shadow-lg hover:bg-pink-200 duration-500">
                         <div class="flex items-center gap-3 w-fit">
@@ -345,7 +363,7 @@
                             <input type="number" placeholder="Input Weight" name="weight" class="border-transparent p-5 bg-transparent focus:ring-0 focus:border-transparent text-sm">
                             <p class="font-bold text-lg">kg</p>
                         </div>
-    
+
                         <input type="submit" value="Confirm" class="w-[200px] h-[50px] rounded-full bg-cBlue text-white hover:bg-white hover:text-cBlue border-2 border-cBlue duration-300 ease-out cursor-pointer text-sm">
                     </div>
                 </form>

@@ -83,7 +83,6 @@ class ChallengeController extends Controller
             'name' => $request->planTitle,
             'description' => $request->description,
             'points' => $request->points,
-            'image' => 'images/challenge',
             'start_date' => Carbon::createFromFormat('Y-m-d', $request->startDate)->setTime(23, 59, 59),
             'end_date' => Carbon::createFromFormat('Y-m-d', $request->endDate)->setTime(23, 59, 59),
             'workout_plan_count' => $request->totalWorkout,
@@ -142,7 +141,6 @@ class ChallengeController extends Controller
         $challenge->name = $request->planTitle;
         $challenge->description = $request->description;
         $challenge->points = $request->points;
-        $challenge->image = 'images/challengeplan';
         $challenge->start_date = 'images/challengeplan';
         $challenge->start_date = Carbon::createFromFormat('Y-m-d', $request->startDate)->setTime(23, 59, 59);
         $challenge->end_date = Carbon::createFromFormat('Y-m-d', $request->endDate)->setTime(23, 59, 59);
