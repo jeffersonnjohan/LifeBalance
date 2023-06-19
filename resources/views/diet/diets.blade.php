@@ -41,21 +41,19 @@
             </div>
         </div>
         <h2 class="text-xl p-2 lg:px-4 font-medium ml-3 mt-2 lg:text-lg">Plan</h2>
-
         <?php $unenroll_plans = [];
         $idx = 0; ?>
         <h3 class="flex justify-center text-cGreen">Enrolled Plan</h3>
 
-        <div class="lg:flex lg:flex-wrap lg:w-full lg:px-4 ">
+        <div class="lg:flex lg:flex-wrap lg:w-full lg:px-4">
             @foreach ($diets as $diet)
                 @if (in_array(strval($diet->id), $enrollments->toArray()))
-                    <form action="/dietDays" method="POST" class="enrolled_form">
+                    <form action="/dietDays" method="POST" class="enrolled_form place-items-center grid p-2 lg:w-1/3">
                         @csrf
-                        <input type="hidden" name="diet_id" value="{{ $diet->id }}">
-                        <div class="place-items-center grid p-2 lg:w-1/3">
-
+                        <input type="hidden" name="diet_id" value="{{ $diet->id }} ">
+                        {{-- <div > --}}
                             <div
-                                class="enrolled_element bg-white w-[95%] lg:w-full h-fit lg:h-[150px] place-content-center rounded-3xl p-2 lg:p-4 flex flex-row justify-between shadow-sm group duration-300 ease-out hover:bg-green-200 focus:ring-cGreen">
+                                class="enrolled_element bg-white w-[95%] lg:w-full h-fit lg:h-[150px] place-content-center rounded-3xl p-2 lg:p-4 flex flex-row justify-between shadow-sm group duration-300 ease-out hover:bg-green-200 focus:ring-cGreen ">
                                 <div class="flex flex-row items-center">
                                     <div class="rounded-full lg:rounded-3xl bg-cover justify-end items-center h-16 lg:h-32 w-16 lg:w-32 m-2 lg:m-0 border-2 border-cGreen"
                                         style="background-image: url('{{ $diet->image . '.png' }}')"></div>
@@ -71,7 +69,7 @@
                                     <h3 class="font-medium text-md lg:text-xl">{{ $diet->points }}</h3>
                                 </div>
                             </div>
-                        </div>
+                        {{-- </div> --}}
                     </form>
                 @else
                     <?php $unenroll_plans[] = $diet; ?>
@@ -85,13 +83,13 @@
 
             <div class="lg:flex lg:flex-wrap lg:w-full lg:px-4 ">
                 @foreach ($unenroll_plans as $plan)
-                    <form action="/dietDays" method="POST" class="unenrolled_form">
+                    <form action="/dietDays" method="POST" class="unenrolled_form place-items-center grid p-2 lg:w-1/3 "
+                    data-modal-target="popup-modal{{ $loop->iteration }}"
+                    data-modal-toggle="popup-modal{{ $loop->iteration }}">
                         @csrf
                         <input type="hidden" name="diet_id" value="{{ $plan->id }}">
                         <input type="hidden" name="is_new" value="1">
-                        <div class="place-items-center grid p-2 lg:w-1/3"
-                            data-modal-target="popup-modal{{ $loop->iteration }}"
-                            data-modal-toggle="popup-modal{{ $loop->iteration }}">
+                        {{-- <div class=""> --}}
                             <div
                                 class="bg-white w-[95%] lg:w-full h-fit lg:h-[150px] place-content-center rounded-3xl p-2 lg:p-4 flex flex-row justify-between shadow-sm group duration-300 ease-out hover:bg-green-200 focus:ring-cGreen">
                                 <div class="flex flex-row items-center">
@@ -109,7 +107,7 @@
                                     <h3 class="font-medium text-md">{{ $plan->points }}</h3>
                                 </div>
                             </div>
-                        </div>
+                        {{-- </div> --}}
                     </form>
                     {{-- Pop up --}}
                     <div id="popup-modal{{ $loop->iteration }}" tabindex="-1"
