@@ -15,40 +15,40 @@
 
     <div class="w-full py-8">
         {{-- Container Foto --}}
-        <div class="w-[90%] m-auto rounded-3xl h-[550px] bg-cover" style="background-image: url('/assets/meditationImage.png')">
+        <div class="w-[90%] m-auto rounded-3xl h-[550px] bg-cover" style="background-image: url({{'/storage/'.$meditation[0]->image }})">
 
         </div>
         {{-- Bottom Blue --}}
-        <div class="w-full rounded-t-[50px] h-[300px] fixed bottom-0 bg-cBlue p-4 text-center text-white">
+        <div class="w-full rounded-t-[50px] h-[350px] fixed bottom-0 bg-cBlue p-4 text-center text-white">
             <hr class="w-[200px] m-auto border-2">
             <h1 class="text-2xl font-bold mt-6">{{ $meditation[0]->name }}</h1>
-            <p class="text-sm font-normal mt-1">{{ $meditation[0]->description }}g</p>
+            <p class="text-sm font-normal mt-1 mb-7">{{ $meditation[0]->description }}g</p>
 
             {{-- Audio --}}
             <audio loop playsinline id="audio" class="rounded-2xl w-full mt-8" preload="metadata">
-                {{-- <source src="{{ $meditation[0]->audio . '.mp3' }}"> --}}
-                <source src="audio/abangJago.mp3">
+                <source src="{{ '/storage/'. $meditation[0]->audio }}">
+                {{-- <source src="audio/abangJago.mp3"> --}}
                 Your browser doesn't support audio
             </audio>
 
             {{-- Audio Controls --}}
             {{-- Time --}}
-            <div class="mt-7 mb-3">
+            <div class="mb-3 hidden" id="timeIndicator">
                 <span id="progressDuration">00:00</span>
                 <span>/</span>
                 <span id="totalDuration"></span>
             </div>
             {{-- Sliding Bar --}}
-            <input type="range" id="seek-bar" value="0" class="w-[300px] mb-4 ">
+            <input type="range" id="seek-bar" value="0" class="w-[300px] mb-4" disabled>
 
             <div class="flex w-full justify-center text-black">
 
                 {{-- Button << --}}
-                <button type="button" id="rewind" class="block">
+                {{-- <button type="button" id="rewind" class="block">
                     <span class="material-symbols-outlined">
                         fast_rewind
                     </span>
-                </button>
+                </button> --}}
 
                 {{-- Button Play --}}
                 <button type="button" id="play" class="block mx-4 bg-white text-cBlue w-[70px] aspect-square rounded-full">
@@ -64,11 +64,11 @@
                     </span>
                 </button>
                 {{-- Button >> --}}
-                <button type="button" id="forward" class="block">
+                {{-- <button type="button" id="forward" class="block">
                     <span class="material-symbols-outlined">
                         fast_forward
                         </span>
-                </button>
+                </button> --}}
             </div>
         </div>
     </div>
@@ -87,8 +87,8 @@
         var seekBar = document.getElementById("seek-bar");
 
         // Rewind & Forward
-        var rewindButton = document.getElementById("rewind");
-        var forwardButton = document.getElementById("forward");
+        // var rewindButton = document.getElementById("rewind");
+        // var forwardButton = document.getElementById("forward");
 
         // Duration
         var progressDuration = document.getElementById("progressDuration");
@@ -115,19 +115,29 @@
 
             // Update the audio time
             audio.currentTime = time;
-            console.log(audio.currentTime);
         }
 
         function format_number(num){
             return ("0" + num).slice(-2);
         }
 
-        audio.onloadedmetadata = function() {
-            totalDuration.innerHTML = format_number(Math.floor(audio.duration/60)) + ':' + format_number(Math.floor(audio.duration % 60))
+        function convertTime(seconds) {
+            var minutes = Math.floor(seconds / 60);
+            var remainingSeconds = seconds % 60;
+            
+            var formattedTime = ("0" + minutes).slice(-2) + ":" + ("0" + remainingSeconds).slice(-2);
+            return formattedTime;
         }
 
         window.onload = function() {
             // Load audio Duration
+
+            audio.addEventListener('loadedmetadata', function() {
+                // var totalDuration = audio.duration;
+                // console.log(totalDuration);
+                document.getElementById('timeIndicator').classList.remove('hidden')
+                totalDuration.innerHTML = convertTime(audio.duration)
+            });
 
             // Event listener for the play button
             playButton.addEventListener("click", pauseToPlay);
@@ -136,13 +146,13 @@
             pauseButton.addEventListener("click", playToPause);
 
             // Event listener for the seek bar
-            seekBar.addEventListener("change", function() {
-                // Calculate the new time
-                var time = audio.duration * (seekBar.value / 100);
+            // seekBar.addEventListener("change", function() {
+            //     // Calculate the new time
+            //     var time = audio.duration * (seekBar.value / 100);
 
-                // Update the audio time
-                audio.currentTime = time;
-            });
+            //     // Update the audio time
+            //     audio.currentTime = time;
+            // });
 
             // Update the seek bar as the audio plays
             audio.addEventListener("timeupdate", function() {
@@ -156,23 +166,23 @@
             });
 
             // Pause the audio when the slider handle is being dragged
-            seekBar.addEventListener("mousedown", function() {
-                audio.pause();
-            });
+            // seekBar.addEventListener("mousedown", function() {
+            //     audio.pause();
+            // });
 
             // Play the audio when the slider handle is dropped
-            seekBar.addEventListener("mouseup", function() {
-                audio.play();
-            });
+            // seekBar.addEventListener("mouseup", function() {
+            //     audio.play();
+            // });
 
             // Event listener for the forward and rewind bar
-            forwardButton.addEventListener("click", function(){
-                fast_rewind(5)
-            });
+            // forwardButton.addEventListener("click", function(){
+            //     fast_rewind(5)
+            // });
 
-            rewindButton.addEventListener("click", function(){
-                fast_rewind(-5)
-            });
+            // rewindButton.addEventListener("click", function(){
+            //     fast_rewind(-5)
+            // });
 
             // Keyboard
             document.addEventListener('keydown', function(event) {
@@ -183,12 +193,12 @@
                         playToPause()
                     }
                 }
-                else if(event.keyCode == 37) {
-                    fast_rewind(-5)
-                }
-                else if(event.keyCode == 39) {
-                    fast_rewind(5)
-                }
+                // else if(event.keyCode == 37) {
+                //     fast_rewind(-5)
+                // }
+                // else if(event.keyCode == 39) {
+                //     fast_rewind(5)
+                // }
             });
         }
     </script>

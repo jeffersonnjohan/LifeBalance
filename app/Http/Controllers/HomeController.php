@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\EnrollmentDiet;
 use App\Models\User;
 use App\Models\UserDiet;
 use App\Models\UserWeight;
@@ -32,7 +33,8 @@ class HomeController extends Controller
             'totalCalories' => $totalCalories,
             'categoryBmi' => $this->categoryBmi($bmi),
             'leaderboards' => $this->leaderboard(),
-            'unfinishedPlans' => $this->unfinishedPlan($id),
+            'unfinishedWorkoutPlans' => $this->unfinishedWorkoutPlan($id),
+            'unfinishedDietPlans' => $this->unfinishedDietPlan($id),
             'weightList' => json_encode($this->bodyWeightStatistic($id)),
             'caloriesInList' => json_encode($this->caloriesInStatistic($id)),
             'caloriesOutList' => json_encode($this->caloriesOutStatistic($id)),
@@ -53,8 +55,12 @@ class HomeController extends Controller
         return User::all()->sortByDesc('points')->take(5);
     }
 
-    private function unfinishedPlan($id){
+    private function unfinishedWorkoutPlan($id){
         return EnrollmentWorkout::where('user_id', $id)->where('is_done', false)->get()->load(['workout']);
+    }
+
+    private function unfinishedDietPlan($id){
+        return EnrollmentDiet::where('user_id', $id)->where('is_done', false)->get()->load(['diet']);
     }
 
     private function bodyWeightStatistic($id){
@@ -89,11 +95,11 @@ class HomeController extends Controller
     }
 
     private function caloriesInOnDate($id, $date){
-        return UserDiet::where('user_id', $id)->where('created_at', '>=' , $date)->where('created_at', '<=' , $this->dateAfter($date, 1).' 00:00:00')->get()[0]->calories_in ?? 0;
+        return isset(UserDiet::where('user_id', $id)->where('created_at', '>=' , $date)->where('created_at', '<=' , $this->dateAfter($date, 1).' 00:00:00')->get()[0]->calories_in) ? UserDiet::where('user_id', $id)->where('created_at', '>=' , $date)->where('created_at', '<=' , $this->dateAfter($date, 1).' 00:00:00')->get()->sum('calories_in'):0;
     }
 
     private function caloriesOutOnDate($id, $date){
-        return UserWorkout::where('user_id', $id)->where('created_at', '>=' , $date)->where('created_at', '<=' , $this->dateAfter($date, 1).' 00:00:00')->get()[0]->calories_out ?? 0;
+        return isset(UserWorkout::where('user_id', $id)->where('created_at', '>=' , $date)->where('created_at', '<=' , $this->dateAfter($date, 1).' 00:00:00')->get()[0]->calories_out) ? UserWorkout::where('user_id', $id)->where('created_at', '>=' , $date)->where('created_at', '<=' , $this->dateAfter($date, 1).' 00:00:00')->get()->sum('calories_out') : 0;
     }
 
     private function caloriesInStatistic($id){

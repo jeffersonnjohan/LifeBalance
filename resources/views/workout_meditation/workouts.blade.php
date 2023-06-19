@@ -34,7 +34,7 @@
                         {{-- Section Kanan --}}
                         <div class="w-[30%] h-full flex justify-center items-center">
                             {{-- Image --}}
-                            <div class="w-[90%] rounded-md border border-cBlue aspect-square bg-center bg-cover" style="background-image:url('{{ $workout->image . '.png' }}')">
+                            <div class="w-[90%] rounded-md border border-cBlue aspect-square bg-center bg-cover" style="background-image:url('{{ '/storage/' . $workout->image }}')">
 
                             </div>
                         </div>
@@ -74,7 +74,7 @@
                         {{-- Section Kanan --}}
                         <div class="w-[30%] h-full flex justify-center items-center">
                             {{-- Image --}}
-                            <div class="w-[90%] rounded-md border border-cBlue aspect-square bg-center bg-cover" style="background-image:url('{{ $workout->image . '.png' }}')">
+                            <div class="w-[90%] rounded-md border border-cBlue aspect-square bg-center bg-cover" style="background-image:url('{{ '/storage/'. $workout->image }}')">
 
                             </div>
                         </div>

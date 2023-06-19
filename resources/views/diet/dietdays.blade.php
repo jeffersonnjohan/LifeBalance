@@ -22,7 +22,7 @@
         <div class="h-[70px] flex justify-center items-center text-2xl font-medium">
             <p>{{ $diet_days[0]->diet->name }}</p>
         </div>
-        <div class=" h-60 w-full bg-cover" style="background-image: url('assets/intermittentFasting.png')"></div>
+        <div class=" h-60 w-full bg-cover" style="background-image: url({{ '/storage/'.$diet_days[0]->diet->image }})"></div>
         <div class="bg-cGreen -mt-2">
             <p class="p-2 text-lg font-normal text-center text-white">
                 {{ $diet_days[0]->diet->description }}
