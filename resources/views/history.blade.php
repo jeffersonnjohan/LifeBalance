@@ -12,8 +12,7 @@
 
 @section('body')
     <div class="bg-cLightGrey h-full w-full">
-        @extends('component.backbutton')
-        @section('backlink', '/home')
+        <x-back-get hover-bg="bg-cRed" backlink="{{ url()->previous() }}"/>
 
         {{-- Bar --}}
         <?php $temp = array(); ?>

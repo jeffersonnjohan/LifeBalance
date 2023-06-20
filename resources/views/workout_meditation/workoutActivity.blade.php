@@ -3,11 +3,8 @@
 @section('title', 'Workout Activity')
 
 @section('body')
-    <div  id ='back' class="fixed bg-white rounded-full flex justify-center items-center aspect-square h-[50px] shadow-lg top-2 left-2 z-20 group duration-300 ease-out hover:bg-cBlue">
-        <span class="material-symbols-outlined scale-110  duration-300 ease-out group-hover:text-white">
-            arrow_back
-        </span>
-    </div>
+    <x-back-post hover-bg="bg-cBlue"/>
+
     <form action="/workoutdays" method="POST" id='back_form'>
         @csrf
         <input type="hidden" name='day' value="{{ $day }}">
