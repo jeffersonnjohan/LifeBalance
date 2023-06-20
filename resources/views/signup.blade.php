@@ -11,7 +11,10 @@
     <span class="material-symbols-outlined">
         calendar_month
     </span>
-    <input type="date" name="dob" id="dob" placeholder="DOB (dd/mm/yyyy)" required class="border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full">
+    {{-- <input type="date" name="dob" id="dob" placeholder="DOB (dd/mm/yyyy)" required class="border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full"> --}}
+    <input type="text" name="dob" id="dob" placeholder="Date of Birth" required class="border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full"
+    onfocus="(this.type='date')" onblur="(this.type= this.value ? 'date' : 'text')"
+    >
 </div>
 @endsection
 
