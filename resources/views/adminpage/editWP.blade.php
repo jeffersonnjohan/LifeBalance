@@ -102,11 +102,11 @@
                                     class="dayHeader border-transparent bg-transparent text-sm font-bold text-cDarkBlue text-center w-full">
                                     Day {{ $loop->iteration }}</h2>
                                 <span
-                                    class="deleteExerciseDetail material-symbols-outlined rounded-full p-2 scale-100 duration-300 ease-out bg-cRed hover:bg-white hover:text-black text-white">
+                                    class="cursor-pointer deleteExerciseDetail material-symbols-outlined rounded-full p-2 scale-100 duration-300 ease-out bg-cRed hover:bg-white hover:text-black text-white">
                                     delete
                                 </span>
                                 <span
-                                    class="exerciseDetail material-symbols-outlined rounded-full p-2 scale-100 duration-300 ease-out bg-cBlue hover:bg-white hover:text-black text-white">
+                                    class="cursor-pointer exerciseDetail material-symbols-outlined rounded-full p-2 scale-100 duration-300 ease-out bg-cBlue hover:bg-white hover:text-black text-white">
                                     add_circle
                                 </span>
                             </div>
@@ -121,7 +121,7 @@
                                             <div
                                                 class="border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full">
                                                 <select name="exerciseID[{{ $loop->parent->index }}][]" id="exerciseName"
-                                                    class="border-0 bg-transparent w-full h-full rounded-full hover:border-transparent focus-within:border-transparent active:border-transparent">
+                                                    class="cursor-pointer border-0 bg-transparent w-full h-full rounded-full hover:border-transparent focus-within:border-transparent active:border-transparent">
                                                     <option value="exerciseName">Exercise Name</option>
                                                     @foreach ($workoutActivities as $workoutActivity)
                                                         @if ($workoutActivity->id == $workoutExerciseEach->workout_activity_id)
@@ -162,7 +162,7 @@
                                         </div>
                                     </div>
                                     <span
-                                        class=" material-symbols-outlined rounded-full h-fit my-auto p-2 scale-100 duration-300 ease-out bg-cRed hover:bg-white hover:border-cDarkBlue focus:border-5 focus:border-cDarkblue hover:text-black text-white">
+                                        class="cursor-pointer material-symbols-outlined rounded-full h-fit my-auto p-2 scale-100 duration-300 ease-out bg-cRed hover:bg-white hover:border-cDarkBlue focus:border-5 focus:border-cDarkblue hover:text-black text-white">
                                         delete
                                     </span>
                                 </div>
@@ -176,11 +176,20 @@
                     </div>
                 @endforeach
             </div>
-            <div id="addMore" class="flex flex-row mb-16 pt-2 pb-2 text-cBlue place-content-center pr-2">
+            {{-- <div id="addMore" class="flex flex-row mb-16 pt-2 pb-2 text-cBlue place-content-center pr-2">
                 <span class="material-symbols-outlined ">
                     add
                 </span>
                 <h3>Add More</h3>
+            </div> --}}
+            <div class="mb-10 pt-2 pb-2 flex text-cBlue pr-2 place-content-between">
+                <div></div>
+                <div id="addMore" class="flex flex-row cursor-pointer">
+                    <span class="material-symbols-outlined ">
+                        add
+                    </span>
+                    <h3>Add More</h3>
+                </div>
             </div>
 
             <div class="pb-40"></div>
@@ -191,7 +200,7 @@
                         <div
                             class="w-full h-[50px] rounded-full bg-cBlue text-white flex items-center font-bold px-4 duration-300 hover:ring-2 focus-within:text-white hover:text-cBlue focus-within:ring-2 hover:bg-white shadow-lg">
                             <input type="submit" name="confirmButton" id="confirmButton" value="Confirm" required
-                                class="border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full">
+                                class="cursor-pointer border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full">
                         </div>
                     </div>
                     <div class="pt-2 pb-2 bottom-0 lg:w-[50%]">
