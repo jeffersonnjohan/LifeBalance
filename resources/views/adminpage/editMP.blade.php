@@ -97,7 +97,7 @@
             <div class="lg:fixed lg:right-0 lg:left-[25%] lg:px-4 lg:pb-2 lg:flex-row lg:flex lg:gap-2 lg:bottom-0">
                 <div class="pt-2 pb-2 lg:w-[50%]">
                     <div class="w-full h-[50px] rounded-full bg-cBlue text-white flex items-center font-bold px-4 duration-300 hover:ring-2 focus-within:text-white focus-within:ring-2 hover:text-cBlue hover:bg-white shadow-lg">
-                        <input type="submit" name="confirmButton" id="confirmButton" value="Confirm" required class="border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full">
+                        <input type="submit" name="confirmButton" id="confirmButton" value="Confirm" required class="border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full cursor-pointer">
                     </div>
                 </div>
                 <div class="pt-2 pb-2 bottom-0 lg:w-[50%]">

@@ -82,7 +82,7 @@
                         <div class="pt-2 pb-2">
                             <div class="w-full h-[50px] rounded-full bg-cGreen bg-opacity-50 flex items-center text-cDarkGrey px-4">
                                 <h2 class="dayHeader border-transparent bg-transparent text-sm font-bold text-cDarkBlue text-center w-full">Day 1</h2>
-                                <span class="deleteDay material-symbols-outlined rounded-full p-2 scale-100 duration-300 ease-out bg-cRed hover:bg-white hover:text-black text-white">
+                                <span class="deleteDay material-symbols-outlined rounded-full p-2 scale-100 duration-300 ease-out bg-cRed hover:bg-white hover:text-black text-white cursor-pointer">
                                     delete
                                 </span>
                             </div>
@@ -100,7 +100,7 @@ Dinner : Es buah)" required class="h-[120px] resize-none border-transparent bg-t
                             </div>
                             <div class="w-[25%] h-full p-2">
                                 <div class="w-full h-[50px] rounded-full bg-white flex items-center text-cDarkGrey px-4 duration-300 ring-cGreen hover:ring-cGreen hover:ring-2 focus-within:text-cGreen focus-within:ring-2 hover:text-cGreen shadow-lg">
-                                    <input type="number" name="calories[]" id="calories" placeholder="Calories" value="{{ $dietDay->calories }}" required class="text-center border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full">
+                                    <input type="number" name="calories[]" id="calories" placeholder="Calories" value="{{ $dietDay->calories }}" required class="p-0 text-center border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full">
                                 </div>
                             </div>
                         </div>
@@ -109,11 +109,21 @@ Dinner : Es buah)" required class="h-[120px] resize-none border-transparent bg-t
                 </div>
 
 
-                <div class="mb-10 flex flex-row pt-2 pb-2 text-cGreen place-content-end pr-2" id="addMore">
+                {{-- <div class="mb-10 flex flex-row pt-2 pb-2 text-cGreen place-content-end pr-2" id="addMore">
                     <span class="material-symbols-outlined ">
                         add
                     </span>
                     <h3>Add More</h3>
+                </div> --}}
+
+                <div class="mb-10 pt-2 pb-2 flex text-cGreen pr-2 place-content-between">
+                    <div></div>
+                    <div id="addMore" class="flex flex-row cursor-pointer">
+                        <span class="material-symbols-outlined ">
+                            add
+                        </span>
+                        <h3>Add More</h3>
+                    </div>
                 </div>
 
                 <div class="pb-40"></div>
@@ -122,7 +132,7 @@ Dinner : Es buah)" required class="h-[120px] resize-none border-transparent bg-t
                     <div class="lg:fixed lg:right-0 lg:left-[25%] lg:px-4 lg:pb-2 lg:flex-row lg:flex lg:gap-2 lg:bottom-0">
                         <div class="pt-2 pb-2 lg:w-[50%]">
                             <div class="w-full h-[50px] rounded-full bg-cGreen text-white flex items-center font-bold px-4 duration-300 hover:ring-2 ring-cGreen focus-within:text-white focus-within:ring-2 hover:text-cGreen hover:bg-white shadow-lg">
-                                <input type="submit" name="confirmButton" id="confirmButton" value="Confirm" required class="border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full">
+                                <input type="submit" name="confirmButton" id="confirmButton" value="Confirm" required class="border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full cursor-pointer">
                             </div>
                         </div>
                         <div class="pt-2 pb-2 bottom-0 lg:w-[50%]">
