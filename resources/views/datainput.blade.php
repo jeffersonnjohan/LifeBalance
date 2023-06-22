@@ -53,29 +53,38 @@
                 </div>
                 <form action="@yield('directpage')" class="flex flex-col gap-2" method="post" enctype="multipart/form-data">
                     @csrf
-                    <div
-                        class="w-[300px] h-[50px] rounded-full bg-cLightGrey flex items-center text-cDarkGrey px-4 duration-300 hover:ring-2 focus-within:text-cBlue focus-within:ring-2 hover:text-cBlue">
-                        <span class="material-symbols-outlined">
-                            person
-                        </span>
-                        <input type="text" name="username" id="username" placeholder="Username"
-                            value="@yield('username')" required
-                            class="border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full"
-                            autofocus>
+                    <div class="flex flex-col gap-1">
+                        <script>
+                            usernamejs = 'username';
+                        </script>
+                        <div class="w-[300px] h-[50px] rounded-full bg-cLightGrey flex items-center text-cDarkGrey px-4 duration-300 hover:ring-2 focus-within:text-cBlue focus-within:ring-2 hover:text-cBlue @error('username') ring-cRed text-cRed focus-within:text-cRed hover:text-cRed @enderror" id="username-container" oninput="removeUsernameAlert()">
+                            <span class="material-symbols-outlined">
+                                person
+                            </span>
+                            <input type="text" name="username" id="username" placeholder="Username"
+                                value="@yield('username')"
+                                class="border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full"
+                                autofocus>
+                        </div>
+                        @error('username')
+                            <p class="text-cRed text text-left px-4 text-xs" id="username-alert-txt">{{ $message }}</p>
+                        @enderror
                     </div>
-                    <div
-                        class="w-[300px] h-[50px] rounded-full bg-cLightGrey flex items-center text-cDarkGrey px-4 duration-300 hover:ring-2 focus-within:text-cBlue focus-within:ring-2 hover:text-cBlue">
-                        <span class="material-symbols-outlined">
-                            location_on
-                        </span>
-                        <input type="text" name="address" id="address" placeholder="Address" value="@yield('address')"
-                            required
-                            class="border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full">
+                    <div class="flex flex-col gap-1">
+                        <div class="w-[300px] h-[50px] rounded-full bg-cLightGrey flex items-center text-cDarkGrey px-4 duration-300 hover:ring-2 focus-within:text-cBlue focus-within:ring-2 hover:text-cBlue @error('address') ring-cRed text-cRed focus-within:text-cRed hover:text-cRed @enderror" id="address-container" oninput="removeAddressAlert()">
+                            <span class="material-symbols-outlined">
+                                location_on
+                            </span>
+                            <input type="text" name="address" id="address" placeholder="Address"  value="@yield('address')" class="border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full invalid">
+                        </div>
+                        @error('address')
+                            <p class="text-cRed text text-left px-4 text-xs" id="address-alert-txt">{{ $message }}</p>
+                        @enderror
                     </div>
                     @yield('dob')
-                    <div class="w-[300px] h-[150px] flex items-center text-cDarkGrey justify-between gap-2">
+                    <div class="w-[300px] h-[150px] flex items-center text-cDarkGrey justify-between gap-2 invalid">
                         @if ($userdata['gender'] == 'male')
-                            <input type="radio" name="gender" id="male" required class="peer/male hidden"
+                            <input type="radio" name="gender" id="male" class="peer/male hidden"
                                 value="male" checked>
                             <label
                                 class="w-[50%] h-full bg-cLightGrey rounded-3xl peer-checked/male:bg-cBlue duration-300 hover:ring-2"
@@ -95,7 +104,7 @@
                                 </div>
                             </label>
                         @elseif ($userdata['gender'] == 'female')
-                            <input type="radio" name="gender" id="male" required class="peer/male hidden"
+                            <input type="radio" name="gender" id="male" class="peer/male hidden"
                                 value="male">
                             <label
                                 class="w-[50%] h-full bg-cLightGrey rounded-3xl peer-checked/male:bg-cBlue duration-300 hover:ring-2"
@@ -116,47 +125,57 @@
                                 </div>
                             </label>
                         @else
-                            <input type="radio" name="gender" id="male" required class="peer/male hidden"
-                                value="male">
-                            <label
-                                class="w-[50%] h-full bg-cLightGrey rounded-3xl peer-checked/male:bg-cBlue duration-300 hover:ring-2"
-                                for="male">
-                                <div class="w-full h-full bg-cover flex flex-col justify-end items-center p-1"
-                                    style="background-image: url('assets/male.png')">
-                                    <div class="text-sm font-bold text-cDarkBlue">Male</div>
+                            <div class="flex flex-col gap-1 w-full h-full">
+                                <div class="flex gap-2 w-full h-full">
+                                    <input type="radio" name="gender" id="male" class="peer/male hidden" value="male" {{ old('gender') == 'male' ? 'checked' : ''}} oninput="removeGenderAlert()">
+                                    <label
+                                        class="w-[50%] h-full bg-cLightGrey rounded-3xl peer-checked/male:bg-cBlue duration-300 hover:ring-2"
+                                        for="male">
+                                        <div class="w-full h-full bg-cover flex flex-col justify-end items-center p-1"
+                                            style="background-image: url('assets/male.png')">
+                                            <div class="text-sm font-bold text-cDarkBlue">Male</div>
+                                        </div>
+                                    </label>
+                                    <input type="radio" name="gender" id="female" class="peer/female hidden" value="female" {{ old('gender') == 'female' ? 'checked' : ''}} oninput="removeGenderAlert()">
+                                    <label
+                                        class="w-[50%] h-full bg-cLightGrey rounded-3xl peer-checked/female:bg-cBlue duration-300 hover:ring-2"
+                                        for="female">
+                                        <div class="w-full h-full bg-cover flex flex-col justify-end items-center p-1"
+                                            style="background-image: url('assets/female.png')">
+                                            <div class="text-sm font-bold text-cDarkBlue">Female</div>
+                                        </div>
+                                    </label>
                                 </div>
-                            </label>
-                            <input type="radio" name="gender" id="female" class="peer/female hidden" value="female">
-                            <label
-                                class="w-[50%] h-full bg-cLightGrey rounded-3xl peer-checked/female:bg-cBlue duration-300 hover:ring-2"
-                                for="female">
-                                <div class="w-full h-full bg-cover flex flex-col justify-end items-center p-1"
-                                    style="background-image: url('assets/female.png')">
-                                    <div class="text-sm font-bold text-cDarkBlue">Female</div>
-                                </div>
-                            </label>
+                                @error('gender')
+                                    <p class="text-cRed text text-left px-4 text-xs" id="gender-alert-txt">{{ $message }}</p>
+                                @enderror
+                            </div>
                         @endif
                     </div>
                     @yield('img_weight_height')
-                    <div
-                        class="w-[300px] h-[50px] rounded-full bg-cLightGrey flex items-center text-cDarkGrey px-4 duration-300 hover:ring-2 focus-within:text-cBlue focus-within:ring-2 hover:text-cBlue">
-                        <span class="material-symbols-outlined">
-                            lock
-                        </span>
-                        <input type="password" name="password" id="password" placeholder="Password" required
-                            class="border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full">
-                        <div class="flex items-center z-10 cursor-pointer hover:text-cDarkBlue duration-300 ease-out"
-                            onclick="visibility()" id="on">
+                    <div class="flex flex-col gap-1">
+                        <div class="w-[300px] h-[50px] rounded-full bg-cLightGrey flex items-center text-cDarkGrey px-4 duration-300 hover:ring-2 focus-within:text-cBlue focus-within:ring-2 hover:text-cBlue @error('address') ring-cRed text-cRed focus-within:text-cRed hover:text-cRed @enderror" id="password-container" oninput="removePasswordAlert()">
                             <span class="material-symbols-outlined">
-                                visibility
+                                lock
                             </span>
+                            <input type="password" name="password" id="password" placeholder="Password"
+                                class="border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full">
+                            <div class="flex items-center z-10 cursor-pointer hover:text-cDarkBlue duration-300 ease-out"
+                                onclick="visibility()" id="on">
+                                <span class="material-symbols-outlined">
+                                    visibility
+                                </span>
+                            </div>
+                            <div class="flex items-center z-10 cursor-pointer hover:text-cDarkBlue duration-300 ease-out hidden"
+                                onclick="visibility()" id="off">
+                                <span class="material-symbols-outlined">
+                                    visibility_off
+                                </span>
+                            </div>
                         </div>
-                        <div class="flex items-center z-10 cursor-pointer hover:text-cDarkBlue duration-300 ease-out hidden"
-                            onclick="visibility()" id="off">
-                            <span class="material-symbols-outlined">
-                                visibility_off
-                            </span>
-                        </div>
+                        @error('password')
+                            <p class="text-cRed text text-left px-4 text-xs" id="password-alert-txt">{{ $message }}</p>
+                        @enderror
                     </div>
                     @yield('haveaccount')
                     <input type="submit" value="@yield('button')"
@@ -190,6 +209,62 @@
                     $("#on").removeClass("hidden")
                 });
             }
+        }
+
+
+        function removeUsernameAlert() {
+            $(document).ready(function() {
+                $("#username-container").removeClass("ring-cRed text-cRed focus-within:text-cRed hover:text-cRed")
+                $("#username-alert-txt").addClass("hidden")
+            })
+        }
+
+        function removeAddressAlert() {
+            $(document).ready(function() {
+                $("#address-container").removeClass("ring-cRed text-cRed focus-within:text-cRed hover:text-cRed")
+                $("#address-alert-txt").addClass("hidden")
+            })
+        }
+
+        function removePasswordAlert() {
+            $(document).ready(function() {
+                $("#password-container").removeClass("ring-cRed text-cRed focus-within:text-cRed hover:text-cRed")
+                $("#password-alert-txt").addClass("hidden")
+            })
+        }
+        function removeDOBAlert() {
+            $(document).ready(function() {
+                $("#dob-container").removeClass("ring-cRed text-cRed focus-within:text-cRed hover:text-cRed")
+                $("#dob-alert-txt").addClass("hidden")
+            })
+        }
+
+        function removeWeightAlert() {
+            $(document).ready(function() {
+                $("#weight-container").removeClass("ring-cRed text-cRed focus-within:text-cRed hover:text-cRed")
+                $("#weight-alert-txt").addClass("hidden")
+            })
+        }
+
+        function removeHeightAlert() {
+            $(document).ready(function() {
+                $("#height-container").removeClass("ring-cRed text-cRed focus-within:text-cRed hover:text-cRed")
+                $("#height-alert-txt").addClass("hidden")
+            })
+        }
+
+        function removeImageAlert() {
+            $(document).ready(function() {
+                $("#imgBox").removeClass("ring-cRed text-cRed focus-within:text-cRed hover:text-cRed")
+                $("#image-alert-txt").addClass("hidden")
+                $("#imageicon").removeClass("text-cRed")
+            })
+        }
+
+        function removeGenderAlert() {
+            $(document).ready(function() {
+                $("#gender-alert-txt").addClass("hidden")
+            })
         }
     </script>
 @endsection
