@@ -85,7 +85,7 @@
                 </a>
             </div>
         </div>
-            
+
         {{-- Pop Up Edit --}}
         <div id="popup-edit{{ $loop->iteration }}" tabindex="-1" class="fixed top-0 left-0 right-0 z-50 hidden p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
             <div class="relative w-full max-w-md max-h-full">
@@ -139,11 +139,7 @@
     </div>
 
 {{-- Add Meditation Plan --}}
-<a href="/admin/meditation/create" class="object-bottom fixed bg-black rounded-full flex justify-center items-center aspect-square h-[50px] shadow-lg bottom-20 right-2 lg:bottom-5 lg:right-5 z-10 group duration-300 ease-out hover:bg-cBLue">
-    <span class="material-symbols-outlined scale-110 duration-300 ease-out group-hover:text-white text-white mb-100px">
-        add
-    </span>
-</a>
+<x-plus-button link="href='/admin/meditation/create'" color="cBlue" group-hover="group-hover:text-cBlue" modal=""/>
 
 {{-- Blank Space --}}
 <div class="h-[75px] bg-transparent"></div>
