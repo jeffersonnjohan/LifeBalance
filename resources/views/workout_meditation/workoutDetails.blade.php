@@ -3,11 +3,7 @@
 @section('title', 'Workout Detail')
 
 @section('body')
-    <a href="/workouts" class="fixed bg-white rounded-full flex justify-center items-center aspect-square h-[50px] shadow-lg top-2 left-2 z-20 group duration-300 ease-out hover:bg-cBlue">
-        <span class="material-symbols-outlined scale-110  duration-300 ease-out group-hover:text-white">
-            arrow_back
-        </span>
-    </a>
+    <x-back-get hover-bg="bg-cBlue" backlink="/workouts"/>
 
     <div>
         <div class="h-[70px] flex justify-center items-center text-2xl font-medium">

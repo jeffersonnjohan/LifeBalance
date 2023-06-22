@@ -8,11 +8,7 @@
         $total_kcal = 0;
     @endphp
 
-    <button id="back" class="fixed bg-white rounded-full flex justify-center items-center aspect-square h-[50px] shadow-lg top-2 left-2 z-20 group duration-300 ease-out hover:bg-cBlue">
-        <span class="material-symbols-outlined scale-110  duration-300 ease-out group-hover:text-white">
-            arrow_back
-        </span>
-    </button>
+    <x-back-post hover-bg="bg-cBlue"/>
 
     <div class="w-full">
         <div class="h-[70px] flex justify-center items-center text-2xl font-medium">
@@ -58,11 +54,19 @@
                     @endphp
                 </form>
                 @endforeach
+                @if ($done == 'done')
+                <div class="flex items-center justify-end pb-24">
+                    <button class="w-40 h-fit py-2 px-5  rounded-full bg-gray-300 text-gray-400 border-2 cursor-pointer text-center text-2xl">
+                        DONE
+                    </button>
+                </div>
+                @else
                 <div id="done" class="flex items-center justify-end pb-24">
                     <button type="submit" class="w-40 h-fit py-2 px-5  rounded-full bg-cBlue text-white border-2 hover:bg-white hover:border-cBlue hover:text-cBlue duration-300 ease-out cursor-pointer text-center text-2xl">
                         DONE
                     </button>
                 </div>
+                @endif
         </div>
     </div>
 
@@ -90,11 +94,14 @@
         // })
 
         var form1 = document.getElementById("form");
-        document.getElementById("done").addEventListener("click", function(){
-            document.getElementById('workout_value').value = 1;
-            console.log(document.getElementById('workout_value'))
-            form1.submit();
-        })
+        var done = document.getElementById("done");
+        if(done){
+            done.addEventListener("click", function(){
+                document.getElementById('workout_value').value = 1;
+                console.log(document.getElementById('workout_value'))
+                form1.submit();
+            })
+        }
         document.getElementById("back").addEventListener("click", function(){
             form1.submit();
         })

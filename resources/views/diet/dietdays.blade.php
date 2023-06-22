@@ -7,10 +7,6 @@
 @endsection
 
 @section('body')
-    @extends('component.backbutton')
-    @section('backlink', '/diets')
-    @section('hover-bg', 'bg-cGreen')
-
     <?php
         $i = 1;
         $flag = 0;
@@ -20,11 +16,13 @@
         $tomorrow = \Carbon\Carbon::tomorrow('GMT+7')
     ?>
 
+  <x-back-get hover-bg="bg-cGreen" backlink="/diets"/>
     <div class="lg:bg-cLightGrey">
         <div class="lg:fixed lg:right-0 lg:left-0 lg: lg:w-full lg:h-[70px] lg:bg-cLightGrey lg:z-10">
             <div class="h-[70px] flex justify-center items-center text-2xl font-medium">
                 <p>{{ $diet_days[0]->diet->name }}</p>
             </div>
+
         </div>
         <div class=" w-full h-fit flex mt-[70px] ">
             {{-- <div class="h-[70px] flex justify-center items-center text-2xl font-medium">
@@ -213,8 +211,11 @@
         // })
 
         var form = document.getElementById ("done_form");
-        document.getElementById ("done").addEventListener("click", function () {
-            form.submit();
-        });
+        var done = document.getElementById ("done");
+        if(done){
+            done.addEventListener("click", function () {
+                form.submit();
+            });
+        }
     </script>
 @endsection

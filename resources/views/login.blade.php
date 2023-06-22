@@ -30,27 +30,37 @@
             </div>
             <form action="/login" class="flex flex-col gap-2" method="post">
                 @csrf
-                <div class="w-[300px] h-[50px] rounded-full bg-cLightGrey flex items-center text-cDarkGrey px-4 duration-300 hover:ring-2 focus-within:text-cBlue focus-within:ring-2 hover:text-cBlue">
-                    <span class="material-symbols-outlined">
-                        person
-                    </span>
-                    <input type="text" name="username" id="username" placeholder="Username" required class="border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full" autofocus>
+                <div class="flex flex-col gap-1">
+                    <div class="w-[300px] h-[50px] rounded-full bg-cLightGrey flex items-center text-cDarkGrey px-4 duration-300 hover:ring-2 focus-within:text-cBlue focus-within:ring-2 hover:text-cBlue @error('username') ring-cRed text-cRed focus-within:text-cRed hover:text-cRed @enderror" id="username-container" oninput="removeUsernameAlert()">
+                        <span class="material-symbols-outlined">
+                            person
+                        </span>
+                        <input type="text" name="username" id="username" placeholder="Username" class="border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full" autofocus value="{{ old('username') }}">
+                    </div>
+                    @error('username')
+                        <p class="text-cRed text text-left px-4 text-xs" id="username-alert-txt">{{ $message }}</p>
+                    @enderror
                 </div>
-                <div class="w-[300px] h-[50px] rounded-full bg-cLightGrey flex items-center text-cDarkGrey px-4 duration-300 hover:ring-2 focus-within:text-cBlue focus-within:ring-2 hover:text-cBlue">
-                    <span class="material-symbols-outlined">
-                        lock
-                    </span>
-                    <input type="password" name="password" id="password" placeholder="Password" required class="border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full">
-                    <div class="flex items-center z-10 cursor-pointer hover:text-cDarkBlue duration-300 ease-out" onclick="visibility()" id="on">
+                <div class="flex flex-col gap-1">
+                    <div class="w-[300px] h-[50px] rounded-full bg-cLightGrey flex items-center text-cDarkGrey px-4 duration-300 hover:ring-2 focus-within:text-cBlue focus-within:ring-2 hover:text-cBlue @error('username') ring-cRed text-cRed focus-within:text-cRed hover:text-cRed @enderror" id="password-container" oninput="removePasswordAlert()">
                         <span class="material-symbols-outlined">
-                            visibility
+                            lock
                         </span>
+                        <input type="password" name="password" id="password" placeholder="Password" class="border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full">
+                        <div class="flex items-center z-10 cursor-pointer hover:text-cDarkBlue duration-300 ease-out" onclick="visibility()" id="on">
+                            <span class="material-symbols-outlined">
+                                visibility
+                            </span>
+                        </div>
+                        <div class="flex items-center z-10 cursor-pointer hover:text-cDarkBlue duration-300 ease-out hidden" onclick="visibility()" id="off">
+                            <span class="material-symbols-outlined">
+                                visibility_off
+                            </span>
+                        </div>
                     </div>
-                    <div class="flex items-center z-10 cursor-pointer hover:text-cDarkBlue duration-300 ease-out hidden" onclick="visibility()" id="off">
-                        <span class="material-symbols-outlined">
-                            visibility_off
-                        </span>
-                    </div>
+                    @error('password')
+                        <p class="text-cRed text text-left px-4 text-xs" id="password-alert-txt">{{ $message }}</p>
+                    @enderror
                 </div>
                 <div class="flex justify-center items-center gap-2 text-xs focus-within:text-cBlue">
                     <div class="bg-cDarkGrey w-10 h-0.5"></div>
@@ -111,6 +121,20 @@
         slider.scrollLeft = scrollLeft - walk;
         console.log(walk);
         });
+
+        function removeUsernameAlert() {
+            $(document).ready(function() {
+                $("#username-container").removeClass("ring-cRed text-cRed focus-within:text-cRed hover:text-cRed")
+                $("#username-alert-txt").addClass("hidden")
+            })
+        }
+
+        function removePasswordAlert() {
+            $(document).ready(function() {
+                $("#password-container").removeClass("ring-cRed text-cRed focus-within:text-cRed hover:text-cRed")
+                $("#password-alert-txt").addClass("hidden")
+            })
+        }
 
     </script>
 @endsection
