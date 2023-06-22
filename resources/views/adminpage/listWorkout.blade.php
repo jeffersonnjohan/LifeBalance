@@ -25,7 +25,7 @@
                 </a>
             @endcan
 
-            <a href="/profile"" class="fixed bg-cBlue rounded-b-3xl flex justify-center items-center aspect-square h-[50px] shadow-lg right-2 -top-0.5 z-10 group duration-300 ease-out hover:bg-white">
+            <a href="/profile" class="fixed bg-cBlue rounded-b-3xl flex justify-center items-center aspect-square h-[50px] shadow-lg right-2 -top-0.5 z-10 group duration-300 ease-out hover:bg-white">
                 <div class="bg-white rounded-full p-4 bg-cover mt-2" style="background-image: url({{ '/storage/'. App\Models\User::find(Auth::user()->id)['image'] }})"></div>
             </a>
         </div>
@@ -147,11 +147,7 @@
         </div>
 
     {{-- Add Workout Plan --}}
-    <a href="/admin/workout/create" class="object-bottom fixed bg-black rounded-full flex justify-center items-center aspect-square h-[50px] shadow-lg bottom-20 right-2 lg:bottom-5 lg:right-5 z-10 group duration-300 ease-out hover:bg-cBLue">
-        <span class="material-symbols-outlined scale-110 duration-300 ease-out group-hover:text-white text-white mb-100px">
-            add
-        </span>
-    </a>
+    <x-plus-button link="href='/admin/workout/create'" color="cBlue" group-hover="group-hover:text-cBlue" modal=""/>
 
     {{-- Blank Space --}}
     <div class="h-[75px] bg-transparent"></div>
