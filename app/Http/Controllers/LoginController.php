@@ -13,15 +13,19 @@ class LoginController extends Controller
     }
 
     public function authenticate(Request $request): RedirectResponse{
-        $credentials = $request->all();
-        unset($credentials['_token']);
-        if(Auth::attempt($credentials)) {
+        $validated =  $request->validate([
+            'username' => 'required|min:5|max:255',
+            'password' => 'required|min:8|max:255'
+        ]);
+        // $credentials = $request->all();
+        unset($validated['_token']);
+        if(Auth::attempt($validated)) {
             $request->session()->regenerate();
             // $id = User::where('username', $credentials['username'])->pluck('id')->first();
             // $request->session()->put('activeId', $id);
             return redirect()->intended('/home');
         }
-        return back()->with('loginError', 'Login failed!');
+        return back()->with('loginError', 'Incorrect username or password');
         // return $credentials;
     }
 }
