@@ -5,13 +5,14 @@ namespace App\Http\Controllers;
 use DateTime;
 use App\Models\Collect;
 use App\Models\Challenge;
+use Illuminate\Http\Request;
 use App\Models\EnrollmentDiet;
 use Illuminate\Support\Carbon;
 use App\Models\EnrollmentWorkout;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
 use App\Http\Requests\StoreChallengeRequest;
 use App\Http\Requests\UpdateChallengeRequest;
-use Illuminate\Http\Request;
 
 class ChallengeController extends Controller
 {
@@ -122,12 +123,6 @@ class ChallengeController extends Controller
         return view('adminpage.editChallenge', [
             'challenge' => $challenge
         ]);
-
-        // return view('adminpage.editDP', [
-        //     'diet' => $diet,
-        //     'dietDays' => $diet->dietDay,
-        //     'oldImg' => $diet->oldImg
-        // ]);
     }
 
     /**
@@ -139,22 +134,45 @@ class ChallengeController extends Controller
      */
     public function update(UpdateChallengeRequest $request)
     {
-        // {"_token":"biyMF91K8ZpOllW7oqmBDBxgrbSCUevgql2cd6wV","challengeId":"10","planTitle":"Plan baru banget nih","points":"10","description":"Makan makan hehehehe","image":"flowchart-methodology.png","startDate":"2023-06-13","endDate":"2023-06-13","totalWorkout":"10","totalDiet":"5","confirmButton":"Confirm"}
-        // return $request;
-
         // return $request;
         $challenge = Challenge::find($request->challengeId);
 
-        $challenge->name = $request->planTitle;
-        $challenge->description = $request->description;
-        $challenge->points = $request->points;
-        $challenge->start_date = 'images/challengeplan';
-        $challenge->start_date = Carbon::createFromFormat('Y-m-d', $request->startDate)->setTime(23, 59, 59);
-        $challenge->end_date = Carbon::createFromFormat('Y-m-d', $request->endDate)->setTime(23, 59, 59);
-        $challenge->workout_plan_count = $request->totalWorkout;
-        $challenge->diet_plan_count = $request->totalDiet;
+        $validated = $request->validate([
+            'planTitle' => 'required|max:25|min:3',
+            'description' => 'required|max:100|min:20',
+            'points' => 'required',
+            'startDate' => 'required',
+            'endDate' => 'required|after_or_equal:startDate',
+            'totalWorkout' => 'required',
+            'totalDiet' => 'required'
+        ]);
 
-        $challenge->update();
+        if ($request->getMethod() == 'POST' && !$validated) {
+            // return Redirect::back()->withInput()->withErrors($validated);
+            // return Redirect::back();
+            return Redirect::back()->withInput()->withErrors($validated);
+        }
+
+        $challenge->update([
+            'name' => $validated['planTitle'],
+            'description' => $validated['description'],
+            'points' => $validated['points'],
+            'start_date' => Carbon::createFromFormat('Y-m-d', $validated['startDate'])->setTime(23, 59, 59),
+            'end_date' => Carbon::createFromFormat('Y-m-d', $validated['endDate'])->setTime(23, 59, 59),
+            'workout_plan_count' => $validated['totalWorkout'],
+            'diet_plan_count' => $validated['totalDiet']
+        ]);
+
+        // $challenge->name = $request->planTitle;
+        // $challenge->description = $request->description;
+        // $challenge->points = $request->points;
+        // $challenge->start_date = 'images/challengeplan';
+        // $challenge->start_date = Carbon::createFromFormat('Y-m-d', $request->startDate)->setTime(23, 59, 59);
+        // $challenge->end_date = Carbon::createFromFormat('Y-m-d', $request->endDate)->setTime(23, 59, 59);
+        // $challenge->workout_plan_count = $request->totalWorkout;
+        // $challenge->diet_plan_count = $request->totalDiet;
+
+        // $challenge->update();
 
         return redirect('/admin/challenges');
     }

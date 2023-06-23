@@ -58,7 +58,7 @@
                     class="ring-cOrange hover:ring-cOrange w-full lg:w-full h-[120px] rounded-3xl bg-white flex items-center text-cDarkGrey px-4 duration-300 hover:ring-2 focus-within:text-cOrange focus-within:ring-2 hover:text-cOrange shadow-lg">
                     {{-- <input type="text" name="description" id="description" placeholder="Description" value="{{ $challenge->description }}" required
                         class="text-left lg:text-center border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full p-0"> --}}
-                        <textarea type="text" name="description" id="description" placeholder="Description" required class="p-0 lg:py-10 pt text-left lg:text-center lg:self-center h-[100px] resize-none border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full"></textarea>
+                        <textarea type="text" name="description" id="description" placeholder="Description" required class="p-0 lg:py-10 pt text-left lg:text-center lg:self-center h-[100px] resize-none border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full">{{ $challenge->description }}</textarea>
                     </div>
 
             </div>
