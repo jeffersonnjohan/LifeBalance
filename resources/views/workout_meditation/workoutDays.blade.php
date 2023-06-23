@@ -78,7 +78,7 @@
         <input type="hidden" name="total_kcal" value="{{ $total_kcal }}">
         <input type="hidden" id="workout_value" name="workout_value">
     </form>
-    @include('component.navbar', ['active' => 'workout'])
+    <x-navbar active="workout" admin="false"/>
 
 @endsection
 

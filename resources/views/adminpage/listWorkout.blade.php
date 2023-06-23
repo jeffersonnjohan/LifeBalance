@@ -151,5 +151,5 @@
 
     {{-- Blank Space --}}
     <div class="h-[75px] bg-transparent"></div>
-    @include('adminpage.adminNavbar', ['active' => 'adminpage.listWorkout'])
+    <x-navbar active="workout" admin="true"/>
 @endsection

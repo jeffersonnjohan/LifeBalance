@@ -82,7 +82,7 @@
             @endfor
         </div>
     </div>
-    @include('component.navbar', ['active' => 'challenge'])
+    <x-navbar active="challenge" admin="false"/>
 @endsection
 
 @section('scripts')

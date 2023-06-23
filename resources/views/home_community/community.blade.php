@@ -179,5 +179,5 @@
     </div> --}}
     <div class="m-5 p-2 bg-transparent"></div>
 </div>
-@include('component.navbar', ['active' => 'home'])
+<x-navbar active="home" admin="false"/>
 @endsection
