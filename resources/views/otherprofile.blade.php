@@ -2,7 +2,7 @@
 
 @section('bar', 'Other Profile')
 
-@section('toptitle', 'Other `rofile')
+@section('toptitle', 'Other Profile')
 
 @section('name')
     Hi, {{ $userdata['username'] }}
