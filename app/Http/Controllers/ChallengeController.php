@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use App\Http\Requests\StoreChallengeRequest;
 use App\Http\Requests\UpdateChallengeRequest;
+use Illuminate\Support\Facades\Validator;
 
 class ChallengeController extends Controller
 {
@@ -121,7 +122,8 @@ class ChallengeController extends Controller
     {
         $challenge = Challenge::find($request->editId);
         return view('adminpage.editChallenge', [
-            'challenge' => $challenge
+            'challenge' => $challenge,
+            'error' => []
         ]);
     }
 
@@ -134,10 +136,24 @@ class ChallengeController extends Controller
      */
     public function update(UpdateChallengeRequest $request)
     {
-        // return $request;
         $challenge = Challenge::find($request->challengeId);
 
-        $validated = $request->validate([
+        // $validated = $request->validate([
+        //     'planTitle' => 'required|max:25|min:3',
+        //     'description' => 'required|max:100|min:20',
+        //     'points' => 'required',
+        //     'startDate' => 'required',
+        //     'endDate' => 'required|after_or_equal:startDate',
+        //     'totalWorkout' => 'required',
+        //     'totalDiet' => 'required'
+        // ]);
+        // if ($request->getMethod() == 'POST' && !$validated) {
+        //     // return Redirect::back()->withInput()->withErrors($validated);
+        //     // return Redirect::back();
+        //     return Redirect::back()->withInput()->withErrors($validated);
+        // }
+
+        $validated = Validator::make($request->all(), [
             'planTitle' => 'required|max:25|min:3',
             'description' => 'required|max:100|min:20',
             'points' => 'required',
@@ -147,20 +163,29 @@ class ChallengeController extends Controller
             'totalDiet' => 'required'
         ]);
 
-        if ($request->getMethod() == 'POST' && !$validated) {
-            // return Redirect::back()->withInput()->withErrors($validated);
-            // return Redirect::back();
-            return Redirect::back()->withInput()->withErrors($validated);
+        if ($validated->fails()){
+            $response = [];
+            foreach ($validated->messages()->toArray() as $key => $value) {
+                $obj = new \stdClass();
+                $obj->name = $key;
+                $obj->message = $value[0];
+
+                array_push($response, $obj);
+            }
+            return view('adminpage.editChallenge', [
+                'challenge' => $challenge,
+                'error' => $response
+            ]);
         }
 
         $challenge->update([
-            'name' => $validated['planTitle'],
-            'description' => $validated['description'],
-            'points' => $validated['points'],
-            'start_date' => Carbon::createFromFormat('Y-m-d', $validated['startDate'])->setTime(23, 59, 59),
-            'end_date' => Carbon::createFromFormat('Y-m-d', $validated['endDate'])->setTime(23, 59, 59),
-            'workout_plan_count' => $validated['totalWorkout'],
-            'diet_plan_count' => $validated['totalDiet']
+            'name' => $request['planTitle'],
+            'description' => $request['description'],
+            'points' => $request['points'],
+            'start_date' => Carbon::createFromFormat('Y-m-d', $request['startDate'])->setTime(23, 59, 59),
+            'end_date' => Carbon::createFromFormat('Y-m-d', $request['endDate'])->setTime(23, 59, 59),
+            'workout_plan_count' => $request['totalWorkout'],
+            'diet_plan_count' => $request['totalDiet']
         ]);
 
         // $challenge->name = $request->planTitle;

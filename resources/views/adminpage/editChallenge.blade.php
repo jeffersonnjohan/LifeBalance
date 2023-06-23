@@ -47,11 +47,17 @@
                     <input type="text" name="planTitle" id="planTitle" placeholder="Plan Title" value="{{ $challenge->name }}" required
                         class="text-left lg:text-center border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full p-0">
                 </div>
+                @if(array_search('planTitle', array_column($error, 'name')) !== FALSE)
+                    <p class="text-cLightGrey text text-left px-4 text-xs">{{ $error[array_search('planTitle', array_column($error, 'name'))]->message }}</p>
+                @endif
                 <div
                     class="ring-cOrange hover:ring-cOrange w-[25%] lg:w-full h-[50px] rounded-full bg-white flex items-center text-cDarkGrey px-4 duration-300 hover:ring-2 focus-within:text-cOrange focus-within:ring-2 hover:text-cOrange shadow-lg">
                     <input type="number" name="points" id="points" placeholder="Points" value="{{ $challenge->points }}" required
                         class="text-center border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full p-0">
                 </div>
+                @if(array_search('points', array_column($error, 'name')) !== FALSE)
+                    <p class="text-cLightGrey text text-left px-4 text-xs">{{ $error[array_search('points', array_column($error, 'name'))]->message }}</p>
+                @endif
             </div>
             <div class="flex flex-row lg:flex-col lg:pt-0 gap-2 pt-2 pb-2 px-3 ">
                 <div
@@ -60,7 +66,9 @@
                         class="text-left lg:text-center border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full p-0"> --}}
                         <textarea type="text" name="description" id="description" placeholder="Description" required class="p-0 lg:py-10 pt text-left lg:text-center lg:self-center h-[100px] resize-none border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full">{{ $challenge->description }}</textarea>
                     </div>
-
+                    @if(array_search('description', array_column($error, 'name')) !== FALSE)
+                        <p class="text-cLightGrey text text-left px-4 text-xs">{{ $error[array_search('description', array_column($error, 'name'))]->message }}</p>
+                    @endif
             </div>
         </div>
     </div>
@@ -78,6 +86,12 @@
                     class="text-center border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full p-0"
                     value="{{ $challenge->end_date }}" onfocus="(this.type='date')" onblur="(this.type= this.value ? 'date' : 'text')">
             </div>
+            @if(array_search('startDate', array_column($error, 'name')) !== FALSE)
+                <p class="text-cLightGrey text text-left px-4 text-xs">{{ $error[array_search('startDate', array_column($error, 'name'))]->message }}</p>
+            @endif
+            @if(array_search('endDate', array_column($error, 'name')) !== FALSE)
+                <p class="text-cLightGrey text text-left px-4 text-xs">{{ $error[array_search('endDate', array_column($error, 'name'))]->message }}</p>
+            @endif
         </div>
         <div class="flex flex-row lg:flex-col gap-2 pt-2 pb-2 px-3">
             <div
@@ -85,11 +99,17 @@
                 <input type="number" name="totalWorkout" id="totalWorkout" value="{{ $challenge->workout_plan_count }}" placeholder="Total Workout" required
                     class="text-center border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full p-0 ">
             </div>
+            @if(array_search('totalWorkout', array_column($error, 'name')) !== FALSE)
+                <p class="text-cLightGrey text text-left px-4 text-xs">{{ $error[array_search('totalWorkout', array_column($error, 'name'))]->message }}</p>
+            @endif
             <div
                 class="ring-cOrange hover:ring-cOrange w-[50%] lg:w-full h-[50px] rounded-full bg-white flex items-center text-cDarkGrey px-4 duration-300 hover:ring-2  focus-within:text-cOrange focus-within:ring-2 hover:text-cOrange shadow-lg ">
                 <input type="number" name="totalDiet" id="totaDiet" value="{{ $challenge->diet_plan_count }}" placeholder="Total Diet" required
                     class="text-center border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full p-0 ">
             </div>
+            @if(array_search('totalDiet', array_column($error, 'name')) !== FALSE)
+                <p class="text-cLightGrey text text-left px-4 text-xs">{{ $error[array_search('totalDiet', array_column($error, 'name'))]->message }}</p>
+            @endif
         </div>
 
 
