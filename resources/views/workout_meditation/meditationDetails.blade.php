@@ -11,64 +11,73 @@
 @endsection
 
 @section('body')
-    <x-back-get hover-bg="bg-cBlue" backlink="/meditations"/>
+    <x-back-get hover-bg="bg-cBlue" backlink="/meditations" />
 
     <div class="w-full py-8">
         {{-- Container Foto --}}
-        <div class="w-[90%] m-auto rounded-3xl h-[550px] bg-cover" style="background-image: url({{'/storage/'.$meditation[0]->image }})">
+        <div class="w-[90%] m-auto rounded-3xl h-[550px] bg-cover"
+            style="background-image: url({{ '/storage/' . $meditation[0]->image }})">
 
         </div>
         {{-- Bottom Blue --}}
-        <div class="w-full rounded-t-[50px] h-[350px] fixed bottom-0 bg-cBlue p-4 text-center text-white">
+        <div
+            class="w-full rounded-t-[50px] h-[280px] lg:h-[170px] fixed bottom-0 bg-cBlue p-4 text-center text-white ">
             <hr class="w-[200px] m-auto border-2">
-            <h1 class="text-2xl font-bold mt-6">{{ $meditation[0]->name }}</h1>
-            <p class="text-sm font-normal mt-1 mb-7">{{ $meditation[0]->description }}g</p>
+            <div class=" lg:flex lg:flex-row lg:mt-6 lg:mx-14">
+                <div class="lg:text-left">
+                    <h1 class="text-2xl font-bold mt-6 lg:mt-0">{{ $meditation[0]->name }}</h1>
+                    <p class="text-sm font-normal mt-1 mb-7 lg:h-fit">{{ $meditation[0]->description }}g</p>
+                </div>
+                <div class="lg:px-4 lg:w-[50%] lg:ml-56">
+                    {{-- Audio --}}
+                    <audio loop playsinline id="audio" class="rounded-2xl w-full mt-8" preload="metadata">
+                        <source src="{{ '/storage/' . $meditation[0]->audio }}">
+                        {{-- <source src="audio/abangJago.mp3"> --}}
+                        Your browser doesn't support audio
+                    </audio>
 
-            {{-- Audio --}}
-            <audio loop playsinline id="audio" class="rounded-2xl w-full mt-8" preload="metadata">
-                <source src="{{ '/storage/'. $meditation[0]->audio }}">
-                {{-- <source src="audio/abangJago.mp3"> --}}
-                Your browser doesn't support audio
-            </audio>
+                    {{-- Audio Controls --}}
+                    {{-- Time --}}
+                    <div class="mb-3 hidden" id="timeIndicator">
+                        <span id="progressDuration">00:00</span>
+                        <span>/</span>
+                        <span id="totalDuration"></span>
+                    </div>
+                    {{-- Sliding Bar --}}
+                    <input type="range" id="seek-bar" value="0" class="w-[300px] mb-4" disabled>
 
-            {{-- Audio Controls --}}
-            {{-- Time --}}
-            <div class="mb-3 hidden" id="timeIndicator">
-                <span id="progressDuration">00:00</span>
-                <span>/</span>
-                <span id="totalDuration"></span>
-            </div>
-            {{-- Sliding Bar --}}
-            <input type="range" id="seek-bar" value="0" class="w-[300px] mb-4" disabled>
+                    <div class="flex w-full justify-center text-black">
 
-            <div class="flex w-full justify-center text-black">
-
-                {{-- Button << --}}
-                {{-- <button type="button" id="rewind" class="block">
-                    <span class="material-symbols-outlined">
-                        fast_rewind
-                    </span>
-                </button> --}}
-
-                {{-- Button Play --}}
-                <button type="button" id="play" class="block mx-4 bg-white text-cBlue w-[70px] aspect-square rounded-full">
-                    <span class="material-symbols-outlined scale-[2]">
-                        play_arrow
-                    </span>
-                </button>
-
-                {{-- Button Pause --}}
-                <button type="button" id="pause" class="hidden block mx-4 bg-white text-cBlue w-[70px] aspect-square rounded-full">
-                    <span class="material-symbols-outlined scale-[2]">
-                        pause
-                    </span>
-                </button>
-                {{-- Button >> --}}
-                {{-- <button type="button" id="forward" class="block">
-                    <span class="material-symbols-outlined">
-                        fast_forward
+                        {{-- Button << --}}
+                        {{-- <button type="button" id="rewind" class="block">
+                        <span class="material-symbols-outlined">
+                            fast_rewind
                         </span>
-                </button> --}}
+                    </button> --}}
+
+                        {{-- Button Play --}}
+                        <button type="button" id="play"
+                            class="block mx-4 bg-white text-cBlue w-[70px] aspect-square rounded-full">
+                            <span class="material-symbols-outlined scale-[2]">
+                                play_arrow
+                            </span>
+                        </button>
+
+                        {{-- Button Pause --}}
+                        <button type="button" id="pause"
+                            class="hidden block mx-4 bg-white text-cBlue w-[70px] aspect-square rounded-full">
+                            <span class="material-symbols-outlined scale-[2]">
+                                pause
+                            </span>
+                        </button>
+                        {{-- Button >> --}}
+                        {{-- <button type="button" id="forward" class="block">
+                        <span class="material-symbols-outlined">
+                            fast_forward
+                            </span>
+                    </button> --}}
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -95,21 +104,21 @@
         var totalDuration = document.getElementById("totalDuration");
 
         // Function Puase to Play
-        function pauseToPlay(){
+        function pauseToPlay() {
             audio.play()
 
             playButton.classList.add('hidden')
             pauseButton.classList.remove('hidden')
         }
 
-        function playToPause(){
+        function playToPause() {
             audio.pause()
 
             pauseButton.classList.add('hidden')
             playButton.classList.remove('hidden')
         }
 
-        function fast_rewind(n){
+        function fast_rewind(n) {
             // Calculate the new time
             var time = audio.duration * (seekBar.value / 100) + n;
 
@@ -117,14 +126,14 @@
             audio.currentTime = time;
         }
 
-        function format_number(num){
+        function format_number(num) {
             return ("0" + num).slice(-2);
         }
 
         function convertTime(seconds) {
             var minutes = Math.floor(seconds / 60);
             var remainingSeconds = seconds % 60;
-            
+
             var formattedTime = ("0" + minutes).slice(-2) + ":" + ("0" + remainingSeconds).slice(-2);
             return formattedTime;
         }
@@ -162,7 +171,8 @@
                 // Update the slider value
                 seekBar.value = value;
 
-                progressDuration.innerHTML = format_number(Math.floor(audio.currentTime/60)) + ':' + format_number(Math.floor(audio.currentTime%60))
+                progressDuration.innerHTML = format_number(Math.floor(audio.currentTime / 60)) + ':' +
+                    format_number(Math.floor(audio.currentTime % 60))
             });
 
             // Pause the audio when the slider handle is being dragged
@@ -186,10 +196,10 @@
 
             // Keyboard
             document.addEventListener('keydown', function(event) {
-                if(event.key === ' ') {
-                    if(audio.paused){
+                if (event.key === ' ') {
+                    if (audio.paused) {
                         pauseToPlay()
-                    } else{
+                    } else {
                         playToPause()
                     }
                 }
