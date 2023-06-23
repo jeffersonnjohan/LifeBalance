@@ -25,7 +25,6 @@ class ChallengeController extends Controller
         $id = Auth::user()->id;
         $challengeData = Challenge::all();
         $collected = Collect::where('user_id', $id)->get()->pluck('challenge_id');
-        // dd($collected);
 
         $challengeData = Challenge::whereDate('end_date', '>=', now())->whereNotIn('id', $collected)->get();
         // dd($challengeData);
@@ -77,16 +76,24 @@ class ChallengeController extends Controller
      */
     public function store(StoreChallengeRequest $request)
     {
-        // return $request;
-        // {"_token":"biyMF91K8ZpOllW7oqmBDBxgrbSCUevgql2cd6wV","planTitle":"asa","points":"1","description":"sa","image":"flowchart-methodology.png","startDate":"2023-06-06","endDate":"2023-06-18","totalWorkout":"10","totaDiet":"5","confirmButton":"Confirm"}
+
+        $validated = $request->validate([
+            'planTitle' => 'required|max:25|min:3',
+            'description' => 'required|max:100|min:20',
+            'points' => 'required',
+            'startDate' => 'required',
+            'endDate' => 'required|after_or_equal:startDate',
+            'totalWorkout' => 'required',
+            'totalDiet' => 'required'
+        ]);
         Challenge::create([
-            'name' => $request->planTitle,
-            'description' => $request->description,
-            'points' => $request->points,
-            'start_date' => Carbon::createFromFormat('Y-m-d', $request->startDate)->setTime(23, 59, 59),
-            'end_date' => Carbon::createFromFormat('Y-m-d', $request->endDate)->setTime(23, 59, 59),
-            'workout_plan_count' => $request->totalWorkout,
-            'diet_plan_count' => $request->totalDiet
+            'name' => $validated['planTitle'],
+            'description' => $validated['description'],
+            'points' => $validated['points'],
+            'start_date' => Carbon::createFromFormat('Y-m-d', $validated['startDate'])->setTime(23, 59, 59),
+            'end_date' => Carbon::createFromFormat('Y-m-d', $validated['endDate'])->setTime(23, 59, 59),
+            'workout_plan_count' => $validated['totalWorkout'],
+            'diet_plan_count' => $validated['totalDiet']
         ]);
 
         return redirect('/admin/challenges');

@@ -123,7 +123,7 @@
     </div>
 
 {{-- Add Challenges Plan --}}
-<x-plus-button link="href='/admin/challenges/add'" color="cOrange" group-hover="group-hover:text-cOrange" modal=""/>
+<x-plus-button link="href=/admin/challenges/add" color="cOrange" group-hover="group-hover:text-cOrange" modal=""/>
 
 {{-- Blank Space --}}
 <div class="h-[75px] bg-transparent"></div>

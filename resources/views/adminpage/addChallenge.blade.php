@@ -43,22 +43,29 @@
             <div class="flex flex-row lg:flex-col gap-2 pt-2 pb-2 px-3 ">
                 <div
                     class="ring-cOrange hover:ring-cOrange w-[75%] lg:w-full h-[50px] rounded-full bg-white flex items-center text-cDarkGrey px-4 duration-300 hover:ring-2  focus-within:text-cOrange focus-within:ring-2 hover:text-cOrange shadow-lg">
-                    <input type="text" name="planTitle" id="planTitle" placeholder="Plan Title" required
+                    <input type="text" name="planTitle" id="planTitle" value="{{ old('planTitle') }}" placeholder="Plan Title" required
                         class="text-left lg:text-center border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full p-0">
                 </div>
+                @error('planTitle')
+                        <p class="text-cLightGrey text text-left px-4 text-xs">{{ $message }}</p>
+                @enderror
                 <div
                     class="ring-cOrange hover:ring-cOrange w-[25%] lg:w-full h-[50px] rounded-full bg-white flex items-center text-cDarkGrey px-4 duration-300 hover:ring-2 focus-within:text-cOrange focus-within:ring-2 hover:text-cOrange shadow-lg">
-                    <input type="number" name="points" id="points" placeholder="Points" required
+                    <input type="number" name="points" id="points" value="{{ old('points') }}" placeholder="Points" required
                         class="text-center border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full p-0">
                 </div>
+                @error('points')
+                        <p class="text-cLightGrey text text-left px-4 text-xs">{{ $message }}</p>
+                @enderror
             </div>
             <div class="flex flex-row lg:flex-col lg:pt-0 gap-2 pt-2 pb-2 px-3 ">
                 <div
                     class="ring-cOrange hover:ring-cOrange w-full lg:w-full h-[120px] rounded-3xl bg-white flex items-center text-cDarkGrey px-4 duration-300 hover:ring-2 focus-within:text-cOrange focus-within:ring-2 hover:text-cOrange shadow-lg">
-                    {{-- <input type="text" name="description" id="description" placeholder="Description" required
-                        class="text-left lg:text-center border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full p-0"> --}}
-                        <textarea type="text" name="description" id="description" placeholder="Description" required class="p-0 lg:py-10 pt text-left lg:text-center lg:self-center h-[100px] resize-none border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full"></textarea>
+                        <textarea type="text" name="description" id="description" placeholder="Description" required class="p-0 lg:py-10 pt text-left lg:text-center lg:self-center h-[100px] resize-none border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full">{{ old('description') }}</textarea>
                 </div>
+                @error('description')
+                        <p class="text-cLightGrey text text-left px-4 text-xs">{{ $message }}</p>
+                @enderror
             </div>
         </div>
     </div>
@@ -66,28 +73,40 @@
         <div class="flex flex-row gap-2 pt-2 pb-2 px-3">
             <div
                 class="ring-cOrange hover:ring-cOrange w-[50%] h-[50px] rounded-full bg-white flex items-center text-cDarkGrey px-4 duration-300 hover:ring-2  focus-within:text-cOrange focus-within:ring-2 hover:text-cOrange shadow-lg ">
-                <input type="text" name="startDate" id="startDate" placeholder="Start Date" required
+                <input type="text" name="startDate" id="startDate" value="{{ old('startDate') }}" placeholder="Start Date" required
                     class="text-center border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full p-0 "
                     onfocus="(this.type='date')" onblur="(this.type= this.value ? 'date' : 'text')">
             </div>
             <div
                 class="ring-cOrange hover:ring-cOrange w-[50%] h-[50px] rounded-full bg-white flex items-center text-cDarkGrey px-4 duration-300 hover:ring-2  focus-within:text-cOrange focus-within:ring-2 hover:text-cOrange shadow-lg ">
-                <input type="text" name="endDate" id="endDate" placeholder="End Date" required
+                <input type="text" name="endDate" id="endDate" value="{{ old('endDate') }}" placeholder="End Date" required
                     class="text-center border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full p-0"
                     onfocus="(this.type='date')" onblur="(this.type= this.value ? 'date' : 'text')">
             </div>
         </div>
+        @error('startDate')
+                        <p class="text-cRed text text-left px-4 text-xs">{{ $message }}</p>
+        @enderror
+        @error('endDate')
+                        <p class="text-cRed text text-left px-4 text-xs">{{ $message }}</p>
+        @enderror
         <div class="flex flex-row lg:flex-col gap-2 pt-2 pb-2 px-3">
             <div
                 class="ring-cOrange hover:ring-cOrange w-[50%] lg:w-full h-[50px] rounded-full bg-white flex items-center text-cDarkGrey px-4 duration-300 hover:ring-2  focus-within:text-cOrange focus-within:ring-2 hover:text-cOrange shadow-lg ">
-                <input type="number" name="totalWorkout" id="totalWorkout" placeholder="Total Workout" required
+                <input type="number" name="totalWorkout" id="totalWorkout" value="{{ old('totalWorkout') }}" placeholder="Total Workout" required
                     class="text-center border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full p-0 ">
             </div>
+            @error('totalWorkout')
+                <p class="text-cRed text text-left px-4 text-xs">{{ $message }}</p>
+            @enderror
             <div
                 class="ring-cOrange hover:ring-cOrange w-[50%] lg:w-full h-[50px] rounded-full bg-white flex items-center text-cDarkGrey px-4 duration-300 hover:ring-2  focus-within:text-cOrange focus-within:ring-2 hover:text-cOrange shadow-lg ">
-                <input type="number" name="totalDiet" id="totaDiet" placeholder="Total Diet" required
+                <input type="number" name="totalDiet" id="totaDiet" value="{{ old('totalDiet') }}" placeholder="Total Diet" required
                     class="text-center border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full p-0 ">
             </div>
+            @error('totalDiet')
+                <p class="text-cRed text text-left px-4 text-xs">{{ $message }}</p>
+            @enderror
         </div>
 
 
