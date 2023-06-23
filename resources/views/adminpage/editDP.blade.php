@@ -16,15 +16,15 @@
         <div class="flex items-center">
             <ul class="flex flex-row font-medium mt-0 mr-6 space-x-2 text-2xl">
                 <li>
-                    <p class="text-cGreen font-extrabold dark:text-white hover:text-cGreen">Diet</p>
+                    <p class="text-cGreen font-extrabold dark:text-white">Diet</p>
                 </li>
                 <li>
-                    <p class="text-black font-extrabold dark:text-white hover:text-cGreen">Plans</p>
+                    <p class="text-black font-extrabold dark:text-white">Plans</p>
                 </li>
             </ul>
-            <a href="#" class="fixed bg-cGreen rounded-b-3xl flex justify-center items-center aspect-square h-[50px] shadow-lg right-2 -top-0.5 z-10 group duration-300 ease-out hover:bg-white">
+            {{-- <a href="#" class="fixed bg-cGreen rounded-b-3xl flex justify-center items-center aspect-square h-[50px] shadow-lg right-2 -top-0.5 z-10 group duration-300 ease-out hover:bg-white">
                 <div class="bg-white rounded-full p-4" style="background-image: url('/assets/male.png')"></div>
-            </a>
+            </a> --}}
         </div>
     </div>
 </nav>

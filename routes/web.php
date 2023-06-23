@@ -84,6 +84,10 @@ Route::get('/challenges/claim/{id}', [ChallengesClaimController::class, 'index']
 //     return view('home_community.community');
 // });
 
+// Route::get('/admin/workout', function () {
+//     return view('adminpage.listWorkout');
+// });
+
 // ADMIN PAGE
 Route::post('/admin/workout/edit', [WorkoutController::class, 'edit'])->middleware('admin');
 Route::post('/admin/workout/delete', [WorkoutController::class, 'destroy'])->middleware('admin');
