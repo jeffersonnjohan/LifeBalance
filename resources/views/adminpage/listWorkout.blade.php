@@ -13,10 +13,10 @@
 
             <ul class="flex flex-row font-medium mt-0 mr-6 space-x-2 text-2xl">
                 <li>
-                    <p class="text-cBlue font-extrabold dark:text-white hover:text-cBlue">Workout</p>
+                    <p class="text-cBlue font-extrabold dark:text-white">Workout</p>
                 </li>
                 <li>
-                    <p class="text-black font-extrabold dark:text-white hover:text-cBlue">Plans</p>
+                    <p class="text-black font-extrabold dark:text-white">Plans</p>
                 </li>
             </ul>
             @can('admin')
@@ -25,9 +25,9 @@
                 </a>
             @endcan
 
-            <a href="/profile" class="fixed bg-cBlue rounded-b-3xl flex justify-center items-center aspect-square h-[50px] shadow-lg right-2 -top-0.5 z-10 group duration-300 ease-out hover:bg-white">
+            {{-- <a href="/profile" class="fixed bg-cBlue rounded-b-3xl flex justify-center items-center aspect-square h-[50px] shadow-lg right-2 -top-0.5 z-10 group duration-300 ease-out hover:bg-white">
                 <div class="bg-white rounded-full p-4 bg-cover mt-2" style="background-image: url({{ '/storage/'. App\Models\User::find(Auth::user()->id)['image'] }})"></div>
-            </a>
+            </a> --}}
         </div>
     </div>
 </nav>
@@ -62,7 +62,7 @@
             @foreach ($workouts as $workout)
                 {{-- Plan Card --}}
                 <div class="lg:w-fit lg:h-fit h-fit bg-white mb-2 relative rounded-3xl shadow-lg hover:bg-cDarkBlue hover:text-white duration-500">
-                    <span class="right-0 top-0 w-fit h-hit rounded-bl-3xl rounded-tr-3xl bg-cRed absolute text-white text-xl px-4">#{{ $loop->iteration }}</span>
+                    {{-- <span class="right-0 top-0 w-fit h-hit rounded-bl-3xl rounded-tr-3xl bg-cRed absolute text-white text-xl px-4">#{{ $loop->iteration }}</span> --}}
                     <div class="flex py-6 px-5 items-center gap-2">
                         <div class="flex items-center w-[85%] justify-center">
                             <div class="flex-col w-[70%]">

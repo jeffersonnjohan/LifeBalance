@@ -13,10 +13,10 @@
         <div class="flex items-center">
             <ul class="flex flex-row font-medium mt-0 mr-6 space-x-2 text-2xl">
                 <li>
-                    <p class="text-cOrange font-extrabold dark:text-white hover:text-cOrange">Challenge</p>
+                    <p class="text-cOrange font-extrabold dark:text-white">Challenge</p>
                 </li>
                 <li>
-                    <p class="text-black font-extrabold dark:text-white hover:text-cOrange">List</p>
+                    <p class="text-black font-extrabold dark:text-white">List</p>
                 </li>
             </ul>
             @can('admin')
@@ -24,9 +24,9 @@
                     <div class="pt-3">Go to Home</div>
                 </a>
             @endcan
-            <a href="/profile"" class="fixed bg-cOrange rounded-b-3xl flex justify-center items-center aspect-square h-[50px] shadow-lg right-2 -top-0.5 z-10 group duration-300 ease-out hover:bg-white">
+            {{-- <a href="/profile"" class="fixed bg-cOrange rounded-b-3xl flex justify-center items-center aspect-square h-[50px] shadow-lg right-2 -top-0.5 z-10 group duration-300 ease-out hover:bg-white">
                 <div class="bg-white rounded-full p-4 bg-cover mt-2" style="background-image: url({{ '/storage/'. App\Models\User::find(Auth::user()->id)['image'] }})"></div>
-            </a>
+            </a> --}}
         </div>
     </div>
 </nav>

@@ -29,7 +29,7 @@
                                 </span>
                                 {{ $workout->points . ' points will be added!' }}
                             </p>
-                            <span class="w-[60px] h-[40px] rounded-bl-3xl rounded-tr-3xl bg-cRed absolute top-0 right-0 text-white flex justify-center items-center text-2xl">#1</span>
+                            {{-- <span class="w-[60px] h-[40px] rounded-bl-3xl rounded-tr-3xl bg-cRed absolute top-0 right-0 text-white flex justify-center items-center text-2xl">#1</span> --}}
                         </div>
                         {{-- Section Kanan --}}
                         <div class="w-[30%] h-full flex justify-center items-center">
@@ -69,7 +69,7 @@
                                 </span>
                                 {{ $plan->points . ' points will be added!' }}
                             </p>
-                            <span class="w-[60px] h-[40px] rounded-bl-3xl rounded-tr-3xl bg-cRed absolute top-0 right-0 text-white flex justify-center items-center text-2xl">#1</span>
+                            {{-- <span class="w-[60px] h-[40px] rounded-bl-3xl rounded-tr-3xl bg-cRed absolute top-0 right-0 text-white flex justify-center items-center text-2xl">#1</span> --}}
                         </div>
                         {{-- Section Kanan --}}
                         <div class="w-[30%] h-full flex justify-center items-center">
