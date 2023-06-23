@@ -4,9 +4,9 @@
 
 @section('style')
     <style>
-        /* * {
-                        border: red solid 0.5px;
-                    } */
+        * {
+            /* border: red solid 0.5px; */
+        }
     </style>
 @endsection
 
@@ -34,34 +34,35 @@
         <?php $unenroll_plans = [];
         $idx = 0; ?>
         @if ($enrollments->toArray())
-        <h3 class="flex justify-center text-cGreen">Enrolled Plan</h3>
+            <h3 class="flex justify-center text-cGreen">Enrolled Plan</h3>
         @endif
         <div class="lg:flex lg:flex-wrap lg:w-full lg:px-4 ">
             @foreach ($diets as $diet)
                 @if (in_array(strval($diet->id), $enrollments->toArray()))
-                    <form action="/dietDays" method="POST" class="enrolled_form place-items-center grid p-2 lg:w-1/3">
+                    <form action="/dietDays" method="POST"
+                        class="enrolled_form place-items-center grid p-2 px-0 lg:px-2 lg:w-1/3">
                         @csrf
                         <input type="hidden" name="diet_id" value="{{ $diet->id }} ">
                         {{-- <div > --}}
-                            <div
-                                class="enrolled_element bg-white w-[95%] lg:w-full h-fit lg:h-[150px] place-content-center rounded-3xl p-2 lg:p-4 flex flex-row justify-between shadow-sm group duration-300 ease-out hover:bg-green-200 focus:ring-cGreen ">
-                                <div class="flex flex-row items-center w-[310px] lg:w-[350px] ">
-                                    <div class="h-[60px] w-[100px] lg:h-[60px] lg:w-[60px] m-2">
+                        <div
+                            class="enrolled_element bg-white w-[95%] lg:w-full h-fit lg:h-[150px] place-content-center rounded-3xl lg:p-4 flex flex-row justify-between shadow-sm group duration-300 ease-out hover:bg-green-200 focus:ring-cGreen ">
+                            <div class="flex flex-row items-center w-[310px] lg:w-[350px] ">
+                                <div class="h-[60px] w-[100px] lg:h-[60px] lg:w-[60px] m-2">
                                     <div class="rounded-full lg:rounded-3xl bg-cover justify-end items-center h-full w-[60px] border-2 border-cGreen"
                                         style="background-image: url('{{ $diet->image . '.png' }}')"></div>
-                                    </div>
-                                    <div class="lg:pl-2">
-                                        <h2 class="font-medium text-lg">{{ $diet->name }}</h2>
-                                        <h2 class="font-normal text-md text-cGreen"> @excerpt($diet->description)</h2>
-                                    </div>
                                 </div>
-                                <div class="flex flex-row items-center p-2">
-                                    <span class="material-symbols-outlined text-cYellow">
-                                        toll
-                                    </span>
-                                    <h3 class="font-medium text-md">{{ $diet->points }}</h3>
+                                <div class="lg:pl-2">
+                                    <h2 class="font-medium text-lg">{{ $diet->name }}</h2>
+                                    <h2 class="font-normal text-md text-cGreen"> @excerpt($diet->description)</h2>
                                 </div>
                             </div>
+                            <div class="flex flex-row items-center p-2">
+                                <span class="material-symbols-outlined text-cYellow">
+                                    toll
+                                </span>
+                                <h3 class="font-medium text-md">{{ $diet->points }}</h3>
+                            </div>
+                        </div>
                         {{-- </div> --}}
                     </form>
                 @else
@@ -72,37 +73,38 @@
 
         <?php $idx = 0; ?>
         @if ($enrollments->toArray())
-        <h3 class="flex justify-center mt-10 text-cGreen">Not Enrolled Plan</h3>
+            <h3 class="flex justify-center mt-10 text-cGreen">Not Enrolled Plan</h3>
         @endif
         @if ($unenroll_plans)
             <div class="lg:flex lg:flex-wrap lg:w-full lg:px-4 ">
                 @foreach ($unenroll_plans as $plan)
-                    <form action="/dietDays" method="POST" class="unenrolled_form place-items-center grid p-2 lg:w-1/3"
-                    data-modal-target="popup-modal{{ $loop->iteration }}"
-                    data-modal-toggle="popup-modal{{ $loop->iteration }}">
+                    <form action="/dietDays" method="POST"
+                        class="unenrolled_form place-items-center grid p-2 px-0 lg:px-2 lg:w-1/3"
+                        data-modal-target="popup-modal{{ $loop->iteration }}"
+                        data-modal-toggle="popup-modal{{ $loop->iteration }}">
                         @csrf
                         <input type="hidden" name="diet_id" value="{{ $plan->id }}">
                         <input type="hidden" name="is_new" value="1">
                         {{-- <div class=""> --}}
-                            <div
-                                class="bg-white w-[95%] lg:w-full h-fit lg:h-[150px] place-content-center rounded-3xl p-2 lg:p-4 flex flex-row justify-between shadow-sm group duration-300 ease-out hover:bg-green-200 focus:ring-cGreen">
-                                <div class="flex flex-row items-center w-[310px] lg:w-[350px]">
-                                    <div class="h-[60px] w-[100px] lg:h-[60px] lg:w-[60px] m-2">
+                        <div
+                            class=" bg-white w-[95%] lg:w-full h-fit lg:h-[150px] place-content-center rounded-3xl lg:p-4 flex flex-row justify-between shadow-sm group duration-300 ease-out hover:bg-green-200 focus:ring-cGreen">
+                            <div class="flex flex-row items-center w-[310px] lg:w-[350px]">
+                                <div class="h-[60px] w-[100px] lg:h-[60px] lg:w-[60px] m-2">
                                     <div class="rounded-full lg:rounded-3xl bg-cover justify-end items-center  border-2 border-cGreen h-full w-[60px]"
                                         style="background-image: url('{{ $plan->image . '.png' }}')"></div>
-                                    </div>
-                                    <div class="lg:pl-2">
-                                        <h2 class="font-medium text-lg ">{{ $plan->name }}</h2>
-                                        <h2 class="font-normal text-md text-cGreen"> @excerpt($plan->description)</h2>
-                                    </div>
                                 </div>
-                                <div class="flex flex-row items-center p-2">
-                                    <span class="material-symbols-outlined text-cYellow">
-                                        toll
-                                    </span>
-                                    <h3 class="font-medium text-md">{{ $plan->points }}</h3>
+                                <div class="lg:pl-2">
+                                    <h2 class="font-medium text-lg ">{{ $plan->name }}</h2>
+                                    <h2 class="font-normal text-md text-cGreen"> @excerpt($plan->description)</h2>
                                 </div>
                             </div>
+                            <div class="flex flex-row items-center p-2">
+                                <span class="material-symbols-outlined text-cYellow">
+                                    toll
+                                </span>
+                                <h3 class="font-medium text-md">{{ $plan->points }}</h3>
+                            </div>
+                        </div>
                         {{-- </div> --}}
                     </form>
                     {{-- Pop up --}}
