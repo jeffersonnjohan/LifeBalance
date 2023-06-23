@@ -127,5 +127,5 @@
 
 {{-- Blank Space --}}
 <div class="h-[75px] bg-transparent"></div>
-@include('adminpage.adminNavbar', ['active' => 'adminpage.listChallenges'])
+<x-navbar active="challenge" admin="true"/>
 @endsection

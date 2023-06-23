@@ -142,7 +142,7 @@
         @endif
 
     </div>
-    @include('component.navbar', ['active' => 'diet'])
+    <x-navbar active="diet" admin="false"/>
 
     <script>
         var form1 = document.getElementsByClassName("enrolled_form");

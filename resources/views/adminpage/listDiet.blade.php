@@ -123,5 +123,5 @@
 
 {{-- Blank Space --}}
 <div class="h-[75px] bg-transparent"></div>
-@include('adminpage.adminNavbar', ['active' => 'adminpage.listDiet'])
+<x-navbar active="diet" admin="true"/>
 @endsection

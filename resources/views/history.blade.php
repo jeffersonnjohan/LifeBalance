@@ -57,5 +57,5 @@
         @endif
 
     </div>
-    @include('component.navbar', ['active' => 'history'])
+    <x-navbar active="history" admin="false"/>
 @endsection
