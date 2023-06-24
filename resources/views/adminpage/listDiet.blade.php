@@ -35,10 +35,10 @@
 <div class="w-full">
     {{-- Diet Plans List --}}
 
-    <div class="pl-5 pr-5 pt-16 w-full md:flex md:items-center md:justify-center md:gap-2 md:flex-wrap md:flex-row lg:flex lg:items-center lg:justify-center lg:gap-2 lg:flex-wrap lg:flex-row">
+    <div class="pl-5 pr-5 pt-16 w-full md:flex md:items-center md:justify-center md:gap-2  md:grid-cols-3 md:flex-row lg:flex lg:items-center lg:justify-between lg:gap-2 lg:flex-wrap lg:grid-rows-3 lg:flex-row">
         @foreach ($diets as $diet)
             {{-- Plan Card --}}
-            <div class="lg:w-80 lg:h-fit md:h-fit h-fit mb-2 bg-white relative rounded-3xl shadow-lg hover:bg-green-200 duration-500">
+            <div class="lg:w-[450px] lg:h-[150px] place-content-center md:h-fit md:w-[200px] h-fit mb-2 bg-white relative rounded-3xl shadow-lg hover:bg-green-200 duration-500 lg:p-10 md:items-stretch focus:ring-cGreen">
                 <div class="flex items-center">
                     <div class="flex items-center gap-3 w-full truncate m-1">
                         <img class="rounded-full bg-cover justify-end items-center h-[50px] border-2 border-cGreen" src="/assets/green.png">

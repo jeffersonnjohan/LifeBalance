@@ -34,10 +34,10 @@
 @section('body')
 <div class="w-full">
     {{-- Challenges Plans List --}}
-    <div class="px-2 pt-16 w-full md:flex md:items-center md:justify-center md:gap-2 md:flex-wrap lg:flex lg:items-center lg:justify-center lg:gap-2 lg:flex-wrap">
+    <div class="px-2 pt-16 w-full md:flex md:items-center md:justify-center md:gap-2 md:flex-wrap lg:flex lg:items-center lg:justify-center lg:gap-2 lg:grid-rows-3 lg:flex-wrap">
         @foreach ($challenges as $challenge)
             {{-- Plan Card --}}
-            <div class="lg:w-80 lg:h-fit h-fit bg-white mb-2 relative rounded-3xl shadow-lg hover:bg-cOrange hover:text-white duration-500">
+            <div class="lg:w-[450px] lg:h-fit place-content-center h-fit bg-white mb-2 relative rounded-3xl shadow-lg hover:bg-cOrange hover:text-white duration-500 md:items-stretch lg:items-stretch focus:ring-cOrange">
                 {{-- <div class="absolute bg-cOrange h-fit w-fit px-4 text-white rounded-bl-3xl rounded-tr-3xl top-0 right-0 text-md">15-17 Apr</div> --}}
                 <div class="relative">
                     <div class="bg-cOrange h-fit w-fit text-white rounded-tr-3xl rounded-bl-3xl py-2 px-4 top-0 right-0 absolute text-md">

@@ -31,11 +31,11 @@
             </div>
             <div class="flex w-fit gap-5">
                 @can('admin')
-                    <a href="/admin/workout" class="bg-cBlue hover:bg-white duration-300 ease-out p-3 hover:ring-2 text-white hover:text-cBlue rounded-b-3xl">
+                    <a href="/admin/workout" class="-mr-4 bg-cRed hover:bg-white duration-300 ease-out p-3 hover:ring-2 text-white hover:text-cRed rounded-b-3xl ring-cRed">
                         <div class="pt-3">Go to Admin</div>
                     </a>
                 @endcan
-                <a href="/profile" class="bg-cRed rounded-b-3xl flex justify-center items-center aspect-square h-fit p-2 shadow-lg z-10 group duration-300 ease-out hover:bg-cBlue">
+                <a href="/profile" class="bg-cRed rounded-b-3xl flex justify-center items-center aspect-square h-fit p-2 shadow-lg z-10 group duration-300 ease-out hover:bg-white hover:ring-cRed hover:ring-2">
                     <div class="bg-white rounded-full p-4 bg-cover mt-2" style="background-image: url('/assets/male.png')"></div>
                 </a>
             </div>
@@ -67,7 +67,7 @@
                 <div class="p-3 flex flex-col text-sm gap-1">
                     <div class="flex justify-between">
                         <div class="flex gap-3">
-                            <div class="w-[40px] aspect-square rounded-full overflow-hidden">
+                            <div class="w-[40px] aspect-square rounded-full overflow-hidden hover:border-{{ $color }}">
                                 <div class="w-full h-full bg-cover" style="background-image: url('/assets/profile1.png')"></div>
                             </div>
                             <div>
