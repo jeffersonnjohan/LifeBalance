@@ -110,8 +110,7 @@
         </div>
 
     </div>
-
-    @include('component.navbar', ['active' => 'workout'])
+    <x-navbar active="workout" admin="false"/>
     @include('backend.countdown-js')
     <script>
         var form = document.getElementsByClassName ("form");

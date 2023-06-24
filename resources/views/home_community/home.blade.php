@@ -367,5 +367,5 @@
         </div>
     </div>
 </div>
-@include('component.navbar', ['active' => 'home'])
+<x-navbar active="home" admin="false"/>
 @endsection

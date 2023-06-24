@@ -81,8 +81,7 @@
 
         </div>
     </div>
-
-    @include('component.navbar', ['active' => 'workout'])
+    <x-navbar active="workout" admin="false"/>
 
 @endsection
 
