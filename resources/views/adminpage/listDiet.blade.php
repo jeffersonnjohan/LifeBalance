@@ -119,7 +119,7 @@
     </div>
 
 {{-- Add Diet Plan --}}
-<x-plus-button link="href=/admin/diet/create" color="cGreen" group-hover="group-hover:text-cGreen" modal=""/>
+<x-plus-button link="href=/admin/diet/create" color="cGreen" group-hover="group-hover:text-cGreen"/>
 
 {{-- Blank Space --}}
 <div class="h-[75px] bg-transparent"></div>

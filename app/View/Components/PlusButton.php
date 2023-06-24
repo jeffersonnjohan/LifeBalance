@@ -14,8 +14,7 @@ class PlusButton extends Component
     public function __construct(
         public string $link,
         public string $color,
-        public string $groupHover,
-        public string $modal
+        public string $groupHover
     ) {}
 
     /**

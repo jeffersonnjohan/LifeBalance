@@ -330,7 +330,13 @@
 
 
     {{-- + button popup input weight--}}
-    <x-plus-button link="" color="cRed" group-hover="group-hover:text-cRed" modal="data-modal-target='popup-inputweight' data-modal-toggle='popup-inputweight'"/>
+    <a  class="object-bottom fixed rounded-full flex justify-center items-center aspect-square h-[50px] shadow-lg bottom-20 right-2 lg:bottom-5 lg:right-5 z-10 group duration-300 ease-out bg-cRed ring-cRed hover:bg-white hover:ring-2" data-modal-target='popup-inputweight' data-modal-toggle='popup-inputweight'>
+        <span class="cursor-pointer material-symbols-outlined scale-110 duration-300 ease-out text-white mb-100px group-hover:text-cRed">
+            add
+        </span>
+    </a>
+
+
 
     {{-- Pop Up Input Weight --}}
     <div id="popup-inputweight" tabindex="-1" class="fixed top-0 left-0 right-0 z-50 hidden p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
@@ -367,5 +373,6 @@
         </div>
     </div>
 </div>
+<x-plus-button link="" color="cRed" group-hover="group-hover:text-cRed"/>
 <x-navbar active="home" admin="false"/>
 @endsection
