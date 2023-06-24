@@ -139,7 +139,7 @@
     </div>
 
 {{-- Add Meditation Plan --}}
-<x-plus-button link="href=/admin/meditation/create" color="cBlue" group-hover="group-hover:text-cBlue" modal=""/>
+<x-plus-button link="href=/admin/meditation/create" color="cBlue" group-hover="group-hover:text-cBlue"/>
 
 {{-- Blank Space --}}
 <div class="h-[75px] bg-transparent"></div>
