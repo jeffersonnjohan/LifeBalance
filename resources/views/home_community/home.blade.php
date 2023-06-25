@@ -47,24 +47,24 @@
     <div class="text-center font-bold text-xl md:text-3xl lg:text-3xl">Good Morning, {{$name}}!</div>
     <div class="max-w-screen-xl px-4 py-2"></div>
 
-    <div class="lg:flex md:flex lg:gap-2 md:gap-2 lg:h-full lg:w-full lg:fixed md:h-full md:w-full md:fixed">
+    <div class="lg:flex md:flex lg:gap-2 md:gap-2 lg:h-[85%] lg:w-full lg:fixed md:h-[90%] md:w-full md:fixed">
         {{-- User Progress --}}
         <div class="bg-white shadow-lg rounded-3xl h-[180px] w-full flex flex-col md:w-[30%] md:h-[84%] md:items-center md:pt-7 lg:w-[30%] lg:h-[84%] lg:items-center lg:pt-7">
-            <div class="h-[40%] w-full flex items-center p-8 text-xl font-bold md:h-[20%] lg:h-[20%] lg:text-3xl md:text-2xl">
+            <div class="h-[40%] w-full flex items-center p-8 text-xl font-bold md:h-[20%] lg:h-[20%] lg:text-3xl md:text-xl">
             Your Progress
             </div>
             <div class="h-[60%] w-full flex flex-row pl-8 pr-8 pb-8 md:flex-col md:gap-10 md:h-[80%] lg:flex-col lg:gap-10 lg:h-[80%]">
                 {{-- Left Side --}}
                 <div class="w-[50%] flex-col flex md:w-full lg:w-full">
-                    <div class="h-[50%] flex-row flex items-center text-left gap-2 text-xl font-bold md:mb-5 md:text-3xl lg:mb-5 lg:text-3xl">
+                    <div class="h-[50%] flex-row flex items-center text-left gap-2 text-xl font-bold md:mb-5 md:text-xl lg:mb-5 lg:text-3xl">
                         {{-- Total KCal Calculation --}}
                         <div class="w-[50%] text-center">
                             {{ $totalCalories }}
                         </div>
                         <div class="w-[50%]">
-                            <div class="flex-col text-xs font-normal lg:text-lg md:text-lg">
+                            <div class="flex-col text-xs font-normal lg:text-lg md:text-sm">
                                 TOTAL
-                                <div class="flex text-xs font-normal lg:text-lg md:text-lg">
+                                <div class="flex text-xs font-normal lg:text-lg md:text-sm">
                                     KCAL
                                 </div>
                             </div>
@@ -72,24 +72,24 @@
                     </div>
                     <div class="h-[50%] flex-row flex gap-2">
                         <div class="w-[50%]">
-                            <div class="h-[50%] text-xs font-bold flex-row flex items-center gap-2 lg:text-lg md:text-lg">
+                            <div class="h-[50%] text-xs font-bold flex-row flex items-center gap-2 lg:text-lg md:text-sm">
                                 {{ $caloriesIn }}
                                 <div class="flex items-center">
                                     KCAL
                                 </div>
                             </div>
-                            <div class="h-[50%] text-xs flex-row flex text-center lg:text-lg md:text-lg">
+                            <div class="h-[50%] text-xs flex-row flex text-center lg:text-lg md:text-sm">
                                 Consumed
                             </div>
                         </div>
                         <div class="w-[50%]">
-                            <div class="h-[50%] text-xs font-bold flex-row flex items-center text-center gap-2 lg:text-lg md:text-lg">
+                            <div class="h-[50%] text-xs font-bold flex-row flex items-center text-center gap-2 lg:text-lg md:text-sm">
                                 {{ $caloriesOut }}
                                 <div class="flex items-center">
                                     KCAL
                                 </div>
                             </div>
-                            <div class="h-[50%] text-xs flex-row flex text-center lg:text-lg md:text-lg">
+                            <div class="h-[50%] text-xs flex-row flex text-center lg:text-lg md:text-sm">
                                 Burned
                             </div>
                         </div>
@@ -97,32 +97,33 @@
                 </div>
 
                 {{-- Right Side --}}
-                <div class="w-[50%] lg:w-full lg:gap-5 lg:items-center lg:text-center lg:justify-center md:w-full md:gap-5 md:items-center md:text-center md:justify-center">
-                    <div class="h-[50%] w-full flex-row flex justify-center items-center lg:flex-col lg:gap-5 lg:h-full md:flex-col md:gap-5 md:h-full">
+                <div class="w-[50%] lg:w-full lg:gap-5 lg:items-center lg:text-center lg:flex lg:justify-center md:w-full md:gap-5 md:items-center md:text-center md:justify-center">
+                    <div class="h-[50%] w-full flex-row flex justify-center items-center lg:flex-col lg:w-[30%] lg:gap-5 lg:h-full md:flex-col md:gap-5 md:h-full">
+                        {{-- <div class="lg:w-[30%] sm:w-[0%]"> --}}
                         <div class="w-[50%] flex-col flex justify-center items-center">
-                            <div class="h-[50%] text-xs font-bold flex-col flex justify-center items-center text-center md:text-lg lg:text-lg">
+                            <div class="h-[50%] text-xs font-bold flex-col flex justify-center items-center text-center lg:text-center md:text-center md:text-sm lg:text-lg">
                                 BMI
                             </div>
-                            <div class="h-[50%] text-xs text-center md:text-lg lg:text-lg">
+                            <div class="h-[50%] text-xs text-center lg:text-center md:text-center md:text-sm lg:text-lg">
                                 {{-- BMI Calculation --}}
                                 {{ $bmi }}
                             </div>
                         </div>
                         <div class="w-[50%] flex-col flex justify-center items-center">
-                            <div class="h-[50%] text-xs font-bold flex-col flex justify-center items-center text-center md:text-lg lg:text-lg">
+                            <div class="h-[50%] text-xs font-bold flex-col flex justify-center items-center text-center md:text-sm lg:text-lg">
                                 Index
                             </div>
-                            <div class=" h-[50%] text-xs text-center text-cGreen md:text-lg lg:text-lg">
+                            <div class=" h-[50%] text-xs text-center text-cGreen md:text-sm lg:text-lg">
                                 {{-- IF ELSE-> Normal, Obese,  --}}
                                 {{ $categoryBmi }}
                             </div>
                         </div>
                     </div>
-                    <div class="h-[50%] lg:h-full">
-                        <div class="h-[50%] text-xs flex-row flex justify-center items-center text-center lg:text-lg md:h-[30%] md:text-lg lg:h-[30%]">
+                    <div class="h-[50%] lg:h-full lg:pt-7">
+                        <div class="h-[50%] text-xs flex-row flex justify-center items-center text-center lg:text-lg md:h-[30%] md:text-sm lg:h-[30%]">
                             Current Streak
                         </div>
-                        <div class="h-[50%] text-xs font-bold flex-row flex justify-center text-center lg:text-lg md:text-lg">
+                        <div class="h-[50%] text-xs font-bold flex-row flex justify-center text-center lg:text-lg md:text-sm">
                             <svg fill="#000000" height="15" width="15" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 460 460" xml:space="preserve"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>< id="SVGRepo_iconCarrier"> <> <path d="M73.742,360.816c2.138,0,4.293-0.683,6.115-2.094c4.367-3.381,5.166-9.662,1.785-14.029 C56.026,311.61,42.487,271.95,42.487,230c0-103.395,84.118-187.513,187.513-187.513c24.334,0,48.004,4.589,70.352,13.641 c5.118,2.073,10.948-0.396,13.022-5.515c2.073-5.119-0.396-10.949-5.515-13.022C283.115,27.568,256.92,22.487,230,22.487 c-114.423,0-207.513,93.09-207.513,207.513c0,46.423,14.987,90.317,43.341,126.937C67.798,359.483,70.753,360.816,73.742,360.816z"></path> <path d="M394.177,103.069c-3.382-4.368-9.662-5.167-14.029-1.786c-4.367,3.381-5.167,9.662-1.786,14.029 c25.612,33.082,39.15,72.74,39.15,114.688c0,103.395-84.118,187.513-187.513,187.513c-24.332,0-48-4.589-70.346-13.639 c-5.119-2.072-10.949,0.396-13.022,5.515c-2.073,5.119,0.396,10.949,5.515,13.022c24.743,10.021,50.937,15.102,77.854,15.102 c114.423,0,207.513-93.09,207.513-207.513C437.513,183.58,422.528,139.688,394.177,103.069z"></path> <path d="M358.098,226.912c-1.338-4.121-5.178-6.912-9.511-6.912h-72.754L422.58,15.837c2.865-3.986,2.413-9.461-1.066-12.924 c-3.479-3.462-8.956-3.888-12.929-1.004l-303.046,220c-3.507,2.545-4.975,7.06-3.637,11.181c1.338,4.121,5.178,6.912,9.511,6.912 h72.754L37.42,444.164c-2.865,3.986-2.413,9.461,1.066,12.924c1.935,1.926,4.488,2.912,7.057,2.912c2.05,0,4.109-0.628,5.872-1.908 l303.046-220C357.968,235.547,359.436,231.033,358.098,226.912z M89.868,405.463L211.79,235.837 c2.189-3.046,2.49-7.061,0.778-10.399c-1.711-3.338-5.147-5.438-8.898-5.438h-61.46L370.132,54.537L248.21,224.164 c-2.189,3.046-2.49,7.061-0.778,10.399c1.711,3.338,5.147,5.438,8.898,5.438h61.46L89.868,405.463z"></path></svg>
                             <div class=" pl-2 flex text-center md:text-2xl lg:text-3xl">
                                 {{-- Streak Counter --}}
@@ -130,6 +131,7 @@
                             </div>
                         </div>
                     </div>
+                    {{-- </div> --}}
                 </div>
             </div>
         </div>
@@ -190,7 +192,7 @@
             </ul>
             @endforeach
 
-            <div class="lg:flex lg:justify-center lg:w-full md:flex md:justify-center md:w-full">
+            <div class="lg:flex lg:justify-center lg:w-full lg:overscroll-none md:flex md:justify-center md:w-full">
                 {{-- Progress Charts --}}
                 <ul role="contentinfo" class="my-5 lg:w-[50%] md:w-[50%]">
                     <!-- component -->
