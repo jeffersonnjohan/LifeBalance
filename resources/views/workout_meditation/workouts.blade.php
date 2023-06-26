@@ -14,7 +14,7 @@
 @section('content')
 <div class="pb-28 w-full -mt-16 justify-center lg:flex-row h-[100vh]">
     {{-- Cards Plan Container --}}
-    <div class="p-2 w-full justify-center content-center overflow-scroll h-[100vh]">
+    <div class="p-2 w-full justify-center mx-10 lg:m-0 content-center overflow-scroll h-[100vh]">
         <?php $unenroll_plans = array() ?>
         @if ($enrollments->toArray())
         <h3 class="flex justify-center text-cBlue">Enrolled Plan</h3>
@@ -68,8 +68,6 @@
                         <div class="w-[70%]">
                             <h2 class="text-xl">{{ $plan->name }}</h2>
                             <p class="text-sm"> @excerpt($plan->description)</p>
-
-
                             <p class="text-sm text-cYellow flex items-center">
                                 <span class="material-symbols-outlined inline-block text-cYellow mr-1">
                                     toll
@@ -82,7 +80,6 @@
                         <div class="w-[30%] h-full flex justify-center items-center">
                             {{-- Image --}}
                             <div class="w-[90%] lg:w-[70%] rounded-md border border-cBlue aspect-square bg-center bg-cover" style="background-image:url('{{ '/storage/'. $workout->image }}')">
-
                             </div>
                         </div>
                     </div>

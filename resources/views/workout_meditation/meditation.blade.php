@@ -22,7 +22,7 @@
             </div>
         </form>
 
-        <div class="p-2 w-full justify-center content-center overflow-scroll h-[100vh]">
+        <div class="p-2 w-full justify-center content-center  mx-10 lg:m-0 overflow-scroll h-[100vh]">
         {{-- Card Meditation --}}
         @foreach ($meditations as $meditation)
             <form action="/meditationDetails" method="POST" class="form">
