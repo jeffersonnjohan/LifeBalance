@@ -44,7 +44,7 @@
     <div class="w-full h-full lg:flex lg:fixed">
         <div class="w-full lg:w-[30%]">
             <div class="lg:w-full lg:flex lg:gap-2 md:w-full md:flex md:gap-2 lg:fixed">
-                <div class="w-full h-[300px] p-10 mb-2 lg:mb-0 pt-16 bg-cBlue rounded-b-[50px] lg:rounded-bl-[0px] lg:rounded-tr-[50px] lg:w-[30%] lg:h-fit lg:mt-16 lg:items-center md:rounded-bl-[0px] md:rounded-tr-[50px] md:w-[30%] md:h-fit md:mt-16 md:items-center">
+                <div class="w-full h-[300px] p-10 mb-2 lg:mb-0 pt-16 lg:pt-10 bg-cBlue rounded-b-[50px] lg:rounded-bl-[0px] lg:rounded-tr-[50px] lg:w-[30%] lg:h-fit lg:mt-16 lg:items-center md:rounded-bl-[0px] md:rounded-tr-[50px] md:w-[30%] md:h-fit md:mt-16 md:items-center">
                     {{-- Category Container --}}
                     <div class="w-80% h-[160px] flex mt-5 justify-between md:w-[30vw] md:flex-col md:mb-[300px] md:gap-5 lg:w-[30vw] lg:flex-col lg:h-fit lg:gap-5 lg:px-5">
                         {{-- Class selected --}}
@@ -73,13 +73,13 @@
         {{-- Workout Plans List --}}
         <div class="pl-5 pr-5 w-full lg:w-[70%] lg:pt-16 lg:flex lg:items-center lg:justify-center lg:gap-2 lg:flex-wrap lg:overflow-scroll">
             @foreach ($workouts as $workout)
-                <div class="lg:h-fit lg:w-[80%] w-full h-[200px] bg-white items-center mb-2 relative rounded-3xl shadow-lg hover:bg-blue-200 duration-500 focus:ring-cBlue">
+                <div class="lg:h-[200px] lg:py-10 lg:w-[80%] w-full h-[150px] py-2 bg-white items-center mb-2 relative rounded-3xl shadow-lg hover:bg-blue-200 duration-500 focus:ring-cBlue">
                     {{-- Card Plan --}}
-                    <div class="w-[90%] flex py-6 px-5 items-center gap-2">
-                        <div class="max-w-sm px-3 py-6 flex bg-transparent rounded-3xl relative mb-4 lg:max-w-full md:max-w-full">
-                            <div class="w-[70%]">
-                                <h2 class="font-semibold text-lg">{{ $workout->name }}</h2>
-                                <p class="text-sm"> @excerpt($workout->description)</p>
+                    <div class="w-[90%] flex py-6 px-5 items-center align-middle gap-2">
+                        {{-- <div class="max-w-sm px-3 py-6 flex bg-transparent rounded-3xl relative mb-4 lg:max-w-full md:max-w-full"> --}}
+                            <div class="w-[50%] lg:w-[80%]">
+                                <h2 class="font-semibold text-lg truncate">{{ $workout->name }}</h2>
+                                <p class="text-sm truncate"> @excerpt($workout->description)</p>
                                 {{-- <p class="text-sm">{{ $workout->description }}</p> --}}
                                 <p class="text-sm text-cYellow flex items-center">
                                     <span class="material-symbols-outlined inline-block text-cYellow mr-1">
@@ -88,12 +88,12 @@
                                     {{ $workout->points }} points will be added!
                                 </p>
                             </div>
-                            <div class="lg:absolute lg:left-96 w-[30%] flex justify-center items-center">
-                                <div class="w-[100px] lg:w-full h-[100px] rounded-md border border-cBlue aspect-square bg-center bg-cover" style="background-image:url('{{ asset('/storage/'.$workout->image) }}')">
+                            <div class="lg:absolute lg:left-96 w-[50%] lg:w-[30%] flex justify-center items-center">
+                                <div class="w-[80px] lg:w-[100px] lg:h-[100px] h-[80px] rounded-md border border-cBlue aspect-square bg-center bg-cover" style="background-image:url('{{ asset('/storage/'.$workout->image) }}')">
                                 </div>
                             </div>
-                        </div>
-                        <div class="absolute h-fit w-fit flex flex-col gap-2 right-5">
+                        {{-- </div> --}}
+                        <div class="absolute h-fit w-fit items-center flex flex-col gap-2 right-5">
                             <form action="/admin/workout" method="post">
                                 <button type="button" data-modal-target="popup-modal{{ $loop->iteration }}" data-modal-toggle="popup-modal{{ $loop->iteration }}">
                                     <span class="material-symbols-outlined rounded-full p-2 scale-100 duration-300 ease-out bg-cBlue hover:bg-white hover:text-black text-white">
