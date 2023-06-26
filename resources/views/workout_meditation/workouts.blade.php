@@ -14,7 +14,7 @@
 @section('content')
 <div class="pb-28 w-full -mt-16 justify-center lg:flex-row h-[100vh]">
     {{-- Cards Plan Container --}}
-    <div class="p-2 w-full justify-center mx-10 lg:m-0 content-center overflow-scroll h-[100vh]">
+    <div class="p-2 w-full justify-center content-center overflow-scroll h-[100vh]">
         <?php $unenroll_plans = array() ?>
         @if ($enrollments->toArray())
         <h3 class="flex justify-center text-cBlue">Enrolled Plan</h3>

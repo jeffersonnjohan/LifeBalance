@@ -40,7 +40,7 @@
 <div class="w-full h-full lg:flex lg:fixed">
     <div class="lg:w-[50%]">
         <div class="lg:w-full lg:flex lg:gap-2 md:w-full md:flex md:gap-2 lg:fixed">
-            <div class="w-full h-[300px] p-10 pt-16 bg-cBlue rounded-b-[50px] lg:rounded-bl-[0px] lg:rounded-tr-[50px] lg:w-[30%] lg:h-fit lg:mt-16 lg:items-center md:rounded-bl-[0px] md:rounded-tr-[50px] md:w-[30%] md:h-fit md:mt-16 md:items-center">
+            <div class="w-full h-[300px] p-10 pt-16 lg:pt-10 bg-cBlue rounded-b-[50px] lg:rounded-bl-[0px] lg:rounded-tr-[50px] lg:w-[30%] lg:h-fit lg:mt-16 lg:items-center md:rounded-bl-[0px] md:rounded-tr-[50px] md:w-[30%] md:h-fit md:mt-16 md:items-center">
                 {{-- Category Container --}}
                 <div class="w-80% h-[160px] flex mt-5 justify-between md:w-[30vw] md:flex-col md:mb-[300px] md:gap-5 lg:w-[30vw] lg:flex-col lg:h-fit lg:gap-5 lg:px-5">
                     {{-- Class selected --}}
@@ -70,7 +70,7 @@
     <div class="w-full lg:pt-16 lg:items-center lg:justify-center lg:gap-2 lg:overflow-scroll">
         @foreach ($meditations as $meditation)
         {{-- Plan Card --}}
-        <div class="lg:max-w-full md:max-w-full lg:h-fit h-fit flex items-center my-2 p-5 relative bg-white rounded-3xl shadow-lg hover:bg-blue-200 duration-500 focus:ring-cBlue">
+        <div class="lg:max-w-full md:max-w-full lg:h-fit h-fit flex items-center my-2 mx-2 p-5 relative bg-white rounded-3xl shadow-lg hover:bg-blue-200 duration-500 focus:ring-cBlue">
             <div class="w-full h-fit text-md font-bold flex text-center content-center items-center justify-center">
                 {{ $meditation->name }}
                 <span class="material-symbols-outlined">
