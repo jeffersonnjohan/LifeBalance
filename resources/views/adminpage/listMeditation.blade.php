@@ -63,15 +63,14 @@
             <div class="lg:w-[70%] lg:p-10 lg:pt-32 lg:items-center lg:justify-center lg:content-center md:w-[70%] md:p-10 md:pt-32 md:items-center md:justify-center md:content-center">
                 @yield('content')
             </div>
-    </div>
-        <x-navbar active="workout" admin="false"/>
+        </div>
     </div>
 
     {{-- Meditation Plans List --}}
     <div class="w-full lg:pt-16 lg:items-center lg:justify-center lg:gap-2 lg:overflow-scroll">
         @foreach ($meditations as $meditation)
         {{-- Plan Card --}}
-        <div class="lg:max-w-full md:max-w-full lg:h-fit h-fit flex items-center my-2 p-5 relative bg-white rounded-3xl shadow-lg hover:bg-cDarkBlue hover:text-white duration-500">
+        <div class="lg:max-w-full md:max-w-full lg:h-fit h-fit flex items-center my-2 p-5 relative bg-white rounded-3xl shadow-lg hover:bg-blue-200 duration-500 focus:ring-cBlue">
             <div class="w-full h-fit text-md font-bold flex text-center content-center items-center justify-center">
                 {{ $meditation->name }}
                 <span class="material-symbols-outlined">
