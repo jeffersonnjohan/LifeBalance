@@ -49,7 +49,7 @@
                             <div class="flex flex-row items-center w-[310px] lg:w-[350px] ">
                                 <div class="h-[60px] w-[100px] lg:h-[60px] lg:w-[60px] m-2">
                                     <div class="rounded-full lg:rounded-3xl bg-cover justify-end items-center h-full w-[60px] border-2 border-cGreen"
-                                        style="background-image: url('{{ $diet->image . '.png' }}')"></div>
+                                        style="background-image: url('{{ '/storage/'.$diet->image }}')"></div>
                                 </div>
                                 <div class="lg:pl-2">
                                     <h2 class="font-medium text-lg">{{ $diet->name }}</h2>
@@ -91,7 +91,7 @@
                             <div class="flex flex-row items-center w-[310px] lg:w-[350px]">
                                 <div class="h-[60px] w-[100px] lg:h-[60px] lg:w-[60px] m-2">
                                     <div class="rounded-full lg:rounded-3xl bg-cover justify-end items-center  border-2 border-cGreen h-full w-[60px]"
-                                        style="background-image: url('{{ $plan->image . '.png' }}')"></div>
+                                        style="background-image: url('{{ '/storage/'.$plan->image }}')"></div>
                                 </div>
                                 <div class="lg:pl-2">
                                     <h2 class="font-medium text-lg ">{{ $plan->name }}</h2>
