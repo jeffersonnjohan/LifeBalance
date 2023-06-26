@@ -41,7 +41,7 @@
             <div class="lg:w-[400px] lg:h-[150px] place-content-center md:h-fit md:w-full h-fit mb-2 bg-white relative rounded-3xl shadow-lg hover:bg-green-200 duration-500 lg:p-10 md:items-stretch focus:ring-cGreen">
                 <div class="flex items-center">
                     <div class="flex items-center gap-3 w-full truncate m-1">
-                        <img class="rounded-full bg-cover justify-end items-center h-[50px] border-2 border-cGreen" src="/assets/green.png">
+                        <img class="aspect-square rounded-full bg-cover justify-end items-center h-[50px] border-2 border-cGreen" src="{{ '/storage/'. $diet->image }}">
                         <div class="py-2">
                             <h2 class="font-medium text-sm">{{ $diet->name }}</h2>
                             <h2 class="font-normal text-sm text-cGreen">{{ $diet->description }}</h2>
