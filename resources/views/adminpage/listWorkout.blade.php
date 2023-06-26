@@ -63,9 +63,9 @@
         </div>
 
         {{-- Workout Plans List --}}
-        <div class="pl-5 pr-5 w-[100%] lg:pt-16 lg:flex lg:items-center lg:justify-center lg:gap-2 lg:flex-wrap lg:flex-row lg:overflow-scroll">
+        <div class="pl-5 pr-5 w-[70%] lg:pt-16 lg:flex lg:items-center lg:justify-center lg:gap-2 lg:flex-wrap lg:flex-row lg:overflow-scroll">
             @foreach ($workouts as $workout)
-                <div class="lg:h-fit h-fit bg-white mb-2 relative rounded-3xl shadow-lg hover:bg-blue-200 duration-500 focus:ring-cBlue">
+                <div class="lg:h-fit w-full h-fit bg-white items-center mb-2 relative rounded-3xl shadow-lg hover:bg-blue-200 duration-500 focus:ring-cBlue">
                     {{-- Card Plan --}}
                     <div class="w-[90%] flex py-6 px-5 items-center gap-2">
                         <div class="max-w-sm px-3 py-6 flex bg-transparent rounded-3xl relative mb-4 lg:max-w-full md:max-w-full">
@@ -85,7 +85,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="h-fit w-fit flex flex-col gap-2 right-3">
+                        <div class="absolute h-fit w-fit flex flex-col gap-2 right-5">
                             <form action="/admin/workout" method="post">
                                 <button type="button" data-modal-target="popup-modal{{ $loop->iteration }}" data-modal-toggle="popup-modal{{ $loop->iteration }}">
                                     <span class="material-symbols-outlined rounded-full p-2 scale-100 duration-300 ease-out bg-cBlue hover:bg-white hover:text-black text-white">

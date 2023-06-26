@@ -4,17 +4,17 @@
 @section('isWorkoutActive', 'activeCategory')
 
 @section('style')
-    {{-- <style>
+    <style>
         * {
             border: red solid 0.5px;
         }
-    </style> --}}
+    </style>
 @endsection
 
 @section('content')
-<div class="pb-28 w-full -mt-16 justify-center overflow-auto lg:flex-row lg:overflow-scroll">
+<div class="pb-28 w-full -mt-16 justify-center lg:flex-row h-[100vh]">
     {{-- Cards Plan Container --}}
-    <div class="p-2 w-full justify-center content-center lg:overflow-scroll">
+    <div class="p-2 w-full justify-center content-center overflow-scroll h-[100vh]">
         <?php $unenroll_plans = array() ?>
         @if ($enrollments->toArray())
         <h3 class="flex justify-center text-cBlue">Enrolled Plan</h3>

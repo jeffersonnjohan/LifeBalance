@@ -35,7 +35,7 @@
                     </a>
                 </div>
             </div>
-            <div class="lg:w-[70%] lg:p-10 lg:pt-32 lg:items-center lg:justify-center lg:content-center md:w-[70%] md:p-10 md:pt-32 md:items-center md:justify-center md:content-center">
+            <div class="lg:w-[70%] lg:p-10 lg:pt-32 lg:items-center lg:justify-center lg:content-center md:w-[70%] md:p-10 md:pt-32 md:items-center md:justify-center md:content-center h-[100vh]">
                 @yield('content')
             </div>
     </div>
