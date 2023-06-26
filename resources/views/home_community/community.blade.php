@@ -31,7 +31,7 @@
             </div>
             <div class="flex w-fit gap-5">
                 @can('admin')
-                    <a href="/admin/workout" class="-mr-4 bg-cRed hover:bg-white duration-300 ease-out p-3 hover:ring-2 text-white hover:text-cRed rounded-b-3xl ring-cRed">
+                    <a href="/admin/workout" class="-mr-4 w-16 lg:w-auto -mt-3 text-xs lg:text-lg text-center bg-cRed hover:bg-white duration-300 ease-out p-3 hover:ring-2 text-white hover:text-cRed rounded-b-3xl ring-cRed">
                         <div class="pt-3">Go to Admin</div>
                     </a>
                 @endcan
