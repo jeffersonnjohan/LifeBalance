@@ -54,9 +54,16 @@ class MeditationController extends Controller
             $newMeditation['song'] = $request->file('song')->store('meditation-songs');
         }
 
+        $validated = $request->validate([
+            'name' => 'required|max:20|min:5',
+            'description' => 'required|max:200|min:10',
+            'image' => 'required',
+            'audio' => 'required',
+        ]);
+        
         Meditation::create([
-            'name' => $request->planTitle,
-            'description' => $request->description,
+            'name' => $validated['planTitle'],
+            'description' => $validated['description'],
             'image' => $newMeditation['image'],
             'audio' => $newMeditation['song'],
         ]);
