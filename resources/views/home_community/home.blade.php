@@ -42,15 +42,15 @@
     </div>
 </nav>
 
-<div class="w-full h-fit px-2 pb-2">
+<div class="w-full h-fit lg:px-3 px-2 pb-2">
     <div class="max-w-screen-xl px-4 py-3 h-20"></div>
     <div class="text-center font-bold text-xl md:text-3xl lg:text-3xl">Good Morning, {{$name}}!</div>
     <div class="max-w-screen-xl px-4 py-2"></div>
 
-    <div class="lg:flex md:flex lg:gap-2 md:gap-2 lg:h-[85%] lg:w-full lg:fixed md:h-[90%] md:w-full md:fixed">
+    <div class="lg:flex md:flex lg:gap-2 md:gap-2 lg:h-[88%] lg:w-full lg:fixed md:h-[90%] md:w-full md:fixed">
         {{-- User Progress --}}
         <div class="bg-white shadow-lg rounded-3xl h-[180px] w-full flex flex-col md:w-[30%] md:h-[84%] md:items-center md:pt-7 lg:w-[30%] lg:h-[84%] lg:items-center lg:pt-7">
-            <div class="h-[40%] w-full flex items-center p-8 text-xl font-bold md:h-[20%] lg:h-[20%] lg:text-3xl md:text-xl">
+            <div class="h-[40%] w-full flex items-center p-8 text-xl font-bold md:h-[20%] lg:h-[10%] lg:text-3xl md:text-xl">
             Your Progress
             </div>
             <div class="h-[60%] w-full flex flex-row pl-8 pr-8 pb-8 md:flex-col md:gap-10 md:h-[80%] lg:flex-col lg:gap-10 lg:h-[80%]">
@@ -131,7 +131,6 @@
                             </div>
                         </div>
                     </div>
-                    {{-- </div> --}}
                 </div>
             </div>
         </div>

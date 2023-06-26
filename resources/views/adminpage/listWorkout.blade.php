@@ -3,6 +3,14 @@
 @section('title', 'Workout - Admin Page')
 @section('isWorkoutActive', 'activeCategory')
 
+@section('style')
+    {{-- <style>
+        * {
+            border: red solid 0.5px;
+        }
+    </style> --}}
+@endsection
+
 {{-- Header --}}
 @section('header')
 <nav class="justify-evenly fixed bg-gradient-to-b from-cLightGrey from-30% to-transparent w-full z-10">
@@ -34,9 +42,9 @@
 
 @section('body')
     <div class="w-full h-full lg:flex lg:fixed">
-        <div class="w-[30%]">
+        <div class="w-full lg:w-[30%]">
             <div class="lg:w-full lg:flex lg:gap-2 md:w-full md:flex md:gap-2 lg:fixed">
-                <div class="w-full h-[390px] p-10 pt-16 bg-cBlue rounded-b-[50px] lg:rounded-bl-[0px] lg:rounded-tr-[50px] lg:w-[30%] lg:h-fit lg:mt-16 lg:items-center md:rounded-bl-[0px] md:rounded-tr-[50px] md:w-[30%] md:h-fit md:mt-16 md:items-center">
+                <div class="w-full h-[300px] p-10 mb-2 lg:mb-0 pt-16 bg-cBlue rounded-b-[50px] lg:rounded-bl-[0px] lg:rounded-tr-[50px] lg:w-[30%] lg:h-fit lg:mt-16 lg:items-center md:rounded-bl-[0px] md:rounded-tr-[50px] md:w-[30%] md:h-fit md:mt-16 md:items-center">
                     {{-- Category Container --}}
                     <div class="w-80% h-[160px] flex mt-5 justify-between md:w-[30vw] md:flex-col md:mb-[300px] md:gap-5 lg:w-[30vw] lg:flex-col lg:h-fit lg:gap-5 lg:px-5">
                         {{-- Class selected --}}
@@ -63,9 +71,9 @@
         </div>
 
         {{-- Workout Plans List --}}
-        <div class="pl-5 pr-5 w-[70%] lg:pt-16 lg:flex lg:items-center lg:justify-center lg:gap-2 lg:flex-wrap lg:flex-row lg:overflow-scroll">
+        <div class="pl-5 pr-5 w-full lg:w-[70%] lg:pt-16 lg:flex lg:items-center lg:justify-center lg:gap-2 lg:flex-wrap lg:overflow-scroll">
             @foreach ($workouts as $workout)
-                <div class="lg:h-fit w-full h-fit bg-white items-center mb-2 relative rounded-3xl shadow-lg hover:bg-blue-200 duration-500 focus:ring-cBlue">
+                <div class="lg:h-fit lg:w-[80%] w-full h-fit bg-white items-center mb-2 relative rounded-3xl shadow-lg hover:bg-blue-200 duration-500 focus:ring-cBlue">
                     {{-- Card Plan --}}
                     <div class="w-[90%] flex py-6 px-5 items-center gap-2">
                         <div class="max-w-sm px-3 py-6 flex bg-transparent rounded-3xl relative mb-4 lg:max-w-full md:max-w-full">
@@ -80,8 +88,8 @@
                                     {{ $workout->points }} points will be added!
                                 </p>
                             </div>
-                            <div class="w-[30%] h-full flex justify-center items-center">
-                                <div class="w-[90%] lg:w-[70%] rounded-md border border-cBlue aspect-square bg-center bg-cover" style="background-image:url('{{ asset('/storage/'.$workout->image) }}')">
+                            <div class="lg:absolute lg:left-96 w-[30%] flex justify-center items-center">
+                                <div class="w-[90%] lg:w-full rounded-md border border-cBlue aspect-square bg-center bg-cover" style="background-image:url('{{ asset('/storage/'.$workout->image) }}')">
                                 </div>
                             </div>
                         </div>
