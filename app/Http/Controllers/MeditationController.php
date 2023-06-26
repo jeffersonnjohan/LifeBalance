@@ -55,10 +55,10 @@ class MeditationController extends Controller
         }
 
         $validated = $request->validate([
-            'name' => 'required|max:20|min:5',
+            'planTitle' => 'required|max:20|min:5',
             'description' => 'required|max:200|min:10',
             'image' => 'required',
-            'audio' => 'required',
+            'song' => 'required'
         ]);
         
         Meditation::create([
