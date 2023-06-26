@@ -4,11 +4,11 @@
 @section('isWorkoutActive', 'activeCategory')
 
 @section('style')
-    <style>
+    {{-- <style>
         * {
             border: red solid 0.5px;
         }
-    </style>
+    </style> --}}
 @endsection
 
 @section('content')

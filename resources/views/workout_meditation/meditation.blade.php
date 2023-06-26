@@ -5,7 +5,7 @@
 
 @section('content')
     {{-- Cards Plan Container --}}
-    <div class="pb-28 w-full -mt-16 justify-center">
+    <div class="pb-28 w-full -mt-16 justify-center h-[100vh]">
 
         {{-- Search Bar --}}
         <form class="mb-10 items-center justify-center content-center">
@@ -22,7 +22,7 @@
             </div>
         </form>
 
-        <div class="p-2 w-full justify-center content-center">
+        <div class="p-2 w-full justify-center content-center overflow-scroll h-[100vh]">
         {{-- Card Meditation --}}
         @foreach ($meditations as $meditation)
             <form action="/meditationDetails" method="POST" class="form">
