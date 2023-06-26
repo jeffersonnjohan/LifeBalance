@@ -41,7 +41,7 @@
 </nav>
 
 @section('body')
-    <div class="w-full h-full lg:flex lg:fixed">
+    <div class="w-full h-full lg:flex">
         <div class="w-full lg:w-[30%]">
             <div class="lg:w-full lg:flex lg:gap-2 md:w-full md:flex md:gap-2 lg:fixed">
                 <div class="w-full h-[300px] p-10 mb-2 lg:mb-0 pt-16 lg:pt-10 bg-cBlue rounded-b-[50px] lg:rounded-bl-[0px] lg:rounded-tr-[50px] lg:w-[30%] lg:h-fit lg:mt-16 lg:items-center md:rounded-bl-[0px] md:rounded-tr-[50px] md:w-[30%] md:h-fit md:mt-16 md:items-center">
