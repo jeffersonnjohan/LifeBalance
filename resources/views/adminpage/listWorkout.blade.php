@@ -34,7 +34,7 @@
 
 @section('body')
     <div class="w-full h-full lg:flex lg:fixed">
-        <div class="w-[50%]">
+        <div class="w-[30%]">
             <div class="lg:w-full lg:flex lg:gap-2 md:w-full md:flex md:gap-2 lg:fixed">
                 <div class="w-full h-[390px] p-10 pt-16 bg-cBlue rounded-b-[50px] lg:rounded-bl-[0px] lg:rounded-tr-[50px] lg:w-[30%] lg:h-fit lg:mt-16 lg:items-center md:rounded-bl-[0px] md:rounded-tr-[50px] md:w-[30%] md:h-fit md:mt-16 md:items-center">
                     {{-- Category Container --}}
@@ -59,20 +59,20 @@
                 <div class="lg:w-[70%] lg:p-10 lg:pt-32 lg:items-center lg:justify-center lg:content-center md:w-[70%] md:p-10 md:pt-32 md:items-center md:justify-center md:content-center">
                     @yield('content')
                 </div>
-        </div>
-            <x-navbar active="workout" admin="false"/>
+            </div>
         </div>
 
         {{-- Workout Plans List --}}
-        <div class="pl-5 pr-5 w-full lg:pt-16 lg:flex lg:items-center lg:justify-center lg:gap-2 lg:flex-wrap lg:flex-row lg:overflow-scroll">
+        <div class="pl-5 pr-5 w-[70%] lg:pt-16 lg:flex lg:items-center lg:justify-center lg:gap-2 lg:flex-wrap lg:flex-row lg:overflow-scroll">
             @foreach ($workouts as $workout)
-                {{-- Plan Card --}}
-                <div class="lg:w-fit lg:h-fit h-fit bg-white mb-2 relative rounded-3xl shadow-lg hover:bg-cDarkBlue hover:text-white duration-500">
-                    <div class="flex py-6 px-5 items-center gap-2">
-                        <div class="flex items-center w-[85%] justify-center">
-                            <div class="flex-col w-[70%]">
-                                <p class="font-semibold items-center text-lg">{{ $workout->name }}</p>
-                                <p class="text-sm truncate">{{ $workout->description }}</p>
+                <div class="lg:h-fit w-full h-fit bg-white items-center mb-2 relative rounded-3xl shadow-lg hover:bg-blue-200 duration-500 focus:ring-cBlue">
+                    {{-- Card Plan --}}
+                    <div class="w-[90%] flex py-6 px-5 items-center gap-2">
+                        <div class="max-w-sm px-3 py-6 flex bg-transparent rounded-3xl relative mb-4 lg:max-w-full md:max-w-full">
+                            <div class="w-[70%]">
+                                <h2 class="font-semibold text-lg">{{ $workout->name }}</h2>
+                                <p class="text-sm"> @excerpt($workout->description)</p>
+                                {{-- <p class="text-sm">{{ $workout->description }}</p> --}}
                                 <p class="text-sm text-cYellow flex items-center">
                                     <span class="material-symbols-outlined inline-block text-cYellow mr-1">
                                         toll
@@ -80,11 +80,12 @@
                                     {{ $workout->points }} points will be added!
                                 </p>
                             </div>
-                            {{-- <div class="w-[30%] h-fit md:w-40 rounded-md border border-cBlue aspect-square bg-center bg-cover" style="background-image:url('/assets/planImage.png')"> --}}
-                            <div class="w-[30%] h-fit md:w-40 rounded-md border border-cBlue aspect-square bg-center bg-cover" style="background-image: url('{{ asset('/storage/'.$workout->image) }}')">
+                            <div class="w-[30%] h-full flex justify-center items-center">
+                                <div class="w-[90%] lg:w-[70%] rounded-md border border-cBlue aspect-square bg-center bg-cover" style="background-image:url('{{ asset('/storage/'.$workout->image) }}')">
+                                </div>
                             </div>
                         </div>
-                        <div class="absolute h-fit w-fit flex flex-col gap-2 right-3">
+                        <div class="absolute h-fit w-fit flex flex-col gap-2 right-5">
                             <form action="/admin/workout" method="post">
                                 <button type="button" data-modal-target="popup-modal{{ $loop->iteration }}" data-modal-toggle="popup-modal{{ $loop->iteration }}">
                                     <span class="material-symbols-outlined rounded-full p-2 scale-100 duration-300 ease-out bg-cBlue hover:bg-white hover:text-black text-white">

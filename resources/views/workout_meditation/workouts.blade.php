@@ -3,10 +3,18 @@
 @section('titleActive', 'Workout')
 @section('isWorkoutActive', 'activeCategory')
 
+@section('style')
+    {{-- <style>
+        * {
+            border: red solid 0.5px;
+        }
+    </style> --}}
+@endsection
+
 @section('content')
-<div class="pb-28 w-full -mt-16 justify-center overflow-auto">
+<div class="pb-28 w-full -mt-16 justify-center lg:flex-row h-[100vh]">
     {{-- Cards Plan Container --}}
-    <div class="p-2 w-full justify-center content-center  lg:overflow-scroll">
+    <div class="p-2 w-full justify-center content-center overflow-scroll h-[100vh]">
         <?php $unenroll_plans = array() ?>
         @if ($enrollments->toArray())
         <h3 class="flex justify-center text-cBlue">Enrolled Plan</h3>
@@ -22,8 +30,6 @@
                         <div class="w-[70%]">
                             <h2 class="text-xl">{{ $workout->name }}</h2>
                             <p class="text-sm"> @excerpt($workout->description)</p>
-
-
                             <p class="text-sm text-cYellow flex items-center">
                                 <span class="material-symbols-outlined inline-block text-cYellow mr-1">
                                     toll
