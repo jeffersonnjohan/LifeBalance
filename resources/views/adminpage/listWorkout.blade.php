@@ -73,7 +73,7 @@
         {{-- Workout Plans List --}}
         <div class="pl-5 pr-5 w-full lg:w-[70%] lg:pt-16 lg:flex lg:items-center lg:justify-center lg:gap-2 lg:flex-wrap lg:overflow-scroll">
             @foreach ($workouts as $workout)
-                <div class="lg:h-fit lg:w-[80%] w-full h-fit bg-white items-center mb-2 relative rounded-3xl shadow-lg hover:bg-blue-200 duration-500 focus:ring-cBlue">
+                <div class="lg:h-fit lg:w-[80%] w-full h-[200px] bg-white items-center mb-2 relative rounded-3xl shadow-lg hover:bg-blue-200 duration-500 focus:ring-cBlue">
                     {{-- Card Plan --}}
                     <div class="w-[90%] flex py-6 px-5 items-center gap-2">
                         <div class="max-w-sm px-3 py-6 flex bg-transparent rounded-3xl relative mb-4 lg:max-w-full md:max-w-full">
@@ -89,7 +89,7 @@
                                 </p>
                             </div>
                             <div class="lg:absolute lg:left-96 w-[30%] flex justify-center items-center">
-                                <div class="w-[90%] lg:w-full rounded-md border border-cBlue aspect-square bg-center bg-cover" style="background-image:url('{{ asset('/storage/'.$workout->image) }}')">
+                                <div class="w-[100px] lg:w-full h-[100px] rounded-md border border-cBlue aspect-square bg-center bg-cover" style="background-image:url('{{ asset('/storage/'.$workout->image) }}')">
                                 </div>
                             </div>
                         </div>
