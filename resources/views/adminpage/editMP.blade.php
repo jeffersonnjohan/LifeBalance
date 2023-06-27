@@ -32,7 +32,7 @@
 @section('body')
 
     {{-- Page Body Section --}}
-        <form action="/admin/meditation/update" method="post" class="pt-16  bg-cLightGrey w-full overflow-auto lg:flex lg:flex-row lg:w-full"  enctype="multipart/form-data">
+        <form action="/admin/meditation/update" method="post" class="pt-16  bg-cLightGrey w-full overflow-auto lg:flex lg:flex-row lg:w-full  enctype="multipart/form-data">
 
         @csrf
         <input type="hidden" name="editID" value="{{ $meditation->id }}">
@@ -41,16 +41,22 @@
         <div class="lg:flex lg:flex-col lg:w-full lg:ml-[25%]">
             <div class="px-3">
                 <div class="w-full h-[50px] rounded-full bg-white flex items-center text-cDarkGrey px-4 duration-300 hover:ring-2 focus-within:text-cBlue focus-within:ring-2 hover:text-cBlue shadow-lg">
-                    <input type="text" name="planTitle" id="planTitle" placeholder="Plan Title" value="{{ $meditation->name }}" required class="p-0 text-left lg:text-center border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full">
+                    <input type="text" name="planTitle" id="planTitle"  placeholder="Plan Title" value="{{ old('planTitle') ?? $meditation->name }}" required class="p-0 text-left lg:text-center border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full">
                 </div>
+                @if(array_search('planTitle', array_column($error, 'name')) !== FALSE)
+                    <p class="text-cRed text text-left px-4 py-4 text-xs">{{ $error[array_search('planTitle', array_column($error, 'name'))]->message }}</p>
+                @endif
             </div>
             <div class="pt-4 px-3">
                 <div class="w-full h-[120px] rounded-3xl bg-white flex items-center text-cDarkGrey px-4 duration-300 hover:ring-2 focus-within:text-cBlue focus-within:ring-2 hover:text-cBlue shadow-lg">
                     {{-- <input type="text" name="description" id="description" placeholder="Description" value="{{ $meditation->description }}" required class="p-0 text-left lg:text-center border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full"> --}}
                     <textarea type="text" name="description" id="description" placeholder="Description" required class="p-0 lg:py-10 pt text-left lg:text-center lg:self-center h-[100px] resize-none border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full">
-{{ $meditation->description }}
+{{ $meditation->description }}{{ old('description') }}
                     </textarea>
                 </div>
+                @if(array_search('description', array_column($error, 'name')) !== FALSE)
+                    <p class="text-cRed text text-left px-4 py-4 text-xs">{{ $error[array_search('description', array_column($error, 'name'))]->message }}</p>
+                @endif
             </div>
             <div class="flex-row flex px-3 pb-10">
                 <div class="w-3/6 h-[120px] flex items-center text-cDarkGrey justify-between gap-2 pt-4 p-2 pl-0">
