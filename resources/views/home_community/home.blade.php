@@ -135,7 +135,7 @@
             </div>
         </div>
 
-        <div class="lg:w-[70%] lg:overflow-scroll lg:items-center lg:justify-center lg:mx-3 md:overflow-scroll md:items-center md:justify-center md:mx-3">
+        <div class="lg:w-[70%] h-fit lg:overflow-scroll lg:items-center lg:justify-center lg:mx-3 md:overflow-scroll md:items-center md:justify-center md:mx-3">
             {{-- Main Features --}}
             <div class="flex mt-4 justify-between gap-x-2 lg:gap-5 items-center lg:mt-0 lg:mx-8 lg:my-5 md:gap-5 md:mt-0 md:mx-8 md:my-5">
                 {{-- Workout --}}
