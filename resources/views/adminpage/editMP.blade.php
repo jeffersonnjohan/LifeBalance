@@ -32,7 +32,7 @@
 @section('body')
 
     {{-- Page Body Section --}}
-        <form action="/admin/meditation/update" method="post" class="pt-16  bg-cLightGrey w-full overflow-auto lg:flex lg:flex-row lg:w-full  enctype="multipart/form-data">
+        <form action="/admin/meditation/update" method="post" class="pt-16  bg-cLightGrey w-full overflow-auto lg:flex lg:flex-row lg:w-full"  enctype="multipart/form-data">
 
         @csrf
         <input type="hidden" name="editID" value="{{ $meditation->id }}">
