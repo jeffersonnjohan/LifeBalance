@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Validator;
 use App\Http\Requests\StoreWorkoutRequest;
 use App\Http\Requests\UpdateWorkoutRequest;
 
@@ -154,7 +155,8 @@ class WorkoutController extends Controller
             'workoutActivities' => WorkoutActivity::all(),
             'workout' => $workout,
             'workoutExercises' => $workoutExercises,
-            'oldImg' => $workout->image
+            'oldImg' => $workout->image,
+            'error' => []
         ]);
     }
 
@@ -167,7 +169,43 @@ class WorkoutController extends Controller
      */
     public function update(UpdateWorkoutRequest $request)
     {
+        $workout = Workout::find($request->workoutID);
         $prevWorkoutDays = Workout::find($request->workoutID)->workout_day;
+
+        $validated = Validator::make($request->all(), [
+            'planTitle' => 'required|max:25|min:3',
+            'description' => 'required|max:100|min:20',
+            'points' => 'required',
+        ]);
+
+        if ($validated->fails()){
+            $response = [];
+            foreach ($validated->messages()->toArray() as $key => $value) {
+                $obj = new \stdClass();
+                $obj->name = $key;
+                $obj->message = $value[0];
+
+                array_push($response, $obj);
+            }
+
+            $workoutExercises = [];
+            for($i = 0; $i < count($workout->workout_day); $i++){
+                $workoutDetailInDayI = $workout->workout_day[$i]->workout_detail;
+
+                $workoutExercise = [];
+                for($j = 0; $j < count($workoutDetailInDayI); $j++){
+                    $workoutExercise[] = $workoutDetailInDayI[$j];
+                }
+                $workoutExercises[] = $workoutExercise;
+            }
+            return view('adminpage.editWP', [
+                'workoutActivities' => WorkoutActivity::all(),
+                'workout' => $workout,
+                'workoutExercises' => $workoutExercises,
+                'oldImg' => $workout->image,
+                'error' => $response
+            ]);
+        }
 
         foreach($prevWorkoutDays as $prevWorkoutDay){
             $prevWorkoutDetailsInADay = $prevWorkoutDay->workout_detail;
