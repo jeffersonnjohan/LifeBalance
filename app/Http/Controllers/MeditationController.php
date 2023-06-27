@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Meditation;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Validator;
 use App\Http\Requests\StoreMeditationRequest;
 use App\Http\Requests\UpdateMeditationRequest;
 
@@ -99,7 +100,8 @@ class MeditationController extends Controller
         return view('adminpage.editMP', [
             'meditation' => $temp,
             'oldImg' => $temp->image,
-            'oldSong' => $temp->audio
+            'oldSong' => $temp->audio,
+            'error' => []
         ]);
     }
 
@@ -132,11 +134,33 @@ class MeditationController extends Controller
             $meditation->audio = $request->oldSong;
         }
 
+        $validated = Validator::make($request->all(), [
+            'planTitle' => 'required|max:25|min:3',
+            'description' => 'required|max:100|min:20'
+        ]);
+
+        if ($validated->fails()){
+            $response = [];
+            foreach ($validated->messages()->toArray() as $key => $value) {
+                $obj = new \stdClass();
+                $obj->name = $key;
+                $obj->message = $value[0];
+
+                array_push($response, $obj);
+            }
+            return view('adminpage.editMP', [
+                'meditation' => $meditation,
+                'oldImg' => $meditation->image,
+                'oldSong' => $meditation->audio,
+                'error' => $response
+            ]);
+        }
+
         $meditation->update([
-            'name' => $request->planTitle,
-            'description' => $request->description,
-            'image' =>  $meditation->image,
-            'audio' => $meditation->audio
+            'name' => $request['planTitle'],
+            'description' => $request['description'],
+            'image' =>  $meditation['image'],
+            'audio' => $meditation['audio']
         ]);
 
         return redirect('/admin/meditation');

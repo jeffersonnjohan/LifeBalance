@@ -12,15 +12,16 @@
 @endsection
 
 @section('content')
-<div class="pb-28 w-full -mt-16 justify-center lg:flex-row h-[100vh]">
+<div class="pb-28 w-full lg:-mt-16 justify-center lg:flex-row h-[100vh]">
     {{-- Cards Plan Container --}}
     <div class="p-2 w-full justify-center content-center overflow-scroll h-[100vh]">
         <?php $unenroll_plans = array() ?>
         @if ($enrollments->toArray())
         <h3 class="flex justify-center text-cBlue">Enrolled Plan</h3>
         @endif
-        @foreach ($workouts as $workout)
-        @if (in_array(strval($workout->id), $enrollments->toArray()))
+
+        @forelse ($workouts as $workout)
+            @if (in_array(strval($workout->id), $enrollments->toArray()))
                 <form action="/workoutdetails" method="POST"  class="enrolled_form">
                     @csrf
                     <input type="hidden" name="workout_id" value="{{ $workout->id }}">
@@ -50,10 +51,12 @@
             @else
                 <?php $unenroll_plans[] = $workout ?>
             @endif
-        @endforeach
+        @empty
+            <h3 class="flex justify-center text-cBlue">Wait for Upcoming Plans</h3>
+        @endforelse
 
         <?php $idx = 0;?>
-        @if ($enrollments->toArray())
+        @if ($enrollments->toArray() and $unenroll_plans)
         <h3 class="flex justify-center mt-10 text-cBlue">Not Enrolled Plan</h3>
         @endif
         @if ( $unenroll_plans )

@@ -24,7 +24,7 @@
 
         <div class="p-2 w-full justify-center content-center overflow-scroll h-[100vh]">
         {{-- Card Meditation --}}
-        @foreach ($meditations as $meditation)
+        @forelse ($meditations as $meditation)
             <form action="/meditationDetails" method="POST" class="form">
                 @csrf
                 <div class="btn max-w-sm lg:max-w-full md:max-w-full text-center py-5 flex bg-white rounded-3xl relative mb-4 shadow-lg hover:bg-blue-200 duration-500 focus:ring-cBlue">
@@ -37,7 +37,9 @@
                 </div>
                 <input type="hidden" name="meditation_id" value="{{ $meditation->id }}">
             </form>
-        @endforeach
+        @empty
+            <h3 class="flex justify-center text-cBlue">Wait for Upcoming Sound Track</h3>
+        @endforelse
         </div>
     <script>
         var form = document.getElementsByClassName("form")

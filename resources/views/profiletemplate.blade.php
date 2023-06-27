@@ -24,7 +24,7 @@
 @endsection
 
 @section('body')
-    @extends('component.backbutton')
+    <x-back-get hover-bg="bg-cBlue" backlink="/home"/>
     <div class="w-full h-full">
         <div class="h-[70px] flex justify-center items-center text-2xl font-medium">
             <p>@yield('toptitle')</p>

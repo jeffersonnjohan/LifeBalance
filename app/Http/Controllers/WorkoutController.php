@@ -70,6 +70,13 @@ class WorkoutController extends Controller
             $newWorkout['image'] = $request->file('image')->store('workout-images');
         }
 
+        $validated = $request->validate([
+            'planTitle' => 'required|max:25|min:3',
+            'description' => 'required|max:100|min:20',
+            'points' => 'required',
+            'image' => 'required'
+        ]);
+
         $workout = new Workout([
             'name' => $newWorkout['planTitle'],
             'description' => $newWorkout['description'],
