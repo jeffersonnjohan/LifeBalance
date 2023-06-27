@@ -30,14 +30,13 @@
                 </div>
             </div>
         </div>
-        <h2 class="text-xl p-2 lg:px-4 font-medium ml-3 mt-2 lg:text-lg">Plan</h2>
         <?php $unenroll_plans = [];
         $idx = 0; ?>
         @if ($enrollments->toArray())
-            <h3 class="flex justify-center text-cGreen">Enrolled Plan</h3>
+            <h3 class="flex justify-center text-cGreen mt-4">Enrolled Plan</h3>
         @endif
-        <div class="lg:flex lg:flex-wrap lg:w-full lg:px-4 ">
-            @foreach ($diets as $diet)
+        <div class="lg:flex lg:flex-wrap lg:w-full lg:px-4 mt-4">
+            @forelse ($diets as $diet)
                 @if (in_array(strval($diet->id), $enrollments->toArray()))
                     <form action="/dietDays" method="POST"
                         class="enrolled_form place-items-center grid p-2 px-0 lg:px-2 lg:w-1/3">
@@ -68,11 +67,13 @@
                 @else
                     <?php $unenroll_plans[] = $diet; ?>
                 @endif
-            @endforeach
+            @empty
+                <h3 class="text-cGreen mt-4">Wait for Upcoming Plans</h3>
+            @endforelse
         </div>
 
         <?php $idx = 0; ?>
-        @if ($enrollments->toArray())
+        @if ($enrollments->toArray() and $unenroll_plans)
             <h3 class="flex justify-center mt-10 text-cGreen">Not Enrolled Plan</h3>
         @endif
         @if ($unenroll_plans)
