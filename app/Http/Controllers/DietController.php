@@ -56,10 +56,17 @@ class DietController extends Controller
             $newDiet['image'] = $request->file('image')->store('diet-images');
         }
 
+        $validated = $request->validate([
+            'planTitle' => 'required|max:20|min:3',
+            'description' => 'required|max:100|min:20',
+            'points' => 'required',
+            'image' => 'required'
+        ]);
+
         $diet = new Diet([
-            'name' => $newDiet['planTitle'],
-            'description' => $newDiet['description'],
-            'points' => $newDiet['points'],
+            'name' => $validated['planTitle'],
+            'description' => $validated['description'],
+            'points' => $validated['points'],
             'image' => $newDiet['image']
         ]);
 
