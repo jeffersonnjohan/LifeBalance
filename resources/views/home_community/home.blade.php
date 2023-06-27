@@ -53,25 +53,25 @@
             <div class="w-full h-fit font-bold text-4xl mb-2">
                 Your Progress
             </div>
-            <div class="w-full h-fit lg:h-[80%] lg:gap-3 grid grid-cols-3 gap-1 text-sm lg:grid-cols-2">
+            <div class="w-full h-fit lg:h-[65vh] lg:gap-3 grid grid-cols-3 gap-1 text-sm lg:grid-cols-2">
                 <div class="py-2 px-3 bg-white rounded-md lg:rounded-2xl shadow-lg flex flex-col justify-center">
                     <div class="font-medium lg:text-xl">Total</div>
                     <div class="flex items-baseline gap-1 text-cRed">
-                        <div class="text-4xl font-black text-cRed lg:text-7xl">{{ $totalCalories }}</div>
+                        <div class="text-4xl font-black text-cRed lg:text-5xl">{{ $totalCalories }}</div>
                         <div class="lg:text-xl">KCAL</div>
                     </div>
                 </div>
                 <div class="py-2 px-3 bg-white rounded-md lg:rounded-2xl shadow-lg flex flex-col justify-center">
                     <div class="font-medium lg:text-xl">Consumed</div>
                     <div class="flex items-baseline gap-1 text-cGreen">
-                        <div class="text-4xl font-black lg:text-7xl">{{ $caloriesIn }}</div>
+                        <div class="text-4xl font-black lg:text-5xl">{{ $caloriesIn }}</div>
                         <div class="lg:text-xl">KCAL</div>
                     </div>
                 </div>
                 <div class="py-2 px-3 bg-white rounded-md lg:rounded-2xl shadow-lg flex flex-col justify-center">
                     <div class="font-medium lg:text-xl">Burned</div>
                     <div class="flex items-baseline gap-1 text-cBlue">
-                        <div class="text-4xl font-black lg:text-7xl">{{ $caloriesOut }}</div>
+                        <div class="text-4xl font-black lg:text-5xl">{{ $caloriesOut }}</div>
                         <div class="lg:text-xl">KCAL</div>
                     </div>
                 </div>
@@ -82,26 +82,27 @@
                 <div class="py-2 px-3 bg-white rounded-md lg:rounded-2xl shadow-lg flex flex-col justify-center">
                     <div class="font-medium lg:text-xl">BMI</div>
                     <div class="flex items-baseline gap-1">
-                        <div class="text-4xl font-black text-{{ $color }} lg:text-6xl">{{ $bmi }}</div>
+                        <div class="text-4xl font-black text-{{ $color }} lg:text-5xl">{{ $bmi }}</div>
                     </div>
                 </div>
                 <div class="py-2 px-3 bg-white rounded-md lg:rounded-2xl shadow-lg flex flex-col justify-center">
                     <div class="font-medium lg:text-xl">Index</div>
                     <div class="flex items-baseline gap-1">
-                        <div class="text-[18px] font-black text-{{ $color }} lg:text-3xl">{{ $categoryBmi }}</div>
+                        <div class="text-[18px] font-black text-{{ $color }} lg:text-2xl">{{ $categoryBmi }}</div>
                     </div>
                 </div>
                 <div class="py-2 px-3 bg-white rounded-md lg:rounded-2xl shadow-lg flex flex-col justify-center">
                     <div class="font-medium lg:text-xl">Current Streak</div>
                     <div class="flex items-baseline gap-1 text-cOrange">
-                        <div class="text-4xl font-black lg:text-7xl">{{ $streak }}</div>
+                        <div class="text-4xl font-black lg:text-5xl">{{ $streak }}</div>
                         <svg fill="#FF7F62" height="25" width="25" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 460 460" xml:space="preserve"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>< id="SVGRepo_iconCarrier"> <> <path d="M73.742,360.816c2.138,0,4.293-0.683,6.115-2.094c4.367-3.381,5.166-9.662,1.785-14.029 C56.026,311.61,42.487,271.95,42.487,230c0-103.395,84.118-187.513,187.513-187.513c24.334,0,48.004,4.589,70.352,13.641 c5.118,2.073,10.948-0.396,13.022-5.515c2.073-5.119-0.396-10.949-5.515-13.022C283.115,27.568,256.92,22.487,230,22.487 c-114.423,0-207.513,93.09-207.513,207.513c0,46.423,14.987,90.317,43.341,126.937C67.798,359.483,70.753,360.816,73.742,360.816z"></path> <path d="M394.177,103.069c-3.382-4.368-9.662-5.167-14.029-1.786c-4.367,3.381-5.167,9.662-1.786,14.029 c25.612,33.082,39.15,72.74,39.15,114.688c0,103.395-84.118,187.513-187.513,187.513c-24.332,0-48-4.589-70.346-13.639 c-5.119-2.072-10.949,0.396-13.022,5.515c-2.073,5.119,0.396,10.949,5.515,13.022c24.743,10.021,50.937,15.102,77.854,15.102 c114.423,0,207.513-93.09,207.513-207.513C437.513,183.58,422.528,139.688,394.177,103.069z"></path> <path d="M358.098,226.912c-1.338-4.121-5.178-6.912-9.511-6.912h-72.754L422.58,15.837c2.865-3.986,2.413-9.461-1.066-12.924 c-3.479-3.462-8.956-3.888-12.929-1.004l-303.046,220c-3.507,2.545-4.975,7.06-3.637,11.181c1.338,4.121,5.178,6.912,9.511,6.912 h72.754L37.42,444.164c-2.865,3.986-2.413,9.461,1.066,12.924c1.935,1.926,4.488,2.912,7.057,2.912c2.05,0,4.109-0.628,5.872-1.908 l303.046-220C357.968,235.547,359.436,231.033,358.098,226.912z M89.868,405.463L211.79,235.837 c2.189-3.046,2.49-7.061,0.778-10.399c-1.711-3.338-5.147-5.438-8.898-5.438h-61.46L370.132,54.537L248.21,224.164 c-2.189,3.046-2.49,7.061-0.778,10.399c1.711,3.338,5.147,5.438,8.898,5.438h61.46L89.868,405.463z"></path></svg>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="lg:w-[70%] h-fit lg:overflow-scroll lg:items-center lg:justify-center lg:mx-3 md:overflow-scroll md:items-center md:justify-center md:mx-3">
+
+        <div class="lg:w-[70%] h-[80vh] lg:overflow-scroll lg:items-center lg:justify-center lg:mx-3 md:overflow-scroll md:items-center md:justify-center md:mx-3">
             {{-- Main Features --}}
             <div class="flex mt-4 justify-between gap-x-2 lg:gap-5 items-center lg:mt-0 lg:mx-8 lg:my-5 md:gap-5 md:mt-0 md:mx-8 md:my-5 h-fit">
                 {{-- Workout --}}
