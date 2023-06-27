@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\StoreDietRequest;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\UpdateDietRequest;
+use Illuminate\Support\Facades\Validator;
 
 class DietController extends Controller
 {
@@ -114,7 +115,8 @@ class DietController extends Controller
         return view('adminpage.editDP', [
             'diet' => $diet,
             'dietDays' => $diet->dietDay,
-            'oldImg' => $diet->image
+            'oldImg' => $diet->image,
+            'error' => []
         ]);
     }
 
@@ -129,6 +131,30 @@ class DietController extends Controller
     {
         // return $request;
         $diet = Diet::find($request->dietID);
+
+        $validated = Validator::make($request->all(), [
+            'planTitle' => 'required|max:25|min:3',
+            'description' => 'required|max:100|min:20',
+            'points' => 'required',
+        ]);
+
+        if ($validated->fails()){
+            $response = [];
+            foreach ($validated->messages()->toArray() as $key => $value) {
+                $obj = new \stdClass();
+                $obj->name = $key;
+                $obj->message = $value[0];
+
+                array_push($response, $obj);
+            }
+            return view('adminpage.editDP', [
+                'diet' => $diet,
+                'dietDays' => $diet->dietDay,
+                'oldImg' => $diet->image,
+                'error' => $response
+            ]);
+        }
+
         $prevDietDays = $diet->dietDay;
 
         foreach($prevDietDays as $prevDietDay){
