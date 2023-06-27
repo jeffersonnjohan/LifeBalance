@@ -16,30 +16,34 @@
 
         {{-- Bar --}}
         <?php $temp = array(); ?>
-        @if (count($enrollments) > 0)
         <div class="lg:flex w-full h-screen">
-            <div class="text-white mt-16 lg:mb-16 bg-cRed lg:rounded-l-[0px] lg:rounded-r-[50px] p-2 lg:w-1/3 lg:overflow-auto">
+        <div class="text-white mt-16 bg-cRed lg:rounded-l-[0px] lg:rounded-tr-[50px] p-2 lg:w-1/3 ">
                 <h2 class="m-2 pb-0 text-lg">Unfinished Plan!</h2>
-                @foreach ($enrollments as $enrollment)
-                    @if ($enrollment->is_done == 0)
-                        {{-- show unfinished plan--}}
-                        <div class="bg-white m-2 text-md rounded-3xl flex flex-row text-cRed shadow-lg">
-                            <div class="w-8 h-[70px] {{ $enrollment->is_diet == 1 ? 'bg-cGreen': 'bg-cBlue'}} rounded-bl-3xl rounded-tl-3xl"></div>
-                            <div class="self-center p-2 h-full w-full">
-                                <h3>{{ $enrollment->name }}</h3>
-                                <h4>{{ $enrollment->day_count - $enrollment->finished_day . ' days left!'}}</h4>
+                <div class="lg:overflow-auto lg:h-[90%] ">
+                    @forelse ($enrollments as $enrollment)
+                        @if ($enrollment->is_done == 0)
+                            {{-- show unfinished plan--}}
+                            <div class="bg-white m-2 text-md rounded-3xl flex flex-row text-cRed shadow-lg">
+                                <div class="w-8 h-[70px] {{ $enrollment->is_diet == 1 ? 'bg-cGreen': 'bg-cBlue'}} rounded-bl-3xl rounded-tl-3xl"></div>
+                                <div class="self-center p-2 h-full w-full">
+                                    <h3>{{ $enrollment->name }}</h3>
+                                    <h4>{{ $enrollment->day_count - $enrollment->finished_day . ' days left!'}}</h4>
+                                </div>
                             </div>
-                        </div>
-                    @else
-                        {{-- saved temporary --}}
-                        <?php $temp[] = $enrollment;?>
-                    @endif
-                @endforeach
+                        @else
+                            {{-- saved temporary --}}
+                            <?php $temp[] = $enrollment;?>
+                        @endif
+                    @empty
+                    <div class="h-full w-full flex justify-center items-center">
+                        <h2 class="text-lg">No History</h2>
+                    </div>
+                    @endforelse
+                </div>
             </div>
             <div class=" pb-20 lg:pb-2 lg:pt-2 lg:mx-2 lg:my-16 lg:w-2/3 lg:overflow-auto">
-                @if (count($temp))
                     <h2 class="m-2 pb-0 text-lg">Finished Plan</h2>
-                    @foreach ($temp as $temp)
+                    @forelse ($temp as $temp)
                     <div class="bg-white m-2 text-md rounded-3xl flex flex-row text-black shadow-lg">
                         <div class="w-8 h-[70px] {{ $temp->is_diet == 1 ? 'bg-cGreen': 'bg-cBlue'}} rounded-bl-3xl rounded-tl-3xl"></div>
                         <div class="self-center p-2 h-full w-full">
@@ -53,13 +57,13 @@
                             <h3 class="font-medium text-md">{{ $temp->points }}</h3>
                         </div>
                     </div>
-                    @endforeach
-                @endif
+                    @empty
+                    <div class="h-full w-full flex justify-center items-center">
+                        <h2 class="text-lg">No History</h2>
+                    </div>
+                    @endforelse
             </div>
         </div>
-        @else
-            <div>No History</div>
-        @endif
 
     </div>
     <x-navbar active="history" admin="false"/>
