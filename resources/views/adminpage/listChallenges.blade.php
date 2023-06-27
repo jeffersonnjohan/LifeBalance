@@ -20,7 +20,7 @@
                 </li>
             </ul>
             @can('admin')
-                <a href="/home" class="fixed right-16 bg-cOrange hover:bg-white duration-300 ease-out p-3 hover:ring-2 text-white hover:text-cOrange rounded-b-3xl w-20 lg:w-auto text-center ring-cOrange">
+                <a href="/home" class="fixed right-16 -mt-3 text-xs lg:text-lg bg-cOrange hover:bg-white duration-300 ease-out p-3 hover:ring-2 text-white hover:text-cOrange rounded-b-3xl w-16 lg:w-auto text-center ring-cOrange">
                     <div class="pt-3">Go to Home</div>
                 </a>
             @endcan

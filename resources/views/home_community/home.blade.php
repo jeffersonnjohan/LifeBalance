@@ -12,7 +12,7 @@
 
 @section('body')
 <nav class="justify-evenly fixed bg-gradient-to-b from-cLightGrey from-70% to-transparent w-full z-10 -top-3">
-    <div class="px-4 py-3 mx-auto">
+    <div class="px-4 py-3 mx-auto w-full">
         <div class="flex items-center justify-between">
             <div class="flex-col">
                 <ul class="flex font-normal space-x-2 text-2xl">
@@ -30,7 +30,7 @@
             </div>
             <div class="flex w-fit gap-5">
                 @can('admin')
-                <a href="/admin/workout" class="-mr-4 bg-cRed hover:bg-white duration-300 ease-out p-3 hover:ring-2 text-white hover:text-cRed rounded-b-3xl text-center ring-cRed">
+                <a href="/admin/workout" class="-mr-4 w-16 lg:w-auto -mt-3 text-xs lg:text-lg bg-cRed hover:bg-white duration-300 ease-out p-3 hover:ring-2 text-white hover:text-cRed rounded-b-3xl text-center ring-cRed">
                     <div class="pt-3">Go to Admin</div>
                 </a>
                 @endcan
@@ -135,7 +135,7 @@
             </div>
         </div>
 
-        <div class="lg:w-[70%] lg:overflow-scroll lg:items-center lg:justify-center lg:mx-3 md:overflow-scroll md:items-center md:justify-center md:mx-3">
+        <div class="lg:w-[70%] h-fit lg:overflow-scroll lg:items-center lg:justify-center lg:mx-3 md:overflow-scroll md:items-center md:justify-center md:mx-3">
             {{-- Main Features --}}
             <div class="flex mt-4 justify-between gap-x-2 lg:gap-5 items-center lg:mt-0 lg:mx-8 lg:my-5 md:gap-5 md:mt-0 md:mx-8 md:my-5">
                 {{-- Workout --}}
