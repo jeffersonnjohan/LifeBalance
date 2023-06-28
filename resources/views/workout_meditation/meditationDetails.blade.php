@@ -13,7 +13,7 @@
 @section('body')
     <x-back-get hover-bg="bg-cBlue" backlink="/meditations" />
 
-    <div class="w-full py-8">
+    <div class="w-screen py-8 fixed">
         {{-- Container Foto --}}
         <div class="w-[90%] m-auto rounded-3xl h-[550px] bg-cover"
             style="background-image: url({{ '/storage/' . $meditation[0]->image }})">
@@ -23,12 +23,12 @@
         <div
             class="w-full rounded-t-[50px] h-[280px] lg:h-[170px] fixed bottom-0 bg-cBlue p-4 text-center text-white ">
             <hr class="w-[200px] m-auto border-2">
-            <div class=" lg:flex lg:flex-row lg:mt-6 lg:mx-14">
+            <div class=" lg:flex lg:flex-row lg:mt-6 lg:mx-14 ">
                 <div class="lg:text-left">
                     <h1 class="text-2xl font-bold mt-6 lg:mt-0">{{ $meditation[0]->name }}</h1>
                     <p class="text-sm font-normal mt-1 mb-7 lg:h-fit">{{ $meditation[0]->description }}g</p>
                 </div>
-                <div class="lg:px-4 lg:w-[50%] lg:ml-56">
+                <div class="lg:px-4 lg:w-[50%] lg:ml-56 lg:flex lg:flex-row">
                     {{-- Audio --}}
                     <audio loop playsinline id="audio" class="rounded-2xl w-full mt-8" preload="metadata">
                         <source src="{{ '/storage/' . $meditation[0]->audio }}">
@@ -44,40 +44,44 @@
                         <span id="totalDuration"></span>
                     </div>
                     {{-- Sliding Bar --}}
-                    <input type="range" id="seek-bar" value="0" class="w-[300px] mb-4" disabled>
+                    <input type="range" id="seek-bar" value="0" class="w-[300px] mb-4 lg:my-auto
+                    {{-- lg:hidden --}}
+                    " disabled>
 
-                    <div class="flex w-full justify-center text-black">
+                    <div class="flex w-full lg:w-fit lg:h-[70px] lg:my-auto justify-center text-black">
 
-                        {{-- Button << --}}
+                        {{-- Button <<div --}}
                         {{-- <button type="button" id="rewind" class="block">
-                        <span class="material-symbols-outlined">
-                            fast_rewind
-                        </span>
-                    </button> --}}
+                            <span class="material-symbols-outlined">
+                                fast_rewind
+                            </span>
+                        </button> --}}
 
                         {{-- Button Play --}}
                         <button type="button" id="play"
-                            class="block mx-4 bg-white text-cBlue w-[70px] aspect-square rounded-full">
-                            <span class="material-symbols-outlined scale-[2]">
-                                play_arrow
-                            </span>
+                        class="block mx-4 bg-white text-cBlue w-[70px] aspect-square rounded-full">
+                        <span class="material-symbols-outlined scale-[2] my-auto">
+                            play_arrow
+                        </span>
                         </button>
 
                         {{-- Button Pause --}}
                         <button type="button" id="pause"
                             class="hidden block mx-4 bg-white text-cBlue w-[70px] aspect-square rounded-full">
-                            <span class="material-symbols-outlined scale-[2]">
+                            <span class="material-symbols-outlined scale-[2] ">
                                 pause
                             </span>
                         </button>
                         {{-- Button >> --}}
                         {{-- <button type="button" id="forward" class="block">
-                        <span class="material-symbols-outlined">
-                            fast_forward
+                            <span class="material-symbols-outlined">
+                                fast_forward
                             </span>
-                    </button> --}}
+                        </button> --}}
                     </div>
+                    {{-- <input type="range" id="seek-bar" value="0" class="w-[300px] mb-4 " disabled> --}}
                 </div>
+            <div class="mb-8"></div>
             </div>
         </div>
     </div>
