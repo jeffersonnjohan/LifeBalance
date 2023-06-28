@@ -136,7 +136,7 @@
                     <div class="flex flex-col justify-between p-3 gap-1">
                         <p class="font-normal text-sm text-cRed dark:text-gray-400 hover:text-white">Continue your plan.</p>
                         <p class="text-sm font-bold tracking-tight text-black dark:text-white hover:text-white">{{ $unfinishedWorkoutPlan->workout->name }}</p>
-                        <div class="w-full bg-gray-200 rounded-full dark:bg-cDarkGrey">
+                        <div class="w-full bg-gray-200 rounded-full p-1 dark:bg-cDarkGrey">
                             <div class="bg-cRed text-xs text-transparent text-white text-center rounded-full leading-none" style="width:{{ $unfinishedWorkoutPlan->workout->day_count!=0? round($unfinishedWorkoutPlan->finished_day/$unfinishedWorkoutPlan->workout->day_count*100, 2) : 0}}%">{{ $unfinishedWorkoutPlan->workout->day_count!=0? round($unfinishedWorkoutPlan->finished_day/$unfinishedWorkoutPlan->workout->day_count*100, 2) : 0}}%</div>
                         </div>
                     </div>
@@ -150,7 +150,7 @@
                     <div class="flex flex-col justify-between p-3 gap-1">
                         <p class="font-normal text-sm text-cRed dark:text-gray-400 hover:text-white">Continue your plan.</p>
                         <p class="text-sm font-bold tracking-tight text-black dark:text-white hover:text-white">{{ $unfinishedDietPlan->diet->name }}</p>
-                        <div class="w-full bg-gray-200 rounded-full dark:bg-cDarkGrey">
+                        <div class="w-full bg-gray-200 rounded-full p-1 dark:bg-cDarkGrey">
                             <div class="bg-cRed text-xs text-transparent text-white text-center rounded-full leading-none" style="width:{{ $unfinishedDietPlan->diet->day_count!=0? round($unfinishedDietPlan->finished_day/$unfinishedDietPlan->diet->day_count*100, 2) : 0}}%">{{ $unfinishedDietPlan->diet->day_count!=0? round($unfinishedDietPlan->finished_day/$unfinishedDietPlan->diet->day_count*100, 2) : 0}}%</div>
                         </div>
                     </div>
@@ -269,7 +269,7 @@
                     <form action="/otherprofile" method="post">
                         @csrf
                         <input type="hidden" name="userid" id="submit" value="{{ $leaderboard->id }}">
-                        <button type="submit" name="submit" id="submit" class="w-full flex justify-between items-center ml-0 my-2 p-3 bg-white rounded-3xl shadow-lg hover:bg-pink-200 duration-500 hover:cursor-pointer">
+                        <button type="submit" name="submit" id="submit" class="w-full flex justify-between items-center ml-0 lg:ml-2 my-2 p-3 bg-white rounded-3xl shadow-lg hover:bg-pink-200 duration-500 hover:cursor-pointer">
                             <div class="flex items-center gap-3 w-fit">
                                 <img class="h-12 w-12 flex-none rounded-full bg-gray-50" src="{{ '/storage/'.$leaderboard->image }}" alt="">
                                 <div class="w-fit flex-auto py-2">
