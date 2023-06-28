@@ -40,6 +40,7 @@
         @csrf
         <div
             class="lg:fixed lg:bg-cBlue lg:flex lg:flex-col lg:place-content-center lg:m-auto lg:h-full lg:rounded-r-[100px] lg:w-[25%]">
+            <div class="lg:w-full lg:bg-cover lg:h-full lg:rounded-r-[100px] lg:z-10 lg:opacity-50" style="background-image: url('/assets/addMPCover3.png')"></div>
         </div>
         <div class="lg:flex lg:flex-col lg:w-full lg:ml-[25%]">
             <div class="px-3">
@@ -161,9 +162,9 @@
             $("#src").attr("src", URL.createObjectURL(files[0]));
             document.getElementById("audio").load();
         }
-        
+
         document.getElementById("song").addEventListener("change", handleFiles, false);
-        
+
         function myFunction() {
             var x = document.getElementById("audio").autoplay;
         }
