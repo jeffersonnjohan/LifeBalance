@@ -23,23 +23,25 @@
         </form>
 
         <div class="p-2 w-full justify-center content-center overflow-scroll h-[100vh]">
-        {{-- Card Meditation --}}
-        @forelse ($meditations as $meditation)
-            <form action="/meditationDetails" method="POST" class="form">
-                @csrf
-                <div class="btn max-w-sm lg:max-w-full md:max-w-full text-center py-5 flex bg-white rounded-3xl relative mb-4 shadow-lg hover:bg-blue-200 duration-500 focus:ring-cBlue">
-                    <h2 class="w-full text-md font-bold flex justify-center">
-                        {{ $meditation->name }}
-                        <span class="material-symbols-outlined">
-                            play_arrow
-                        </span>
-                    </h2>
-                </div>
-                <input type="hidden" name="meditation_id" value="{{ $meditation->id }}">
-            </form>
-        @empty
-            <h3 class="flex justify-center text-cBlue">Wait for Upcoming Sound Track</h3>
-        @endforelse
+            {{-- Card Meditation --}}
+            <div class="lg:w-full lg:flex lg:flex-wrap lg:justify-start lg:gap-2">
+            @forelse ($meditations as $meditation)
+                <form action="/meditationDetails" method="POST" class="form">
+                    @csrf
+                    <div class="btn max-w-sm lg:w-[390px] md:max-w-full text-center py-5 flex bg-white rounded-3xl relative mb-4 shadow-lg hover:bg-blue-200 duration-500 focus:ring-cBlue">
+                        <h2 class="w-full text-md font-bold flex justify-center">
+                            {{ $meditation->name }}
+                            <span class="material-symbols-outlined">
+                                play_arrow
+                            </span>
+                        </h2>
+                    </div>
+                    <input type="hidden" name="meditation_id" value="{{ $meditation->id }}">
+                </form>
+            @empty
+                <h3 class="flex justify-center text-cBlue">Wait for Upcoming Sound Track</h3>
+            @endforelse
+            </div>
         </div>
     <script>
         var form = document.getElementsByClassName("form")
