@@ -10,8 +10,9 @@ use Illuminate\Support\Facades\Auth;
 
 class ChallengesClaimController extends Controller
 {
-    public function index($challengeId) {
+    public function index(Request $request) {
         $userId = Auth::id();
+        $challengeId = $request->post('challenge_id');
         // dd($userId);
         $user_point = User::where('id', $userId)->get()->pluck('points')->first();
         // dd($user_point);
