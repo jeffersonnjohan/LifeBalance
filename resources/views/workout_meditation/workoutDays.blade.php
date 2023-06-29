@@ -11,17 +11,17 @@
     <x-back-post hover-bg="bg-cBlue"/>
 
     <div class="w-full">
-        <div class="h-[70px] flex justify-center items-center text-2xl font-medium">
+        <div class="h-[70px] flex justify-center items-center text-2xl font-medium lg:justify-center lg:bg-cLightGrey lg:fixed lg:w-full">
             <p class="-mr-8">BURN FAT IN 7 DAYS!</p>
         </div>
-        <div class="w-full text-white">
+        <div class="w-full text-white lg:fixed lg:mt-16">
             <div class="h-[60px] w-full bg-cBlue flex justify-center items-center">
                 <h2 class="text-2xl text-center">{{ 'DAY ' . $day }}</h2>
             </div>
         </div>
 
         {{-- Activities Container --}}
-        <div class="w-full p-4 pb-3">
+        <div class="w-full p-4 pb-3 lg:mt-[120px] lg:grid lg:grid-cols-2 lg:gap-x-2">
             @foreach ($workout_details as $detail)
                 <form action="/workoutactivity" method="POST" class="activity-form">
                     @csrf

@@ -64,7 +64,7 @@
     </div>
 
     {{-- Meditation Plans List --}}
-    <div class="w-full lg:ml-[32%] lg:pt-16 lg:justify-start lg:flex-wrap lg:flex lg:items-start lg:gap-2 lg:overflow-scroll">
+    <div class="w-full lg:ml-[32%] lg:pt-16 lg:justify-start lg:h-fit lg:flex-wrap lg:flex lg:items-start lg:gap-2 lg:overflow-scroll">
         @foreach ($meditations as $meditation)
         {{-- Plan Card --}}
         <div class="lg:w-[400px] lg:h-fit h-fit flex items-center my-2 mx-2 p-5 relative bg-white rounded-3xl shadow-lg hover:bg-blue-200 duration-500 focus:ring-cBlue">

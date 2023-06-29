@@ -132,7 +132,7 @@
             @foreach($unfinishedWorkoutPlans as $unfinishedWorkoutPlan)
             <ul role="contentinfo" class="py-3">
                 <a href="#" class="flex items-center h-fit p-5 bg-white rounded-3xl shadow-lg hover:bg-pink-200 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 duration-500">
-                    <img class="object-cover w-[100px] h-auto" src="{{ '/storage/'.$unfinishedWorkoutPlan->workout->image }}" alt="">
+                    <img class="object-cover w-[100px] h-[100px]" src="{{ '/storage/'.$unfinishedWorkoutPlan->workout->image }}" alt="">
                     <div class="flex flex-col justify-between p-3 gap-1">
                         <p class="font-normal text-sm text-cRed dark:text-gray-400 hover:text-white">Continue your plan.</p>
                         <p class="text-sm font-bold tracking-tight text-black dark:text-white hover:text-white">{{ $unfinishedWorkoutPlan->workout->name }}</p>
@@ -146,7 +146,7 @@
             @foreach($unfinishedDietPlans as $unfinishedDietPlan)
             <ul role="contentinfo" class="py-3">
                 <a href="#" class="flex items-center h-fit p-5 bg-white rounded-3xl shadow-lg hover:bg-pink-200 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 duration-500">
-                    <img class="object-cover w-[100px] h-auto" src="{{ '/storage/'.$unfinishedDietPlan->diet->image }}" alt="">
+                    <img class="object-cover w-[100px] h-[100px]" src="{{ '/storage/'.$unfinishedDietPlan->diet->image }}" alt="">
                     <div class="flex flex-col justify-between p-3 gap-1">
                         <p class="font-normal text-sm text-cRed dark:text-gray-400 hover:text-white">Continue your plan.</p>
                         <p class="text-sm font-bold tracking-tight text-black dark:text-white hover:text-white">{{ $unfinishedDietPlan->diet->name }}</p>
