@@ -17,32 +17,31 @@
     ?>
 
   <x-back-get hover-bg="bg-cGreen" backlink="/diets"/>
-    <div class="lg:bg-cLightGrey">
-        <div class="lg:fixed lg:right-0 lg:left-0 lg: lg:w-full lg:h-[70px] lg:bg-cLightGrey lg:z-10">
-            <div class="h-[70px] flex justify-center items-center text-2xl font-medium">
+    <div class="lg:bg-cLightGrey ">
+        <div class="lg:fixed lg:right-0 lg:left-0 lg:w-full lg:h-[70px] lg:bg-cLightGrey lg:z-10 ">
+            <div class="h-[70px] flex justify-center items-center text-2xl font-medium ">
                 <p>{{ $diet_days[0]->diet->name }}</p>
             </div>
-
         </div>
-        <div class=" w-full h-fit flex mt-[70px] ">
+        <div class="w-screen h-fit flex lg:mt-[70px] ">
             {{-- <div class="h-[70px] flex justify-center items-center text-2xl font-medium">
                 <p>{{ $diet_days[0]->diet->name }}</p>
             </div> --}}
-            <div class="lg:flex lg:flex-row">
-                <div class="lg:w-[25%] lg:h-full">
+            <div class="lg:flex lg:flex-row w-full ">
+                <div class="lg:w-[25%] lg:h-screen lg:fixed ">
                     {{-- <div class=" h-60 lg:h-fit w-full bg-cover" style="background-image: url({{ '/storage/'.$diet_days[0]->diet->image }})"></div> --}}
-                    <div class=" h-60 lg:h-fit w-full bg-cover" style="background-image: url({{ '/storage/'.$diet_days[0]->diet->image }})"></div>
-                    <div class="bg-cGreen -mt-2 lg:bottom-0 lg:fixed lg:w-[25%]">
-                        <p class="p-2 text-lg font-normal text-center text-white">
+                    <div class=" h-60 lg:h-full w-full bg-cover" style="background-image: url({{ '/storage/'.$diet_days[0]->diet->image }})"></div>
+                    <div class="bg-cGreen lg:bottom-0 lg:fixed lg:w-[25%]">
+                        <p class="p-2 text-lg font-normal text-center text-white ">
                             {{ $diet_days[0]->diet->description }}
                         </p>
                     </div>
                 </div>
-                <div class="lg:w-[75%] lg:grid-cols-2 lg:grid">
+                <div class="lg:w-[75%] lg:grid-cols-2 lg:grid lg:ml-[25%]">
                     @foreach ($diet_days as $day)
                         {{-- if user already finished the plan before --}}
                         @if ($enrollment[0]->finished_day >= $i)
-                        <div class="m-3 p-2 border-2 border-cGreen rounded-3xl shadow-md relative z-0">
+                        <div class="mb-3 mr-3 ml-3 p-2 m-3 border-2 border-cGreen rounded-3xl shadow-md relative z-0">
                             <div>
                                 <h1 class="text-center text-cGreen font-bold text-2xl">{{'DAY ' . $i . ' :'}}</h1>
                                 <h2 class="text-center text-cGreen font-bold text-md">{{ $day->calories . ' Kcal Consumed'}} </h2>
@@ -68,7 +67,7 @@
                         @php
                             $total_kcal = $day->calories;
                         @endphp
-                        <div class="m-3 p-2 border-2 border-cGreen rounded-3xl shadow-md">
+                        <div class="m-3 lg:mb-3 lg:mr-3 lg:ml-3 lg:mt-0 p-2 border-2 border-cGreen rounded-3xl shadow-md">
                             <h1 class="text-center text-cGreen font-bold text-2xl">{{'DAY ' . $i++ . ' :'}}</h1>
                             <h2 class="text-center text-cGreen font-bold text-md">{{ $total_kcal . ' Kcal Consumed'}} </h2>
                             <p class="text-lg font-normal text-black p-2">
@@ -84,7 +83,7 @@
                         <?php $flag = 1;?>
                         {{-- locked ongoing plan --}}
                         @elseif ($flag == 0 and $today == $updated_at)
-                        <div class="m-3 p-2 border-2 border-cGreen rounded-3xl shadow-md">
+                        <div class="m-3 lg:mb-3 lg:mr-3 lg:ml-3 p-2 border-2 border-cGreen rounded-3xl shadow-md">
                             <h1 class=" text-center text-cGreen font-bold text-2xl">{{'DAY ' . $i++ . ' :'}}</h1>
                             {{-- Done --}}
                             <div class="flex items-center justify-center">
@@ -100,7 +99,7 @@
                         @php
                             $total_kcal = $day->calories;
                         @endphp
-                        <div class="m-3 p-2 border-2 border-cGreen rounded-3xl shadow-md">
+                        <div class="m-3 lg:mb-3 lg:mr-3 lg:ml-3 lg:mt-0 p-2 border-2 border-cGreen rounded-3xl shadow-md">
                             <h1 class="text-center text-cGreen font-bold text-2xl">{{'DAY ' . $i++ . ' :'}}</h1>
                             <h2 class="text-center text-cGreen font-bold text-md">{{ $total_kcal . ' Kcal Consumed'}} </h2>
                             <p class="text-lg font-normal text-black p-2">
@@ -116,7 +115,7 @@
                         <?php $flag = 1;?>
                         {{-- locked plan --}}
                         @else
-                        <div class="m-3 p-2 border-2 border-cGreen rounded-3xl shadow-md relative z-0">
+                        <div class="m-3 lg:mb-3 lg:mr-3 lg:ml-3 p-2 border-2 border-cGreen rounded-3xl shadow-md relative z-0">
                             <div>
                                 <h1 class="text-center text-cGreen font-bold text-2xl">{{'DAY ' . $i++ . ' :'}}</h1>
                             </div>
