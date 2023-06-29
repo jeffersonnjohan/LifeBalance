@@ -2,6 +2,14 @@
 
 @section('title', 'Workout Activity')
 
+@section('style')
+    {{-- <style>
+        * {
+            border: solid red;
+        }
+    </style> --}}
+@endsection
+
 @section('body')
     <x-back-post hover-bg="bg-cBlue"/>
 
@@ -12,68 +20,72 @@
         <input type="hidden" name="workout_day_id" value="{{ $workout_day_id }}">
     </form>
 
-    <div class="w-full">
-        <div class="h-[70px] flex justify-center items-center text-2xl font-medium">
-            <p class="-mr-8">BURN FAT IN 7 DAYS!</p>
-        </div>
-        <div class="w-full text-white">
-            <div class="h-[60px] w-full bg-cBlue flex justify-center items-center">
-                <h2 class="text-2xl text-center">{{ 'DAY ' . $day }}</h2>
+    <div class="w-full h-full">
+        <div class="lg:h-[30%]">    
+            <div class="h-[70px] flex justify-center items-center text-2xl font-medium lg:justify-center lg:bg-cLightGrey lg:fixed lg:w-full">
+                <p class="-mr-8">BURN FAT IN 7 DAYS!</p>
+            </div>
+            <div class="w-full text-white lg:fixed lg:mt-16">
+                <div class="h-[60px] w-full bg-cBlue flex justify-center items-center">
+                    <h2 class="text-2xl text-center">{{ 'DAY ' . $day }}</h2>
+                </div>
             </div>
         </div>
-
         {{-- Detail Workout Activity Container --}}
-        <div class="w-[90%] m-auto px-5 py-8 rounded-3xl shadow-lg my-5">
-            <h2 class="text-xl">{{ $workout_activity->name }}</h2>
-            <p class="mt-4 text-justify text-sm">{{ $workout_activity->description }}</p>
-
-            {{-- Video --}}
-            <video loop muted playsinline id="video" class="rounded-2xl w-full mt-8">
-                <source src="http://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
-                    {{-- {{ $workout_activity->video }} --}}
-                Your browser doesn't support video
-            </video>
-
-            {{-- Video Controls --}}
-            {{-- Time --}}
-            <div class="mt-4 mb-1">
-                <span id="progressDuration">00:00</span>
-                <span>/</span>
-                <span id="totalDuration"></span>
+        <div class="w-[90%] m-auto px-5 py-8 rounded-3xl shadow-lg my-5 lg:mt-[128px] lg:w-[95%] lg:h-[450px] lg:fixed lg:mx-7 lg:flex">
+            <div class="lg:w-[50%] lg:p-10 lg:items-center">
+                <h2 class="text-xl">{{ $workout_activity->name }}</h2>
+                <p class="mt-4 text-justify text-sm">{{ $workout_activity->description }}</p>
             </div>
-            {{-- Sliding Bar --}}
-            <input type="range" id="seek-bar" value="0" class="w-full mb-4">
 
-            <div class="flex w-full justify-center">
+            <div class="lg:w-[50%] items-center justify-center content-center place-items-center">
+                {{-- Video --}}
+                <video loop muted playsinline id="video" class="rounded-2xl w-full mt-8 lg:h-[50%] lg:w-[80%] lg:mx-[58px]">
+                    <source src="http://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                        {{-- {{ $workout_activity->video }} --}}
+                    Your browser doesn't support video
+                </video>
 
-                {{-- Button << --}}
-                <button type="button" id="rewind" class="block">
-                    <span class="material-symbols-outlined">
-                        fast_rewind
-                    </span>
-                </button>
+                {{-- Video Controls --}}
+                {{-- Time --}}
+                <div class="mt-4 mb-1">
+                    <span id="progressDuration">00:00</span>
+                    <span>/</span>
+                    <span id="totalDuration"></span>
+                </div>
+                {{-- Sliding Bar --}}
+                <input type="range" id="seek-bar" value="0" class="w-full mb-4">
 
-                {{-- Button Play --}}
-                <button type="button" id="play" class="block mx-4 bg-black text-white w-[40px] aspect-[5/4] rounded-full">
-                    <span class="material-symbols-outlined">
-                        play_arrow
-                    </span>
-                </button>
+                <div class="flex w-full justify-center">
 
-                {{-- Button Pause --}}
-                <button type="button" id="pause" class="hidden block mx-4 bg-black text-white w-[40px] aspect-[5/4] rounded-full">
-                    <span class="material-symbols-outlined">
-                        pause
-                    </span>
-                </button>
-                {{-- Button >> --}}
-                <button type="button" id="forward" class="block">
-                    <span class="material-symbols-outlined">
-                        fast_forward
+                    {{-- Button << --}}
+                    <button type="button" id="rewind" class="block">
+                        <span class="material-symbols-outlined">
+                            fast_rewind
                         </span>
-                </button>
-            </div>
+                    </button>
 
+                    {{-- Button Play --}}
+                    <button type="button" id="play" class="block mx-4 bg-black text-white w-[40px] aspect-[5/4] rounded-full">
+                        <span class="material-symbols-outlined">
+                            play_arrow
+                        </span>
+                    </button>
+
+                    {{-- Button Pause --}}
+                    <button type="button" id="pause" class="hidden block mx-4 bg-black text-white w-[40px] aspect-[5/4] rounded-full">
+                        <span class="material-symbols-outlined">
+                            pause
+                        </span>
+                    </button>
+                    {{-- Button >> --}}
+                    <button type="button" id="forward" class="block">
+                        <span class="material-symbols-outlined">
+                            fast_forward
+                            </span>
+                    </button>
+                </div>
+            </div>
         </div>
 
         {{-- Space Bottom For Navbar --}}
