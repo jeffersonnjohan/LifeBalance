@@ -28,7 +28,7 @@
                 </li>
             </ul>
             @can('admin')
-                <a href="/home" class="fixed right-16 bg-cBlue hover:bg-white duration-300 ease-out p-3 hover:ring-2 text-white hover:text-cBlue rounded-b-3xl w-20 lg:w-auto  text-center">
+                <a href="/home" class="fixed right-16 bg-cBlue -mt-3 text-xs lg:text-lg hover:bg-white duration-300 ease-out p-3 hover:ring-2 text-white hover:text-cBlue rounded-b-3xl w-16 lg:w-auto  text-center">
                     <div class="pt-3">Go to Home</div>
                 </a>
             @endcan
@@ -42,9 +42,9 @@
 
 @section('body')
     <div class="w-full h-full lg:flex">
-        <div class="w-full lg:w-[30%]">
+        <div class="w-full lg:w-[30%] lg:fixed">
             <div class="lg:w-full lg:flex lg:gap-2 md:w-full md:flex md:gap-2 lg:fixed">
-                <div class="w-full h-[300px] p-10 mb-2 lg:mb-0 pt-16 lg:pt-10 bg-cBlue rounded-b-[50px] lg:rounded-bl-[0px] lg:rounded-tr-[50px] lg:w-[30%] lg:h-fit lg:mt-16 lg:items-center md:rounded-bl-[0px] md:rounded-tr-[50px] md:w-[30%] md:h-fit md:mt-16 md:items-center">
+                <div class="w-full lg:fixed h-[300px] p-10 mb-2 lg:mb-0 pt-16 lg:pt-10 bg-cBlue rounded-b-[50px] lg:rounded-bl-[0px] lg:rounded-tr-[50px] lg:w-[30%] lg:h-fit lg:mt-16 lg:items-center md:rounded-bl-[0px] md:rounded-tr-[50px] md:w-[30%] md:h-fit md:mt-16 md:items-center">
                     {{-- Category Container --}}
                     <div class="w-80% h-[160px] flex mt-5 justify-between md:w-[30vw] md:flex-col md:mb-[300px] md:gap-5 lg:w-[30vw] lg:flex-col lg:h-fit lg:gap-5 lg:px-5">
                         {{-- Class selected --}}
@@ -64,21 +64,18 @@
                         </a>
                     </div>
                 </div>
-                <div class="lg:w-[70%] lg:p-10 lg:pt-32 lg:items-center lg:justify-center lg:content-center md:w-[70%] md:p-10 md:pt-32 md:items-center md:justify-center md:content-center">
-                    @yield('content')
-                </div>
             </div>
         </div>
 
         {{-- Workout Plans List --}}
-        <div class="pl-5 pr-5 w-full lg:w-[70%] lg:pt-16 lg:flex lg:items-center lg:justify-center lg:gap-2 lg:flex-wrap lg:overflow-scroll">
+        <div class="pl-5 pr-5 w-full lg:ml-[30%] lg:w-[70%] lg:pt-16 lg:flex lg:items-center lg:justify-start lg:gap-2 lg:flex-wrap lg:overflow-scroll">
             @foreach ($workouts as $workout)
-                <div class="lg:h-[200px] lg:py-10 lg:w-[80%] w-full h-[150px] py-2 bg-white items-center mb-2 relative rounded-3xl shadow-lg hover:bg-blue-200 duration-500 focus:ring-cBlue">
+                <div class="lg:h-[150px] lg:py-3 lg:w-[48%] w-full h-[150px] py-2 bg-white items-center mb-2 relative rounded-3xl shadow-lg hover:bg-blue-200 duration-500 focus:ring-cBlue">
                     {{-- Card Plan --}}
-                    <div class="w-[90%] flex py-6 px-5 items-center align-middle gap-2">
+                    <div class="w-[90%] flex py-6 lg:py-3 px-5 items-center align-middle gap-2">
                         {{-- <div class="max-w-sm px-3 py-6 flex bg-transparent rounded-3xl relative mb-4 lg:max-w-full md:max-w-full"> --}}
-                            <div class="w-[50%] lg:w-[80%]">
-                                <h2 class="font-semibold text-lg truncate">{{ $workout->name }}</h2>
+                            <div class="w-[50%] lg:w-[60%]">
+                                <h2 class="font-semibold text-base truncate">{{ $workout->name }}</h2>
                                 <p class="text-sm truncate"> @excerpt($workout->description)</p>
                                 {{-- <p class="text-sm">{{ $workout->description }}</p> --}}
                                 <p class="text-sm text-cYellow flex items-center">
@@ -88,7 +85,7 @@
                                     {{ $workout->points }} points will be added!
                                 </p>
                             </div>
-                            <div class="lg:absolute lg:left-96 w-[50%] lg:w-[30%] flex justify-center items-center">
+                            <div class="lg:left-96 w-[50%] lg:w-[30%] flex justify-center items-center">
                                 <div class="w-[80px] lg:w-[100px] lg:h-[100px] h-[80px] rounded-md border border-cBlue aspect-square bg-center bg-cover" style="background-image:url('{{ asset('/storage/'.$workout->image) }}')">
                                 </div>
                             </div>

@@ -25,7 +25,7 @@
                 </li>
             </ul>
             @can('admin')
-                <a href="/home" class="fixed right-16 bg-cBlue hover:bg-white duration-300 ease-out p-3 hover:ring-2 text-white hover:text-cBlue rounded-b-3xl w-20 lg:w-auto text-center">
+                <a href="/home" class="fixed right-16 -mt-3 text-xs lg:text-lg bg-cBlue hover:bg-white duration-300 ease-out p-3 hover:ring-2 text-white hover:text-cBlue rounded-b-3xl w-16 lg:w-auto text-center">
                     <div class="pt-3">Go to Home</div>
                 </a>
             @endcan
@@ -38,7 +38,7 @@
 
 @section('body')
 <div class="w-full h-full lg:flex">
-    <div class="lg:w-[50%]">
+    <div class="lg:w-[50%] lg:fixed">
         <div class="lg:w-full lg:flex lg:gap-2 md:w-full md:flex md:gap-2 lg:fixed">
             <div class="w-full h-[300px] p-10 pt-16 lg:pt-10 bg-cBlue rounded-b-[50px] lg:rounded-bl-[0px] lg:rounded-tr-[50px] lg:w-[30%] lg:h-fit lg:mt-16 lg:items-center md:rounded-bl-[0px] md:rounded-tr-[50px] md:w-[30%] md:h-fit md:mt-16 md:items-center">
                 {{-- Category Container --}}
@@ -60,18 +60,15 @@
                     </a>
                 </div>
             </div>
-            <div class="lg:w-[70%] lg:p-10 lg:pt-32 lg:items-center lg:justify-center lg:content-center md:w-[70%] md:p-10 md:pt-32 md:items-center md:justify-center md:content-center">
-                @yield('content')
-            </div>
         </div>
     </div>
 
     {{-- Meditation Plans List --}}
-    <div class="w-full lg:pt-16 lg:items-center lg:justify-center lg:gap-2 lg:overflow-scroll">
+    <div class="w-full lg:ml-[32%] lg:pt-16 lg:justify-start lg:flex-wrap lg:flex lg:items-start lg:gap-2 lg:overflow-scroll">
         @foreach ($meditations as $meditation)
         {{-- Plan Card --}}
-        <div class="lg:max-w-full md:max-w-full lg:h-fit h-fit flex items-center my-2 mx-2 p-5 relative bg-white rounded-3xl shadow-lg hover:bg-blue-200 duration-500 focus:ring-cBlue">
-            <div class="w-full h-fit text-md font-bold flex text-center content-center items-center justify-center">
+        <div class="lg:w-[400px] lg:h-fit h-fit flex items-center my-2 mx-2 p-5 relative bg-white rounded-3xl shadow-lg hover:bg-blue-200 duration-500 focus:ring-cBlue">
+            <div class="lg:w-[45%] w-full h-fit text-md font-bold flex text-center content-center items-center justify-center truncate">
                 {{ $meditation->name }}
                 <span class="material-symbols-outlined">
                     play_arrow

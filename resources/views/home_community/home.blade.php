@@ -3,16 +3,16 @@
 @section('title', 'Home')
 
 @section('style')
-    {{-- <style>
-        * {
+    <style>
+        /* * {
             border: solid red;
-        }
-    </style> --}}
+        } */
+    </style>
 @endsection
 
 @section('body')
 <nav class="justify-evenly fixed bg-gradient-to-b from-cLightGrey from-70% to-transparent w-full z-10 -top-3">
-    <div class="px-4 py-3 mx-auto">
+    <div class="px-4 py-3 mx-auto w-full">
         <div class="flex items-center justify-between">
             <div class="flex-col">
                 <ul class="flex font-normal space-x-2 text-2xl">
@@ -30,7 +30,7 @@
             </div>
             <div class="flex w-fit gap-5">
                 @can('admin')
-                <a href="/admin/workout" class="-mr-4 bg-cRed hover:bg-white duration-300 ease-out p-3 hover:ring-2 text-white hover:text-cRed rounded-b-3xl text-center ring-cRed">
+                <a href="/admin/workout" class="-mr-4 w-16 lg:w-auto -mt-3 text-xs lg:text-lg bg-cRed hover:bg-white duration-300 ease-out p-3 hover:ring-2 text-white hover:text-cRed rounded-b-3xl text-center ring-cRed">
                     <div class="pt-3">Go to Admin</div>
                 </a>
                 @endcan
@@ -48,113 +48,80 @@
     <div class="max-w-screen-xl px-4 py-2"></div>
 
     <div class="lg:flex md:flex lg:gap-2 md:gap-2 lg:h-[88%] lg:w-full lg:fixed md:h-[90%] md:w-full md:fixed">
-        {{-- User Progress --}}
-        <div class="bg-white shadow-lg rounded-3xl h-[180px] w-full flex flex-col md:w-[30%] md:h-[84%] md:items-center md:pt-7 lg:w-[30%] lg:h-[84%] lg:items-center lg:pt-7">
-            <div class="h-[40%] w-full flex items-center p-8 text-xl font-bold md:h-[20%] lg:h-[10%] lg:text-3xl md:text-xl">
-            Your Progress
+
+        <div class="lg:w-[30%]">
+            <div class="w-full h-fit font-bold text-4xl mb-2">
+                Your Progress
             </div>
-            <div class="h-[60%] w-full flex flex-row pl-8 pr-8 pb-8 md:flex-col md:gap-10 md:h-[80%] lg:flex-col lg:gap-10 lg:h-[80%]">
-                {{-- Left Side --}}
-                <div class="w-[50%] flex-col flex md:w-full lg:w-full">
-                    <div class="h-[50%] flex-row flex items-center text-left gap-2 text-xl font-bold md:mb-5 md:text-xl lg:mb-5 lg:text-3xl">
-                        {{-- Total KCal Calculation --}}
-                        <div class="w-[50%] text-center">
-                            {{ $totalCalories }}
-                        </div>
-                        <div class="w-[50%]">
-                            <div class="flex-col text-xs font-normal lg:text-lg md:text-sm">
-                                TOTAL
-                                <div class="flex text-xs font-normal lg:text-lg md:text-sm">
-                                    KCAL
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="h-[50%] flex-row flex gap-2">
-                        <div class="w-[50%]">
-                            <div class="h-[50%] text-xs font-bold flex-row flex items-center gap-2 lg:text-lg md:text-sm">
-                                {{ $caloriesIn }}
-                                <div class="flex items-center">
-                                    KCAL
-                                </div>
-                            </div>
-                            <div class="h-[50%] text-xs flex-row flex text-center lg:text-lg md:text-sm">
-                                Consumed
-                            </div>
-                        </div>
-                        <div class="w-[50%]">
-                            <div class="h-[50%] text-xs font-bold flex-row flex items-center text-center gap-2 lg:text-lg md:text-sm">
-                                {{ $caloriesOut }}
-                                <div class="flex items-center">
-                                    KCAL
-                                </div>
-                            </div>
-                            <div class="h-[50%] text-xs flex-row flex text-center lg:text-lg md:text-sm">
-                                Burned
-                            </div>
-                        </div>
+            <div class="w-full h-fit lg:h-[65vh] lg:gap-3 grid grid-cols-3 gap-1 text-sm lg:grid-cols-2">
+                <div class="py-2 px-3 bg-white rounded-md lg:rounded-2xl shadow-lg flex flex-col justify-center">
+                    <div class="font-medium lg:text-xl">Total</div>
+                    <div class="flex items-baseline gap-1 text-cRed">
+                        <div class="text-4xl font-black text-cRed lg:text-5xl">{{ $totalCalories }}</div>
+                        <div class="lg:text-xl">KCAL</div>
                     </div>
                 </div>
-
-                {{-- Right Side --}}
-                <div class="w-[50%] lg:w-full lg:gap-5 lg:items-center lg:text-center lg:flex lg:justify-center md:w-full md:gap-5 md:items-center md:text-center md:justify-center">
-                    <div class="h-[50%] w-full flex-row flex justify-center items-center lg:flex-col lg:w-[30%] lg:gap-5 lg:h-full md:flex-col md:gap-5 md:h-full">
-                        {{-- <div class="lg:w-[30%] sm:w-[0%]"> --}}
-                        <div class="w-[50%] flex-col flex justify-center items-center">
-                            <div class="h-[50%] text-xs font-bold flex-col flex justify-center items-center text-center lg:text-center md:text-center md:text-sm lg:text-lg">
-                                BMI
-                            </div>
-                            <div class="h-[50%] text-xs text-center lg:text-center md:text-center md:text-sm lg:text-lg">
-                                {{-- BMI Calculation --}}
-                                {{ $bmi }}
-                            </div>
-                        </div>
-                        <div class="w-[50%] flex-col flex justify-center items-center">
-                            <div class="h-[50%] text-xs font-bold flex-col flex justify-center items-center text-center md:text-sm lg:text-lg">
-                                Index
-                            </div>
-                            <div class=" h-[50%] text-xs text-center text-cGreen md:text-sm lg:text-lg">
-                                {{-- IF ELSE-> Normal, Obese,  --}}
-                                {{ $categoryBmi }}
-                            </div>
-                        </div>
+                <div class="py-2 px-3 bg-white rounded-md lg:rounded-2xl shadow-lg flex flex-col justify-center">
+                    <div class="font-medium lg:text-xl">Consumed</div>
+                    <div class="flex items-baseline gap-1 text-cGreen">
+                        <div class="text-4xl font-black lg:text-5xl">{{ $caloriesIn }}</div>
+                        <div class="lg:text-xl">KCAL</div>
                     </div>
-                    <div class="h-[50%] lg:h-full lg:pt-7">
-                        <div class="h-[50%] text-xs flex-row flex justify-center items-center text-center lg:text-lg md:h-[30%] md:text-sm lg:h-[30%]">
-                            Current Streak
-                        </div>
-                        <div class="h-[50%] text-xs font-bold flex-row flex justify-center text-center lg:text-lg md:text-sm">
-                            <svg fill="#000000" height="15" width="15" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 460 460" xml:space="preserve"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>< id="SVGRepo_iconCarrier"> <> <path d="M73.742,360.816c2.138,0,4.293-0.683,6.115-2.094c4.367-3.381,5.166-9.662,1.785-14.029 C56.026,311.61,42.487,271.95,42.487,230c0-103.395,84.118-187.513,187.513-187.513c24.334,0,48.004,4.589,70.352,13.641 c5.118,2.073,10.948-0.396,13.022-5.515c2.073-5.119-0.396-10.949-5.515-13.022C283.115,27.568,256.92,22.487,230,22.487 c-114.423,0-207.513,93.09-207.513,207.513c0,46.423,14.987,90.317,43.341,126.937C67.798,359.483,70.753,360.816,73.742,360.816z"></path> <path d="M394.177,103.069c-3.382-4.368-9.662-5.167-14.029-1.786c-4.367,3.381-5.167,9.662-1.786,14.029 c25.612,33.082,39.15,72.74,39.15,114.688c0,103.395-84.118,187.513-187.513,187.513c-24.332,0-48-4.589-70.346-13.639 c-5.119-2.072-10.949,0.396-13.022,5.515c-2.073,5.119,0.396,10.949,5.515,13.022c24.743,10.021,50.937,15.102,77.854,15.102 c114.423,0,207.513-93.09,207.513-207.513C437.513,183.58,422.528,139.688,394.177,103.069z"></path> <path d="M358.098,226.912c-1.338-4.121-5.178-6.912-9.511-6.912h-72.754L422.58,15.837c2.865-3.986,2.413-9.461-1.066-12.924 c-3.479-3.462-8.956-3.888-12.929-1.004l-303.046,220c-3.507,2.545-4.975,7.06-3.637,11.181c1.338,4.121,5.178,6.912,9.511,6.912 h72.754L37.42,444.164c-2.865,3.986-2.413,9.461,1.066,12.924c1.935,1.926,4.488,2.912,7.057,2.912c2.05,0,4.109-0.628,5.872-1.908 l303.046-220C357.968,235.547,359.436,231.033,358.098,226.912z M89.868,405.463L211.79,235.837 c2.189-3.046,2.49-7.061,0.778-10.399c-1.711-3.338-5.147-5.438-8.898-5.438h-61.46L370.132,54.537L248.21,224.164 c-2.189,3.046-2.49,7.061-0.778,10.399c1.711,3.338,5.147,5.438,8.898,5.438h61.46L89.868,405.463z"></path></svg>
-                            <div class=" pl-2 flex text-center md:text-2xl lg:text-3xl">
-                                {{-- Streak Counter --}}
-                                {{ $streak }}
-                            </div>
-                        </div>
+                </div>
+                <div class="py-2 px-3 bg-white rounded-md lg:rounded-2xl shadow-lg flex flex-col justify-center">
+                    <div class="font-medium lg:text-xl">Burned</div>
+                    <div class="flex items-baseline gap-1 text-cBlue">
+                        <div class="text-4xl font-black lg:text-5xl">{{ $caloriesOut }}</div>
+                        <div class="lg:text-xl">KCAL</div>
+                    </div>
+                </div>
+                <?php $color = 'cRed' ?>
+                @if($categoryBmi == 'Normal')
+                    <?php $color = 'cGreen' ?>
+                @endif
+                <div class="py-2 px-3 bg-white rounded-md lg:rounded-2xl shadow-lg flex flex-col justify-center">
+                    <div class="font-medium lg:text-xl">BMI</div>
+                    <div class="flex items-baseline gap-1">
+                        <div class="text-4xl font-black text-{{ $color }} lg:text-5xl">{{ $bmi }}</div>
+                    </div>
+                </div>
+                <div class="py-2 px-3 bg-white rounded-md lg:rounded-2xl shadow-lg flex flex-col justify-center">
+                    <div class="font-medium lg:text-xl">Index</div>
+                    <div class="flex items-baseline gap-1">
+                        <div class="text-[18px] font-black text-{{ $color }} lg:text-2xl">{{ $categoryBmi }}</div>
+                    </div>
+                </div>
+                <div class="py-2 px-3 bg-white rounded-md lg:rounded-2xl shadow-lg flex flex-col justify-center">
+                    <div class="font-medium lg:text-xl">Current Streak</div>
+                    <div class="flex items-baseline gap-1 text-cOrange">
+                        <div class="text-4xl font-black lg:text-5xl">{{ $streak }}</div>
+                        <svg fill="#FF7F62" height="25" width="25" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 460 460" xml:space="preserve"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>< id="SVGRepo_iconCarrier"> <> <path d="M73.742,360.816c2.138,0,4.293-0.683,6.115-2.094c4.367-3.381,5.166-9.662,1.785-14.029 C56.026,311.61,42.487,271.95,42.487,230c0-103.395,84.118-187.513,187.513-187.513c24.334,0,48.004,4.589,70.352,13.641 c5.118,2.073,10.948-0.396,13.022-5.515c2.073-5.119-0.396-10.949-5.515-13.022C283.115,27.568,256.92,22.487,230,22.487 c-114.423,0-207.513,93.09-207.513,207.513c0,46.423,14.987,90.317,43.341,126.937C67.798,359.483,70.753,360.816,73.742,360.816z"></path> <path d="M394.177,103.069c-3.382-4.368-9.662-5.167-14.029-1.786c-4.367,3.381-5.167,9.662-1.786,14.029 c25.612,33.082,39.15,72.74,39.15,114.688c0,103.395-84.118,187.513-187.513,187.513c-24.332,0-48-4.589-70.346-13.639 c-5.119-2.072-10.949,0.396-13.022,5.515c-2.073,5.119,0.396,10.949,5.515,13.022c24.743,10.021,50.937,15.102,77.854,15.102 c114.423,0,207.513-93.09,207.513-207.513C437.513,183.58,422.528,139.688,394.177,103.069z"></path> <path d="M358.098,226.912c-1.338-4.121-5.178-6.912-9.511-6.912h-72.754L422.58,15.837c2.865-3.986,2.413-9.461-1.066-12.924 c-3.479-3.462-8.956-3.888-12.929-1.004l-303.046,220c-3.507,2.545-4.975,7.06-3.637,11.181c1.338,4.121,5.178,6.912,9.511,6.912 h72.754L37.42,444.164c-2.865,3.986-2.413,9.461,1.066,12.924c1.935,1.926,4.488,2.912,7.057,2.912c2.05,0,4.109-0.628,5.872-1.908 l303.046-220C357.968,235.547,359.436,231.033,358.098,226.912z M89.868,405.463L211.79,235.837 c2.189-3.046,2.49-7.061,0.778-10.399c-1.711-3.338-5.147-5.438-8.898-5.438h-61.46L370.132,54.537L248.21,224.164 c-2.189,3.046-2.49,7.061-0.778,10.399c1.711,3.338,5.147,5.438,8.898,5.438h61.46L89.868,405.463z"></path></svg>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="lg:w-[70%] lg:overflow-scroll lg:items-center lg:justify-center lg:mx-3 md:overflow-scroll md:items-center md:justify-center md:mx-3">
+
+        <div class="lg:w-[70%] lg:p-2 h-[80vh] lg:overflow-scroll lg:items-center lg:justify-center lg:mx-3 md:overflow-scroll md:items-center md:justify-center md:mx-3">
             {{-- Main Features --}}
-            <div class="flex mt-4 justify-between gap-x-2 lg:gap-5 items-center lg:mt-0 lg:mx-8 lg:my-5 md:gap-5 md:mt-0 md:mx-8 md:my-5">
+            <div class="flex mt-4 justify-between gap-x-2 lg:gap-5 items-center lg:mt-0 lg:mx-8 lg:my-5 md:gap-5 md:mt-0 md:mx-8 md:my-5 h-fit">
                 {{-- Workout --}}
                 <a href="/workouts" class="w-[50%]">
-                    <div class="h-[180px] lg:h-[300px] md:h-[300px] flex flex-col items-center justify-center content-center shadow-lg bg-cBlue rounded-3xl overflow-hidden transition ease-in-out delay-100 hover:scale-105 duration-500">
+                    <div class="h-[180px] lg:h-[300px] md:h-[300px] flex flex-col items-center justify-center content-center shadow-lg bg-cBlue rounded-3xl overflow-hidden transition ease-in-out delay-100 scale-95 hover:scale-100 duration-500">
                         <img class="h-40 w-40 rounded-lg" src="/assets/blue.png" alt="image description">
                         <figcaption class="text-sm mb-5 font-bold text-center text-white dark:text-gray-400">Workout</figcaption>
                     </div>
                 </a>
                 {{-- Diet --}}
                 <a href="/diets" class="w-[50%]">
-                    <div class="h-[180px] lg:h-[300px] md:h-[300px] flex flex-col items-center justify-center content-center shadow-lg bg-cGreen rounded-3xl overflow-hidden transition ease-in-out delay-100 hover:scale-105 duration-500">
+                    <div class="h-[180px] lg:h-[300px] md:h-[300px] flex flex-col items-center justify-center content-center shadow-lg bg-cGreen rounded-3xl overflow-hidden transition ease-in-out delay-100 scale-95 hover:scale-100 duration-500">
                         <img class="ml-2 h-40 w-40 rounded-lg" src="/assets/green.png" alt="image description">
                         <figcaption class="text-sm mb-5 font-bold text-center text-white dark:text-gray-400">Diet</figcaption>
                     </div>
                 </a>
                 {{-- Challenge --}}
                 <a href="/challenges" class="w-[50%]">
-                    <div class="h-[180px] lg:h-[300px] md:h-[300px] flex flex-col items-center justify-center content-center shadow-lg bg-cOrange rounded-3xl overflow-hidden transition ease-in-out delay-100 hover:scale-105 duration-500">
+                    <div class="h-[180px] lg:h-[300px] md:h-[300px] flex flex-col items-center justify-center content-center shadow-lg bg-cOrange rounded-3xl overflow-hidden transition ease-in-out delay-100 scale-95 hover:scale-100 duration-500">
                         <img class="h-40 w-40 rounded-lg" src="/assets/orange.png" alt="image description">
                         <figcaption class="text-sm mb-5 font-bold text-center text-white dark:text-gray-400">Challenge</figcaption>
                     </div>
@@ -169,7 +136,7 @@
                     <div class="flex flex-col justify-between p-3 gap-1">
                         <p class="font-normal text-sm text-cRed dark:text-gray-400 hover:text-white">Continue your plan.</p>
                         <p class="text-sm font-bold tracking-tight text-black dark:text-white hover:text-white">{{ $unfinishedWorkoutPlan->workout->name }}</p>
-                        <div class="w-full bg-gray-200 rounded-full dark:bg-cDarkGrey">
+                        <div class="w-full bg-gray-200 rounded-full p-1 dark:bg-cDarkGrey">
                             <div class="bg-cRed text-xs text-transparent text-white text-center rounded-full leading-none" style="width:{{ $unfinishedWorkoutPlan->workout->day_count!=0? round($unfinishedWorkoutPlan->finished_day/$unfinishedWorkoutPlan->workout->day_count*100, 2) : 0}}%">{{ $unfinishedWorkoutPlan->workout->day_count!=0? round($unfinishedWorkoutPlan->finished_day/$unfinishedWorkoutPlan->workout->day_count*100, 2) : 0}}%</div>
                         </div>
                     </div>
@@ -183,7 +150,7 @@
                     <div class="flex flex-col justify-between p-3 gap-1">
                         <p class="font-normal text-sm text-cRed dark:text-gray-400 hover:text-white">Continue your plan.</p>
                         <p class="text-sm font-bold tracking-tight text-black dark:text-white hover:text-white">{{ $unfinishedDietPlan->diet->name }}</p>
-                        <div class="w-full bg-gray-200 rounded-full dark:bg-cDarkGrey">
+                        <div class="w-full bg-gray-200 rounded-full p-1 dark:bg-cDarkGrey">
                             <div class="bg-cRed text-xs text-transparent text-white text-center rounded-full leading-none" style="width:{{ $unfinishedDietPlan->diet->day_count!=0? round($unfinishedDietPlan->finished_day/$unfinishedDietPlan->diet->day_count*100, 2) : 0}}%">{{ $unfinishedDietPlan->diet->day_count!=0? round($unfinishedDietPlan->finished_day/$unfinishedDietPlan->diet->day_count*100, 2) : 0}}%</div>
                         </div>
                     </div>
@@ -296,13 +263,13 @@
                 </ul>
 
                 {{-- Leaderboard --}}
-                <ul role="list" class="lg:justify-center lg:text-center lg:w-[50%] md:justify-center md:text-center md:w-[50%]">
+                <ul role="list" class="lg:justify-center lg:text-center lg:w-[50%] md:justify-center md:text-center md:w-[50%] p-2">
                     <div class="text-center font-bold mt-5">Leaderboard</div>
                     @foreach($leaderboards as $leaderboard)
                     <form action="/otherprofile" method="post">
                         @csrf
                         <input type="hidden" name="userid" id="submit" value="{{ $leaderboard->id }}">
-                        <button type="submit" name="submit" id="submit" class="w-full flex justify-between items-center m-2 p-3 bg-white rounded-3xl shadow-lg hover:bg-pink-200 duration-500 hover:cursor-pointer">
+                        <button type="submit" name="submit" id="submit" class="w-full flex justify-between items-center ml-0 lg:ml-2 my-2 p-3 bg-white rounded-3xl shadow-lg hover:bg-pink-200 duration-500 hover:cursor-pointer">
                             <div class="flex items-center gap-3 w-fit">
                                 <img class="h-12 w-12 flex-none rounded-full bg-gray-50" src="{{ '/storage/'.$leaderboard->image }}" alt="">
                                 <div class="w-fit flex-auto py-2">

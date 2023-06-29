@@ -20,7 +20,7 @@
                 </li>
             </ul>
             @can('admin')
-                <a href="/home" class="fixed right-16 bg-cOrange hover:bg-white duration-300 ease-out p-3 hover:ring-2 text-white hover:text-cOrange rounded-b-3xl w-20 lg:w-auto text-center ring-cOrange">
+                <a href="/home" class="fixed right-16 -mt-3 text-xs lg:text-lg bg-cOrange hover:bg-white duration-300 ease-out p-3 hover:ring-2 text-white hover:text-cOrange rounded-b-3xl w-16 lg:w-auto text-center ring-cOrange">
                     <div class="pt-3">Go to Home</div>
                 </a>
             @endcan
@@ -34,7 +34,7 @@
 @section('body')
 <div class="w-full">
     {{-- Challenges Plans List --}}
-    <div class="px-2 pt-16 w-full md:flex md:items-center md:justify-center md:gap-2 md:flex-wrap lg:flex lg:items-center lg:justify-center lg:gap-2 lg:grid-rows-3 lg:flex-wrap">
+    <div class="px-2 pt-16 w-full md:flex md:items-center md:justify-center md:gap-2 md:flex-wrap lg:flex lg:items-center lg:justify-start lg:gap-2 lg:grid-rows-3 lg:flex-wrap">
         @foreach ($challenges as $challenge)
             {{-- Plan Card --}}
             <div class="lg:w-[400px] lg:h-fit place-content-center h-fit bg-white mb-2 relative rounded-3xl shadow-lg hover:bg-cOrange hover:text-white duration-500 md:items-stretch lg:items-stretch focus:ring-cOrange">
