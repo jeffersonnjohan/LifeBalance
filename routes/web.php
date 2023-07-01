@@ -70,7 +70,7 @@ Route::post('/otherprofile', [OtherProfileController::class, 'index'])->middlewa
 // });
 
 Route::resource('/challenges', ChallengeController::class)->middleware('auth');
-Route::get('/challenges/claim/{id}', [ChallengesClaimController::class, 'index'])->middleware('auth');
+Route::post('/challenges/claim', [ChallengesClaimController::class, 'index'])->middleware('auth');
 
 // Route::get('/history', function () {
 //     return view('history');

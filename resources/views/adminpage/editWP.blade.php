@@ -45,6 +45,9 @@
                             value="{{ $workout->name }}" required
                             class="p-0 text-left lg:text-center border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full">
                     </div>
+                    @if(array_search('planTitle', array_column($error, 'name')) !== FALSE)
+                        <p class="text-cLightGrey text text-left px-4 -mt-2 text-xs">{{ $error[array_search('planTitle', array_column($error, 'name'))]->message }}</p>
+                    @endif
                     {{-- Point --}}
                     <div
                         class="w-[25%] lg:w-full h-[50px] rounded-full bg-white flex items-center text-cDarkGrey px-4 duration-300 hover:ring-2 focus-within:text-cBlue focus-within:ring-2 hover:text-cBlue shadow-lg">
@@ -52,6 +55,9 @@
                             value="{{ $workout->points }}" required
                             class="p-0 text-center border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full">
                     </div>
+                    @if(array_search('points', array_column($error, 'name')) !== FALSE)
+                        <p class="text-cLightGrey text text-left px-4 -mt-2 text-xs">{{ $error[array_search('points', array_column($error, 'name'))]->message }}</p>
+                    @endif
                 </div>
 
                 {{-- Description & Input Image --}}
@@ -67,6 +73,9 @@
                             value="{{ $workout->description }}" required
                             class="p-0 text-left lg:text-center border-transparent bg-transparent focus:ring-0 focus:border-transparent text-sm w-full"> --}}
                     </div>
+                    @if(array_search('description', array_column($error, 'name')) !== FALSE)
+                        <p class="text-cLightGrey text text-left px-4 -mt-2 text-xs">{{ $error[array_search('description', array_column($error, 'name'))]->message }}</p>
+                    @endif
                     {{-- Input Image --}}
                     <div class="w-[25%] lg:w-full h-[120px] flex items-center text-cDarkGrey justify-between pl-0">
                         <div class="relative w-full aspect-square h-full bg-white rounded-3xl shadow-lg">

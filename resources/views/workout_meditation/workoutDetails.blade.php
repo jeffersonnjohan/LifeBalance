@@ -2,15 +2,25 @@
 
 @section('title', 'Workout Detail')
 
+@section('style')
+    {{-- <style>
+        * {
+            border: solid red;
+        }
+    </style> --}}
+@endsection
+
 @section('body')
     <x-back-get hover-bg="bg-cBlue" backlink="/workouts"/>
 
-    <div>
-        <div class="h-[70px] flex justify-center items-center text-2xl font-medium">
-            <p class="-mr-8"> {{ $workout[0]->name }} </p>
+    <div class="h-full w-full">
+        <div class="lg:fixed lg:right-0 lg:left-0 lg:top-0 lg:w-full lg:h-[70px] lg:bg-cLightGrey lg:z-10">
+            <div class="h-[70px] flex justify-center items-center text-2xl font-medium">
+                <p class="-mr-8"> {{ $workout[0]->name }} </p>
+            </div>
         </div>
-        <div class="w-full text-white">
-            <div class="h-[270px] bg-cBlue py-6 px-10 ">
+        <div class="w-full text-white lg:mt-[60px] lg:flex">
+            <div class="h-[270px] bg-cBlue py-6 px-10 w-full lg:fixed lg:py-14 lg:h-[100vw] lg:w-[25%]">
                 <h2 class="text-2xl"> {{ $workout[0]->name }} </h2>
                 <p class="text-sm"> {{ $workout[0]->description }}</p>
                 <p class="text-sm text-cYellow flex items-center">
@@ -21,7 +31,7 @@
                 </p>
 
                 {{-- Indicator Container --}}
-                <div class="w-full h-[80px] flex justify-between mt-4 text-black">
+                <div class="w-full h-[80px] flex justify-between mt-4 text-black lg:flex-col lg:items-center lg:gap-y-2">
                     <div class="w-[100px] h-full bg-white text-center py-2 rounded-md">
                         <p>Total Time</p>
                         <p class="font-bold text-2xl text-cBlue">{{ $workout_days->count() }}</p>
@@ -38,7 +48,7 @@
             </div>
 
             {{-- Day container --}}
-            <div class="w-full grid grid-cols-2 gap-5 font-bold text-4xl pt-6 pb-32 px-10">
+            <div class="w-full grid grid-cols-2 gap-5 font-bold text-4xl pt-6 pb-32 px-10 lg:ml-[25%] lg:grid lg:grid-cols-2 lg:overflow-scroll">
                 <?php
                     $i = 1;
                     $flag = 0;
