@@ -21,7 +21,7 @@
     </form>
 
     <div class="w-full h-full">
-        <div class="lg:h-[30%]">    
+        <div class="lg:h-[30%]">
             <div class="h-[70px] flex justify-center items-center text-2xl font-medium lg:justify-center lg:bg-cLightGrey lg:fixed lg:w-full">
                 <p class="-mr-8">BURN FAT IN 7 DAYS!</p>
             </div>
@@ -41,8 +41,8 @@
             <div class="lg:w-[50%] items-center justify-center content-center place-items-center">
                 {{-- Video --}}
                 <video loop muted playsinline id="video" class="rounded-2xl w-full mt-8 lg:h-[50%] lg:w-[80%] lg:mx-[58px]">
-                    <source src="http://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
-                        {{-- {{ $workout_activity->video }} --}}
+                    {{-- <source src="http://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4"> --}}
+                    <source src="{{ $workout_activity->video }}" type="video/mp4">
                     Your browser doesn't support video
                 </video>
 
