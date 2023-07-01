@@ -16,8 +16,7 @@
     <div class="w-screen py-8 fixed">
         {{-- Container Foto --}}
         <div class="w-[90%] m-auto rounded-3xl h-[550px] bg-cover"
-            style="background-image: url({{ '/storage/' . $meditation[0]->image }})">
-
+            style="background-image: url('{{ '/storage/' . $meditation->image }}')">
         </div>
         {{-- Bottom Blue --}}
         <div
@@ -25,13 +24,13 @@
             <hr class="w-[200px] m-auto border-2">
             <div class=" lg:flex lg:flex-row lg:mt-6 lg:mx-14 ">
                 <div class="lg:text-left">
-                    <h1 class="text-2xl font-bold mt-6 lg:mt-0">{{ $meditation[0]->name }}</h1>
-                    <p class="text-sm font-normal mt-1 mb-7 lg:h-fit">{{ $meditation[0]->description }}g</p>
+                    <h1 class="text-2xl font-bold mt-6 lg:mt-0">{{ $meditation->name }}</h1>
+                    <p class="text-sm font-normal mt-1 mb-7 lg:h-fit">{{ $meditation->description }}</p>
                 </div>
                 <div class="lg:px-4 lg:w-[50%] lg:ml-56 lg:flex lg:flex-row">
                     {{-- Audio --}}
                     <audio loop playsinline id="audio" class="rounded-2xl w-full mt-8" preload="metadata">
-                        <source src="{{ '/storage/' . $meditation[0]->audio }}">
+                        <source src="{{ '/storage/' . $meditation->audio }}">
                         {{-- <source src="audio/abangJago.mp3"> --}}
                         Your browser doesn't support audio
                     </audio>

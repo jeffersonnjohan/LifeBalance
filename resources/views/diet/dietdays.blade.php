@@ -30,7 +30,7 @@
             <div class="lg:flex lg:flex-row w-full ">
                 <div class="lg:w-[25%] lg:h-screen lg:fixed ">
                     {{-- <div class=" h-60 lg:h-fit w-full bg-cover" style="background-image: url({{ '/storage/'.$diet_days[0]->diet->image }})"></div> --}}
-                    <div class=" h-60 lg:h-full w-full bg-cover" style="background-image: url({{ '/storage/'.$diet_days[0]->diet->image }})"></div>
+                    <div class=" h-60 lg:h-full w-full bg-cover" style="background-image: url('{{ '/storage/'.$diet_days[0]->diet->image }}')"></div>
                     <div class="bg-cGreen lg:bottom-0 lg:fixed lg:w-[25%]">
                         <p class="p-2 text-lg font-normal text-center text-white ">
                             {{ $diet_days[0]->diet->description }}
