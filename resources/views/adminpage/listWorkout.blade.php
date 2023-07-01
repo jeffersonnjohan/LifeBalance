@@ -71,9 +71,9 @@
         </div>
 
         {{-- Workout Plans List --}}
-        <div class="pl-5 pr-5 w-full lg:w-full lg:pt-16 lg:flex lg:items-center lg:justify-center lg:gap-2 lg:flex-wrap lg:overflow-scroll">
+        <div class="pl-5 pr-5 w-full lg:w-[70%] lg:pt-16 lg:grid lg:gap-2 lg:grid-cols-2 lg:overflow-scroll flex flex-col gap-2">
             @foreach ($workouts as $workout)
-                <div class="gap-2 lg:h-fit py-8 px-8 flex justify-between items-center lg:w-[40%] w-full h-[150px] bg-white mb-2 rounded-3xl shadow-lg hover:bg-blue-200 duration-500 focus:ring-cBlue">
+                <div class="gap-2 lg:h-fit py-8 px-8 flex justify-between items-center w-full h-[150px] bg-white rounded-3xl shadow-lg hover:bg-blue-200 duration-500 focus:ring-cBlue">
                     {{-- Card Plan --}}
                     <div class="w-[50%]">
                         <h2 class="font-semibold text-lg truncate">{{ $workout->name }}</h2>
@@ -86,7 +86,7 @@
                             {{ $workout->points }} points will be added!
                         </p>
                     </div>
-                    <div class="lg:w-full h-full aspect-square rounded-md border border-cBlue bg-center bg-cover" style="background-image:url('{{ asset('/storage/'.$workout->image) }}')">
+                    <div class="lg:w-[100px] h-full aspect-square rounded-md border border-cBlue bg-center bg-cover" style="background-image:url('{{ asset('/storage/'.$workout->image) }}')">
                     </div>
                     <div class="w-fit justify-center flex flex-col gap-2 right-5 h-full">
                         <form action="/admin/workout" method="post">
