@@ -35,7 +35,7 @@
 <div class="w-full">
     {{-- Diet Plans List --}}
 
-    <div class="pl-5 pr-5 pt-16 w-full md:items-center md:justify-center md:gap-2 lg:flex lg:items-center lg:justify-between lg:gap-2 lg:flex-wrap lg:grid-rows-3 lg:flex-row">
+    <div class="pl-5 pr-5 pt-16 w-full md:items-center md:justify-center md:gap-2 lg:flex lg:items-center lg:gap-2 lg:flex-wrap lg:grid-rows-3 lg:flex-row">
         @foreach ($diets as $diet)
             {{-- Plan Card --}}
             <div class="lg:w-[400px] lg:h-[150px] place-content-center md:h-fit md:w-full h-fit mb-2 bg-white relative rounded-3xl shadow-lg hover:bg-green-200 duration-500 lg:p-10 md:items-stretch focus:ring-cGreen">
