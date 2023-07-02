@@ -23,16 +23,16 @@
         <div class="lg:w-full lg:flex lg:flex-wrap lg:justify-start lg:gap-2">
         @forelse ($workouts as $workout)
             @if (in_array(strval($workout->id), $enrollments->toArray()))
-                <form action="/workoutdetails" method="POST"  class="enrolled_form">
+                <form action="/workoutdetails" method="POST"  class="enrolled_form lg:w-[48%] ">
                     @csrf
                     <input type="hidden" name="workout_id" value="{{ $workout->id }}">
                     {{-- Card Plan --}}
-                    <div class="enrolled_element lg:h-[150px] lg:w-[390px] max-w-sm px-3 py-6 flex bg-white rounded-3xl relative mb-4 shadow-lg lg:items-center md:max-w-full hover:bg-blue-200 duration-500 focus:ring-cBlue">
+                    <div class="enrolled_element lg:h-[150px] lg:w-full max-w-sm px-3 py-6 flex bg-white rounded-3xl relative mb-4 shadow-lg lg:items-center md:max-w-full hover:bg-blue-200 duration-500 focus:ring-cBlue">
                         {{-- Section Kiri --}}
                         <div class="w-[70%]">
                             <h2 class="text-xl">{{ $workout->name }}</h2>
                             <p class="text-sm"> @excerpt($workout->description)</p>
-                            <p class="text-sm text-cYellow flex items-center">
+                            <p class="text-sm flex items-center">
                                 <span class="material-symbols-outlined inline-block text-cYellow mr-1">
                                     toll
                                 </span>
@@ -64,17 +64,17 @@
 
         <div class="lg:w-full lg:flex lg:flex-wrap lg:justify-start lg:gap-2">
             @foreach ($unenroll_plans as $plan)
-                <form action="/workoutdetails" method="POST"  class="unenrolled_form">
+                <form action="/workoutdetails" method="POST"  class="unenrolled_form lg:w-[48%] ">
                     @csrf
                     <input type="hidden" name="workout_id" value="{{ $plan->id }}">
                     <input type="hidden" name="new_plan" value="1">
                     {{-- Card Plan --}}
-                    <div class="max-w-sm lg:h-[150px] lg:w-[390px] px-3 py-6 flex bg-white rounded-3xl relative mb-4 shadow-lg md:max-w-full lg:items-center hover:bg-blue-200 duration-500 focus:ring-cBlue" data-modal-target="popup-modal{{ $loop->iteration }}" data-modal-toggle="popup-modal{{ $loop->iteration }}">
+                    <div class="max-w-sm lg:h-[150px] lg:w-full px-3 py-6 flex bg-white rounded-3xl relative mb-4 shadow-lg md:max-w-full lg:items-center hover:bg-blue-200 duration-500 focus:ring-cBlue" data-modal-target="popup-modal{{ $loop->iteration }}" data-modal-toggle="popup-modal{{ $loop->iteration }}">
                         {{-- Section Kiri --}}
                         <div class="w-[70%]">
                             <h2 class="text-xl">{{ $plan->name }}</h2>
                             <p class="text-sm"> @excerpt($plan->description)</p>
-                            <p class="text-sm text-cYellow flex items-center">
+                            <p class="text-sm flex items-center">
                                 <span class="material-symbols-outlined inline-block text-cYellow mr-1">
                                     toll
                                 </span>
