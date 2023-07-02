@@ -41,7 +41,7 @@
 </nav>
 
 @section('body')
-    <div class="w-full h-full lg:flex">
+    <div class="w-full h-full lg:flex lg:items-start ">
         <div class="w-full lg:w-[30%] lg:fixed">
             <div class="lg:w-full lg:flex lg:gap-2 md:w-full md:flex md:gap-2 lg:fixed">
                 <div class="w-full lg:fixed h-[300px] p-10 mb-2 lg:mb-0 pt-16 lg:pt-10 bg-cBlue rounded-b-[50px] lg:rounded-bl-[0px] lg:rounded-tr-[50px] lg:w-[30%] lg:h-fit lg:mt-16 lg:items-center md:rounded-bl-[0px] md:rounded-tr-[50px] md:w-[30%] md:h-fit md:mt-16 md:items-center">
@@ -68,7 +68,7 @@
         </div>
 
         {{-- Workout Plans List --}}
-        <div class="pl-5 pr-5 w-full lg:ml-[30%] lg:w-[70%] lg:pt-16 lg:flex lg:items-center lg:justify-start lg:gap-2 lg:flex-wrap lg:overflow-scroll">
+        <div class="px-5 w-full lg:ml-[30%] lg:w-[70%] lg:pt-16 lg:flex lg:justify-start lg:gap-2 lg:flex-wrap lg:overflow-scroll">
             @foreach ($workouts as $workout)
                 <div class="lg:h-[150px] lg:py-3 lg:w-[48%] w-full h-[150px] py-2 bg-white items-center mb-2 relative rounded-3xl shadow-lg hover:bg-blue-200 duration-500 focus:ring-cBlue">
                     {{-- Card Plan --}}
@@ -78,7 +78,7 @@
                                 <h2 class="font-semibold text-base truncate">{{ $workout->name }}</h2>
                                 <p class="text-sm truncate"> @excerpt($workout->description)</p>
                                 {{-- <p class="text-sm">{{ $workout->description }}</p> --}}
-                                <p class="text-sm text-cYellow flex items-center">
+                                <p class="text-sm flex items-center">
                                     <span class="material-symbols-outlined inline-block text-cYellow mr-1">
                                         toll
                                     </span>
