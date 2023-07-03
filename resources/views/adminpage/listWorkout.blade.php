@@ -79,7 +79,7 @@
                         <h2 class="font-semibold text-lg truncate">{{ $workout->name }}</h2>
                         <p class="text-sm truncate"> @excerpt($workout->description)</p>
                         {{-- <p class="text-sm">{{ $workout->description }}</p> --}}
-                        <p class="text-sm text-cYellow flex items-center">
+                        <p class="text-sm flex items-center">
                             <span class="material-symbols-outlined inline-block text-cYellow mr-1">
                                 toll
                             </span>

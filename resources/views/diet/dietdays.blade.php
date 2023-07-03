@@ -30,7 +30,7 @@
             <div class="lg:flex lg:flex-row w-full ">
                 <div class="lg:w-[25%] lg:h-screen lg:fixed ">
                     {{-- <div class=" h-60 lg:h-fit w-full bg-cover" style="background-image: url({{ '/storage/'.$diet_days[0]->diet->image }})"></div> --}}
-                    <div class=" h-60 lg:h-full w-full bg-cover" style="background-image: url({{ '/storage/'.$diet_days[0]->diet->image }})"></div>
+                    <div class=" h-60 lg:h-full w-full bg-cover" style="background-image: url('{{ '/storage/'.$diet_days[0]->diet->image }}')"></div>
                     <div class="bg-cGreen lg:bottom-0 lg:fixed lg:w-[25%]">
                         <p class="p-2 text-lg font-normal text-center text-white ">
                             {{ $diet_days[0]->diet->description }}
@@ -83,10 +83,10 @@
                         <?php $flag = 1;?>
                         {{-- locked ongoing plan --}}
                         @elseif ($flag == 0 and $today == $updated_at)
-                        <div class="m-3 lg:mb-3 lg:mr-3 lg:ml-3 p-2 border-2 border-cGreen rounded-3xl shadow-md">
-                            <h1 class=" text-center text-cGreen font-bold text-2xl">{{'DAY ' . $i++ . ' :'}}</h1>
+                        <div class="flex flex-col justify-center m-3 lg:mb-3 lg:mr-3 lg:ml-3 p-2 border-2 border-cGreen rounded-3xl shadow-md">
+                            <h1 class=" text-center  text-cGreen font-bold text-2xl">{{'DAY ' . $i++ . ' :'}}</h1>
                             {{-- Done --}}
-                            <div class="flex items-center justify-center">
+                            <div class="text-center">
                                 <label for="default-checkbox" class="mr-4 text-xl font-bold text-cGreen">
                                     Unlocked in
                                     <span id="countDown"></span>
@@ -100,7 +100,7 @@
                             $total_kcal = $day->calories;
                         @endphp
                         <div class="m-3 lg:mb-3 lg:mr-3 lg:ml-3 lg:mt-0 p-2 border-2 border-cGreen rounded-3xl shadow-md">
-                            <h1 class="text-center text-cGreen font-bold text-2xl">{{'DAY ' . $i++ . ' :'}}</h1>
+                            <h1 class="text-center text-cGreen font-bold text-2xl ">{{'DAY ' . $i++ . ' :'}}</h1>
                             <h2 class="text-center text-cGreen font-bold text-md">{{ $total_kcal . ' Kcal Consumed'}} </h2>
                             <p class="text-lg font-normal text-black p-2">
                                 {{ $day->description }}

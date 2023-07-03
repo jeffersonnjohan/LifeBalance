@@ -36,25 +36,38 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
-        User::factory(5)->create();
-        UserWeight::factory(30)->create();
-        UserWorkout::factory(30)->create();
-        UserDiet::factory(30)->create();
+        // User::factory(5)->create();
+        // UserWeight::factory(30)->create();
+        // UserWorkout::factory(30)->create();
+        // UserDiet::factory(30)->create();
 
-        Meditation::factory(5)->create();
+        // Meditation::factory(5)->create();
 
-        Workout::factory(5)->create();
-        WorkoutDay::factory(7)->create();
-        WorkoutActivity::factory(10)->create();
-        WorkoutDetail::factory(30)->create();
+        // Workout::factory(5)->create();
+        // WorkoutDay::factory(7)->create();
+        // WorkoutActivity::factory(10)->create();
+        // WorkoutDetail::factory(30)->create();
 
-        Diet::factory(5)->create();
-        DietDay::factory(30)->create();
+        // Diet::factory(5)->create();
+        // DietDay::factory(30)->create();
 
-        Challenge::factory(5)->create();
-        Collect::factory(2)->create();
+        // Challenge::factory(5)->create();
+        // Collect::factory(2)->create();
 
-        EnrollmentDiet::factory(2)->create();
-        EnrollmentWorkout::factory(2)->create();
+        // EnrollmentDiet::factory(2)->create();
+        // EnrollmentWorkout::factory(2)->create();
+
+        $seeder = [
+            UserSeeder::class,
+            WorkoutSeeder::class,
+            WorkoutDaySeeder::class,
+            WorkoutActivitySeeder::class,
+            WorkoutDetailSeeder::class,
+            MeditationSeeder::class,
+            DietSeeder::class,
+            DietDaySeeder::class,
+            ChallengeSeeder::class,
+        ];
+        $this->call($seeder);
     }
 }
