@@ -41,27 +41,29 @@
                     @endforelse
                 </div>
             </div>
-            <div class=" pb-20 lg:pb-2 lg:pt-2 lg:mx-2 lg:my-16 lg:w-2/3 lg:overflow-auto">
-                    <h2 class="m-2 pb-0 text-lg">Finished Plan</h2>
+            <div class=" pb-20 lg:pb-2 lg:pt-2 lg:mx-2 lg:mt-16 lg:w-2/3 lg:overflow-auto">
+                <h2 class="m-2 pb-0 text-lg">Finished Plan</h2>
+                <div class="lg:overflow-auto lg:h-[90%] ">
                     @forelse ($temp as $temp)
-                    <div class="bg-white m-2 text-md rounded-3xl flex flex-row text-black shadow-lg">
-                        <div class="w-8 h-[70px] {{ $temp->is_diet == 1 ? 'bg-cGreen': 'bg-cBlue'}} rounded-bl-3xl rounded-tl-3xl"></div>
-                        <div class="self-center p-2 h-full w-full">
-                            <h3 class="text-lg font-bold">{{ $temp->name }}</h3>
-                            <h4 class="text-md {{ $temp->is_diet == 1 ? 'text-cGreen' : 'text-cBlue'}}">{{ \Carbon\Carbon::parse($enrollment->updated_at)->format('d M, Y') }}</h4>
+                        <div class="bg-white m-2 text-md rounded-3xl flex flex-row text-black shadow-lg">
+                            <div class="w-8 h-[70px] {{ $temp->is_diet == 1 ? 'bg-cGreen': 'bg-cBlue'}} rounded-bl-3xl rounded-tl-3xl"></div>
+                            <div class="self-center p-2 h-full w-full">
+                                <h3 class="text-lg font-bold">{{ $temp->name }}</h3>
+                                <h4 class="text-md {{ $temp->is_diet == 1 ? 'text-cGreen' : 'text-cBlue'}}">{{ \Carbon\Carbon::parse($enrollment->updated_at)->format('d M, Y') }}</h4>
+                            </div>
+                            <div class="flex flex-row items-center p-2 mr-2">
+                                <span class="material-symbols-outlined text-cYellow">
+                                    toll
+                                </span>
+                                <h3 class="font-medium text-md">{{ $temp->points }}</h3>
+                            </div>
                         </div>
-                        <div class="flex flex-row items-center p-2 mr-2">
-                            <span class="material-symbols-outlined text-cYellow">
-                                toll
-                            </span>
-                            <h3 class="font-medium text-md">{{ $temp->points }}</h3>
-                        </div>
-                    </div>
                     @empty
-                    <div class="h-full w-full flex justify-center items-center">
-                        <h2 class="text-lg">No History</h2>
-                    </div>
+                        <div class="h-full w-full flex justify-center items-center">
+                            <h2 class="text-lg">No History</h2>
+                        </div>
                     @endforelse
+                </div>
             </div>
         </div>
 

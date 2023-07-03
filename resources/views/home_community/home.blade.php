@@ -292,7 +292,7 @@
                 </ul>
             </div>
             {{-- Blank Space --}}
-            <div class="h-[120px] bg-transparent"></div>
+            <div class="lg:hidden h-[120px] bg-transparent"></div>
         </div>
     </div>
 
