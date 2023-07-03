@@ -35,21 +35,26 @@
 <div class="w-full">
     {{-- Diet Plans List --}}
 
-    <div class="pl-5 pr-5 pt-16 w-full md:items-center md:justify-center md:gap-2 lg:flex lg:items-center lg:justify-start lg:gap-2 lg:flex-wrap lg:grid-rows-3 lg:flex-row">
+    <div class="pl-5 pr-5 pt-16 w-full lg:grid lg:grid-cols-3 lg:px-10 lg:gap-5 flex flex-col gap-2">
         @foreach ($diets as $diet)
             {{-- Plan Card --}}
-            <div class="lg:w-[400px] lg:h-[150px] place-content-center md:h-fit md:w-full h-fit mb-2 bg-white relative rounded-3xl shadow-lg hover:bg-green-200 duration-500 lg:p-10 md:items-stretch focus:ring-cGreen">
-                <div class="flex items-center">
-                    <div class="flex items-center gap-3 w-full truncate m-1">
-                        <img class="aspect-square rounded-full bg-cover justify-end items-center h-[50px] border-2 border-cGreen" src="{{ '/storage/'. $diet->image }}">
-                        <div class="py-2">
-                            <h2 class="font-medium text-sm">{{ $diet->name }}</h2>
-                            <h2 class="font-normal text-sm text-cGreen">{{ $diet->description }}</h2>
+            <div class="w-full h-fit bg-white relative lg:rounded-3xl shadow-lg hover:bg-green-200 duration-500 lg:p-5 focus:ring-cGreen rounded-full">
+                <div class="flex items-center justify-between px-3 py-1 lg:p-0">
+                    <div class="flex gap-3 items-center">
+                        <div class="aspect-square lg:rounded-xl rounded-full bg-center justify-end bg-cover items-center h-[50px] lg:h-[100px] border-2 border-cGreen" style="background-image:url('{{ asset('/storage/'.$diet->image) }}')">
+                        </div>
+                        <div class="flex flex-col w-full h-full">
+                            <div class="">
+                                <h2 class="font-medium text-sm">{{ $diet->name }}</h2>
+                                <h2 class="font-normal text-sm text-cGreen">{{ $diet->description }}</h2>
+                            </div>
+                            <div class="flex items-center">
+                                <span class="material-symbols-outlined text-cYellow">toll</span>
+                                <p class="text-xs">{{ $diet->points }}</p>
+                            </div>
                         </div>
                     </div>
-                    <span class="material-symbols-outlined text-cYellow">toll</span>
-                    <p class="text-xs">{{ $diet->points }}</p>
-                    <div class="h-fit w-fit flex gap-2 px-2 right-2">
+                    <div class="h-fit w-fit flex lg:flex-col gap-2">
                         <a class="" data-modal-target="popup-edit{{ $loop->iteration }}" data-modal-toggle="popup-edit{{ $loop->iteration }}">
                             <span class="material-symbols-outlined rounded-full p-2 scale-100 duration-300 ease-out bg-cGreen hover:bg-white hover:text-black text-white">
                                 edit
