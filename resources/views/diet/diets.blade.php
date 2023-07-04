@@ -35,11 +35,10 @@
         @if ($enrollments->toArray())
             <h3 class="flex justify-center text-cGreen mt-4">Enrolled Plan</h3>
         @endif
-        <div class="lg:w-full lg:px-4 mt-4 lg:grid lg:grid-cols-3">
+        <div class="lg:w-full lg:px-4 lg:grid lg:grid-cols-3">
             @forelse ($diets as $diet)
                 @if (in_array(strval($diet->id), $enrollments->toArray()))
-                    <form action="/dietDays" method="POST"
-                        class="enrolled_form place-items-center grid p-2 px-0 lg:px-2 ">
+                    <form action="/dietDays" method="POST" class="enrolled_form place-items-center grid p-2 px-0 lg:px-2 ">
                         @csrf
                         <input type="hidden" name="diet_id" value="{{ $diet->id }} ">
                         {{-- <div > --}}
@@ -48,15 +47,15 @@
                             <div class="flex flex-row items-center w-[310px] ">
                                 <div class="h-[60px] w-[100px] lg:h-[60px] lg:w-[60px] m-2">
                                     <div class="rounded-full lg:rounded-3xl bg-cover justify-end items-center h-full w-[60px] border-2 border-cGreen"
-                                        style="background-image: url('{{ '/storage/'.$diet->image }}')"></div>
+                                        style="background-image: url('{{ '/storage/' . $diet->image }}')"></div>
                                 </div>
                                 <div class="lg:pl-2 lg:w-[235px] w-[325px]">
                                     <h2 class="font-medium text-lg">{{ $diet->name }}</h2>
                                     <h2 class="font-normal text-md text-cGreen"> @excerpt($diet->description)</h2>
                                 </div>
                             </div>
-                            <div class="flex flex-row items-center p-2 lg:w-[47px]">
-                                <span class="material-symbols-outlined text-cYellow">
+                            <div class="flex flex-row items-center p-1 w-full  lg:w-[47px] lg:p-0">
+                                <span class="material-symbols-outlined text-cYellow justify-start">
                                     toll
                                 </span>
                                 <h3 class="font-medium text-md">{{ $diet->points }}</h3>
@@ -79,8 +78,7 @@
         @if ($unenroll_plans)
             <div class="lg:grid lg:grid-cols-3 lg:w-full lg:px-4 ">
                 @foreach ($unenroll_plans as $plan)
-                    <form action="/dietDays" method="POST"
-                        class="unenrolled_form place-items-center grid p-2 px-0 lg:px-2"
+                    <form action="/dietDays" method="POST" class="unenrolled_form place-items-center grid p-2 px-0 lg:px-2"
                         data-modal-target="popup-modal{{ $loop->iteration }}"
                         data-modal-toggle="popup-modal{{ $loop->iteration }}">
                         @csrf
@@ -92,14 +90,14 @@
                             <div class="flex flex-row items-center w-[310px]">
                                 <div class="h-[60px] w-[100px] lg:h-[60px] lg:w-[60px] m-2">
                                     <div class="rounded-full lg:rounded-3xl bg-cover justify-end items-center  border-2 border-cGreen h-full w-[60px]"
-                                        style="background-image: url('{{ '/storage/'.$plan->image }}')"></div>
+                                        style="background-image: url('{{ '/storage/' . $plan->image }}')"></div>
                                 </div>
                                 <div class="lg:pl-2 lg:w-[235px] w-[325px]">
                                     <h2 class="font-medium text-lg ">{{ $plan->name }}</h2>
                                     <h2 class="font-normal text-md text-cGreen"> @excerpt($plan->description)</h2>
                                 </div>
                             </div>
-                            <div class="flex flex-row items-center p-2 lg:w-[47px]">
+                            <div class="flex flex-row items-center p-1 w-full lg:w-[47px] lg:p-0">
                                 <span class="material-symbols-outlined text-cYellow">
                                     toll
                                 </span>
@@ -145,7 +143,7 @@
         @endif
 
     </div>
-    <x-navbar active="diet" admin="false"/>
+    <x-navbar active="diet" admin="false" />
 
     <script>
         var form1 = document.getElementsByClassName("enrolled_form");
