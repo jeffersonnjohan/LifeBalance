@@ -38,15 +38,15 @@
     <div class="pl-5 pr-5 pt-16 w-full lg:grid lg:grid-cols-3 lg:px-10 lg:gap-5 flex flex-col gap-2">
         @foreach ($diets as $diet)
             {{-- Plan Card --}}
-            <div class="w-full h-fit bg-white relative lg:rounded-3xl shadow-lg hover:bg-green-200 duration-500 lg:p-5 focus:ring-cGreen rounded-full">
+            <div class="w-full lg:h-[150px] bg-white relative lg:rounded-3xl shadow-lg hover:bg-green-200 duration-500 lg:p-5 focus:ring-cGreen rounded-full">
                 <div class="flex items-center justify-between px-3 py-1 lg:p-0">
                     <div class="flex gap-3 items-center">
                         <div class="aspect-square lg:rounded-xl rounded-full bg-center justify-end bg-cover items-center h-[50px] lg:h-[100px] border-2 border-cGreen" style="background-image:url('{{ asset('/storage/'.$diet->image) }}')">
                         </div>
                         <div class="flex flex-col w-full h-full">
-                            <div class="">
-                                <h2 class="font-medium text-sm">{{ $diet->name }}</h2>
-                                <h2 class="font-normal text-sm text-cGreen">{{ $diet->description }}</h2>
+                            <div class="h-10 w-[90%] lg:h-fit">
+                                <h2 class="font-medium text-sm break-normal">{{ $diet->name }}</h2>
+                                <h2 class="font-normal text-sm text-cGreen break-normal inline-block">@excerpt($diet->description)</h2>
                             </div>
                             <div class="flex items-center">
                                 <span class="material-symbols-outlined text-cYellow">toll</span>
