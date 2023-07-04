@@ -20,14 +20,14 @@
         </div>
         {{-- Bottom Blue --}}
         <div
-            class="w-full rounded-t-[50px] h-[280px] lg:h-[170px] fixed bottom-0 bg-cBlue p-4 text-center text-white ">
+            class="w-full rounded-t-[50px] h-[350px] lg:h-[170px] fixed bottom-0 bg-cBlue p-4 text-center text-white ">
             <hr class="w-[200px] m-auto border-2">
-            <div class=" lg:flex lg:flex-row lg:mt-6 lg:mx-14 ">
-                <div class="lg:text-left">
+            <div class=" lg:flex lg:flex-row lg:justify-between lg:mt-6 lg:mx-14 ">
+                <div class="lg:text-left lg:w-full">
                     <h1 class="text-2xl font-bold mt-6 lg:mt-0">{{ $meditation->name }}</h1>
                     <p class="text-sm font-normal mt-1 mb-7 lg:h-fit">{{ $meditation->description }}</p>
                 </div>
-                <div class="lg:px-4 lg:w-[50%] lg:ml-56 lg:flex lg:flex-row">
+                <div class=" lg:w-full lg:flex lg:flex-row lg:justify-end">
                     {{-- Audio --}}
                     <audio loop playsinline id="audio" class="rounded-2xl w-full mt-8" preload="metadata">
                         <source src="{{ '/storage/' . $meditation->audio }}">
@@ -37,7 +37,7 @@
 
                     {{-- Audio Controls --}}
                     {{-- Time --}}
-                    <div class="mb-3 hidden" id="timeIndicator">
+                    <div class="mb-3 hidden lg:my-auto lg:flex lg:pr-2" id="timeIndicator">
                         <span id="progressDuration">00:00</span>
                         <span>/</span>
                         <span id="totalDuration"></span>

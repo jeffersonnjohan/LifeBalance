@@ -14,8 +14,8 @@ class LoginController extends Controller
 
     public function authenticate(Request $request): RedirectResponse{
         $validated =  $request->validate([
-            'username' => 'required|min:5|max:255',
-            'password' => 'required|min:8|max:255'
+            'username' => 'required',
+            'password' => 'required'
         ]);
         // $credentials = $request->all();
         unset($validated['_token']);
