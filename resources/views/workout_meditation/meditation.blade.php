@@ -22,7 +22,7 @@
             </div>
         </form>
 
-        <div class="p-2 w-full justify-center content-center overflow-scroll h-[100vh]">
+        <div class="p-2 w-full justify-center content-center overflow-scroll lg:overflow-scroll lg:max-h-[100%] h-[100vh]">
             {{-- Card Meditation --}}
             <div class="lg:w-full lg:flex lg:flex-wrap lg:justify-start lg:gap-2">
             @forelse ($meditations as $meditation)
