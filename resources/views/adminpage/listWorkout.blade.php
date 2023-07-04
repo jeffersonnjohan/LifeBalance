@@ -42,68 +42,65 @@
 
 @section('body')
     <div class="w-full h-full lg:flex">
-        <div class="w-full lg:w-[30%] lg:fixed">
-            <div class="lg:w-full lg:flex lg:gap-2 md:w-full md:flex md:gap-2 lg:fixed">
-                <div class="w-full lg:fixed h-[300px] p-10 mb-2 lg:mb-0 pt-16 lg:pt-10 bg-cBlue rounded-b-[50px] lg:rounded-bl-[0px] lg:rounded-tr-[50px] lg:w-[30%] lg:h-fit lg:mt-16 lg:items-center md:rounded-bl-[0px] md:rounded-tr-[50px] md:w-[30%] md:h-fit md:mt-16 md:items-center">
+        <div class="w-full lg:w-[30%] lg:h-full">
+            <div class="lg:w-full lg:flex lg:gap-2 lg:fixed lg:h-full">
+                <div class="w-full h-[300px] p-10 mb-2 pt-16 bg-cBlue rounded-b-[50px] lg:rounded-bl-[0px] lg:rounded-tr-[50px] lg:w-[30%] lg:h-[90%] lg:mt-16 lg:items-center">
                     {{-- Category Container --}}
-                    <div class="w-80% h-[160px] flex mt-5 justify-between md:w-[30vw] md:flex-col md:mb-[300px] md:gap-5 lg:w-[30vw] lg:flex-col lg:h-fit lg:gap-5 lg:px-5">
+                    <div class="h-[160px] flex mt-5 lg:w-full lg:flex-col lg:h-full lg:gap-5 lg:px-5 gap-8 lg:mt-0">
                         {{-- Class selected --}}
-                        <a href="/admin/workout" class="w-[48%] lg:w-[70%] lg:h-[180px] lg:items-center lg:justify-center md:w-[80%] md:h-[200px] md:items-center md:justify-center">
+                        <a href="/admin/workout" class="w-1/2 lg:w-full lg:h-1/2 lg:items-center lg:justify-center">
                             <div class="w-full h-full flex flex-col bg-cDarkBlue rounded-3xl overflow-hidden @yield('isWorkoutActive')">
-                                <div class="h-[65%] w-full bg-cover lg:h-[75%] md:h-[75%]" style="background-image: url('/assets/olahragaCategory.png')">
+                                <div class="h-[65%] w-full bg-cover lg:h-[75%] bg-center" style="background-image: url('/assets/olahragaCategory.png')">
                                 </div>
                                 <p class="text-center text-white mt-3">Olahraga</p>
                             </div>
                         </a>
-                        <a href="/admin/meditation" class="w-[48%] lg:w-[70%] lg:h-[180px] lg:items-center lg:justify-center md:w-[80%] md:h-[200px] md:items-center md:justify-center">
+                        <a href="/admin/meditation" class="w-1/2 lg:w-full lg:h-1/2 lg:items-center lg:justify-center">
                             <div class="w-full h-full flex flex-col bg-cDarkBlue rounded-3xl overflow-hidden @yield('isMeditationActive')">
-                                <div class="h-[65%] w-full bg-cover lg:h-[75%] md:h-[75%]" style="background-image: url('/assets/meditasiCategory.png')">
+                                <div class="h-[65%] w-full bg-cover lg:h-[75%] bg-center" style="background-image: url('/assets/meditasiCategory.png')">
                                 </div>
                                 <p class="text-center text-white mt-3">Meditasi</p>
                             </div>
                         </a>
                     </div>
                 </div>
+                <div class="lg:w-[70%] lg:p-10 lg:pt-32 lg:items-center lg:justify-center lg:content-center">
+                    @yield('content')
+                </div>
             </div>
         </div>
 
         {{-- Workout Plans List --}}
-        <div class="pl-5 pr-5 w-full lg:ml-[30%] lg:w-[70%] lg:pt-16 lg:flex lg:items-center lg:justify-start lg:gap-2 lg:flex-wrap lg:overflow-scroll">
+        <div class="pl-5 pr-5 w-full lg:w-[70%] lg:pt-16 lg:grid lg:gap-2 lg:grid-cols-2 gap-2 h-fit">
             @foreach ($workouts as $workout)
-                <div class="lg:h-[150px] lg:py-3 lg:w-[48%] w-full h-[150px] py-2 bg-white items-center mb-2 relative rounded-3xl shadow-lg hover:bg-blue-200 duration-500 focus:ring-cBlue">
+                <div class="gap-2 lg:h-fit py-8 px-8 flex justify-between items-center w-full h-[150px] bg-white rounded-3xl shadow-lg hover:bg-blue-200 duration-500 focus:ring-cBlue">
                     {{-- Card Plan --}}
-                    <div class="w-[90%] flex py-6 lg:py-3 px-5 items-center align-middle gap-2">
-                        {{-- <div class="max-w-sm px-3 py-6 flex bg-transparent rounded-3xl relative mb-4 lg:max-w-full md:max-w-full"> --}}
-                            <div class="w-[50%] lg:w-[60%]">
-                                <h2 class="font-semibold text-base truncate">{{ $workout->name }}</h2>
-                                <p class="text-sm truncate"> @excerpt($workout->description)</p>
-                                {{-- <p class="text-sm">{{ $workout->description }}</p> --}}
-                                <p class="text-sm text-cYellow flex items-center">
-                                    <span class="material-symbols-outlined inline-block text-cYellow mr-1">
-                                        toll
-                                    </span>
-                                    {{ $workout->points }} points will be added!
-                                </p>
-                            </div>
-                            <div class="lg:left-96 w-[50%] lg:w-[30%] flex justify-center items-center">
-                                <div class="w-[80px] lg:w-[100px] lg:h-[100px] h-[80px] rounded-md border border-cBlue aspect-square bg-center bg-cover" style="background-image:url('{{ asset('/storage/'.$workout->image) }}')">
-                                </div>
-                            </div>
-                        {{-- </div> --}}
-                        <div class="absolute h-fit w-fit items-center flex flex-col gap-2 right-5">
-                            <form action="/admin/workout" method="post">
-                                <button type="button" data-modal-target="popup-modal{{ $loop->iteration }}" data-modal-toggle="popup-modal{{ $loop->iteration }}">
-                                    <span class="material-symbols-outlined rounded-full p-2 scale-100 duration-300 ease-out bg-cBlue hover:bg-white hover:text-black text-white">
-                                        edit
-                                    </span>
-                                </button>
-                            </form>
-                            <button type="button" data-modal-target="popup-delete{{ $loop->iteration }}" data-modal-toggle="popup-delete{{ $loop->iteration }}">
-                                <span class="material-symbols-outlined rounded-full p-2 scale-100 duration-300 ease-out bg-cRed hover:bg-white hover:text-black text-white">
-                                    delete
+                    <div class="w-[50%]">
+                        <h2 class="font-semibold text-lg truncate">{{ $workout->name }}</h2>
+                        <p class="text-sm truncate"> @excerpt($workout->description)</p>
+                        {{-- <p class="text-sm">{{ $workout->description }}</p> --}}
+                        <p class="text-sm flex items-center">
+                            <span class="material-symbols-outlined inline-block text-cYellow mr-1">
+                                toll
+                            </span>
+                            {{ $workout->points }} points will be added!
+                        </p>
+                    </div>
+                    <div class="lg:w-[100px] h-full aspect-square rounded-md border border-cBlue bg-center bg-cover" style="background-image:url('{{ asset('/storage/'.$workout->image) }}')">
+                    </div>
+                    <div class="w-fit justify-center flex flex-col gap-2 right-5 h-full">
+                        <form action="/admin/workout" method="post">
+                            <button type="button" data-modal-target="popup-modal{{ $loop->iteration }}" data-modal-toggle="popup-modal{{ $loop->iteration }}">
+                                <span class="material-symbols-outlined rounded-full p-2 scale-100 duration-300 ease-out bg-cBlue hover:bg-white hover:text-black text-white">
+                                    edit
                                 </span>
                             </button>
-                        </div>
+                        </form>
+                        <button type="button" data-modal-target="popup-delete{{ $loop->iteration }}" data-modal-toggle="popup-delete{{ $loop->iteration }}">
+                            <span class="material-symbols-outlined rounded-full p-2 scale-100 duration-300 ease-out bg-cRed hover:bg-white hover:text-black text-white">
+                                delete
+                            </span>
+                        </button>
                     </div>
                 </div>
 

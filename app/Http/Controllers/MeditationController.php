@@ -61,7 +61,7 @@ class MeditationController extends Controller
             'image' => 'required',
             'song' => 'required'
         ]);
-        
+
         Meditation::create([
             'name' => $validated['planTitle'],
             'description' => $validated['description'],
@@ -83,7 +83,7 @@ class MeditationController extends Controller
         $meditation_id = $request->post('meditation_id');
         $meditation = Meditation::where('meditations.id', '=', $meditation_id)->get();
         return view('workout_meditation.meditationDetails', [
-            'meditation' => $meditation
+            'meditation' => $meditation->first()
         ]);
     }
 

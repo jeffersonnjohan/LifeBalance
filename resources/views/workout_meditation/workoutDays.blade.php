@@ -35,7 +35,7 @@
                             <div class="h-full p-4 text-center flex justify-center items-center">
                                 {{-- Video --}}
                                 <video autoplay loop muted playsinline class="rounded-2xl w-full">
-                                    <source src="http://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                                    <source src="{{ $detail->workout_activity->video }}" type="video/mp4">
                                     Your browser doesn't support video
                                     {{-- <div>{{ $detail->workout_activity->video }}</div> --}}
                                 </video>
@@ -53,21 +53,22 @@
                         $total_kcal += $detail->calories
                     @endphp
                 </form>
-                @endforeach
-                @if ($done == 'done')
-                <div class="flex items-center justify-end pb-24">
-                    <button class="w-40 h-fit py-2 px-5  rounded-full bg-gray-300 text-gray-400 border-2 cursor-pointer text-center text-2xl">
-                        DONE
-                    </button>
-                </div>
-                @else
-                <div id="done" class="flex items-center justify-end pb-24">
-                    <button type="submit" class="w-40 h-fit py-2 px-5  rounded-full bg-cBlue text-white border-2 hover:bg-white hover:border-cBlue hover:text-cBlue duration-300 ease-out cursor-pointer text-center text-2xl">
-                        DONE
-                    </button>
-                </div>
-                @endif
+            @endforeach
         </div>
+
+            @if ($done == 'done')
+            <div class="flex items-center justify-end pb-24 mr-4">
+                <button class="w-40 h-fit py-2 px-5  rounded-full bg-gray-300 text-gray-400 border-2 cursor-pointer text-center text-2xl">
+                    DONE
+                </button>
+            </div>
+            @else
+            <div id="done" class="flex items-center justify-end pb-24 mr-4">
+                <button type="submit" class="w-40 h-fit py-2 px-5  rounded-full bg-cBlue text-white border-2 hover:bg-white hover:border-cBlue hover:text-cBlue duration-300 ease-out cursor-pointer text-center text-2xl">
+                    DONE
+                </button>
+            </div>
+            @endif
     </div>
 
     {{-- done/back form --}}

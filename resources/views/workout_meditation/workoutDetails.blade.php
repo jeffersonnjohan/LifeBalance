@@ -31,16 +31,16 @@
                 </p>
 
                 {{-- Indicator Container --}}
-                <div class="w-full h-[80px] flex justify-between mt-4 text-black lg:flex-col lg:items-center lg:gap-y-2">
-                    <div class="w-[100px] h-full bg-white text-center py-2 rounded-md">
+                <div class="w-full h-[80px] flex justify-between mt-4 text-black lg:items-center lg:gap-y-2">
+                    <div class="w-[90px] h-full bg-white text-center py-2 rounded-md">
                         <p>Total Time</p>
                         <p class="font-bold text-2xl text-cBlue">{{ $workout_days->count() }}</p>
                     </div>
-                    <div class="w-[100px] h-full bg-white text-center py-2 rounded-md">
+                    <div class="w-[90px] h-full bg-white text-center py-2 rounded-md">
                         <p>Kcal Burn</p>
                         <p class="font-bold text-2xl text-cBlue">550</p>
                     </div>
-                    <div class="w-[100px] h-full bg-white text-center py-2 rounded-md">
+                    <div class="w-[90px] h-full bg-white text-center py-2 rounded-md">
                         <p>Total Pose</p>
                         <p class="font-bold text-2xl text-cBlue">11</p>
                     </div>
