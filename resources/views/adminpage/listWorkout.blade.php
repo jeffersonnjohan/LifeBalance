@@ -46,16 +46,16 @@
             <div class="lg:w-full lg:flex lg:gap-2 lg:fixed lg:h-full">
                 <div class="w-full h-[300px] p-10 mb-2 pt-16 bg-cBlue rounded-b-[50px] lg:rounded-bl-[0px] lg:rounded-tr-[50px] lg:w-[30%] lg:h-[90%] lg:mt-16 lg:items-center">
                     {{-- Category Container --}}
-                    <div class="h-[160px] lg:w-[80%] flex mt-5 lg:flex-col lg:h-fit lg:gap-5 lg:px-5 gap-8 lg:mt-0">
+                    <div class="h-[160px] flex mt-5 lg:w-full lg:flex-col lg:h-full lg:gap-5 lg:px-5 gap-8 lg:mt-0">
                         {{-- Class selected --}}
-                        <a href="/admin/workout" class="w-1/2 lg:w-[70%] lg:h-[180px] lg:items-center lg:justify-center">
+                        <a href="/admin/workout" class="w-1/2 lg:w-full lg:h-1/2 lg:items-center lg:justify-center">
                             <div class="w-full h-full flex flex-col bg-cDarkBlue rounded-3xl overflow-hidden @yield('isWorkoutActive')">
                                 <div class="h-[65%] w-full bg-cover lg:h-[75%] bg-center" style="background-image: url('/assets/olahragaCategory.png')">
                                 </div>
                                 <p class="text-center text-white mt-3">Olahraga</p>
                             </div>
                         </a>
-                        <a href="/admin/meditation" class="w-1/2 lg:w-[70%] lg:h-[180px] lg:items-center lg:justify-center">
+                        <a href="/admin/meditation" class="w-1/2 lg:w-full lg:h-1/2 lg:items-center lg:justify-center">
                             <div class="w-full h-full flex flex-col bg-cDarkBlue rounded-3xl overflow-hidden @yield('isMeditationActive')">
                                 <div class="h-[65%] w-full bg-cover lg:h-[75%] bg-center" style="background-image: url('/assets/meditasiCategory.png')">
                                 </div>
