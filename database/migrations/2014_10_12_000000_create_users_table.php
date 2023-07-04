@@ -18,7 +18,7 @@ return new class extends Migration
             $table->id();
             $table->enum('gender', ['male', 'female']);
             $table->string('username')->unique();
-            $table->string('password');
+            $table->string('password')->nullable();
             $table->date('dob');
             $table->text('address')->nullable();
             $table->string('image')->default('images/profile');
@@ -29,6 +29,9 @@ return new class extends Migration
             $table->date('last_login')->default(Carbon::now());
             $table->boolean('is_admin')->default(0);
             $table->rememberToken();
+            $table->string('provider')->nullable();
+            $table->string('provider_id')->nullable();
+            $table->string('provider_token')->nullable();
             $table->timestamps();
         });
     }

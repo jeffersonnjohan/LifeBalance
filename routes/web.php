@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Diet;
+use App\Models\Challenge;
 use App\Models\UserWeight;
 use GuzzleHttp\Middleware;
 use App\Models\EnrollmentWorkout;
@@ -8,7 +9,9 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DietController;
 use App\Http\Controllers\HomeController;
+use Laravel\Socialite\Facades\Socialite;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Auth\ProviderController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\SignupController;
@@ -26,7 +29,7 @@ use App\Http\Controllers\WorkoutDetailController;
 use App\Http\Controllers\ChallengesClaimController;
 use App\Http\Controllers\WorkoutActivityController;
 use App\Http\Controllers\EnrollmentWorkoutController;
-use App\Models\Challenge;
+use App\Http\Controllers\FirebaseController;
 
 /*
 |--------------------------------------------------------------------------
@@ -153,3 +156,7 @@ Route::post('/backtodiets', [DietDayController::class, 'index2'])->middleware('a
 
 // Diet History
 Route::get('/history', [HistoryController::class, 'index'])->middleware('auth');
+
+Route::get('/auth/{provider}/redirect', [ProviderController::class, 'redirect']);
+
+Route::get('/auth/{provider}/callback', [ProviderController::class, 'callback']);
