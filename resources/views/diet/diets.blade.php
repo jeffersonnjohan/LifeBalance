@@ -35,7 +35,7 @@
         @if ($enrollments->toArray())
             <h3 class="flex justify-center text-cGreen mt-4">Enrolled Plan</h3>
         @endif
-        <div class="lg:w-full lg:px-4 mt-4 lg:grid lg:grid-cols-3">
+        <div class="lg:w-full lg:px-4 lg:grid lg:grid-cols-3">
             @forelse ($diets as $diet)
                 @if (in_array(strval($diet->id), $enrollments->toArray()))
                     <form action="/dietDays" method="POST"
