@@ -71,7 +71,7 @@
         </div>
 
         {{-- Workout Plans List --}}
-        <div class="pl-5 pr-5 w-full lg:w-[70%] lg:pt-16 lg:grid lg:gap-2 lg:grid-cols-2 gap-2 h-fit">
+        <div class="flex flex-col pl-5 pr-5 w-full lg:w-[70%] lg:pt-16 lg:grid lg:gap-2 lg:grid-cols-2 gap-2 h-fit">
             @foreach ($workouts as $workout)
                 <div class="gap-2 lg:h-fit py-8 px-8 flex justify-between items-center w-full h-[150px] bg-white rounded-3xl shadow-lg hover:bg-blue-200 duration-500 focus:ring-cBlue">
                     {{-- Card Plan --}}

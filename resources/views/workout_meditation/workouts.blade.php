@@ -27,7 +27,7 @@
                         @csrf
                         <input type="hidden" name="workout_id" value="{{ $workout->id }}">
                         {{-- Card Plan --}}
-                        <div class="enrolled_element lg:h-[150px] lg:w-full max-w-sm px-3 py-6 flex bg-white rounded-3xl relative mb-4 shadow-lg lg:items-center md:max-w-full hover:bg-blue-200 duration-500 focus:ring-cBlue">
+                        <div class="enrolled_element lg:h-[150px] lg:w-full mx-2 px-3 py-6 flex bg-white rounded-3xl relative mb-4 shadow-lg lg:items-center md:max-w-full hover:bg-blue-200 duration-500 focus:ring-cBlue">
                             {{-- Section Kiri --}}
                             <div class="w-[70%]">
                                 <h2 class="text-xl">{{ $workout->name }}</h2>
@@ -69,7 +69,7 @@
                         <input type="hidden" name="workout_id" value="{{ $plan->id }}">
                         <input type="hidden" name="new_plan" value="1">
                         {{-- Card Plan --}}
-                        <div class="max-w-sm lg:h-[150px] lg:w-full px-3 py-6 flex bg-white rounded-3xl relative mb-4 shadow-lg md:max-w-full lg:items-center hover:bg-blue-200 duration-500 focus:ring-cBlue" data-modal-target="popup-modal{{ $loop->iteration }}" data-modal-toggle="popup-modal{{ $loop->iteration }}">
+                        <div class="mx-2 lg:h-[150px] lg:w-full px-3 py-6 flex bg-white rounded-3xl relative mb-4 shadow-lg md:max-w-full lg:items-center hover:bg-blue-200 duration-500 focus:ring-cBlue" data-modal-target="popup-modal{{ $loop->iteration }}" data-modal-toggle="popup-modal{{ $loop->iteration }}">
                             {{-- Section Kiri --}}
                             <div class="w-[70%]">
                                 <h2 class="text-xl">{{ $plan->name }}</h2>
