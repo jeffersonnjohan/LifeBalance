@@ -44,13 +44,13 @@
                         {{-- <div > --}}
                         <div
                             class="enrolled_element bg-white w-[95%] lg:w-full h-fit lg:h-[150px] place-content-center rounded-3xl lg:p-4 flex flex-row justify-between shadow-sm group duration-300 ease-out hover:bg-green-200 focus:ring-cGreen ">
-                            <div class="flex flex-row items-center w-[310px] ">
+                            <div class="flex flex-row items-center w-[310px] h-[100px]">
                                 <div class="h-[60px] w-[100px] lg:h-[60px] lg:w-[60px] m-2">
                                     <div class="rounded-full lg:rounded-3xl bg-cover justify-end items-center h-full w-[60px] border-2 border-cGreen"
                                         style="background-image: url('{{ '/storage/' . $diet->image }}')"></div>
                                 </div>
                                 <div class="lg:pl-2 lg:w-[235px] w-[325px]">
-                                    <h2 class="font-medium text-lg">{{ $diet->name }}</h2>
+                                    <h2 class="font-medium text-lg truncate">{{ $diet->name }}</h2>
                                     <h2 class="font-normal text-md text-cGreen"> @excerpt($diet->description)</h2>
                                 </div>
                             </div>
@@ -86,14 +86,14 @@
                         <input type="hidden" name="is_new" value="1">
                         {{-- <div class=""> --}}
                         <div
-                            class=" bg-white w-[95%] lg:w-full h-fit lg:h-[150px] place-content-center rounded-3xl lg:p-4 flex flex-row justify-between shadow-sm group duration-300 ease-out hover:bg-green-200 focus:ring-cGreen">
+                            class=" bg-white w-[95%] lg:w-full h-[100px] lg:h-[150px] place-content-center rounded-3xl lg:p-4 flex flex-row justify-between shadow-sm group duration-300 ease-out hover:bg-green-200 focus:ring-cGreen">
                             <div class="flex flex-row items-center w-[310px]">
                                 <div class="h-[60px] w-[100px] lg:h-[60px] lg:w-[60px] m-2">
                                     <div class="rounded-full lg:rounded-3xl bg-cover justify-end items-center  border-2 border-cGreen h-full w-[60px]"
                                         style="background-image: url('{{ '/storage/' . $plan->image }}')"></div>
                                 </div>
                                 <div class="lg:pl-2 lg:w-[235px] w-[325px]">
-                                    <h2 class="font-medium text-lg ">{{ $plan->name }}</h2>
+                                    <h2 class="font-medium text-lg truncate">{{ $plan->name }}</h2>
                                     <h2 class="font-normal text-md text-cGreen"> @excerpt($plan->description)</h2>
                                 </div>
                             </div>
