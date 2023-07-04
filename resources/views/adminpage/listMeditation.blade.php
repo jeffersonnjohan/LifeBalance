@@ -67,16 +67,19 @@
     </div>
 
     {{-- Meditation Plans List --}}
-    <div class="w-full lg:w-3/5 lg:pt-16 lg:overflow-scroll">
+    <div class="w-full lg:w-[70%] lg:grid lg:grid-cols-2 lg:pt-16 lg:overflow-y-scroll lg:justify-center lg:px-5 lg:h-fit">
         @foreach ($meditations as $meditation)
         {{-- Plan Card --}}
-        <div class="lg:h-fit h-fit flex items-center my-2 mx-2 p-5 relative bg-white rounded-3xl shadow-lg hover:bg-blue-200 duration-500 focus:ring-cBlue">
-            <div class="w-full h-fit text-md font-bold flex text-center content-center items-center justify-center">
-                {{ $meditation->name }}
-                <span class="material-symbols-outlined">
+        <div class="lg:h-[60px] lg:w-[390px] h-fit flex items-center my-2 mx-2 p-5 relative bg-white rounded-3xl shadow-lg hover:bg-blue-200 duration-500 focus:ring-cBlue">
+            <div class="w-full lg:w-[50%] lg:truncate lg:text-left lg:justify-start h-fit text-md font-bold flex text-center content-center items-center justify-center">
+                @excerpt($meditation->name)
+                <span class="material-symbols-outlined lg:invisible">
                     play_arrow
                 </span>
             </div>
+            <span class="material-symbols-outlined sm:invisible md:invisible lg:visible">
+                play_arrow
+            </span>
             <div class="h-fit w-fit flex gap-2 right-5 absolute">
                 <a class="" data-modal-target="popup-edit{{ $loop->iteration }}" data-modal-toggle="popup-edit{{ $loop->iteration }}">
                     <span class="material-symbols-outlined rounded-full p-2 scale-100 duration-300 ease-out bg-cBlue hover:bg-white hover:text-black text-white">
@@ -147,6 +150,6 @@
 <x-plus-button link="href=/admin/meditation/create" color="cBlue" group-hover="group-hover:text-cBlue"/>
 
 {{-- Blank Space --}}
-<div class="h-[75px] bg-transparent"></div>
+<div class="h-[100px] bg-transparent"></div>
 <x-navbar active="workout" admin="true"/>
 @endsection
