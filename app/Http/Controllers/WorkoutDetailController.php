@@ -102,11 +102,19 @@ class WorkoutDetailController extends Controller
                                         ->where('user_id', $id)
                                         ->get();
 
+        // dd();
+        // $kcalBurned = DB::table('workout_details')->whereIn('workout_day_id', $workout_days->pluck('id'))->sum('calories');
+        $temp = DB::table('workout_details')->whereIn('workout_day_id', $workout_days->pluck('id'));
+        $kcalBurned = $temp->sum('calories');
+        $totalPose = $temp->count();
+
         return view('workout_meditation.workoutDetails', [
             "workout_id" => $workout_id,
             "workout" => $workout,
             "workout_days"=> $workout_days,
-            'enrollment' => $enrollment
+            'enrollment' => $enrollment,
+            'kcalBurned' => $kcalBurned,
+            'totalPose' => $totalPose
         ]);
     }
 
