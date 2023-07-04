@@ -5,10 +5,10 @@
 @endsection
 
 @section('body')
-    <div class="w-full -mt-6 lg:fixed">
+    <div class="w-full -mt-6">
         {{-- Kotak Biru Atas --}}
         <div class="lg:w-full lg:flex lg:gap-2">
-            <div class="w-full h-[390px] p-10 pt-16 lg:pt-10 bg-cBlue rounded-b-[50px] lg:rounded-bl-[0px] lg:rounded-tr-[50px] lg:w-[30%] lg:h-[800px] lg:mt-16 lg:items-center">
+            <div class="w-full h-[390px] p-10 pt-16 lg:fixed lg:pt-10 bg-cBlue rounded-b-[50px] lg:rounded-bl-[0px] lg:rounded-tr-[50px] lg:w-[30%] lg:h-[800px] lg:mt-16 lg:items-center">
                 <h1 class="text-3xl text-white">Workout Yuk!</h1>
                 <h2>Categories</h2>
 
@@ -35,7 +35,7 @@
                     </a>
                 </div>
             </div>
-            <div class="items-center justify-center content-center lg:w-[70%] lg:p-10 lg:pt-32 lg:items-center lg:justify-center lg:content-center md:w-[70%] md:p-10 md:pt-32 md:items-center md:justify-center md:content-center h-[100vh]">
+            <div class="items-center justify-center content-center lg:w-[70%] lg:ml-[30%] lg:p-10 lg:pt-32 lg:items-center lg:justify-center lg:content-center md:w-[70%] md:p-10 md:pt-32 md:items-center md:justify-center md:content-center h-[100vh]">
                 @yield('content')
             </div>
         </div>

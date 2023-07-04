@@ -17,13 +17,13 @@
     {{-- <div class="p-2 w-full justify-center content-center h-[100vh]"> --}}
         <?php $unenroll_plans = array() ?>
         @if ($enrollments->toArray())
-        <h3 class="flex justify-center text-cBlue">Enrolled Plan</h3>
+        <h3 class="flex justify-center text-cBlue mt-4">Enrolled Plan</h3>
         @endif
 
-        <div class="lg:w-full lg:flex lg:flex-wrap lg:justify-start lg:gap-2 max-h-[100vh] lg:overflow-scroll">
+        <div class="lg:w-full lg:flex lg:flex-wrap lg:justify-start lg:gap-2 max-h-[100vh]">
             @forelse ($workouts as $workout)
                 @if (in_array(strval($workout->id), $enrollments->toArray()))
-                    <form action="/workoutdetails" method="POST"  class="enrolled_form lg:w-[48%] ">
+                    <form action="/workoutdetails" method="POST"  class="enrolled_form lg:w-[48%]">
                         @csrf
                         <input type="hidden" name="workout_id" value="{{ $workout->id }}">
                         {{-- Card Plan --}}

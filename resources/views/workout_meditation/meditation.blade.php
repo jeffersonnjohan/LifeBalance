@@ -22,9 +22,9 @@
             </div>
         </form>
 
-        <div class="p-2 w-full justify-center content-center overflow-scroll lg:overflow-scroll lg:max-h-[100%] h-[100vh]">
+        <div class="p-2 w-full justify-center content-center  lg:max-h-[100%] h-[100vh]">
             {{-- Card Meditation --}}
-            <div class="lg:w-full lg:flex lg:flex-wrap lg:justify-start lg:gap-2">
+            <div class="lg:w-full lg:grid lg:grid-cols-2 lg:justify-start lg:gap-2">
             @forelse ($meditations as $meditation)
                 <form action="/meditationDetails" method="POST" class="form">
                     @csrf
