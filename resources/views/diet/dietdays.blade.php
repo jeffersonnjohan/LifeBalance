@@ -34,7 +34,7 @@
                         style="background-image: url('{{ '/storage/' . $diet_days[0]->diet->image }}')"></div>
                     <div class="bg-cGreen lg:bottom-0 lg:fixed lg:w-[25%]">
                         <p class="p-2 text-lg font-normal text-center text-white ">
-                            {{ $diet_days[0]->diet->description }}
+                            {!! $diet_days[0]->diet->description !!}
                         </p>
                     </div>
                 </div>
@@ -114,7 +114,7 @@
                                 <h2 class="text-center text-cGreen font-bold text-md">{{ $total_kcal . ' Kcal Consumed' }}
                                 </h2>
                                 <p class="text-lg font-normal text-black p-2">
-                                    {{ $day->description }}
+                                    {!! $day->description !!}
                                 </p>
                                 {{-- Done --}}
                                 <div id="done" class="flex items-center justify-end">
