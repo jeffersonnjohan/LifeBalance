@@ -2,6 +2,7 @@
 
 @section('titleActive', 'Workout')
 @section('isWorkoutActive', 'activeCategory')
+@section('description', "Let's Workout!")
 
 @section('style')
     {{-- <style>
@@ -58,11 +59,11 @@
 
         <?php $idx = 0;?>
         @if ($enrollments->toArray() and $unenroll_plans)
-            <h3 class="flex justify-center mt-10 text-cBlue">Not Enrolled Plan</h3>
+            <h3 class="flex justify-center mt-4 text-cBlue">Not Enrolled Plan</h3>
         @endif
 
         @if ( $unenroll_plans )
-            <div class="lg:w-full lg:flex lg:flex-wrap lg:justify-start lg:gap-2 max-h-[100vh] lg:overflow-scroll">
+            <div class="lg:w-full lg:flex lg:flex-wrap lg:justify-start lg:gap-2 max-h-[100vh] lg:overflow-auto">
                 @foreach ($unenroll_plans as $plan)
                     <form action="/workoutdetails" method="POST"  class="unenrolled_form lg:w-[48%] ">
                         @csrf

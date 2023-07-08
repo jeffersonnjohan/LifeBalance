@@ -11,7 +11,7 @@
 @endsection
 
 @section('body')
-    <div class="bg-cLightGrey h-full w-full mb-28">
+    <div class="bg-cLightGrey h-full w-full mb-28 lg:mb-4">
         <div class="bg-cGreen h-fit rounded-b-[50px] lg:rounded-b-[100px]">
             <h1 class="text-white text-3xl font-normal text-left p-6 pt-16 lg:text-center lg:text-4xl">Jaga Pola Makan Anda
                 dari Dini!</h1>
@@ -73,7 +73,7 @@
 
         <?php $idx = 0; ?>
         @if ($enrollments->toArray() and $unenroll_plans)
-            <h3 class="flex justify-center mt-10 text-cGreen">Not Enrolled Plan</h3>
+            <h3 class="flex justify-center mt-4 text-cGreen">Not Enrolled Plan</h3>
         @endif
         @if ($unenroll_plans)
             <div class="lg:grid lg:grid-cols-3 lg:w-full lg:px-4 ">

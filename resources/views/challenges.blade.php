@@ -11,7 +11,7 @@
 @endsection
 
 @section('body')
-    <div class="bg-cLightGrey h-full w-full mb-28">
+    <div class="bg-cLightGrey h-full w-full mb-28 lg:mb-4"">
         <div class="bg-cOrange h-fit rounded-b-[50px] lg:rounded-b-[100px] mb-2">
             <h1 class="text-white text-3xl font-n'id'ormal text-left pt-12 pb-12 pl-10 pr-10 lg:text-center">Ayo Ikuti Challenge
             <br> Dan Dapatkan Keuntungan Pointnya!</h1>

@@ -127,6 +127,6 @@
 <x-plus-button link="href=/admin/diet/create" color="cGreen" group-hover="group-hover:text-cGreen"/>
 
 {{-- Blank Space --}}
-<div class="h-[75px] bg-transparent"></div>
+<div class="h-[100px] bg-transparent lg:hidden"></div>
 <x-navbar active="diet" admin="true"/>
 @endsection

@@ -126,6 +126,6 @@
 <x-plus-button link="href=/admin/challenges/add" color="cOrange" group-hover="group-hover:text-cOrange" modal=""/>
 
 {{-- Blank Space --}}
-<div class="h-[75px] bg-transparent"></div>
+<div class="h-[100px] bg-transparent lg:hidden"></div>
 <x-navbar active="challenge" admin="true"/>
 @endsection
