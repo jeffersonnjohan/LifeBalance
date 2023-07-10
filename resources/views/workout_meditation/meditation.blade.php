@@ -25,7 +25,7 @@
             </form>
 
             {{-- Card Meditation --}}
-            <div class="lg:w-full lg:grid lg:grid-cols-2 lg:justify-start lg:gap-2">
+            <div class="lg:w-full hover:cursor-pointer lg:grid lg:grid-cols-2 lg:justify-start lg:gap-2">
             @forelse ($meditations as $meditation)
                 <form action="/meditationDetails" method="POST" class="form">
                     @csrf

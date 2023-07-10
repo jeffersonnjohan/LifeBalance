@@ -43,7 +43,7 @@
                         <input type="hidden" name="diet_id" value="{{ $diet->id }} ">
                         {{-- <div > --}}
                         <div
-                            class="enrolled_element bg-white w-[95%] lg:w-full h-fit lg:h-[150px] place-content-center rounded-3xl lg:p-4 flex flex-row justify-between shadow-sm group duration-300 ease-out hover:bg-green-200 focus:ring-cGreen ">
+                            class="enrolled_element hover:cursor-pointer bg-white w-[95%] lg:w-full h-fit lg:h-[150px] place-content-center rounded-3xl lg:p-4 flex flex-row justify-between shadow-sm group duration-300 ease-out hover:bg-green-200 focus:ring-cGreen ">
                             <div class="flex flex-row items-center w-[310px] h-[100px]">
                                 <div class="h-[60px] w-[100px] lg:h-[60px] lg:w-[60px] m-2">
                                     <div class="rounded-full lg:rounded-3xl bg-cover justify-end items-center h-full w-[60px] border-2 border-cGreen"
@@ -86,7 +86,7 @@
                         <input type="hidden" name="is_new" value="1">
                         {{-- <div class=""> --}}
                         <div
-                            class=" bg-white w-[95%] lg:w-full h-[100px] lg:h-[150px] place-content-center rounded-3xl lg:p-4 flex flex-row justify-between shadow-sm group duration-300 ease-out hover:bg-green-200 focus:ring-cGreen">
+                            class=" bg-white w-[95%] hover:cursor-pointer lg:w-full h-[100px] lg:h-[150px] place-content-center rounded-3xl lg:p-4 flex flex-row justify-between shadow-sm group duration-300 ease-out hover:bg-green-200 focus:ring-cGreen">
                             <div class="flex flex-row items-center w-[310px]">
                                 <div class="h-[60px] w-[100px] lg:h-[60px] lg:w-[60px] m-2">
                                     <div class="rounded-full lg:rounded-3xl bg-cover justify-end items-center  border-2 border-cGreen h-full w-[60px]"

@@ -130,7 +130,7 @@
 
             {{-- On Going Plan --}}
             @foreach($unfinishedWorkoutPlans as $unfinishedWorkoutPlan)
-            <ul role="contentinfo" class="ul-workout py-3">
+            <ul role="contentinfo" class="ul-workout py-3 hover:cursor-pointer">
                 <form action="/workoutdetails" method="POST"  class="continue_workout flex items-center h-fit p-5 bg-white rounded-3xl shadow-lg hover:bg-pink-200 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 duration-500">
                     @csrf
                     <input type="hidden" name="workout_id" value="{{ $unfinishedWorkoutPlan->workout->id }}">
@@ -146,7 +146,7 @@
             </ul>
             @endforeach
             @foreach($unfinishedDietPlans as $unfinishedDietPlan)
-            <ul role="contentinfo" class="ul-diet py-3">
+            <ul role="contentinfo" class="ul-diet py-3 hover:cursor-pointer">
                 <form action="/dietDays" method="POST"  class="continue_diet flex items-center h-fit p-5 bg-white rounded-3xl shadow-lg hover:bg-pink-200 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 duration-500">
                     @csrf
                     <input type="hidden" name="diet_id" value="{{ $unfinishedDietPlan->diet->id }}">
