@@ -63,7 +63,7 @@
                 </button>
             </div>
             @else
-            <div id="done" class="flex items-center justify-end pb-24 mr-4">
+            <div id="done" class="flex items-center justify-end pb-24 lg:pb-4 mr-4">
                 <button type="submit" class="w-40 h-fit py-2 px-5  rounded-full bg-cBlue text-white border-2 hover:bg-white hover:border-cBlue hover:text-cBlue duration-300 ease-out cursor-pointer text-center text-2xl">
                     DONE
                 </button>

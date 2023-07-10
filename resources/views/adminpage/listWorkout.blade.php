@@ -44,7 +44,7 @@
     <div class="w-full h-full lg:flex">
         <div class="w-full lg:w-[30%] lg:h-full">
             <div class="lg:w-full lg:flex lg:gap-2 lg:fixed lg:h-full">
-                <div class="w-full h-[300px] p-10 mb-2 pt-16 bg-cBlue rounded-b-[50px] lg:rounded-bl-[0px] lg:rounded-tr-[50px] lg:w-[30%] lg:h-[90%] lg:mt-16 lg:items-center">
+                <div class="w-full h-[300px] p-10 mb-2 pt-16 bg-cBlue rounded-b-[50px] lg:rounded-b-[0px] lg:rounded-tr-[50px] lg:w-[30%] lg:h-[90%] lg:mt-16 lg:items-center">
                     {{-- Category Container --}}
                     <div class="h-[160px] flex mt-5 lg:w-full lg:flex-col lg:h-full lg:gap-5 lg:px-5 gap-8 lg:mt-0">
                         {{-- Class selected --}}
@@ -156,6 +156,6 @@
     <x-plus-button link="href=/admin/workout/create" color="cBlue" group-hover="group-hover:text-cBlue"/>
 
     {{-- Blank Space --}}
-    <div class="h-[100px] bg-transparent"></div>
+    <div class="h-[100px] bg-transparent lg:hidden"></div>
     <x-navbar active="workout" admin="true"/>
 @endsection

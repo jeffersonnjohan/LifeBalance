@@ -150,6 +150,6 @@
 <x-plus-button link="href=/admin/meditation/create" color="cBlue" group-hover="group-hover:text-cBlue"/>
 
 {{-- Blank Space --}}
-<div class="h-[100px] bg-transparent"></div>
+<div class="h-[100px] bg-transparent lg:hidden"></div>
 <x-navbar active="workout" admin="true"/>
 @endsection

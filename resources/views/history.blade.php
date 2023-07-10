@@ -16,7 +16,7 @@
 
         {{-- Bar --}}
         <?php $temp = array(); ?>
-        <div class="lg:flex w-full h-screen">
+        <div class="lg:flex w-full lg:h-screen">
         <div class="text-white mt-16 bg-cRed lg:rounded-l-[0px] lg:rounded-tr-[50px] p-2 lg:w-1/3 ">
                 <h2 class="m-2 pb-0 text-lg">Unfinished Plan!</h2>
                 <div class="lg:overflow-auto lg:h-[90%] ">

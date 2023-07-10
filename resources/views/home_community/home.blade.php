@@ -130,8 +130,10 @@
 
             {{-- On Going Plan --}}
             @foreach($unfinishedWorkoutPlans as $unfinishedWorkoutPlan)
-            <ul role="contentinfo" class="py-3">
-                <a href="#" class="flex items-center h-fit p-5 bg-white rounded-3xl shadow-lg hover:bg-pink-200 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 duration-500">
+            <ul role="contentinfo" class="ul-workout py-3">
+                <form action="/workoutdetails" method="POST"  class="continue_workout flex items-center h-fit p-5 bg-white rounded-3xl shadow-lg hover:bg-pink-200 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 duration-500">
+                    @csrf
+                    <input type="hidden" name="workout_id" value="{{ $unfinishedWorkoutPlan->workout->id }}">
                     <img class="object-cover w-[100px] h-[100px]" src="{{ '/storage/'.$unfinishedWorkoutPlan->workout->image }}" alt="">
                     <div class="flex flex-col justify-between p-3 gap-1">
                         <p class="font-normal text-sm text-cRed dark:text-gray-400 hover:text-white">Continue your plan.</p>
@@ -140,12 +142,14 @@
                             <div class="bg-cRed text-xs text-transparent text-white text-center rounded-full leading-none" style="width:{{ $unfinishedWorkoutPlan->workout->day_count!=0? round($unfinishedWorkoutPlan->finished_day/$unfinishedWorkoutPlan->workout->day_count*100, 2) : 0}}%">{{ $unfinishedWorkoutPlan->workout->day_count!=0? round($unfinishedWorkoutPlan->finished_day/$unfinishedWorkoutPlan->workout->day_count*100, 2) : 0}}%</div>
                         </div>
                     </div>
-                </a>
+                </form>
             </ul>
             @endforeach
             @foreach($unfinishedDietPlans as $unfinishedDietPlan)
-            <ul role="contentinfo" class="py-3">
-                <a href="#" class="flex items-center h-fit p-5 bg-white rounded-3xl shadow-lg hover:bg-pink-200 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 duration-500">
+            <ul role="contentinfo" class="ul-diet py-3">
+                <form action="/dietDays" method="POST"  class="continue_diet flex items-center h-fit p-5 bg-white rounded-3xl shadow-lg hover:bg-pink-200 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 duration-500">
+                    @csrf
+                    <input type="hidden" name="diet_id" value="{{ $unfinishedDietPlan->diet->id }}">
                     <img class="object-cover w-[100px] h-[100px]" src="{{ '/storage/'.$unfinishedDietPlan->diet->image }}" alt="">
                     <div class="flex flex-col justify-between p-3 gap-1">
                         <p class="font-normal text-sm text-cRed dark:text-gray-400 hover:text-white">Continue your plan.</p>
@@ -154,7 +158,7 @@
                             <div class="bg-cRed text-xs text-transparent text-white text-center rounded-full leading-none" style="width:{{ $unfinishedDietPlan->diet->day_count!=0? round($unfinishedDietPlan->finished_day/$unfinishedDietPlan->diet->day_count*100, 2) : 0}}%">{{ $unfinishedDietPlan->diet->day_count!=0? round($unfinishedDietPlan->finished_day/$unfinishedDietPlan->diet->day_count*100, 2) : 0}}%</div>
                         </div>
                     </div>
-                </a>
+                </form>
             </ul>
             @endforeach
 
@@ -343,4 +347,22 @@
 </div>
 <x-plus-button link="" color="cRed" group-hover="group-hover:text-cRed"/>
 <x-navbar active="home" admin="false"/>
+@endsection
+
+@section('scripts')
+<script>
+    var form1 = document.getElementsByClassName ("continue_workout");
+    var form2 = document.getElementsByClassName ("continue_diet");
+
+    for(let i = 0; i < form1.length; i++){
+        document.getElementsByClassName("ul-workout")[i].addEventListener("click", function () {
+            form1[i].submit();
+        });
+    }
+    for(let i = 0; i < form2.length; i++){
+        document.getElementsByClassName("ul-diet")[i].addEventListener("click", function () {
+            form2[i].submit();
+        });
+    }
+</script>
 @endsection

@@ -9,7 +9,7 @@
         {{-- Kotak Biru Atas --}}
         <div class="lg:w-full lg:flex lg:gap-2">
             <div class="w-full h-[390px] p-10 pt-16 lg:fixed lg:pt-10 bg-cBlue rounded-b-[50px] lg:rounded-bl-[0px] lg:rounded-tr-[50px] lg:w-[30%] lg:h-[800px] lg:mt-16 lg:items-center">
-                <h1 class="text-3xl text-white">Workout Yuk!</h1>
+                <h1 class="text-3xl text-white">@yield('description')</h1>
                 <h2>Categories</h2>
 
                 {{-- Category Container --}}
@@ -21,7 +21,7 @@
                             {{-- Image Atas --}}
                             <div class="h-[65%] w-full bg-cover lg:h-[75%] md:h-[75%]" style="background-image: url('/assets/olahragaCategory.png')">
                             </div>
-                            <p class="text-center text-white mt-3">Olahraga</p>
+                            <p class="text-center text-white mt-3">Workouts</p>
                         </div>
                     </a>
                     {{-- Category Satuan --}}
@@ -30,14 +30,16 @@
                             {{-- Image Atas --}}
                             <div class="h-[65%] w-full bg-cover lg:h-[75%] md:h-[75%]" style="background-image: url('/assets/meditasiCategory.png')">
                             </div>
-                            <p class="text-center text-white mt-3">Meditasi</p>
+                            <p class="text-center text-white mt-3">Meditations</p>
                         </div>
                     </a>
                 </div>
             </div>
-            <div class="items-center justify-center content-center lg:w-[70%] lg:ml-[30%] lg:p-10 lg:pt-32 lg:items-center lg:justify-center lg:content-center md:w-[70%] md:p-10 md:pt-32 md:items-center md:justify-center md:content-center h-[100vh]">
+            <div class="items-center justify-center content-center lg:w-[70%] lg:ml-[30%] lg:p-10 lg:pt-16 lg:items-center lg:justify-center lg:content-center md:w-[70%] md:p-10 md:pt-32 md:items-center md:justify-center md:content-center">
                 @yield('content')
             </div>
+            {{-- Blank Space --}}
+            <div class="h-[100px] bg-transparent lg:hidden"></div>
         </div>
         <x-navbar active="workout" admin="false"/>
     </div>
