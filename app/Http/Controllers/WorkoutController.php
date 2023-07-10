@@ -135,9 +135,8 @@ class WorkoutController extends Controller
      */
     public function edit(Request $request)
     {
-        $workout = Workout::find($request->workoutEditID)->load(['workout_day']);
-
-        // dd($workout->image);
+        // Eager loading relation workout_day, so n+1 problem is handled
+        $workout = Workout::find($request->workoutEditID)->load(['workout_day.workout_detail']);
 
         $workoutExercises = [];
         for($i = 0; $i < count($workout->workout_day); $i++){
