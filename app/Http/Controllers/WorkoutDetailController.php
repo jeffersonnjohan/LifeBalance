@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\WorkoutDetail;
 use App\Http\Requests\StoreWorkoutDetailRequest;
 use App\Http\Requests\UpdateWorkoutDetailRequest;
+use App\Models\EnrollmentDiet;
 use App\Models\EnrollmentWorkout;
 use App\Models\User;
 use App\Models\Workout;
@@ -25,13 +26,15 @@ class WorkoutDetailController extends Controller
         $id = Auth::user()->id;
         $workout_id = $request->post('workout_id');
         if($request->post('new_plan')){
-            $data = array(
-                'user_id' => $id,
-                'workout_id' => $workout_id,
-                'created_at' => Carbon::now('GMT+7'),
-                'updated_at' => Carbon::now('GMT+7')
-            );
-            EnrollmentWorkout::insert($data);
+            if(count(EnrollmentWorkout::where('user_id' , $id)->where('workout_id', $workout_id)->get()) == 0){
+                $data = array(
+                    'user_id' => $id,
+                    'workout_id' => $workout_id,
+                    'created_at' => Carbon::now('GMT+7'),
+                    'updated_at' => Carbon::now('GMT+7')
+                );
+                EnrollmentWorkout::insert($data);
+            }
         }
 
         // workoutDetails data

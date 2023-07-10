@@ -27,13 +27,15 @@ class DietDayController extends Controller
         $id = Auth::user()->id;
         $diet_id = $request->post('diet_id');
         if($request->post('is_new')){
-            $data = array(
-                'user_id' => $id,
-                'diet_id' => $diet_id,
-                'created_at' => Carbon::now('GMT+7'),
-                'updated_at' => Carbon::now('GMT+7')
-            );
-            EnrollmentDiet::insert($data);
+            if(count(EnrollmentDiet::where('user_id' , $id)->where('diet_id', $diet_id)->get()) == 0){
+                $data = array(
+                    'user_id' => $id,
+                    'diet_id' => $diet_id,
+                    'created_at' => Carbon::now('GMT+7'),
+                    'updated_at' => Carbon::now('GMT+7')
+                );
+                EnrollmentDiet::insert($data);
+            }
         }
 
         $diet_days = DietDay::where('diet_days.diet_id', '=', $diet_id)->get();
