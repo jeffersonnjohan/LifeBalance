@@ -5,7 +5,7 @@
 @section('toptitle', 'Profile')
 
 @section('name')
-    Hi, {{ $userdata['username'] }}
+    {{ $userdata['username'] }}
 @endsection
 
 @section('userdata')

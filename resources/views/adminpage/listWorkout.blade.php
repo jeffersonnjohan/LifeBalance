@@ -75,7 +75,7 @@
             @foreach ($workouts as $workout)
                 <div class="gap-2 lg:h-fit py-8 px-8 flex justify-between items-center w-full h-[150px] bg-white rounded-3xl shadow-lg hover:bg-blue-200 duration-500 focus:ring-cBlue">
                     {{-- Card Plan --}}
-                    <div class="w-[50%]">
+                    <div class="w-[60%]">
                         <h2 class="font-semibold text-lg truncate">{{ $workout->name }}</h2>
                         <p class="text-sm truncate"> @excerpt($workout->description)</p>
                         {{-- <p class="text-sm">{{ $workout->description }}</p> --}}

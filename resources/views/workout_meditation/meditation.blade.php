@@ -29,7 +29,7 @@
             @forelse ($meditations as $meditation)
                 <form action="/meditationDetails" method="POST" class="form">
                     @csrf
-                    <div class="btn max-w-sm lg:w-[390px] md:max-w-full text-center py-5 flex bg-white rounded-3xl relative mb-4 shadow-lg hover:bg-blue-200 duration-500 focus:ring-cBlue">
+                    <div class="btn lg:w-[390px] md:max-w-full text-center py-5 flex bg-white rounded-3xl relative mb-4 shadow-lg hover:bg-blue-200 duration-500 focus:ring-cBlue">
                         <h2 class="w-full text-md font-bold flex justify-center">
                             {{ $meditation->name }}
                             <span class="material-symbols-outlined">

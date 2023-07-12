@@ -45,7 +45,7 @@
                                 <h2 class="text-xl mb-3">{{ $i++ . '. ' . $detail->workout_activity->name }}</h2>
                                 <p class="text-sm text-cBlue mt-2">{{ 'Kcal burn: ' . $detail->calories }}</p>
                                 <p class="text-sm text-cBlue mt-2">{{ 'Repetition: ' . $detail->repetition . 'x'}}</p>
-                                <p class="text-sm text-cBlue mt-2">{{ 'Durations: ' . $detail->duration . 'seconds'}}</p>
+                                <p class="text-sm text-cBlue mt-2">{{ 'Durations: ' . $detail->duration . ' seconds'}}</p>
                             </div>
                         </div>
                     </div>
