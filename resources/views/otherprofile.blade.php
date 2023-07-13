@@ -5,5 +5,5 @@
 @section('toptitle', 'Other Profile')
 
 @section('name')
-    Hi, {{ $userdata['username'] }}
+    {{ $userdata['username'] }}
 @endsection
