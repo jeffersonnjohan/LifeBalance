@@ -1,66 +1,115 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+# LifeBalance
+LifeBalance is a wellness  website that combines personalized workout plans, diet guidance, soothing meditation soundtracks, and gamified quests to motivate users in their pursuit of a balanced and healthy lifestyle. With tailored exercise routines for all fitness levels, the website helps users reach their fitness goals, while providing customized meal suggestions and nutritional information for a nourishing diet. Additionally, the app offers a collection of calming meditation soundtracks to promote relaxation and mindfulness. The inclusion of quests and challenges gamifies the wellness journey, offering rewards, achievements, and levels of progression, creating a sense of accomplishment and motivation. LifeBalance is designed to be a trusted companion, supporting users in their holistic well-being and personal growth.
+
+### Goals
+ -  Help users maintain a balanced and healthy lifestyle 
+ -  Offer customized diet plans to promote healthy eating habits and support nutritional needs.
+ -  Provide soothing meditation soundtracks to facilitate relaxation, reduce stress, and enhance mindfulness.
+ -  Incorporate gamified quests and challenges to motivate users and foster a sense of accomplishment.
+ -  User-friendly interface that facilitates easy navigation and seamless user experience.
+
+
+# Documentations
+...
+
+# Website Demonstration 📺
+...
+
+# Features & Tech ⚙️
+- Laravel
+- Tailwind CSS
+- MySQL
+- JavaScript
+- VsCode
+  
+# Clone & Run Laravel Project 📦
+(Make sure your device have <a href="https://nodejs.org/en/download">npm</a> and <a href="https://getcomposer.org/download/">composer</a> installed)
+
+### Clone Project
+In a terminal:
+- Clone the repository 
+```sh
+    git clone https://github.com/Chrystalia/LifeBalance.git
+```
+
+- Redirect to cloned folder  
+```sh
+    cd .\LifeBalance\
+```
+
+- Install composer 
+```sh
+    composer install
+```
+
+- Install tailwindcss and its peer dependencies via npm 
+```sh
+    npm install -D tailwindcss postcss autoprefixer
+```
+
+- Run build process  
+```sh
+    npm run dev
+```
+
+Open a new terminal (make sure you're in the right directory):
+- Make copy of env.example into .env 
+```sh
+    copy .env.example .env
+```
+
+- Generate the APP_KEY value in your .env file 
+```sh
+    php artisan key:generate
+```
+
+### To use the sociallite feature:
+In the terminal, type
+- Use the Composer package manager to add the package to your project's dependencies
+```sh
+    composer require laravel/socialite
+```
+
+- check the credentials for the OAuth providers, placed in your application's [`config/services.php`]. If the configuration is not present, please enter the necessary details.
+```sh
+    'github' => [
+    'client_id' => env('GITHUB_CLIENT_ID'),
+    'client_secret' => env('GITHUB_CLIENT_SECRET'),
+    'redirect' => 'http://example.com/callback-url',
+],
+```
+
+- Placed on your [`.env`] file
+```sh
+    GITHUB_CLIENT_ID=Iv1.87af03adaf87ba61
+    GITHUB_CLIENT_SECRET=a3c735c0e4d6e4e442916ad9e2e1b0f4467838e3
+```
+
+### Running the app
+- Run application on a PHP development server
+```sh
+    php artisan serve
+```
+
+- To access the website, type on your browser:
+```sh
+    http://localhost:8000
+```
+# Reference 🔗
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript
+- https://dev.mysql.com/doc/
+- https://laravel.com/docs/10.x/readme
+- https://nodejs.org/en/download
+- https://phoenixnap.com/kb/install-node-js-npm-on-windows
+- https://tailwindcss.com/docs/guides/laravel
+
+
+<p align='center'>
+  <b>Follow us here 🌿</b><br>  
+  <a href="https://github.com/Chrystalia">Chrystalia</a> |
+  <a href="https://github.com/danielzergew">danielzergew</a> |
+  <a href="https://github.com/nadyaclrp">nadyaclrp</a><br><br>
+  Don't forget to leave a star if you find this repository helpful ⭐
 </p>
-
-## About Laravel
-
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
-
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
-
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
-
-## Learning Laravel
-
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
-
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
-
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+ 
