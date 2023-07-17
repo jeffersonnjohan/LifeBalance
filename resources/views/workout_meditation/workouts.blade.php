@@ -28,7 +28,7 @@
                         @csrf
                         <input type="hidden" name="workout_id" value="{{ $workout->id }}">
                         {{-- Card Plan --}}
-                        <div class="enrolled_element hover:cursor-pointer lg:h-[150px] lg:w-full mx-2 px-3 py-6 flex bg-white rounded-3xl relative mb-4 shadow-lg lg:items-center md:max-w-full hover:bg-blue-200 duration-500 focus:ring-cBlue">
+                        <div class="pt-2 enrolled_element hover:cursor-pointer lg:h-[150px] lg:w-full mx-2 px-3 py-6 flex bg-white rounded-3xl relative mb-4 shadow-lg lg:items-center md:max-w-full hover:bg-blue-200 duration-500 focus:ring-cBlue">
                             {{-- Section Kiri --}}
                             <div class="w-[70%]">
                                 <h2 class="text-xl">{{ $workout->name }}</h2>
@@ -63,7 +63,7 @@
         @endif
 
         @if ( $unenroll_plans )
-            <div class="lg:w-full lg:flex lg:flex-wrap lg:justify-start lg:gap-2 max-h-[100vh] lg:overflow-auto">
+            <div class="pt-4 lg:w-full lg:flex lg:flex-wrap lg:justify-start lg:gap-2 max-h-[100vh] lg:overflow-auto">
                 @foreach ($unenroll_plans as $plan)
                     <form action="/workoutdetails" method="POST"  class="unenrolled_form lg:w-[48%]">
                         @csrf
