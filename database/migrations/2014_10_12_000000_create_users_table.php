@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('password')->nullable();
             $table->date('dob');
             $table->text('address')->nullable();
-            $table->string('image')->default('images/profile');
+            $table->string('image')->default('profile-images-default/profile.png');
             $table->float('weight');
             $table->integer('height');
             $table->integer('points')->default(0);

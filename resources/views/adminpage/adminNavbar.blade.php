@@ -23,20 +23,16 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 <script>
-    console.log('ini dari navbar')
     x = 1
-    console.log(x)
     function navbarpopup() {
         if (x == 0) {
             x = 1
-            console.log(x)
             $(document).ready(function() {
                 $("#arrow").addClass("rotate-180")
                 $("#navbar").removeClass("lg:translate-x-[50px]")
             });
         } else {
             x = 0
-            console.log(x)
             $(document).ready(function() {
                 $("#arrow").removeClass("rotate-180")
                 $("#navbar").addClass("lg:translate-x-[50px]")
