@@ -95,7 +95,7 @@ LifeBalance is a wellness  website that combines personalized **workout** plans,
 In a terminal:
 - Clone the repository 
 ```sh
-    git clone https://github.com/Chrystalia/LifeBalance.git
+    git clone https://github.com/jeffersonnjohan/LifeBalance.git
 ```
 
 - Redirect to cloned folder  
