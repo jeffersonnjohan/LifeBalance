@@ -44,7 +44,7 @@
 
 <div class="w-full h-fit lg:px-3 px-2 pb-2">
     <div class="max-w-screen-xl px-4 py-3 h-20"></div>
-    <div class="text-center font-bold text-xl md:text-3xl lg:text-3xl">Good Morning, {{$name}}!</div>
+    <div class="text-center font-bold text-xl md:text-3xl lg:text-3xl">Welcome, {{$name}}!</div>
     <div class="max-w-screen-xl px-4 py-2"></div>
 
     <div class="lg:flex md:flex lg:gap-2 md:gap-2 lg:h-[88%] lg:w-full lg:fixed md:h-[90%] md:w-full md:fixed">
