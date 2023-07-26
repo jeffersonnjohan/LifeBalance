@@ -37,11 +37,11 @@
 
                     {{-- Audio Controls --}}
                     {{-- Time --}}
-                    <div class="mb-3 hidden lg:my-auto lg:flex lg:pr-2" id="timeIndicator">
+                    {{-- <div class="mb-3 hidden lg:my-auto lg:flex lg:pr-2" id="timeIndicator">
                         <span id="progressDuration">00:00</span>
                         <span>/</span>
                         <span id="totalDuration"></span>
-                    </div>
+                    </div> --}}
                     {{-- Sliding Bar --}}
                     <input type="range" id="seek-bar" value="0" class="w-[300px] mb-4 lg:my-auto
                     {{-- lg:hidden --}}
@@ -103,8 +103,8 @@
         // var forwardButton = document.getElementById("forward");
 
         // Duration
-        var progressDuration = document.getElementById("progressDuration");
-        var totalDuration = document.getElementById("totalDuration");
+        // var progressDuration = document.getElementById("progressDuration");
+        // var totalDuration = document.getElementById("totalDuration");
 
         // Function Puase to Play
         function pauseToPlay() {
@@ -129,17 +129,17 @@
             audio.currentTime = time;
         }
 
-        function format_number(num) {
-            return ("0" + num).slice(-2);
-        }
+        // function format_number(num) {
+        //     return ("0" + num).slice(-2);
+        // }
 
-        function convertTime(seconds) {
-            var minutes = Math.floor(seconds / 60);
-            var remainingSeconds = seconds % 60;
+        // function convertTime(seconds) {
+        //     var minutes = Math.floor(seconds / 60);
+        //     var remainingSeconds = seconds % 60;
 
-            var formattedTime = ("0" + minutes).slice(-2) + ":" + ("0" + remainingSeconds).slice(-2);
-            return formattedTime;
-        }
+        //     var formattedTime = ("0" + minutes).slice(-2) + ":" + ("0" + remainingSeconds).slice(-2);
+        //     return formattedTime;
+        // }
 
         window.onload = function() {
             // Load audio Duration
@@ -147,8 +147,8 @@
             audio.addEventListener('loadedmetadata', function() {
                 // var totalDuration = audio.duration;
                 // console.log(totalDuration);
-                document.getElementById('timeIndicator').classList.remove('hidden')
-                totalDuration.innerHTML = convertTime(audio.duration)
+                // document.getElementById('timeIndicator').classList.remove('hidden')
+                // totalDuration.innerHTML = convertTime(audio.duration)
             });
 
             // Event listener for the play button
@@ -174,8 +174,8 @@
                 // Update the slider value
                 seekBar.value = value;
 
-                progressDuration.innerHTML = format_number(Math.floor(audio.currentTime / 60)) + ':' +
-                    format_number(Math.floor(audio.currentTime % 60))
+                // progressDuration.innerHTML = format_number(Math.floor(audio.currentTime / 60)) + ':' +
+                //     format_number(Math.floor(audio.currentTime % 60))
             });
 
             // Pause the audio when the slider handle is being dragged

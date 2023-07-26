@@ -48,22 +48,22 @@
 
                 {{-- Video Controls --}}
                 {{-- Time --}}
-                <div class="mt-4 mb-1">
+                {{-- <div class="mt-4 mb-1">
                     <span id="progressDuration">00:00</span>
                     <span>/</span>
                     <span id="totalDuration"></span>
-                </div>
+                </div> --}}
                 {{-- Sliding Bar --}}
-                <input type="range" id="seek-bar" value="0" class="w-full mb-4">
+                <input type="range" id="seek-bar" value="0" class="w-full mb-4 mt-6" disabled>
 
                 <div class="flex w-full justify-center">
 
                     {{-- Button << --}}
-                    <button type="button" id="rewind" class="block">
+                    {{-- <button type="button" id="rewind" class="block">
                         <span class="material-symbols-outlined">
                             fast_rewind
                         </span>
-                    </button>
+                    </button> --}}
 
                     {{-- Button Play --}}
                     <button type="button" id="play" class="block mx-4 bg-black text-white w-[40px] aspect-[5/4] rounded-full">
@@ -79,11 +79,11 @@
                         </span>
                     </button>
                     {{-- Button >> --}}
-                    <button type="button" id="forward" class="block">
+                    {{-- <button type="button" id="forward" class="block">
                         <span class="material-symbols-outlined">
                             fast_forward
                             </span>
-                    </button>
+                    </button> --}}
                 </div>
             </div>
         </div>
@@ -115,8 +115,8 @@
         var seekBar = document.getElementById("seek-bar");
 
         // Rewind & Forward
-        var rewindButton = document.getElementById("rewind");
-        var forwardButton = document.getElementById("forward");
+        // var rewindButton = document.getElementById("rewind");
+        // var forwardButton = document.getElementById("forward");
 
         // Duration
         var progressDuration = document.getElementById("progressDuration");
@@ -137,21 +137,21 @@
             playButton.classList.remove('hidden')
         }
 
-        function fast_rewind(n){
-            // Calculate the new time
-            var time = video.duration * (seekBar.value / 100) + n;
+        // function fast_rewind(n){
+        //     // Calculate the new time
+        //     var time = video.duration * (seekBar.value / 100) + n;
 
-            // Update the video time
-            video.currentTime = time;
-        }
+        //     // Update the video time
+        //     video.currentTime = time;
+        // }
 
-        function format_number(num){
-            return ("0" + num).slice(-2);
-        }
+        // function format_number(num){
+        //     return ("0" + num).slice(-2);
+        // }
 
         window.onload = function() {
             // Load Video Duration
-            totalDuration.innerHTML = format_number(Math.floor(video.duration/60)) + ':' + format_number(Math.floor(video.duration%60))
+            // totalDuration.innerHTML = format_number(Math.floor(video.duration/60)) + ':' + format_number(Math.floor(video.duration%60))
 
             // Event listener for the play button
             playButton.addEventListener("click", pauseToPlay);
@@ -160,13 +160,13 @@
             pauseButton.addEventListener("click", playToPause);
 
             // Event listener for the seek bar
-            seekBar.addEventListener("change", function() {
-                // Calculate the new time
-                var time = video.duration * (seekBar.value / 100);
+            // seekBar.addEventListener("change", function() {
+            //     // Calculate the new time
+            //     var time = video.duration * (seekBar.value / 100);
 
-                // Update the video time
-                video.currentTime = time;
-            });
+            //     // Update the video time
+            //     video.currentTime = time;
+            // });
 
             // Update the seek bar as the video plays
             video.addEventListener("timeupdate", function() {
@@ -176,27 +176,27 @@
                 // Update the slider value
                 seekBar.value = value;
 
-                progressDuration.innerHTML = format_number(Math.floor(video.currentTime/60)) + ':' + format_number(Math.floor(video.currentTime%60))
+                // progressDuration.innerHTML = format_number(Math.floor(video.currentTime/60)) + ':' + format_number(Math.floor(video.currentTime%60))
             });
 
             // Pause the video when the slider handle is being dragged
-            seekBar.addEventListener("mousedown", function() {
-                video.pause();
-            });
+            // seekBar.addEventListener("mousedown", function() {
+            //     video.pause();
+            // });
 
             // Play the video when the slider handle is dropped
-            seekBar.addEventListener("mouseup", function() {
-                video.play();
-            });
+            // seekBar.addEventListener("mouseup", function() {
+            //     video.play();
+            // });
 
             // Event listener for the forward and rewind bar
-            forwardButton.addEventListener("click", function(){
-                fast_rewind(5)
-            });
+            // forwardButton.addEventListener("click", function(){
+            //     fast_rewind(5)
+            // });
 
-            rewindButton.addEventListener("click", function(){
-                fast_rewind(-5)
-            });
+            // rewindButton.addEventListener("click", function(){
+            //     fast_rewind(-5)
+            // });
 
             // Keyboard
             document.addEventListener('keydown', function(event) {
@@ -207,12 +207,12 @@
                         playToPause()
                     }
                 }
-                else if(event.keyCode == 37) {
-                    fast_rewind(-5)
-                }
-                else if(event.keyCode == 39) {
-                    fast_rewind(5)
-                }
+                // else if(event.keyCode == 37) {
+                //     fast_rewind(-5)
+                // }
+                // else if(event.keyCode == 39) {
+                //     fast_rewind(5)
+                // }
             });
 
         }
