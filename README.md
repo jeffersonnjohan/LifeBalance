@@ -95,7 +95,7 @@ LifeBalance is a wellness  website that combines personalized **workout** plans,
 In a terminal:
 - Clone the repository 
 ```sh
-    git clone https://github.com/Chrystalia/LifeBalance.git
+    git clone https://github.com/jeffersonnjohan/LifeBalance.git
 ```
 
 - Redirect to cloned folder  
@@ -141,7 +141,7 @@ In the terminal, type
     'github' => [
     'client_id' => env('GITHUB_CLIENT_ID'),
     'client_secret' => env('GITHUB_CLIENT_SECRET'),
-    'redirect' => 'http://example.com/callback-url',
+    'redirect' => '/auth/github/callback',
 ],
 ```
 
@@ -177,6 +177,11 @@ Follow this step to show the image from the database seeder
     php artisan serve
 ```
 
+- Make sure npm has started by typing
+```sh
+    npm run dev
+```
+
 - To access the website, type on your browser:
 ```sh
     http://localhost:8000
@@ -191,11 +196,11 @@ Follow this step to show the image from the database seeder
 
 <p align='center'>
   <b>Follow us here 🌿</b><br>  
-  <a href="https://github.com/Chrystalia">Chrystalia</a> |
-  <a href="https://github.com/danielzergew">danielzergew</a> |
-  <a href="https://github.com/jeffersonnjohan">jeffersonnjohan</a> |
-  <a href="https://github.com/nadyaclrp">nadyaclrp</a> |
-  <a href="https://github.com/Winita-Priyanto">Winita-Priyanto</a><br><br>
+  <a href="https://github.com/Chrystalia">Chrystalia Glenys</a> |
+  <a href="https://github.com/danielzergew">Daniel Zerge</a> |
+  <a href="https://github.com/jeffersonnjohan">Jefferson Johan</a> |
+  <a href="https://github.com/nadyaclrp">Nadya Clarine</a> |
+  <a href="https://github.com/Winita-Priyanto">Winita Priyanto</a><br><br>
   Don't forget to leave a star if you find this repository helpful ⭐
 </p>
  
